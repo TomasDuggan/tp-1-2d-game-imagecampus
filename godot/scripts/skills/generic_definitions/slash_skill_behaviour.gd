@@ -1,10 +1,12 @@
 extends SkillAbstractBehaviour
-class_name FrontHeroBasicAttackSkillBehaviour
+class_name SlashSkillBehaviour
+"""
+Logica de skill Slash
+"""
 
-
-var config: FrontHeroBasicAttackSkillConfig
-
+var config: SlashLikeSkillConfig
 var _damage: int
+
 
 func _ready():
 	print("Config Damage: " + str(config.damage))
@@ -14,7 +16,7 @@ func _ready():
 	print("Real Damage: " + str(_damage))
 
 func downcast_config(generic_config: Resource) -> void:
-	config = generic_config as FrontHeroBasicAttackSkillConfig
+	config = generic_config as SlashLikeSkillConfig
 
 func modify_stats_by_level() -> void:
 	_damage = config.damage + ceil(config.damage * config.damage_modifier_percentage_by_level * skill_level)

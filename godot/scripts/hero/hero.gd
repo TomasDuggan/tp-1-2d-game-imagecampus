@@ -48,4 +48,4 @@ func _physics_process(_delta):
 
 func _initialize_skills_controller() -> void:
 	add_child(_skills_controller)
-	_skills_controller.add_skills(_config.skill_configs)
+	_skills_controller.add_skills(_config.skill_configs, HeroSkillsManager)

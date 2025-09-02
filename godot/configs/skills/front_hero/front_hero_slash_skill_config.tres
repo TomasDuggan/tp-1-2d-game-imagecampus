@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="SkillConfig" load_steps=7 format=3 uid="uid://baxvwv8qcil3q"]
+
+[ext_resource type="Script" uid="uid://8oxgk5cuw5mj" path="res://scripts/skills/generic_definitions/slash_skill_behaviour.gd" id="1_qse0r"]
+[ext_resource type="Script" uid="uid://b5u2og62qnjdg" path="res://configs/skills/generic_definitions/slash_like_skill_config.gd" id="2_mggnn"]
+[ext_resource type="Script" uid="uid://btjbjjrps6ord" path="res://configs/skills/generic_definitions/skill_behaviour_config.gd" id="3_2ym2l"]
+[ext_resource type="Script" uid="uid://bxvnu27rsb5ej" path="res://configs/skills/generic_definitions/skill_config.gd" id="4_oh53e"]
+
+[sub_resource type="Resource" id="Resource_wxvvs"]
+script = ExtResource("2_mggnn")
+damage = 5
+attack_radius = 0.0
+damage_modifier_percentage_by_level = 0.2
+metadata/_custom_type_script = "uid://b5u2og62qnjdg"
+
+[sub_resource type="Resource" id="Resource_sxvpq"]
+script = ExtResource("3_2ym2l")
+behaviour = ExtResource("1_qse0r")
+config = SubResource("Resource_wxvvs")
+metadata/_custom_type_script = "uid://btjbjjrps6ord"
+
+[resource]
+script = ExtResource("4_oh53e")
+name = ""
+description = ""
+behaviour_config = SubResource("Resource_sxvpq")
+metadata/_custom_type_script = "uid://bxvnu27rsb5ej"

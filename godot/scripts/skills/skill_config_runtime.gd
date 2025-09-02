@@ -1,12 +1,12 @@
 extends Object
 class_name SkillConfigRuntime
 """
-Representacion en play-mode de los Resources de tipo Skill
+Representacion en play-mode de los Resources de tipo SkillConfig
 """
-
 
 var config: SkillConfig
 var level: int
+
 
 func _init(config_arg: SkillConfig, level_arg: int):
 	config = config_arg

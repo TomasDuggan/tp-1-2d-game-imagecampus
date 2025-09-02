@@ -1,6 +1,8 @@
 extends Node
 class_name HeroMovementInputReader
-
+"""
+Determina la direccion del jugador en base al input
+"""
 
 var _movement_input_key: String
 

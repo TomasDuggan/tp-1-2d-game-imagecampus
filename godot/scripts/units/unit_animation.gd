@@ -1,6 +1,8 @@
 extends AnimatedSprite2D
 class_name UnitAnimation
-
+"""
+Manejador de animaciones basicas de las unidades
+"""
 
 const WALK_PREFIX := "walk_"
 const IDLE_PREFIX := "idle_"

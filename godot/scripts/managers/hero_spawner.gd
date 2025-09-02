@@ -1,5 +1,8 @@
 extends Node
 class_name HeroSpawner
+"""
+Instanciador de Heroes en el nivel
+"""
 
 @export var _hero_scene: PackedScene
 
@@ -8,6 +11,7 @@ class_name HeroSpawner
 
 @onready var front_hero_spawn_point: Marker2D = $FrontHeroSpawnPoint
 @onready var support_hero_spawn_point: Marker2D = $SupportHeroSpawnPoint
+
 
 func _ready():
 	_spawn_hero(front_hero_config, front_hero_spawn_point)

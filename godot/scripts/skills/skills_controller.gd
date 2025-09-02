@@ -1,19 +1,19 @@
 extends Node2D
 class_name SkillsController
-
+"""
+Controlador de los skills de una unidad
+"""
 
 var _skill_instances: Array[SkillAbstractBehaviour] = []
 
-# TODO: componentizar esto en un SkillsManager
-func add_skills(skill_configs: Array[SkillConfig]) -> void:
-	for skill_config: SkillConfig in skill_configs:
-		_add_skill(skill_config)
 
-# TODO:
-# Si quiero que esto funcione en enemigos, tendria que inyectarle el manager
-func _add_skill(skill_config: SkillConfig):
-	if SkillsManager.is_skill_unlocked(skill_config):
-		var instance: SkillAbstractBehaviour = SkillsManager.create_skill_instance(skill_config)
+func add_skills(skill_configs: Array[SkillConfig], skills_manager: SkillsManager) -> void:
+	for skill_config: SkillConfig in skill_configs:
+		_add_skill(skill_config, skills_manager)
+
+func _add_skill(skill_config: SkillConfig, skills_manager: SkillsManager):
+	if skills_manager.is_skill_unlocked(skill_config):
+		var instance: SkillAbstractBehaviour = skills_manager.create_skill_instance(skill_config)
 		
 		_skill_instances.append(instance)
 		add_child(instance)
