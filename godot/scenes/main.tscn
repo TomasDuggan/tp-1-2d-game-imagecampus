@@ -1,3 +1,22 @@
-[gd_scene format=3 uid="uid://dmnjxfyai0h8y"]
+[gd_scene load_steps=5 format=3 uid="uid://dmnjxfyai0h8y"]
+
+[ext_resource type="PackedScene" uid="uid://ckek4iyw8tgyg" path="res://scenes/hero/hero.tscn" id="1_jyhfs"]
+[ext_resource type="Resource" uid="uid://dwltru6tu6l5k" path="res://configs/hero/front_hero_config.tres" id="2_0wfyh"]
+[ext_resource type="Script" uid="uid://utru0gwa75g0" path="res://scripts/managers/hero_spawner.gd" id="5_tbgi4"]
+[ext_resource type="Resource" uid="uid://p3glihgnkqic" path="res://configs/hero/support_hero_config.tres" id="6_tefeu"]
 
 [node name="Main" type="Node2D"]
+
+[node name="Level" type="Node2D" parent="."]
+
+[node name="HeroSpawner" type="Node" parent="Level"]
+script = ExtResource("5_tbgi4")
+_hero_scene = ExtResource("1_jyhfs")
+front_hero_config = ExtResource("2_0wfyh")
+support_hero_config = ExtResource("6_tefeu")
+
+[node name="FrontHeroSpawnPoint" type="Marker2D" parent="Level/HeroSpawner"]
+position = Vector2(486, 357)
+
+[node name="SupportHeroSpawnPoint" type="Marker2D" parent="Level/HeroSpawner"]
+position = Vector2(741, 369)
