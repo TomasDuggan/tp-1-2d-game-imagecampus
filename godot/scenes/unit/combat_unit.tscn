@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://tvxoyqnyr1bm"]
+
+[ext_resource type="Script" uid="uid://l87busw32jo4" path="res://scripts/skills/skills_controller.gd" id="1_k6dth"]
+[ext_resource type="Script" uid="uid://dku5oecdqmo3v" path="res://scripts/units/combat_unit.gd" id="1_xn351"]
+[ext_resource type="Script" uid="uid://iq1juriiwyy3" path="res://scripts/units/hurtbox.gd" id="3_rxpwi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xn351"]
+radius = 33.3766
+
+[node name="CombatUnit" type="Node2D"]
+script = ExtResource("1_xn351")
+
+[node name="SkillsController" type="Node2D" parent="."]
+script = ExtResource("1_k6dth")
+
+[node name="SkillsAnchor" type="Node2D" parent="SkillsController"]
+
+[node name="HealthController" type="Area2D" parent="."]
+script = ExtResource("3_rxpwi")
+
+[node name="HutboxCollision" type="CollisionShape2D" parent="HealthController"]
+shape = SubResource("CircleShape2D_xn351")
+debug_color = Color(0.968838, 0.177659, 3.85046e-07, 0.42)

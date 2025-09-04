@@ -1,11 +1,18 @@
-[gd_resource type="Resource" script_class="HeroConfig" load_steps=2 format=3 uid="uid://p3glihgnkqic"]
+[gd_resource type="Resource" script_class="HeroConfig" load_steps=5 format=3 uid="uid://p3glihgnkqic"]
 
 [ext_resource type="Script" uid="uid://bv7x2vmswm205" path="res://configs/hero/hero_config.gd" id="1_rxnay"]
+[ext_resource type="Script" uid="uid://ceugiwgoy6508" path="res://scripts/units/unit_config.gd" id="2_855sl"]
+[ext_resource type="Script" uid="uid://bxvnu27rsb5ej" path="res://configs/skills/generic_definitions/skill_config.gd" id="3_3oivl"]
+
+[sub_resource type="Resource" id="Resource_osmtc"]
+script = ExtResource("2_855sl")
+hp = 25
+armor = 0
+movement_speed = 150.0
+skill_configs = Array[ExtResource("3_3oivl")]([])
+metadata/_custom_type_script = "uid://ceugiwgoy6508"
 
 [resource]
 script = ExtResource("1_rxnay")
-hp = 0
-armor = 0
-movement_speed = 100.0
-movement_input_key = 1
+unit_config = SubResource("Resource_osmtc")
 metadata/_custom_type_script = "uid://bv7x2vmswm205"

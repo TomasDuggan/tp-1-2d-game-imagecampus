@@ -4,11 +4,11 @@ HeroSkillsManager singleton
 """
 
 var _all_skill_configs: Array[SkillConfig] = [
-	preload("res://configs/skills/front_hero/front_hero_slash_skill_config.tres")
+	preload("res://configs/skills/front_hero/front_hero_basic_attack_skill_config.tres")
 ]
 
 var _unlocked_on_start_skill_configs: Array[SkillConfig] = [
-	preload("res://configs/skills/front_hero/front_hero_slash_skill_config.tres")
+	preload("res://configs/skills/front_hero/front_hero_basic_attack_skill_config.tres")
 ]
 
 var _skill_runtimes: Array[SkillConfigRuntime] = []
@@ -47,7 +47,7 @@ func create_skill_instance(skill_config: SkillConfig) -> SkillAbstractBehaviour:
 	var runtime: SkillConfigRuntime = _find_runtime_by_config(skill_config)
 	var instance: SkillAbstractBehaviour = runtime.get_behaviour()
 	
-	instance.initialize(runtime.get_behaviour_config(), runtime.level)
+	instance.initialize(runtime.get_behaviour_config(), runtime.level, skill_config.behaviour_config.layer_to_affect)
 	return instance
 
 #

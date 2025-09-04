@@ -4,22 +4,28 @@ class_name SkillAbstractBehaviour
 Clase base para cualquier Skill
 """
 
-var skill_level: int
-var caster_cast_point: Vector2
-var caster_movement_direction: Vector2
+@warning_ignore("unused_signal")
+signal request_animation(animation_name_prefix: String, halt_caster_movement: bool)
 
 
-func initialize(generic_config: Resource, skill_level_arg: int) -> void:
-	skill_level = skill_level_arg
+# Public
+func initialize(generic_config: Resource, skill_level: int, layer_to_affect: int) -> void:
 	downcast_config(generic_config)
-	modify_stats_by_level()
+	modify_stats_by_level(skill_level)
+	set_layer_to_affect(layer_to_affect)
 
-func update_caster_position(cast_point_arg: Vector2, caster_movement_direction_arg: Vector2):
-	caster_cast_point = cast_point_arg
-	caster_movement_direction = caster_movement_direction_arg
+# Protected
+func resolve_caster_looking_direction() -> Vector2:
+	return Vector2.RIGHT.rotated(global_rotation)  # RIGHT es el 0 de Godot
 
+# Protected
 func downcast_config(_generic_config: Resource) -> void:
 	assert(false, "This method needs to be implemented to have a typed config")
 
-func modify_stats_by_level() -> void:
+# Protected
+func modify_stats_by_level(_skill_level: int) -> void:
 	assert(false, "This method needs to be implemented to alter stats based on the skill level")
+
+# Protected
+func set_layer_to_affect(_layer_to_affect: int) -> void:
+	pass

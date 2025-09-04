@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="SkillConfig" load_steps=7 format=3 uid="uid://dqewpldptk5o2"]
+
+[ext_resource type="Script" uid="uid://8oxgk5cuw5mj" path="res://scripts/skills/generic_definitions/basic_attack_skill_behaviour.gd" id="1_0wbjs"]
+[ext_resource type="Script" uid="uid://b5u2og62qnjdg" path="res://configs/skills/generic_definitions/basic_attack_skill_config.gd" id="2_mv2lo"]
+[ext_resource type="Script" uid="uid://btjbjjrps6ord" path="res://configs/skills/generic_definitions/skill_behaviour_config.gd" id="3_86qqd"]
+[ext_resource type="Script" uid="uid://bxvnu27rsb5ej" path="res://configs/skills/generic_definitions/skill_config.gd" id="4_imjam"]
+
+[sub_resource type="Resource" id="Resource_m477a"]
+script = ExtResource("2_mv2lo")
+damage = 5
+attack_radius = 15.0
+cooldown = 5.0
+damage_modifier_percentage_by_level = 0.1
+metadata/_custom_type_script = "uid://b5u2og62qnjdg"
+
+[sub_resource type="Resource" id="Resource_axfjs"]
+script = ExtResource("3_86qqd")
+behaviour = ExtResource("1_0wbjs")
+layer_to_affect = 4
+config = SubResource("Resource_m477a")
+metadata/_custom_type_script = "uid://btjbjjrps6ord"
+
+[resource]
+script = ExtResource("4_imjam")
+name = ""
+description = ""
+behaviour_config = SubResource("Resource_axfjs")
+metadata/_custom_type_script = "uid://bxvnu27rsb5ej"

@@ -7,4 +7,5 @@ Configuracion del comportamiento de un Skill
 """
 
 @export var behaviour: Script # Type: SkillAbstractBehaviour
+@export var layer_to_affect: int # TODO, tiparlo en un enum?
 @export var config: Resource

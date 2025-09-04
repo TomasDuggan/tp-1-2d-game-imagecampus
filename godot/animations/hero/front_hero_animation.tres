@@ -225,8 +225,8 @@ animations = [{
 "texture": SubResource("AtlasTexture_cjqg0")
 }],
 "loop": false,
-"name": &"attack_down",
-"speed": 12.0
+"name": &"basic_attack_down",
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -245,8 +245,8 @@ animations = [{
 "texture": SubResource("AtlasTexture_ty1g6")
 }],
 "loop": false,
-"name": &"attack_left",
-"speed": 12.0
+"name": &"basic_attack_left",
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -265,8 +265,8 @@ animations = [{
 "texture": SubResource("AtlasTexture_0loja")
 }],
 "loop": false,
-"name": &"attack_up",
-"speed": 12.0
+"name": &"basic_attack_up",
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -289,7 +289,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle_down",
-"speed": 12.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -312,7 +312,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle_left",
-"speed": 12.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -335,7 +335,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle_up",
-"speed": 12.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -358,7 +358,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk_down",
-"speed": 12.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -381,7 +381,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk_left",
-"speed": 12.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -404,5 +404,5 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk_up",
-"speed": 12.0
+"speed": 10.0
 }]

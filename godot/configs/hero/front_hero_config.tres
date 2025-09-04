@@ -1,14 +1,20 @@
-[gd_resource type="Resource" script_class="HeroConfig" load_steps=4 format=3 uid="uid://dwltru6tu6l5k"]
+[gd_resource type="Resource" script_class="HeroConfig" load_steps=6 format=3 uid="uid://dwltru6tu6l5k"]
 
 [ext_resource type="Script" uid="uid://bv7x2vmswm205" path="res://configs/hero/hero_config.gd" id="1_3nak3"]
 [ext_resource type="Script" uid="uid://bxvnu27rsb5ej" path="res://configs/skills/generic_definitions/skill_config.gd" id="2_dvkyb"]
-[ext_resource type="Resource" uid="uid://baxvwv8qcil3q" path="res://configs/skills/front_hero/front_hero_slash_skill_config.tres" id="3_sjsjw"]
+[ext_resource type="Script" uid="uid://ceugiwgoy6508" path="res://scripts/units/unit_config.gd" id="2_sjsjw"]
+[ext_resource type="SpriteFrames" uid="uid://be0watqmvpqi4" path="res://animations/hero/front_hero_animation.tres" id="5_52yim"]
+
+[sub_resource type="Resource" id="Resource_52yim"]
+script = ExtResource("2_sjsjw")
+sprite_frames = ExtResource("5_52yim")
+hp = 50
+armor = 5
+movement_speed = 250.0
+skill_configs = Array[ExtResource("2_dvkyb")]([])
+metadata/_custom_type_script = "uid://ceugiwgoy6508"
 
 [resource]
 script = ExtResource("1_3nak3")
-hp = 100
-armor = 5
-movement_speed = 250.0
-movement_input_key = 0
-skill_configs = Array[ExtResource("2_dvkyb")]([ExtResource("3_sjsjw")])
+unit_config = SubResource("Resource_52yim")
 metadata/_custom_type_script = "uid://bv7x2vmswm205"
