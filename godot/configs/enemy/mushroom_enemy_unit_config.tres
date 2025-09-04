@@ -8,6 +8,7 @@
 [resource]
 script = ExtResource("1_wbj8f")
 sprite_frames = ExtResource("3_ggkyp")
+animation_scale_offset = Vector2(1, 1)
 hp = 15
 armor = 0
 movement_speed = 100.0

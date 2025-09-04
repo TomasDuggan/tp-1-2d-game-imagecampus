@@ -3,6 +3,7 @@ class_name UnitConfig
 
 
 @export var sprite_frames: SpriteFrames
+@export var animation_scale_offset: Vector2 = Vector2.ONE
 @export var hp: int;
 @export var armor: int;
 @export var movement_speed: float

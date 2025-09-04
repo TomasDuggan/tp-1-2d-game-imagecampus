@@ -1,9 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://ckek4iyw8tgyg"]
+[gd_scene load_steps=4 format=3 uid="uid://ckek4iyw8tgyg"]
 
 [ext_resource type="Script" uid="uid://dhh0yx2nl32uu" path="res://scripts/hero/hero.gd" id="1_tqfqc"]
 [ext_resource type="PackedScene" uid="uid://tvxoyqnyr1bm" path="res://scenes/unit/combat_unit.tscn" id="2_tqfqc"]
-[ext_resource type="SpriteFrames" uid="uid://be0watqmvpqi4" path="res://animations/hero/front_hero_animation.tres" id="3_888c7"]
-[ext_resource type="Script" uid="uid://dwdoheapmeqvf" path="res://scripts/units/unit_animation.gd" id="4_dke18"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sugp2"]
 radius = 17.0
@@ -14,12 +12,6 @@ motion_mode = 1
 script = ExtResource("1_tqfqc")
 
 [node name="CombatUnit" parent="." instance=ExtResource("2_tqfqc")]
-
-[node name="Animation" type="AnimatedSprite2D" parent="."]
-scale = Vector2(4, 4)
-sprite_frames = ExtResource("3_888c7")
-animation = &"idle_down"
-script = ExtResource("4_dke18")
 
 [node name="PhysicsCollisionShape" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_sugp2")

@@ -13,7 +13,6 @@ var _aoe := Area2D.new()
 var _targets_in_range: Array[HealthController] = []
 
 const BASIC_ATTACK_ANIMATION_PREFIX := "basic_attack_"
-const SEPARATION_FROM_CASTER := 35.0
 
 func _ready():
 	_set_up_cooldown_timer()
@@ -22,35 +21,33 @@ func _ready():
 func _set_up_cooldown_timer() -> void:
 	_cd_timer.wait_time = _config.cooldown
 	_cd_timer.one_shot = true
-	_cd_timer.timeout.connect(_on_cd_timeout)
+	_cd_timer.autostart = true
+	_cd_timer.timeout.connect(_try_to_activate)
 	add_child(_cd_timer)
 
 func _set_up_aoe() -> void:
 	var collision_shape := CollisionShape2D.new()
-	var circle_shape := CircleShape2D.new()
+	var rectangle_shape := RectangleShape2D.new()
 	
-	circle_shape.set_radius(_config.attack_radius)
-	collision_shape.set_shape(circle_shape)
-	collision_shape.set_debug_color(Color.YELLOW)
+	rectangle_shape.set_size(_config.attack_size)
+	collision_shape.set_shape(rectangle_shape)
+	collision_shape.set_debug_color(Color(1, 1, 0, 0.5))
 	
 	_aoe.add_child(collision_shape)
 	_aoe.collision_mask = _layer_to_affect
 	_aoe.area_entered.connect(_on_enemy_entered)
 	_aoe.area_exited.connect(_on_enemy_exited)
-	_aoe.position += position + resolve_caster_looking_direction() * SEPARATION_FROM_CASTER
+	_aoe.position += position + resolve_caster_looking_direction() * _config.separation_from_caster
 	add_child(_aoe)
-
-func _on_cd_timeout() -> void:
-	_activate()
 
 func _on_enemy_entered(health_controller: HealthController) -> void:
 	_targets_in_range.append(health_controller)
-	_activate()
+	_try_to_activate()
 
 func _on_enemy_exited(health_controller: HealthController) -> void:
 	_targets_in_range.erase(health_controller)
 
-func _activate() -> void:
+func _try_to_activate() -> void:
 	if !_can_activate():
 		return
 	
@@ -70,7 +67,6 @@ func set_layer_to_affect(layer_to_affect_arg: int) -> void:
 
 func downcast_config(generic_config: Resource) -> void:
 	_config = generic_config as BasicAttackSkillConfig
-	var a
 
 func modify_stats_by_level(skill_level: int) -> void:
 	_damage = _config.damage + ceil(_config.damage * _config.damage_modifier_percentage_by_level * skill_level)

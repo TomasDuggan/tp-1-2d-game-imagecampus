@@ -8,7 +8,8 @@
 [sub_resource type="Resource" id="Resource_m477a"]
 script = ExtResource("2_mv2lo")
 damage = 5
-attack_radius = 15.0
+attack_size = Vector2(30, 50)
+separation_from_caster = 15.0
 cooldown = 5.0
 damage_modifier_percentage_by_level = 0.1
 metadata/_custom_type_script = "uid://b5u2og62qnjdg"

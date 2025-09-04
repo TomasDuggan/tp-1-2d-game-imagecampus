@@ -13,26 +13,29 @@ const DOWN := "down"
 const LEFT := "left"
 const RIGHT := "right"
 
-var _can_move: bool = true
+signal skill_animation_finished()
+
+var _is_playing_skill_animation: bool
 
 
 func update_movement_animation(is_moving: bool, direction: Vector2) -> void:
-	if !_can_move:
+	if _is_playing_skill_animation:
 		return
 	
 	if !is_moving:
 		_play_animation(IDLE_PREFIX, direction)
 	else:
-		flip_h = direction.x > 0.0
+		flip_h = direction.x > 0
 		_play_animation(WALK_PREFIX, direction)
 
-func play_skill_animation(animation_name_prefix: String, direction: Vector2, block_movement: bool) -> void:
-	_can_move = !block_movement
+func play_skill_animation(animation_name_prefix: String, direction: Vector2) -> void:
+	_is_playing_skill_animation = true
 	_play_animation(animation_name_prefix, direction)
-	animation_finished.connect(func(): _can_move = true, CONNECT_ONE_SHOT)
+	animation_finished.connect(_on_skill_animation_finished, CONNECT_ONE_SHOT)
 
-func can_move() -> bool:
-	return _can_move
+func _on_skill_animation_finished() -> void:
+	_is_playing_skill_animation = false
+	skill_animation_finished.emit()
 
 func _play_animation(prefix: String, direction: Vector2) -> void:
 	var animation_name: String = prefix + _resolve_suffix(prefix, direction)
