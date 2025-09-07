@@ -6,6 +6,7 @@
 
 [sub_resource type="Resource" id="Resource_osmtc"]
 script = ExtResource("2_855sl")
+animation_scale_offset = Vector2(1, 1)
 hp = 25
 armor = 0
 movement_speed = 150.0

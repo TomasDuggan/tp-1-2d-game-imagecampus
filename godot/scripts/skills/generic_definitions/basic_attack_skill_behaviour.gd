@@ -25,6 +25,7 @@ func _set_up_cooldown_timer() -> void:
 	_cd_timer.timeout.connect(_try_to_activate)
 	add_child(_cd_timer)
 
+# TODO: la creacion de Area2D va a un static helper
 func _set_up_aoe() -> void:
 	var collision_shape := CollisionShape2D.new()
 	var rectangle_shape := RectangleShape2D.new()

@@ -11,7 +11,6 @@ const STOP_DISTANCE_SQ:= pow(30.0, 2)
 
 func set_hero(hero_arg: Hero) -> void:
 	_hero = hero_arg
-	[].pick_random()
 
 func add_enemy(enemy: CombatUnit) -> void:
 	_enemies.append(enemy)
