@@ -1,20 +1,22 @@
 extends StaticBody2D
 class_name Collectable
 """
-Un area detectable por el ataque de Hero, gatilla efectos con sus comportamientos
+Un obstaculo detectable por el ataque de Hero, gatilla efectos con sus comportamientos
 """
 
 @onready var _sprite: Sprite2D = $Sprite
 
-signal destroyed()
+signal destroyed(config: CollectableConfig)
 
 var _behaviours: Array[CollectableBehaviour] = []
+var _config: CollectableConfig
 var _current_hp: int
 
 const REWARD_BEHAVIOUR_SCENE: PackedScene = preload("res://scenes/obstacle/behaviours/currency_reward_behaviour.tscn")
 
 
 func initialize(config: CollectableConfig) -> void:
+	_config = config
 	_current_hp = config.hp
 	
 	if config.texture != null:
@@ -42,7 +44,7 @@ func _destroyed_by_hero(hero: Hero) -> void:
 	for behaviour: CollectableBehaviour in _behaviours:
 		behaviour.on_destroyed_by_hero(hero)
 
-	destroyed.emit()
+	destroyed.emit(_config)
 	queue_free()
 
 
