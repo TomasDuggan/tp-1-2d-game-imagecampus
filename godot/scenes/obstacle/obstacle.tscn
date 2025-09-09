@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bd6qfdsmfsfno"]
+
+[ext_resource type="Script" uid="uid://d8mt857urab0" path="res://scripts/obstacles/obstacle.gd" id="1_osovj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o6xl0"]
+size = Vector2(41, 35)
+
+[node name="Obstacle" type="StaticBody2D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_osovj")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+
+[node name="PhysicsCollisionShape" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_o6xl0")
