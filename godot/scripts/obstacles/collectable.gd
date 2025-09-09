@@ -1,27 +1,36 @@
-extends Area2D
+extends StaticBody2D
 class_name Collectable
 """
-Un area detectable por el ataque de Hero, gatilla efectos al ser destruida
+Un area detectable por el ataque de Hero, gatilla efectos con sus comportamientos
 """
+
+@onready var _sprite: Sprite2D = $Sprite
 
 signal destroyed()
 
 var _behaviours: Array[CollectableBehaviour] = []
 var _current_hp: int
 
+const REWARD_BEHAVIOUR_SCENE: PackedScene = preload("res://scenes/obstacle/behaviours/currency_reward_behaviour.tscn")
 
-func _ready():
-	collision_layer = 8 # Collectable layer
 
 func initialize(config: CollectableConfig) -> void:
 	_current_hp = config.hp
 	
+	if config.texture != null:
+		_sprite.texture = config.texture
+	
 	for behaviour: PackedScene in config.behaviours:
-		var instance: CollectableBehaviour = behaviour.instantiate()
-		
-		instance.initialize(config)
-		add_child(instance)
-		_behaviours.append(instance)
+		_add_behaviour(behaviour, config)
+	
+	_add_behaviour(REWARD_BEHAVIOUR_SCENE, config)
+	
+func _add_behaviour(behaviour_scene: PackedScene, config: CollectableConfig) -> void:
+	var instance: CollectableBehaviour = behaviour_scene.instantiate()
+	
+	instance.initialize(config)
+	add_child(instance)
+	_behaviours.append(instance)
 
 func receive_damage(damage_source: Hero, damage: int) -> void:
 	_current_hp = max(_current_hp - damage, 0)
@@ -34,7 +43,8 @@ func _destroyed_by_hero(hero: Hero) -> void:
 		behaviour.on_destroyed_by_hero(hero)
 
 	destroyed.emit()
-	
+	queue_free()
+
 
 
 

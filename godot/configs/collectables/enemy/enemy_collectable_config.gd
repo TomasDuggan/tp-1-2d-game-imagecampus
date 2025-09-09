@@ -1,4 +1,4 @@
-extends Resource
+extends CollectableConfig
 class_name EnemyCollectableConfig
 
 @export var sprite_frames: SpriteFrames

@@ -6,7 +6,8 @@ class_name EnemyCollectableBehaviour
 
 
 func _ready():
-	animation.sprite_frames = config.enemy_config.sprite_frames
+	var config: EnemyCollectableConfig = config as EnemyCollectableConfig
+	animation.sprite_frames = config.sprite_frames
 
 func _on_attack_area_body_entered(body):
 	print("player entered")

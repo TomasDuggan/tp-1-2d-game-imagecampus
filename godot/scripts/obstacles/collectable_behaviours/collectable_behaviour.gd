@@ -1,7 +1,7 @@
 extends Node2D
 class_name CollectableBehaviour
 """
-Logica de un objeto coleccionable
+Logica abstracta de un objeto coleccionable
 """
 
 var config: CollectableConfig

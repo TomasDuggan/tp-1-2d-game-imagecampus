@@ -19,7 +19,7 @@ func _ready():
 func _on_attack_timeout() -> void:
 	attack_performed.emit()
 	
-	var collectables_in_range: Array = get_overlapping_areas()
+	var collectables_in_range: Array = get_overlapping_bodies()
 	
 	if collectables_in_range.is_empty():
 		return
