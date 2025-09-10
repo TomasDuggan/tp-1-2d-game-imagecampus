@@ -13,13 +13,13 @@ var _is_selected: bool = true # TODO
 func _ready():
 	HeroEventBus.hero_swapped.connect(_toggle_selected)
 	
-	var vertical_speed_handler := VerticalSpeedBoostHandler.new()
-	vertical_speed_handler.vertical_speed_changed.connect(_on_vertical_speed_changed)
-	add_child(vertical_speed_handler)
+	var vertical_speed_boost_handler := VerticalSpeedBoostHandler.new()
+	vertical_speed_boost_handler.vertical_speed_changed.connect(_on_vertical_speed_changed)
+	add_child(vertical_speed_boost_handler)
 	
 	_attack.initialize(self)
 	_attack.attack_performed.connect($Animation.play_attack_animation)
-	_attack.collectable_destroyed.connect(vertical_speed_handler.on_collectable_destroyed)
+	_attack.collectable_destroyed.connect(vertical_speed_boost_handler.on_collectable_destroyed)
 
 func _process(_delta):
 	if !_is_selected:

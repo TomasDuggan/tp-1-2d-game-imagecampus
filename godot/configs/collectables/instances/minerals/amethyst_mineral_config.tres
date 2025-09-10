@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="CollectableConfig" load_steps=7 format=3 uid="uid://2xfhaqt1va0q"]
+
+[ext_resource type="Script" uid="uid://clxqxnesk8eta" path="res://configs/collectables/behaviours/collectable_behaviour_config.gd" id="1_nbics"]
+[ext_resource type="Script" uid="uid://bkw6yobd6k4ta" path="res://configs/collectables/collectable_config.gd" id="2_2g3hu"]
+[ext_resource type="Script" uid="uid://ct5ujndsfuqfc" path="res://configs/collectables/behaviours/currency_reward_behaviour_config.gd" id="2_3r1fb"]
+[ext_resource type="Texture2D" uid="uid://8v28iq216615" path="res://art/minerals/amethystNode.png" id="3_2g3hu"]
+
+[sub_resource type="Resource" id="Resource_2ljhf"]
+script = ExtResource("2_3r1fb")
+type = 0
+reward_amount = 1
+metadata/_custom_type_script = "uid://ct5ujndsfuqfc"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3r1fb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_2g3hu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[resource]
+script = ExtResource("2_2g3hu")
+sprite_frames = SubResource("SpriteFrames_3r1fb")
+hp = 1
+destroyed_velocity_boost_duration = 1.0
+behaviour_configs = Array[ExtResource("1_nbics")]([SubResource("Resource_2ljhf")])
+metadata/_custom_type_script = "uid://bkw6yobd6k4ta"

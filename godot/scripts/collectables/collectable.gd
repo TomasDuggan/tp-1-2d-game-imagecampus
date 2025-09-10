@@ -24,9 +24,9 @@ func initialize(config: CollectableConfig) -> void:
 func _add_behaviour(behaviour_config: CollectableBehaviourConfig) -> void:
 	var instance: CollectableBehaviour = behaviour_config.get_behaviour_scene().instantiate()
 	
+	_behaviours.append(instance)
 	instance.initialize(behaviour_config)
 	add_child(instance)
-	_behaviours.append(instance)
 
 func receive_damage(damage_source: Hero, damage: int) -> void:
 	_current_hp = max(_current_hp - damage, 0)
