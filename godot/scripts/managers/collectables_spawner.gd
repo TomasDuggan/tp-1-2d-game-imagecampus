@@ -19,8 +19,8 @@ func initialize(collectables_container: Node2D, collectable_spawn_points: Collec
 func _instantiate_collectable(position: Vector2) -> void:
 	var collectable_instance: Collectable = _collectable_scene.instantiate()
 	
-	_collectables_container.add_child(collectable_instance)
 	collectable_instance.initialize(_test_collectable)
+	_collectables_container.add_child(collectable_instance)
 	collectable_instance.global_position = position
 	
 

@@ -1,8 +1,7 @@
 extends CharacterBody2D
 class_name Hero
 
-
-@onready var _attack: HeroAttack = $Attack
+@onready var _hitbox: Hitbox = $Hitbox
 
 var _horizontal_direction: int # 1 o -1
 var _horizontal_speed := 150.0
@@ -17,9 +16,9 @@ func _ready():
 	vertical_speed_boost_handler.vertical_speed_changed.connect(_on_vertical_speed_changed)
 	add_child(vertical_speed_boost_handler)
 	
-	_attack.initialize(self)
-	_attack.attack_performed.connect($Animation.play_attack_animation)
-	_attack.collectable_destroyed.connect(vertical_speed_boost_handler.on_collectable_destroyed)
+	_hitbox.initialize(self, 1, 1.0, true, Enums.DamageFaction.HERO) # TODO: levantarlo de HeroConfig
+	_hitbox.attack_performed.connect($Animation.play_attack_animation)
+	_hitbox.target_destroyed.connect(vertical_speed_boost_handler.on_target_destroyed)
 
 func _process(_delta):
 	if !_is_selected:

@@ -1,11 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://ctkc2ceeqspqm"]
+[gd_scene load_steps=6 format=3 uid="uid://ctkc2ceeqspqm"]
 
 [ext_resource type="Script" uid="uid://c6hbv3qf53l4y" path="res://scripts/collectables/collectable.gd" id="1_uwx36"]
+[ext_resource type="PackedScene" uid="uid://bhr40240oq8fk" path="res://scenes/damage/hurtbox.tscn" id="2_vtu06"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6cysq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7jvdu"]
-size = Vector2(40, 40)
+custom_solver_bias = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_88g45"]
+size = Vector2(16, 16)
 
 [node name="Collectable" type="StaticBody2D"]
 collision_layer = 8
@@ -17,3 +21,9 @@ sprite_frames = SubResource("SpriteFrames_6cysq")
 
 [node name="PhysicsCollisionShape" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_7jvdu")
+
+[node name="Hurtbox" parent="." instance=ExtResource("2_vtu06")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("RectangleShape2D_88g45")
+debug_color = Color(1, 0, 0, 0.419608)

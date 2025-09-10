@@ -6,19 +6,19 @@
 [ext_resource type="SpriteFrames" uid="uid://8dvyppn706ka" path="res://animations/miner_animation.tres" id="2_sugp2"]
 [ext_resource type="Script" uid="uid://dx2akoth87pp5" path="res://scripts/hero/hero_animation.gd" id="3_jyhfs"]
 [ext_resource type="Script" uid="uid://w6k62hjfi6jo" path="res://scripts/managers/hero_swapper.gd" id="3_sugp2"]
-[ext_resource type="Script" uid="uid://d25mti2kgrldo" path="res://scripts/hero/hero_attack.gd" id="4_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://ctkc2ceeqspqm" path="res://scenes/collectables/collectable.tscn" id="5_eb6dy"]
 [ext_resource type="Resource" uid="uid://2xfhaqt1va0q" path="res://configs/collectables/instances/minerals/amethyst_mineral_config.tres" id="6_trceg"]
 [ext_resource type="Script" uid="uid://bmnn78fbowmjo" path="res://scripts/managers/collectables_manager.gd" id="8_85g3d"]
 [ext_resource type="TileSet" uid="uid://bexs7e33c7b6q" path="res://art/tiles/cave_tile_set.tres" id="9_trceg"]
 [ext_resource type="Script" uid="uid://dhsqnlkb2pg63" path="res://scripts/collectables/collectable_spawn_points.gd" id="10_a8y0u"]
 [ext_resource type="Script" uid="uid://b8vecgqkje2e6" path="res://scripts/managers/collectables_spawner.gd" id="10_choun"]
+[ext_resource type="PackedScene" uid="uid://bq2pr30406woi" path="res://scenes/damage/hitbox.tscn" id="13_trceg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tefeu"]
 size = Vector2(20, 31)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jyhfs"]
-size = Vector2(32, 30)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a8y0u"]
+size = Vector2(28, 20)
 
 [node name="Main" type="Node2D"]
 
@@ -74,12 +74,9 @@ script = ExtResource("3_jyhfs")
 position = Vector2(0, 5.5)
 shape = SubResource("RectangleShape2D_tefeu")
 
-[node name="Attack" type="Area2D" parent="Level/Hero"]
-collision_layer = 0
-collision_mask = 8
-script = ExtResource("4_tbgi4")
+[node name="Hitbox" parent="Level/Hero" instance=ExtResource("13_trceg")]
 
-[node name="AttackCollisionShape" type="CollisionShape2D" parent="Level/Hero/Attack"]
-position = Vector2(-1, -26)
-shape = SubResource("RectangleShape2D_jyhfs")
-debug_color = Color(0.608352, 0.536571, 0.165396, 0.42)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Hero/Hitbox"]
+position = Vector2(-1, -25)
+shape = SubResource("RectangleShape2D_a8y0u")
+debug_color = Color(0.612019, 0.538159, 0, 0.42)

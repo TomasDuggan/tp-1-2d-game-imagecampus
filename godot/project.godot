@@ -50,6 +50,8 @@ swap_hero={
 2d_physics/layer_2="hero"
 2d_physics/layer_3="obstacle"
 2d_physics/layer_4="collectable"
+2d_physics/layer_5="hitbox"
+2d_physics/layer_6="hurtbox"
 
 [rendering]
 

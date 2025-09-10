@@ -5,20 +5,22 @@ Un obstaculo detectable por el ataque de Hero, gatilla efectos con sus comportam
 """
 
 @onready var _animation: AnimatedSprite2D = $Animation
-
-signal destroyed(config: CollectableConfig)
+@onready var _hurtbox: Hurtbox = $Hurtbox
 
 var _config: CollectableConfig
 var _behaviours: Array[CollectableBehaviour] = []
-var _current_hp: int
 
 
 func initialize(config: CollectableConfig) -> void:
 	_config = config
-	_current_hp = config.hp
-	_animation.sprite_frames = config.sprite_frames
+
+func _ready():
+	_hurtbox.initialize(self, _config.hp, Enums.DamageFaction.COLLECTABLE)
+	_hurtbox.destroyed.connect(_destroyed)
 	
-	for behaviour_config: CollectableBehaviourConfig in config.behaviour_configs:
+	_animation.sprite_frames = _config.sprite_frames
+	
+	for behaviour_config: CollectableBehaviourConfig in _config.behaviour_configs:
 		_add_behaviour(behaviour_config)
 
 func _add_behaviour(behaviour_config: CollectableBehaviourConfig) -> void:
@@ -28,20 +30,14 @@ func _add_behaviour(behaviour_config: CollectableBehaviourConfig) -> void:
 	instance.initialize(behaviour_config)
 	add_child(instance)
 
-func receive_damage(damage_source: Hero, damage: int) -> void:
-	_current_hp = max(_current_hp - damage, 0)
-	
-	if _current_hp == 0:
-		_destroyed_by_hero(damage_source)
-
-func _destroyed_by_hero(hero: Hero) -> void:
+func _destroyed(damage_source: Hero, _defender: Node2D) -> void:
 	for behaviour: CollectableBehaviour in _behaviours:
-		behaviour.on_destroyed_by_hero(hero)
-
-	destroyed.emit(_config)
+		behaviour.on_destroyed_by_hero(damage_source)
+	
 	queue_free()
 
-
+func get_destroyed_velocity_boost_duration() -> float:
+	return _config.destroyed_velocity_boost_duration
 
 
 
