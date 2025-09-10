@@ -4,33 +4,27 @@ class_name Collectable
 Un obstaculo detectable por el ataque de Hero, gatilla efectos con sus comportamientos
 """
 
-@onready var _sprite: Sprite2D = $Sprite
+@onready var _animation: AnimatedSprite2D = $Animation
 
 signal destroyed(config: CollectableConfig)
 
-var _behaviours: Array[CollectableBehaviour] = []
 var _config: CollectableConfig
+var _behaviours: Array[CollectableBehaviour] = []
 var _current_hp: int
-
-const REWARD_BEHAVIOUR_SCENE: PackedScene = preload("res://scenes/obstacle/behaviours/currency_reward_behaviour.tscn")
 
 
 func initialize(config: CollectableConfig) -> void:
 	_config = config
 	_current_hp = config.hp
+	_animation.sprite_frames = config.sprite_frames
 	
-	if config.texture != null:
-		_sprite.texture = config.texture
+	for behaviour_config: CollectableBehaviourConfig in config.behaviour_configs:
+		_add_behaviour(behaviour_config)
+
+func _add_behaviour(behaviour_config: CollectableBehaviourConfig) -> void:
+	var instance: CollectableBehaviour = behaviour_config.get_behaviour_scene().instantiate()
 	
-	for behaviour: PackedScene in config.behaviours:
-		_add_behaviour(behaviour, config)
-	
-	_add_behaviour(REWARD_BEHAVIOUR_SCENE, config)
-	
-func _add_behaviour(behaviour_scene: PackedScene, config: CollectableConfig) -> void:
-	var instance: CollectableBehaviour = behaviour_scene.instantiate()
-	
-	instance.initialize(config)
+	instance.initialize(behaviour_config)
 	add_child(instance)
 	_behaviours.append(instance)
 

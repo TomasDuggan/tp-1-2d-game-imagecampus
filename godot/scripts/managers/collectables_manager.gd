@@ -11,6 +11,7 @@ func _ready():
 
 func _on_collectable_destroyed(type: Enums.CollectableType, reward_amount: int) -> void:
 	_collected_by_type[type] += reward_amount
+	print("Recurso aumentado: " + str(_collected_by_type[type]))
 
 func _exit_tree():
 	CollectableEventBus.collectable_destroyed.disconnect(_on_collectable_destroyed)

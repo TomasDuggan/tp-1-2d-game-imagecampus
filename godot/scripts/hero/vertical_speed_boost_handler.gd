@@ -15,7 +15,7 @@ func _ready():
 
 func on_collectable_destroyed(config: CollectableConfig) -> void:
 	if _vertical_speed_boost_timer.is_stopped():
-		_vertical_speed_boost_timer.timeout.connect(_on_speed_boost_expired)
+		_vertical_speed_boost_timer.timeout.connect(_on_speed_boost_expired, CONNECT_ONE_SHOT)
 	
 	_vertical_speed_boost_timer.start(config.destroyed_velocity_boost_duration)
 	
