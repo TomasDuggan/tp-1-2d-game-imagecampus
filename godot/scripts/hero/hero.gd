@@ -2,12 +2,26 @@ extends CharacterBody2D
 class_name Hero
 
 @onready var _hitbox: Hitbox = $Hitbox
+@onready var _hurtbox: Hurtbox = $Hurtbox
+@onready var _animation: HeroAnimation = $Animation
 
+var _config: HeroConfig
 var _horizontal_direction: int # 1 o -1
 var _horizontal_speed := 150.0
 var _vertical_speed := 0.0
-var _is_selected: bool = true # TODO
+var _is_selected: bool
 
+
+func initialize(config: HeroConfig) -> void:
+	_config = config
+	
+	_is_selected = config.start_selected
+	
+	_animation.sprite_frames = _config.sprite_frames
+	_animation.scale = _config.scale_override
+	
+	_hitbox.initialize(self, _config.damage, _config.attack_speed, true, Enums.DamageFaction.HERO)
+	_hurtbox.initialize(self, _config.hp, Enums.DamageFaction.HERO)
 
 func _ready():
 	HeroEventBus.hero_swapped.connect(_toggle_selected)
@@ -16,8 +30,7 @@ func _ready():
 	vertical_speed_boost_handler.vertical_speed_changed.connect(_on_vertical_speed_changed)
 	add_child(vertical_speed_boost_handler)
 	
-	_hitbox.initialize(self, 1, 1.0, true, Enums.DamageFaction.HERO) # TODO: levantarlo de HeroConfig
-	_hitbox.attack_performed.connect($Animation.play_attack_animation)
+	_hitbox.attack_performed.connect(_animation.play_attack_animation)
 	_hitbox.target_destroyed.connect(vertical_speed_boost_handler.on_target_destroyed)
 
 func _process(_delta):

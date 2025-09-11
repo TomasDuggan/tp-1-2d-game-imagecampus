@@ -19,6 +19,7 @@ func _ready():
 	_hurtbox.destroyed.connect(_destroyed)
 	
 	_animation.sprite_frames = _config.sprite_frames
+	_animation.play("default")
 	
 	for behaviour_config: CollectableBehaviourConfig in _config.behaviour_configs:
 		_add_behaviour(behaviour_config)
