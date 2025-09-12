@@ -1,7 +1,7 @@
 extends StaticBody2D
 class_name Collectable
 """
-Un obstaculo detectable por el ataque de Hero, gatilla efectos con sus comportamientos
+Un obstaculo detectable por el ataque de Hero, se compone de comportamientos que le dan efectos
 """
 
 @onready var _animation: AnimatedSprite2D = $Animation
@@ -15,7 +15,7 @@ func initialize(config: CollectableConfig) -> void:
 	_config = config
 
 func _ready():
-	_hurtbox.initialize(self, _config.hp, Enums.DamageFaction.COLLECTABLE)
+	_hurtbox.initialize(self, _config.hp, Enums.DamageFaction.ENEMY)
 	_hurtbox.destroyed.connect(_destroyed)
 	
 	_animation.sprite_frames = _config.sprite_frames

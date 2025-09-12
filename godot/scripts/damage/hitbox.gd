@@ -14,7 +14,7 @@ var _damage: int
 var _targets_in_range: Array[Hurtbox] = []
 var _source_faction: Enums.DamageFaction
 
-
+# TODO: logica de "autoattack == false"
 func initialize(damage_source: Node2D, damage: int, attack_speed: float, autoattack: bool, source_faction: Enums.DamageFaction) -> void:
 	_damage_source = damage_source
 	_damage = damage
@@ -51,3 +51,15 @@ func _on_attack_timeout() -> void:
 	
 	for target: Hurtbox in _targets_in_range:
 		target.receive_damage(_damage_source, _damage)
+
+func toggle_detection() -> void:
+	set_deferred("monitoring", !monitoring)
+
+
+
+
+
+
+
+
+#

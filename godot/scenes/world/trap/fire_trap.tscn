@@ -1,0 +1,82 @@
+[gd_scene load_steps=11 format=3 uid="uid://btgkhyaii8y2v"]
+
+[ext_resource type="PackedScene" uid="uid://6f33nv725ha3" path="res://scenes/world/trap/trap.tscn" id="1_fso42"]
+[ext_resource type="Texture2D" uid="uid://crtfrpbgu548s" path="res://art/traps/Flamethrower.png" id="2_446g7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_efu7d"]
+atlas = ExtResource("2_446g7")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mmdx4"]
+atlas = ExtResource("2_446g7")
+region = Rect2(64, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kwqhq"]
+atlas = ExtResource("2_446g7")
+region = Rect2(80, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x8n47"]
+atlas = ExtResource("2_446g7")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6px4q"]
+atlas = ExtResource("2_446g7")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bpbuo"]
+atlas = ExtResource("2_446g7")
+region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nmwfu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_efu7d")
+}],
+"loop": false,
+"name": &"disabled",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mmdx4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kwqhq")
+}],
+"loop": true,
+"name": &"enabled",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x8n47")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6px4q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bpbuo")
+}],
+"loop": false,
+"name": &"enabling",
+"speed": 12.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fso42"]
+size = Vector2(13, 26)
+
+[node name="Trap" instance=ExtResource("1_fso42")]
+_damage = 1
+_duration = 3.0
+_cooldown = 3.0
+_dps = 0.5
+_sprite_frames = SubResource("SpriteFrames_nmwfu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" index="0"]
+position = Vector2(0.5, 2)
+shape = SubResource("RectangleShape2D_fso42")
+debug_color = Color(0.610818, 0.538704, 1.92523e-07, 0.42)
+
+[node name="Animation" parent="." index="1"]
+animation = &"enabled"

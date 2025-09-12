@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://ct5ujndsfuqfc" path="res://configs/collectables/behaviours/currency_reward_behaviour_config.gd" id="2_41xma"]
 [ext_resource type="Script" uid="uid://bkw6yobd6k4ta" path="res://configs/collectables/collectable_config.gd" id="2_whsbs"]
 [ext_resource type="Script" uid="uid://dkyvw463kyoem" path="res://configs/collectables/behaviours/hero_damager_behaviour_config.gd" id="3_2650v"]
-[ext_resource type="SpriteFrames" uid="uid://bbmaygdw40hfm" path="res://animations/vampire_1_animation.tres" id="5_7cp12"]
+[ext_resource type="SpriteFrames" uid="uid://bbmaygdw40hfm" path="res://animations/enemies/vampire_1_animation.tres" id="5_7cp12"]
 
 [sub_resource type="Resource" id="Resource_7rlb7"]
 script = ExtResource("2_41xma")

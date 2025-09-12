@@ -1,0 +1,67 @@
+[gd_scene load_steps=9 format=3 uid="uid://b2qvuondh51pn"]
+
+[ext_resource type="PackedScene" uid="uid://6f33nv725ha3" path="res://scenes/world/trap/trap.tscn" id="1_lsi54"]
+[ext_resource type="Texture2D" uid="uid://dn1jt76apiyqg" path="res://art/traps/trap_animation.png" id="2_615ft"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p5ljl"]
+atlas = ExtResource("2_615ft")
+region = Rect2(98, 64, 14, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ewoah"]
+atlas = ExtResource("2_615ft")
+region = Rect2(98, 297, 14, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ehv8c"]
+atlas = ExtResource("2_615ft")
+region = Rect2(98, 144, 14, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mgtbp"]
+atlas = ExtResource("2_615ft")
+region = Rect2(98, 224, 14, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c62n8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p5ljl")
+}],
+"loop": false,
+"name": &"disabled",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ewoah")
+}],
+"loop": false,
+"name": &"enabled",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ehv8c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mgtbp")
+}],
+"loop": false,
+"name": &"enabling",
+"speed": 12.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_615ft"]
+size = Vector2(14, 16)
+
+[node name="Trap" instance=ExtResource("1_lsi54")]
+_damage = 1
+_duration = 1.0
+_cooldown = 3.0
+_dps = 0.3
+_sprite_frames = SubResource("SpriteFrames_c62n8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" index="0"]
+shape = SubResource("RectangleShape2D_615ft")
+debug_color = Color(0.503684, 0.58009, 3.85046e-07, 0.42)
+
+[node name="Animation" parent="." index="1"]
+animation = &"enabled"
