@@ -9,7 +9,7 @@ signal vertical_speed_changed(new_vertical_speed: float)
 
 var _vertical_speed_boost_timer := Timer.new()
 
-const USUAL_VERTICAL_SPEED := 0.0 # TODO: rename, usual?
+const USUAL_VERTICAL_SPEED := 0.0
 const VERTICAL_SPEED_BOOST := -100.0
 
 

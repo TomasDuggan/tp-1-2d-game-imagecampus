@@ -17,9 +17,6 @@ func initialize(config: HeroConfig) -> void:
 	
 	_is_selected = config.start_selected
 	
-	_animation.sprite_frames = _config.sprite_frames
-	_animation.scale = _config.scale_override
-	
 	_hitbox.initialize(self, _config.damage, _config.attack_speed, true, Enums.DamageFaction.HERO)
 	_hurtbox.initialize(self, _config.hp, Enums.DamageFaction.HERO)
 

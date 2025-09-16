@@ -25,7 +25,7 @@ func _ready():
 		_add_behaviour(behaviour_config)
 
 func _add_behaviour(behaviour_config: CollectableBehaviourConfig) -> void:
-	var instance: CollectableBehaviour = behaviour_config.get_behaviour_scene().instantiate()
+	var instance: CollectableBehaviour = behaviour_config.get_behaviour()
 	
 	_behaviours.append(instance)
 	instance.initialize(behaviour_config)

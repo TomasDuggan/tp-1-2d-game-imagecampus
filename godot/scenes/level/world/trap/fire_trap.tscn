@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://btgkhyaii8y2v"]
 
-[ext_resource type="PackedScene" uid="uid://6f33nv725ha3" path="res://scenes/world/trap/trap.tscn" id="1_fso42"]
+[ext_resource type="PackedScene" uid="uid://6f33nv725ha3" path="res://scenes/level/world/trap/trap.tscn" id="1_fso42"]
 [ext_resource type="Texture2D" uid="uid://crtfrpbgu548s" path="res://art/traps/Flamethrower.png" id="2_446g7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_efu7d"]
