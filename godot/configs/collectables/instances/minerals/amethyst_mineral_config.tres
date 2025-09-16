@@ -24,7 +24,7 @@ animations = [{
 [resource]
 script = ExtResource("2_nbics")
 sprite_frames = SubResource("SpriteFrames_2ljhf")
-hp = 1
+hp = 5
 destroyed_velocity_boost_duration = 1.0
 behaviour_configs = Array[ExtResource("1_nbics")]([SubResource("Resource_3r1fb")])
 metadata/_custom_type_script = "uid://bkw6yobd6k4ta"

@@ -21,7 +21,7 @@ metadata/_custom_type_script = "uid://dkyvw463kyoem"
 [resource]
 script = ExtResource("2_whsbs")
 sprite_frames = ExtResource("5_7cp12")
-hp = 2
+hp = 5
 destroyed_velocity_boost_duration = 1.0
 behaviour_configs = Array[ExtResource("1_reaqo")]([SubResource("Resource_7rlb7"), SubResource("Resource_7r4is")])
 metadata/_custom_type_script = "uid://bkw6yobd6k4ta"

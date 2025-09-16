@@ -6,6 +6,8 @@ Un obstaculo detectable por el ataque de Hero, se compone de comportamientos que
 
 @onready var _animation: AnimatedSprite2D = $Animation
 @onready var _hurtbox: Hurtbox = $Hurtbox
+@onready var _animation_player: AnimationPlayer = $AnimationPlayer
+
 
 var _config: CollectableConfig
 var _behaviours: Array[CollectableBehaviour] = []
@@ -17,6 +19,7 @@ func initialize(config: CollectableConfig) -> void:
 func _ready():
 	_hurtbox.initialize(self, _config.hp, Enums.DamageFaction.ENEMY)
 	_hurtbox.destroyed.connect(_destroyed)
+	_hurtbox.hit.connect(_hit)
 	
 	_animation.sprite_frames = _config.sprite_frames
 	_animation.play("default")
@@ -37,10 +40,11 @@ func _destroyed(damage_source: Hero, _defender: Node2D) -> void:
 	
 	queue_free()
 
+func _hit() -> void:
+	_animation_player.play("hit")
+
 func get_destroyed_velocity_boost_duration() -> float:
 	return _config.destroyed_velocity_boost_duration
-
-
 
 
 #

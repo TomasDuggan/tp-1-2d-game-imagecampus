@@ -4,6 +4,7 @@ class_name Hurtbox
 Escena para recibir dmg de Hitbox
 """
 
+signal hit()
 signal destroyed(attacker_root: Node2D, defender_root: Node2D)
 
 var _root: Node2D
@@ -21,6 +22,8 @@ func receive_damage(attacker_root: Node2D, damage: int) -> void:
 	
 	if _current_hp == 0:
 		destroyed.emit(attacker_root, _root)
+	else:
+		hit.emit()
 
 func is_ally(other: Enums.DamageFaction) -> bool:
 	return _faction == other

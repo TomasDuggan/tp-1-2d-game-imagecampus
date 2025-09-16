@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 Enums="*res://scripts/utils/enums.gd"
 HeroEventBus="*res://scripts/event_buses/hero_event_bus.gd"
 CollectableEventBus="*res://scripts/event_buses/collectables_event_bus.gd"
+CollectablesManager="*res://scripts/managers/collectables_manager.gd"
 
 [display]
 
