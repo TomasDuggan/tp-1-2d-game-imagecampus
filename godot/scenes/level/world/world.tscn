@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b2q5ss2eqgp18"]
+[gd_scene load_steps=21 format=3 uid="uid://b2q5ss2eqgp18"]
 
 [ext_resource type="Script" uid="uid://du71wkafc61o0" path="res://scripts/world/scroll.gd" id="1_bq33v"]
 [ext_resource type="Script" uid="uid://o8r2jya8p0fw" path="res://scripts/world/world.gd" id="1_gb53w"]
@@ -9,10 +9,15 @@
 [ext_resource type="Script" uid="uid://bro3w4a1kwbml" path="res://scripts/hero/hero.gd" id="4_gb53w"]
 [ext_resource type="SpriteFrames" uid="uid://8dvyppn706ka" path="res://animations/hero/miner_animation.tres" id="5_5qq27"]
 [ext_resource type="Script" uid="uid://dx2akoth87pp5" path="res://scripts/hero/hero_animation.gd" id="6_dlabj"]
+[ext_resource type="Script" uid="uid://q7wfpo84ki2p" path="res://scripts/world/camera_follower.gd" id="7_7pqs6"]
 [ext_resource type="PackedScene" uid="uid://bq2pr30406woi" path="res://scenes/damage/hitbox.tscn" id="7_srmg5"]
 [ext_resource type="PackedScene" uid="uid://bhr40240oq8fk" path="res://scenes/damage/hurtbox.tscn" id="11_5qq27"]
+[ext_resource type="Script" uid="uid://ckuseg7s3ctj5" path="res://scripts/ui/score/score_ui.gd" id="12_6x50t"]
+[ext_resource type="Script" uid="uid://br3sm0otg10yf" path="res://scripts/world/y_hero_death_area.gd" id="13_75ogk"]
+[ext_resource type="Texture2D" uid="uid://8v28iq216615" path="res://art/minerals/amethystNode.png" id="13_rldjg"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dlabj"]
+radius = 9.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a8y0u"]
 size = Vector2(36, 30)
@@ -23,10 +28,13 @@ size = Vector2(20, 32)
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_n47ow"]
 normal = Vector2(0, 1)
 
-[node name="World" type="Node2D" node_paths=PackedStringArray("_collectables_spawner", "_hero")]
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_75ogk"]
+
+[node name="World" type="Node2D" node_paths=PackedStringArray("_collectables_spawner", "_hero", "_score_container")]
 script = ExtResource("1_gb53w")
 _collectables_spawner = NodePath("Managers/CollectablesSpawner")
 _hero = NodePath("Hero")
+_score_container = NodePath("CanvasLayer/HUD/MarginContainer/ScoreContainer")
 
 [node name="Managers" type="Node" parent="."]
 
@@ -50,6 +58,12 @@ script = ExtResource("3_1yooq")
 
 [node name="Traps" type="Node2D" parent="Scroll"]
 
+[node name="CameraFollower" type="Camera2D" parent="." node_paths=PackedStringArray("_hero")]
+position = Vector2(640, 360)
+editor_draw_limits = true
+script = ExtResource("7_7pqs6")
+_hero = NodePath("../Hero")
+
 [node name="Hero" type="CharacterBody2D" parent="."]
 position = Vector2(640, 360)
 collision_layer = 2
@@ -64,7 +78,7 @@ animation = &"walk_up"
 script = ExtResource("6_dlabj")
 
 [node name="PhysicsCollisionShape" type="CollisionShape2D" parent="Hero"]
-position = Vector2(0, 5.5)
+position = Vector2(0, 7)
 shape = SubResource("CapsuleShape2D_dlabj")
 
 [node name="Hitbox" parent="Hero" instance=ExtResource("7_srmg5")]
@@ -81,9 +95,6 @@ position = Vector2(0, 7)
 shape = SubResource("RectangleShape2D_srmg5")
 debug_color = Color(0.985726, 0, 0.330869, 0.42)
 
-[node name="Camera" type="Camera2D" parent="."]
-position = Vector2(640, 360)
-
 [node name="YHeroLimit" type="StaticBody2D" parent="."]
 position = Vector2(0, 180)
 collision_layer = 4
@@ -91,3 +102,48 @@ collision_mask = 2
 
 [node name="LimitCollisionShape" type="CollisionShape2D" parent="YHeroLimit"]
 shape = SubResource("WorldBoundaryShape2D_n47ow")
+
+[node name="YHeroDeathArea" type="Area2D" parent="."]
+position = Vector2(0, 720)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("13_75ogk")
+
+[node name="YDeathAreaCollisionShape" type="CollisionShape2D" parent="YHeroDeathArea"]
+shape = SubResource("WorldBoundaryShape2D_75ogk")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/HUD"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -132.0
+offset_bottom = 100.0
+grow_horizontal = 0
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+
+[node name="ScoreContainer" type="HBoxContainer" parent="CanvasLayer/HUD/MarginContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+script = ExtResource("12_6x50t")
+
+[node name="ScoreIcon" type="TextureRect" parent="CanvasLayer/HUD/MarginContainer/ScoreContainer"]
+layout_mode = 2
+texture = ExtResource("13_rldjg")
+expand_mode = 2
+
+[node name="ScoreAmount" type="Label" parent="CanvasLayer/HUD/MarginContainer/ScoreContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "100"

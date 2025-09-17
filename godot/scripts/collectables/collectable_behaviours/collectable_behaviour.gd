@@ -4,6 +4,9 @@ class_name CollectableBehaviour
 Logica abstracta del comportamiento de un objeto coleccionable
 """
 
+@warning_ignore("unused_signal")
+signal request_animation(animation_name: String)
+
 var config: CollectableBehaviourConfig
 
 

@@ -18,7 +18,7 @@ func initialize(config: HeroConfig) -> void:
 	_is_selected = config.start_selected
 	
 	_hitbox.initialize(self, _config.damage, _config.attack_speed, true, Enums.DamageFaction.HERO)
-	_hurtbox.initialize(self, _config.hp, Enums.DamageFaction.HERO)
+	_hurtbox.initialize(self, _config.hp, Enums.DamageFaction.HERO, true)
 
 func _ready():
 	HeroEventBus.hero_swapped.connect(_toggle_selected)

@@ -8,7 +8,6 @@ Un obstaculo detectable por el ataque de Hero, se compone de comportamientos que
 @onready var _hurtbox: Hurtbox = $Hurtbox
 @onready var _animation_player: AnimationPlayer = $AnimationPlayer
 
-
 var _config: CollectableConfig
 var _behaviours: Array[CollectableBehaviour] = []
 
@@ -17,7 +16,7 @@ func initialize(config: CollectableConfig) -> void:
 	_config = config
 
 func _ready():
-	_hurtbox.initialize(self, _config.hp, Enums.DamageFaction.ENEMY)
+	_hurtbox.initialize(self, _config.hp, Enums.DamageFaction.ENEMY, false)
 	_hurtbox.destroyed.connect(_destroyed)
 	_hurtbox.hit.connect(_hit)
 	
@@ -28,17 +27,21 @@ func _ready():
 		_add_behaviour(behaviour_config)
 
 func _add_behaviour(behaviour_config: CollectableBehaviourConfig) -> void:
-	var instance: CollectableBehaviour = behaviour_config.get_behaviour()
+	var behaviour_instance: CollectableBehaviour = behaviour_config.get_behaviour()
 	
-	_behaviours.append(instance)
-	instance.initialize(behaviour_config)
-	add_child(instance)
+	_behaviours.append(behaviour_instance)
+	behaviour_instance.initialize(behaviour_config)
+	behaviour_instance.request_animation.connect(_on_animation_requested)
+	add_child(behaviour_instance)
 
 func _destroyed(damage_source: Hero, _defender: Node2D) -> void:
 	for behaviour: CollectableBehaviour in _behaviours:
 		behaviour.on_destroyed_by_hero(damage_source)
 	
 	queue_free()
+
+func _on_animation_requested(animation_name: String) -> void:
+	_animation.play(animation_name)
 
 func _hit() -> void:
 	_animation_player.play("hit")

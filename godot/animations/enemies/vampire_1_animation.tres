@@ -4,10 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://lrlmdqalhjov" path="res://art/characters/enemies/vampire_1/Vampires1_Death_with_shadow.png" id="2_2a6ch"]
 [ext_resource type="Texture2D" uid="uid://ck1nh77m3iogt" path="res://art/characters/enemies/vampire_1/Vampires1_Idle_with_shadow.png" id="3_w73mx"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jrqvc"]
-atlas = ExtResource("1_2y0en")
-region = Rect2(0, 0, 64, 64)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_xm8aq"]
 atlas = ExtResource("1_2y0en")
 region = Rect2(64, 0, 64, 64)
@@ -51,6 +47,10 @@ region = Rect2(640, 0, 64, 64)
 [sub_resource type="AtlasTexture" id="AtlasTexture_wasej"]
 atlas = ExtResource("1_2y0en")
 region = Rect2(704, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jrqvc"]
+atlas = ExtResource("1_2y0en")
+region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dy3gx"]
 atlas = ExtResource("2_2a6ch")
@@ -116,9 +116,6 @@ region = Rect2(192, 0, 64, 64)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_jrqvc")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_xm8aq")
 }, {
 "duration": 1.0,
@@ -150,9 +147,12 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_wasej")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jrqvc")
 }],
 "loop": false,
-"name": &"attack",
+"name": &"attack_down",
 "speed": 12.0
 }, {
 "frames": [{
@@ -190,7 +190,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_t33vg")
 }],
 "loop": false,
-"name": &"death",
+"name": &"death_down",
 "speed": 12.0
 }, {
 "frames": [{

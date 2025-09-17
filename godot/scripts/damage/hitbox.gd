@@ -14,6 +14,7 @@ var _damage: int
 var _targets_in_range: Array[Hurtbox] = []
 var _source_faction: Enums.DamageFaction
 
+
 # TODO: logica de "autoattack == false"
 func initialize(damage_source: Node2D, damage: int, attack_speed: float, autoattack: bool, source_faction: Enums.DamageFaction) -> void:
 	_damage_source = damage_source
@@ -48,7 +49,9 @@ func _on_target_destroyed(_attacker: Node2D, defender: Node2D) -> void:
 
 func _on_attack_timeout() -> void:
 	attack_performed.emit()
-	
+	_damage_targets_in_range()
+
+func _damage_targets_in_range() -> void:
 	for target: Hurtbox in _targets_in_range:
 		target.receive_damage(_damage_source, _damage)
 
