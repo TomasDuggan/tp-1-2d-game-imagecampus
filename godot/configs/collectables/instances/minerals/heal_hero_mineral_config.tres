@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="CollectableConfig" load_steps=7 format=3 uid="uid://cw5d021tymnuh"]
+
+[ext_resource type="Script" uid="uid://clxqxnesk8eta" path="res://configs/collectables/behaviours/collectable_behaviour_config.gd" id="1_gbems"]
+[ext_resource type="Script" uid="uid://d3twf65jishop" path="res://configs/collectables/behaviours/heal_hero_behaviour_config.gd" id="2_77y6c"]
+[ext_resource type="Script" uid="uid://bkw6yobd6k4ta" path="res://configs/collectables/collectable_config.gd" id="2_lhw3w"]
+[ext_resource type="Texture2D" uid="uid://cenooqp15vqo7" path="res://art/minerals/bloodstoneNode.png" id="4_77y6c"]
+
+[sub_resource type="Resource" id="Resource_k0lno"]
+script = ExtResource("2_77y6c")
+heal_destroyer_hero = true
+heal_ally_hero = true
+heal_amount = 3
+metadata/_custom_type_script = "uid://d3twf65jishop"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k0lno"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_77y6c")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[resource]
+script = ExtResource("2_lhw3w")
+sprite_frames = SubResource("SpriteFrames_k0lno")
+hp = 1
+destroyed_velocity_boost_duration = 1.0
+behaviour_configs = Array[ExtResource("1_gbems")]([SubResource("Resource_k0lno")])
+metadata/_custom_type_script = "uid://bkw6yobd6k4ta"

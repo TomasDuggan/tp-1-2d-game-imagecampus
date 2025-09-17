@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c5tsvobsxc88k"]
+
+[ext_resource type="Script" uid="uid://c44vhm84d18o4" path="res://scripts/collectables/collectable_behaviours/heal_hero_behaviour.gd" id="1_weyqm"]
+
+[node name="HealHeroBehaviour" type="Node2D"]
+script = ExtResource("1_weyqm")

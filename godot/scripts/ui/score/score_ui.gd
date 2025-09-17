@@ -10,9 +10,10 @@ UI para mostrar el score actual
 
 var _collectable_type: Enums.CollectableType
 
-const MINER_ICON = preload("uid://bm8eqm7pjupgf")
-const WARRIOR_ICON = preload("uid://ccwrpax3qwusa")
-
+const ICONS_BY_COLLECTABLE_TYPE := {
+	Enums.CollectableType.MINERAL: preload("uid://bm8eqm7pjupgf"),
+	Enums.CollectableType.ENEMY: preload("uid://ccwrpax3qwusa"),
+}
 
 func initialize(collectable_type: Enums.CollectableType) -> void:
 	_collectable_type = collectable_type
@@ -20,11 +21,7 @@ func initialize(collectable_type: Enums.CollectableType) -> void:
 	_initialize_score()
 
 func _initialize_score() -> void:
-	if _collectable_type == Enums.CollectableType.MINERAL:
-		_score_icon.texture = MINER_ICON
-	else:
-		_score_icon.texture = WARRIOR_ICON
-	
+	_score_icon.texture = ICONS_BY_COLLECTABLE_TYPE[_collectable_type]
 	_score_amount.text = str(CollectablesManager.get_current_amount(_collectable_type))
 
 func _ready():

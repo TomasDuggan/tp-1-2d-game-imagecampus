@@ -5,8 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://bmjsmxtdlcees" path="res://scenes/level/level_1/miner_world_level_1.tscn" id="3_qkmgm"]
 [ext_resource type="PackedScene" uid="uid://y76enpiqi5pc" path="res://scenes/level/level_1/warrior_world_level_1.tscn" id="4_hnne4"]
 
-[node name="Level" type="Node"]
+[node name="Level" type="Node" node_paths=PackedStringArray("_miner_world", "_warrior_world")]
 script = ExtResource("1_vpf64")
+_miner_world = NodePath("HBoxContainer/SubViewportContainer/SubViewport/MinerWorld")
+_warrior_world = NodePath("HBoxContainer/SubViewportContainer2/SubViewport/WarriorWorld")
 
 [node name="Managers" type="Node" parent="."]
 

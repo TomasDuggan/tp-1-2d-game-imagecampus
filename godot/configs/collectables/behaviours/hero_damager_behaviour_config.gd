@@ -6,4 +6,4 @@ class_name HeroDamagerBehaviourConfig
 @export var attack_speed: float
 
 func get_behaviour() -> CollectableBehaviour:
-	return preload("res://scenes/collectables/behaviours/hero_damager_behaviour.tscn").instantiate()
+	return preload("uid://d0udm77yblxq7").instantiate()

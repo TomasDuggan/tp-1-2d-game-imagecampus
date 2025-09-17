@@ -6,4 +6,4 @@ class_name CurrencyRewardBehaviourConfig
 @export var reward_amount: int
 
 func get_behaviour() -> CollectableBehaviour:
-	return preload("res://scenes/collectables/behaviours/currency_reward_behaviour.tscn").instantiate()
+	return preload("uid://bu5w21pdkf3b4").instantiate()

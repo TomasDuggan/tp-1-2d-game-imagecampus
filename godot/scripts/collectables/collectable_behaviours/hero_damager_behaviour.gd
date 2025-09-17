@@ -10,3 +10,6 @@ func _ready():
 
 func _on_attack_performed() -> void:
 	request_animation.emit("attack_down")
+
+func on_destroyed_by_hero(_source: Hero) -> void:
+	pass

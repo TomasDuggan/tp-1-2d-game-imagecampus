@@ -19,3 +19,9 @@ func _ready():
 	_collectables_spawner.initialize(_collectables_to_spawn)
 	_hero.initialize(_hero_config)
 	_score_container.initialize(_collectable_type)
+
+func get_hero() -> Hero:
+	return _hero
+
+func set_hero_ally(ally: Hero) -> void:
+	_hero.set_ally(ally)

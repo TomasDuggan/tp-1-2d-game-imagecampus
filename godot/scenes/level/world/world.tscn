@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://b2q5ss2eqgp18"]
+[gd_scene load_steps=25 format=3 uid="uid://b2q5ss2eqgp18"]
 
 [ext_resource type="Script" uid="uid://du71wkafc61o0" path="res://scripts/world/scroll.gd" id="1_bq33v"]
 [ext_resource type="Script" uid="uid://o8r2jya8p0fw" path="res://scripts/world/world.gd" id="1_gb53w"]
@@ -24,6 +24,60 @@ size = Vector2(36, 30)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_srmg5"]
 size = Vector2(20, 32)
+
+[sub_resource type="Animation" id="Animation_75ogk"]
+resource_name = "hit"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_dw3eh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_vqxkp"]
+resource_name = "heal"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 1, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vqxkp"]
+_data = {
+&"RESET": SubResource("Animation_dw3eh"),
+&"heal": SubResource("Animation_vqxkp"),
+&"hit": SubResource("Animation_75ogk")
+}
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_n47ow"]
 normal = Vector2(0, 1)
@@ -94,6 +148,11 @@ debug_color = Color(0.612019, 0.538159, 0, 0.42)
 position = Vector2(0, 7)
 shape = SubResource("RectangleShape2D_srmg5")
 debug_color = Color(0.985726, 0, 0.330869, 0.42)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Hero"]
+libraries = {
+&"": SubResource("AnimationLibrary_vqxkp")
+}
 
 [node name="YHeroLimit" type="StaticBody2D" parent="."]
 position = Vector2(0, 180)
