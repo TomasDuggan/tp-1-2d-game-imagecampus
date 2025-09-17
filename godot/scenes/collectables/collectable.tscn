@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://ctkc2ceeqspqm"]
 
-[ext_resource type="Script" uid="uid://c6hbv3qf53l4y" path="res://scripts/collectables/collectable.gd" id="1_uwx36"]
+[ext_resource type="Script" uid="uid://c6hbv3qf53l4y" path="res://scripts/world/collectables/collectable.gd" id="1_uwx36"]
 [ext_resource type="Texture2D" uid="uid://8v28iq216615" path="res://art/minerals/amethystNode.png" id="2_88g45"]
 [ext_resource type="PackedScene" uid="uid://bhr40240oq8fk" path="res://scenes/damage/hurtbox.tscn" id="2_vtu06"]
 

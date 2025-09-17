@@ -4,11 +4,11 @@
 [ext_resource type="Script" uid="uid://o8r2jya8p0fw" path="res://scripts/world/world.gd" id="1_gb53w"]
 [ext_resource type="Script" uid="uid://b8vecgqkje2e6" path="res://scripts/managers/collectables_spawner.gd" id="1_j2gmx"]
 [ext_resource type="TileSet" uid="uid://bexs7e33c7b6q" path="res://art/tiles/cave_tile_set.tres" id="2_j2gmx"]
-[ext_resource type="Script" uid="uid://dhsqnlkb2pg63" path="res://scripts/collectables/collectable_spawn_points.gd" id="3_1yooq"]
+[ext_resource type="Script" uid="uid://dhsqnlkb2pg63" path="res://scripts/world/collectables/collectable_spawn_points.gd" id="3_1yooq"]
 [ext_resource type="PackedScene" uid="uid://ctkc2ceeqspqm" path="res://scenes/collectables/collectable.tscn" id="3_5qq27"]
-[ext_resource type="Script" uid="uid://bro3w4a1kwbml" path="res://scripts/hero/hero.gd" id="4_gb53w"]
+[ext_resource type="Script" uid="uid://bro3w4a1kwbml" path="res://scripts/world/hero/hero.gd" id="4_gb53w"]
 [ext_resource type="SpriteFrames" uid="uid://8dvyppn706ka" path="res://animations/hero/miner_animation.tres" id="5_5qq27"]
-[ext_resource type="Script" uid="uid://dx2akoth87pp5" path="res://scripts/hero/hero_animation.gd" id="6_dlabj"]
+[ext_resource type="Script" uid="uid://dx2akoth87pp5" path="res://scripts/world/hero/hero_animation.gd" id="6_dlabj"]
 [ext_resource type="Script" uid="uid://q7wfpo84ki2p" path="res://scripts/world/camera_follower.gd" id="7_7pqs6"]
 [ext_resource type="PackedScene" uid="uid://bq2pr30406woi" path="res://scenes/damage/hitbox.tscn" id="7_srmg5"]
 [ext_resource type="PackedScene" uid="uid://bhr40240oq8fk" path="res://scenes/damage/hurtbox.tscn" id="11_5qq27"]
@@ -24,22 +24,6 @@ size = Vector2(36, 30)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_srmg5"]
 size = Vector2(20, 32)
-
-[sub_resource type="Animation" id="Animation_75ogk"]
-resource_name = "hit"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
-}
 
 [sub_resource type="Animation" id="Animation_dw3eh"]
 length = 0.001
@@ -70,6 +54,22 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(0, 1, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_75ogk"]
+resource_name = "hit"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vqxkp"]
