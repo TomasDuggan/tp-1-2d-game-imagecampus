@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="UpgradeConfig" load_steps=2 format=3 uid="uid://4iq72jx00k26"]
+
+[ext_resource type="Script" uid="uid://bhmckujririhf" path="res://configs/upgrades/upgrade_config.gd" id="1_wm7jo"]
+
+[resource]
+script = ExtResource("1_wm7jo")
+world_type = 1
+display_name = "Warrior dmg"
+description = "Dmg +1"
+stat_modifier_value = 1.0
+metadata/_custom_type_script = "uid://bhmckujririhf"

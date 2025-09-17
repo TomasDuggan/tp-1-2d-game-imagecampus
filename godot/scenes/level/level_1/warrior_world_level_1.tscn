@@ -12,10 +12,11 @@ script = ExtResource("3_kf76c")
 hp = 5
 damage = 2
 attack_speed = 0.7
+horizontal_movement_speed = 75.0
 metadata/_custom_type_script = "uid://b838myufwwsag"
 
 [node name="World" instance=ExtResource("1_mds73")]
-_collectable_type = 1
+_world_type = 1
 _hero_config = SubResource("Resource_kf76c")
 _collectables_to_spawn = Array[ExtResource("2_b43ak")]([ExtResource("3_u64os")])
 

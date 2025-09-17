@@ -2,7 +2,7 @@ extends CollectableBehaviourConfig
 class_name CurrencyRewardBehaviourConfig
 
 
-@export var type: Enums.CollectableType
+@export var type: Enums.WorldType
 @export var reward_amount: int
 
 func get_behaviour() -> CollectableBehaviour:

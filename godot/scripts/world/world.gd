@@ -6,7 +6,7 @@ Sirve como entrypoint para no tener que configurar las cosas en cada hijo que ne
 """
 
 @export_category("World Config")
-@export var _collectable_type: Enums.CollectableType
+@export var _world_type: Enums.WorldType
 @export var _hero_config: HeroConfig
 @export var _collectables_to_spawn: Array[CollectableConfig]
 
@@ -17,8 +17,8 @@ Sirve como entrypoint para no tener que configurar las cosas en cada hijo que ne
 
 func _ready():
 	_collectables_spawner.initialize(_collectables_to_spawn)
-	_hero.initialize(_hero_config)
-	_score_container.initialize(_collectable_type)
+	_hero.initialize(_hero_config, _world_type)
+	_score_container.initialize(_world_type)
 
 func get_hero() -> Hero:
 	return _hero

@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://bhr40240oq8fk" path="res://scenes/damage/hurtbox.tscn" id="11_5qq27"]
 [ext_resource type="Script" uid="uid://ckuseg7s3ctj5" path="res://scripts/ui/score/score_ui.gd" id="12_6x50t"]
 [ext_resource type="Script" uid="uid://br3sm0otg10yf" path="res://scripts/world/y_hero_death_area.gd" id="13_75ogk"]
-[ext_resource type="Texture2D" uid="uid://8v28iq216615" path="res://art/minerals/amethystNode.png" id="13_rldjg"]
+[ext_resource type="Texture2D" uid="uid://bm8eqm7pjupgf" path="res://art/icons/diamond.png" id="15_75ogk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dlabj"]
 radius = 9.0
@@ -199,7 +199,7 @@ script = ExtResource("12_6x50t")
 
 [node name="ScoreIcon" type="TextureRect" parent="CanvasLayer/HUD/MarginContainer/ScoreContainer"]
 layout_mode = 2
-texture = ExtResource("13_rldjg")
+texture = ExtResource("15_75ogk")
 expand_mode = 2
 
 [node name="ScoreAmount" type="Label" parent="CanvasLayer/HUD/MarginContainer/ScoreContainer"]

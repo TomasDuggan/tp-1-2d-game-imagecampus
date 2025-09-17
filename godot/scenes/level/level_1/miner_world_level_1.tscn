@@ -12,6 +12,7 @@ script = ExtResource("3_2erno")
 hp = 5
 damage = 1
 attack_speed = 1.0
+horizontal_movement_speed = 100.0
 start_selected = true
 metadata/_custom_type_script = "uid://b838myufwwsag"
 

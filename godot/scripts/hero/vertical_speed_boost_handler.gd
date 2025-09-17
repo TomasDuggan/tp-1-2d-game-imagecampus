@@ -1,7 +1,7 @@
 extends Node
 class_name VerticalSpeedBoostHandler
 """
-Manejador del boost en eje Y que recibe el heroe al destruir un collectable
+Manejador del boost que recibe el heroe para avanzar en el eje Y.
 """
 
 
