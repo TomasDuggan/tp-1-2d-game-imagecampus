@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfwcn0bxgqbj3"
-path="res://.godot/imported/copperNode.png-f3839f0d070fff6fa09fac14879db61d.ctex"
+uid="uid://5wq66s1xp6bm"
+path="res://.godot/imported/Dark_red_ crystal1.png-9a336b016137c1b5f0bc53327bc0ae37.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/minerals/copperNode.png"
-dest_files=["res://.godot/imported/copperNode.png-f3839f0d070fff6fa09fac14879db61d.ctex"]
+source_file="res://art/minerals/v_2/Dark_red_ crystal1.png"
+dest_files=["res://.godot/imported/Dark_red_ crystal1.png-9a336b016137c1b5f0bc53327bc0ae37.ctex"]
 
 [params]
 

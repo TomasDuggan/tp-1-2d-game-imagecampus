@@ -21,6 +21,7 @@ func _ready():
 	_hurtbox.hit.connect(_hit)
 	
 	_animation.sprite_frames = _config.sprite_frames
+	_animation.scale = _config.scale_override
 	_animation.play("default")
 	
 	for behaviour_config: CollectableBehaviourConfig in _config.behaviour_configs:

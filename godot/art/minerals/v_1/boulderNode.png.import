@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0kyv6a1xcnow"
-path="res://.godot/imported/forgeStoneNode.png-43fc32f37ccae28a965b65bcbf0a29f5.ctex"
+uid="uid://dx7py3o22gpjx"
+path="res://.godot/imported/boulderNode.png-583cfe2cb19315d616ffac81a796b77b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/minerals/forgeStoneNode.png"
-dest_files=["res://.godot/imported/forgeStoneNode.png-43fc32f37ccae28a965b65bcbf0a29f5.ctex"]
+source_file="res://art/minerals/v_1/boulderNode.png"
+dest_files=["res://.godot/imported/boulderNode.png-583cfe2cb19315d616ffac81a796b77b.ctex"]
 
 [params]
 

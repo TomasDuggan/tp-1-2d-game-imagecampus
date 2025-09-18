@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4ner5ionnggx"
-path="res://.godot/imported/stoneNode.png-2f138a87f299fe2411ccf7d0bfe2407c.ctex"
+uid="uid://blq1gwvb6qyxr"
+path="res://.godot/imported/jadeNode.png-104bb4d286279cbffb7e64253ae7b3f4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/minerals/stoneNode.png"
-dest_files=["res://.godot/imported/stoneNode.png-2f138a87f299fe2411ccf7d0bfe2407c.ctex"]
+source_file="res://art/minerals/v_1/jadeNode.png"
+dest_files=["res://.godot/imported/jadeNode.png-104bb4d286279cbffb7e64253ae7b3f4.ctex"]
 
 [params]
 

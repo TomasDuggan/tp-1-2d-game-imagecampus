@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://tucxbkm7eodh"
-path="res://.godot/imported/ironNode.png-73fe41b43d52415f2f68af1920ad4411.ctex"
+uid="uid://1eo2ehss8amc"
+path="res://.godot/imported/goldNode.png-1dbcfc7ac0ac1b0bc56bf1623ef72e54.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/minerals/ironNode.png"
-dest_files=["res://.godot/imported/ironNode.png-73fe41b43d52415f2f68af1920ad4411.ctex"]
+source_file="res://art/minerals/v_1/goldNode.png"
+dest_files=["res://.godot/imported/goldNode.png-1dbcfc7ac0ac1b0bc56bf1623ef72e54.ctex"]
 
 [params]
 

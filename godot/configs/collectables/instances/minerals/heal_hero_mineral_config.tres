@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://clxqxnesk8eta" path="res://configs/collectables/behaviours/collectable_behaviour_config.gd" id="1_gbems"]
 [ext_resource type="Script" uid="uid://d3twf65jishop" path="res://configs/collectables/behaviours/heal_hero_behaviour_config.gd" id="2_77y6c"]
 [ext_resource type="Script" uid="uid://bkw6yobd6k4ta" path="res://configs/collectables/collectable_config.gd" id="2_lhw3w"]
-[ext_resource type="Texture2D" uid="uid://blq1gwvb6qyxr" path="res://art/minerals/jadeNode.png" id="4_77y6c"]
+[ext_resource type="Texture2D" uid="uid://h67k2x5wkc0a" path="res://art/minerals/v_2/Green_crystal1.png" id="4_77y6c"]
 
 [sub_resource type="Resource" id="Resource_k0lno"]
 script = ExtResource("2_77y6c")

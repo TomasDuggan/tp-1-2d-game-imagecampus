@@ -1,5 +1,9 @@
 extends Node
 class_name HeroInputReader
+"""
+Resuelve el movimiento horizontal del heroe 
+"""
+
 
 var _use_arrows_on_synergy_activation: bool
 var _right_action := "move_right"

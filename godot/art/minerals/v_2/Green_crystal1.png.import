@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://m5djqg1b177v"
-path="res://.godot/imported/tinNode.png-587349f8fa022f5c3e1f360dc0ff1319.ctex"
+uid="uid://h67k2x5wkc0a"
+path="res://.godot/imported/Green_crystal1.png-e5a743f824a6d6093a0bbbf9129f9074.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/minerals/tinNode.png"
-dest_files=["res://.godot/imported/tinNode.png-587349f8fa022f5c3e1f360dc0ff1319.ctex"]
+source_file="res://art/minerals/v_2/Green_crystal1.png"
+dest_files=["res://.godot/imported/Green_crystal1.png-e5a743f824a6d6093a0bbbf9129f9074.ctex"]
 
 [params]
 

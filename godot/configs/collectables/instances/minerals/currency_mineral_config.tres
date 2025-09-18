@@ -3,18 +3,18 @@
 [ext_resource type="Script" uid="uid://clxqxnesk8eta" path="res://configs/collectables/behaviours/collectable_behaviour_config.gd" id="1_hmiws"]
 [ext_resource type="Script" uid="uid://ct5ujndsfuqfc" path="res://configs/collectables/behaviours/currency_reward_behaviour_config.gd" id="2_2ktiv"]
 [ext_resource type="Script" uid="uid://bkw6yobd6k4ta" path="res://configs/collectables/collectable_config.gd" id="3_hatdi"]
-[ext_resource type="Texture2D" uid="uid://8v28iq216615" path="res://art/minerals/amethystNode.png" id="4_pbjqh"]
+[ext_resource type="Texture2D" uid="uid://f1cwo3v6t0kk" path="res://art/minerals/v_2/Blue_crystal1.png" id="4_hmiws"]
 
 [sub_resource type="Resource" id="Resource_3r1fb"]
 script = ExtResource("2_2ktiv")
 reward_amount = 1
 metadata/_custom_type_script = "uid://ct5ujndsfuqfc"
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_2ljhf"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_2ktiv"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_pbjqh")
+"texture": ExtResource("4_hmiws")
 }],
 "loop": true,
 "name": &"default",
@@ -23,7 +23,7 @@ animations = [{
 
 [resource]
 script = ExtResource("3_hatdi")
-sprite_frames = SubResource("SpriteFrames_2ljhf")
+sprite_frames = SubResource("SpriteFrames_2ktiv")
 hp = 5
 destroyed_velocity_boost_duration = 1.0
 behaviour_configs = Array[ExtResource("1_hmiws")]([SubResource("Resource_3r1fb")])

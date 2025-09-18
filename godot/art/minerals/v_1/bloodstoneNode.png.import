@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b2sdqc32l570t"
-path="res://.godot/imported/coalNode.png-e71288a4374fb903df9c89672c63e3f0.ctex"
+uid="uid://cenooqp15vqo7"
+path="res://.godot/imported/bloodstoneNode.png-1abdcec3e9dbac2b3532c09d8a733780.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/minerals/coalNode.png"
-dest_files=["res://.godot/imported/coalNode.png-e71288a4374fb903df9c89672c63e3f0.ctex"]
+source_file="res://art/minerals/v_1/bloodstoneNode.png"
+dest_files=["res://.godot/imported/bloodstoneNode.png-1abdcec3e9dbac2b3532c09d8a733780.ctex"]
 
 [params]
 

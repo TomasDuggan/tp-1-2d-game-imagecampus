@@ -80,7 +80,7 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 rotation = -1.5707964
-scale = Vector2(0.8, 0.8)
+scale = Vector2(0.7, 0.5)
 
 [node name="SynergyProgressBar" type="TextureProgressBar" parent="CanvasLayer/HUD/SynergyBar"]
 layout_mode = 1
