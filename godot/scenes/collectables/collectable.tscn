@@ -15,11 +15,11 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7jvdu"]
-custom_solver_bias = 1.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yfltg"]
+size = Vector2(15.873571, 16.12544)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_88g45"]
-size = Vector2(16, 16)
+size = Vector2(14, 14)
 
 [sub_resource type="Animation" id="Animation_jmmuo"]
 length = 0.001
@@ -68,7 +68,10 @@ scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_6cysq")
 
 [node name="PhysicsCollisionShape" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_7jvdu")
+position = Vector2(2.3841858e-07, 2.3841858e-07)
+rotation = -0.007870985
+scale = Vector2(0.9999999, 0.9999999)
+shape = SubResource("RectangleShape2D_yfltg")
 
 [node name="Hurtbox" parent="." instance=ExtResource("2_vtu06")]
 

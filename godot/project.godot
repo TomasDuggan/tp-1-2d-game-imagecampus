@@ -22,6 +22,7 @@ HeroEventBus="*res://scripts/event_buses/hero_event_bus.gd"
 CollectableEventBus="*res://scripts/event_buses/collectables_event_bus.gd"
 CollectablesManager="*res://scripts/managers/collectables_manager.gd"
 UpgradesManager="*res://scripts/managers/upgrades_manager.gd"
+SynergyEventBus="*res://scripts/event_buses/synergy_event_bus.gd"
 
 [display]
 
@@ -44,6 +45,16 @@ move_right={
 swap_hero={
 "deadzone": 0.2,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":32,"key_label":0,"unicode":32,"location":0,"echo":false,"script":null)
+]
+}
+move_left_synergy_activated={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194319,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+move_right_synergy_activated={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194321,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
 ]
 }
 

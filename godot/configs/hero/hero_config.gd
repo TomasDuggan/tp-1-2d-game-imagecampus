@@ -5,4 +5,4 @@ class_name HeroConfig
 @export var damage: int
 @export var attack_speed: float
 @export var horizontal_movement_speed: float
-@export var start_selected: bool
+@export var use_arrows_on_synergy_activation: bool

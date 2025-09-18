@@ -1,5 +1,8 @@
 extends AnimatedSprite2D
 class_name HeroAnimation
+"""
+Animacion de un heroe y su Outline al estar seleccionado
+"""
 
 @export var _outline_material: ShaderMaterial
 var _default_material: Material

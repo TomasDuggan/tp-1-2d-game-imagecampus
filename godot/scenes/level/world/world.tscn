@@ -22,8 +22,7 @@ shader = ExtResource("9_dw3eh")
 shader_parameter/line_color = Color(1, 1, 0, 1)
 shader_parameter/line_thickness = 0.800000038
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dlabj"]
-radius = 9.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dw3eh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a8y0u"]
 size = Vector2(36, 30)
@@ -144,7 +143,7 @@ _outline_material = SubResource("ShaderMaterial_dw3eh")
 
 [node name="PhysicsCollisionShape" type="CollisionShape2D" parent="Hero"]
 position = Vector2(0, 7)
-shape = SubResource("CapsuleShape2D_dlabj")
+shape = SubResource("CapsuleShape2D_dw3eh")
 
 [node name="Hitbox" parent="Hero" instance=ExtResource("7_srmg5")]
 

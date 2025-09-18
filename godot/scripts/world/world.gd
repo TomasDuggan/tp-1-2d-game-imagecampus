@@ -1,8 +1,8 @@
 extends Node
 class_name World
 """
-Inicializador general del mundo, le pasa configs a sus hijos (dependencias).
-Sirve como entrypoint para no tener que configurar las cosas en cada hijo que necesite.
+Inicializador general del mundo, le pasa configs a sus hijos (Dependencies).
+Sirve como entrypoint centralizado para no tener que configurar las cosas en cada dependencia con @export.
 """
 
 @export_category("World Config")

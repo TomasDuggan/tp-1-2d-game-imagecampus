@@ -13,6 +13,7 @@ hp = 5
 damage = 2
 attack_speed = 2.0
 horizontal_movement_speed = 75.0
+use_arrows_on_synergy_activation = true
 metadata/_custom_type_script = "uid://b838myufwwsag"
 
 [node name="World" instance=ExtResource("1_mds73")]
