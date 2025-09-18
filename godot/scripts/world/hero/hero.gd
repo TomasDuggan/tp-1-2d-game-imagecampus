@@ -23,7 +23,7 @@ func initialize(config: HeroConfig, world_type: Enums.WorldType) -> void:
 	_config = config
 	
 	_is_selected = config.start_selected
-	
+	_animation.toggle_selected(_is_selected)
 	set_process(_is_selected)
 	
 	_initialize_hitbox(world_type)
@@ -64,6 +64,7 @@ func _physics_process(_delta):
 func _toggle_selected() -> void:
 	_is_selected = !_is_selected
 	
+	_animation.toggle_selected(_is_selected)
 	set_process(_is_selected)
 	
 	if !_is_selected:

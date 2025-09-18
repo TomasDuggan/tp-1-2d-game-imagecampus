@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://b2q5ss2eqgp18"]
+[gd_scene load_steps=28 format=3 uid="uid://b2q5ss2eqgp18"]
 
 [ext_resource type="Script" uid="uid://du71wkafc61o0" path="res://scripts/world/scroll.gd" id="1_bq33v"]
 [ext_resource type="Script" uid="uid://o8r2jya8p0fw" path="res://scripts/world/world.gd" id="1_gb53w"]
@@ -11,10 +11,16 @@
 [ext_resource type="Script" uid="uid://dx2akoth87pp5" path="res://scripts/world/hero/hero_animation.gd" id="6_dlabj"]
 [ext_resource type="Script" uid="uid://q7wfpo84ki2p" path="res://scripts/world/camera_follower.gd" id="7_7pqs6"]
 [ext_resource type="PackedScene" uid="uid://bq2pr30406woi" path="res://scenes/damage/hitbox.tscn" id="7_srmg5"]
+[ext_resource type="Shader" uid="uid://covb8rlea7srk" path="res://shaders/outline.gdshader" id="9_dw3eh"]
 [ext_resource type="PackedScene" uid="uid://bhr40240oq8fk" path="res://scenes/damage/hurtbox.tscn" id="11_5qq27"]
 [ext_resource type="Script" uid="uid://ckuseg7s3ctj5" path="res://scripts/ui/score/score_ui.gd" id="12_6x50t"]
 [ext_resource type="Script" uid="uid://br3sm0otg10yf" path="res://scripts/world/y_hero_death_area.gd" id="13_75ogk"]
 [ext_resource type="Texture2D" uid="uid://bm8eqm7pjupgf" path="res://art/icons/diamond.png" id="15_75ogk"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dw3eh"]
+shader = ExtResource("9_dw3eh")
+shader_parameter/line_color = Color(1, 1, 0, 1)
+shader_parameter/line_thickness = 0.800000038
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dlabj"]
 radius = 9.0
@@ -72,11 +78,15 @@ tracks/0/keys = {
 "values": [Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_l4vy6"]
+resource_name = "walk_up"
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vqxkp"]
 _data = {
 &"RESET": SubResource("Animation_dw3eh"),
 &"heal": SubResource("Animation_vqxkp"),
-&"hit": SubResource("Animation_75ogk")
+&"hit": SubResource("Animation_75ogk"),
+&"walk_up": SubResource("Animation_l4vy6")
 }
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_n47ow"]
@@ -130,6 +140,7 @@ scale = Vector2(3, 3)
 sprite_frames = ExtResource("5_5qq27")
 animation = &"walk_up"
 script = ExtResource("6_dlabj")
+_outline_material = SubResource("ShaderMaterial_dw3eh")
 
 [node name="PhysicsCollisionShape" type="CollisionShape2D" parent="Hero"]
 position = Vector2(0, 7)
