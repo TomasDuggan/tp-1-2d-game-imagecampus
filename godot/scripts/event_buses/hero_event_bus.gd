@@ -1,7 +1,14 @@
 extends Node
+"""
+Bus para eventos relacionados a Hero
+"""
 
-@warning_ignore("unused_signal")
 signal hero_swapped()
+signal block_hero_swap(block_duration: float)
+
 
 func raise_event_swap_hero() -> void:
 	hero_swapped.emit()
+
+func raise_event_block_hero_swap(block_duration: float) -> void:
+	block_hero_swap.emit(block_duration)

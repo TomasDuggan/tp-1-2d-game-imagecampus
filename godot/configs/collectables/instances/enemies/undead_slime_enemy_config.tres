@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="CollectableConfig" load_steps=10 format=3 uid="uid://c4fyc808g5mh3"]
+
+[ext_resource type="Script" uid="uid://clxqxnesk8eta" path="res://configs/collectables/behaviours/collectable_behaviour_config.gd" id="1_g0a8l"]
+[ext_resource type="Script" uid="uid://ct5ujndsfuqfc" path="res://configs/collectables/behaviours/currency_reward_behaviour_config.gd" id="2_k8rm3"]
+[ext_resource type="Script" uid="uid://dkyvw463kyoem" path="res://configs/collectables/behaviours/hero_damager_behaviour_config.gd" id="3_nomxo"]
+[ext_resource type="Script" uid="uid://bnjytm0x5gcsa" path="res://configs/collectables/behaviours/block_swap_behaviour_config.gd" id="4_k8rm3"]
+[ext_resource type="Script" uid="uid://bkw6yobd6k4ta" path="res://configs/collectables/collectable_config.gd" id="4_xqb8k"]
+[ext_resource type="SpriteFrames" uid="uid://suay86mb65k" path="res://animations/enemies/undead_slime_animation.tres" id="5_g0a8l"]
+
+[sub_resource type="Resource" id="Resource_7rlb7"]
+script = ExtResource("2_k8rm3")
+type = 1
+reward_amount = 2
+metadata/_custom_type_script = "uid://ct5ujndsfuqfc"
+
+[sub_resource type="Resource" id="Resource_7r4is"]
+script = ExtResource("3_nomxo")
+damage = 1
+attack_speed = 2.0
+metadata/_custom_type_script = "uid://dkyvw463kyoem"
+
+[sub_resource type="Resource" id="Resource_nomxo"]
+script = ExtResource("4_k8rm3")
+block_duration = 3.0
+metadata/_custom_type_script = "uid://bnjytm0x5gcsa"
+
+[resource]
+script = ExtResource("4_xqb8k")
+sprite_frames = ExtResource("5_g0a8l")
+hp = 5
+destroyed_velocity_boost_duration = 1.0
+behaviour_configs = Array[ExtResource("1_g0a8l")]([SubResource("Resource_7rlb7"), SubResource("Resource_7r4is"), SubResource("Resource_nomxo")])
+metadata/_custom_type_script = "uid://bkw6yobd6k4ta"

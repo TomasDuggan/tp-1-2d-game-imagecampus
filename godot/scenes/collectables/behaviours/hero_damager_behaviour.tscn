@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://d0udm77yblxq7"]
 
-[ext_resource type="Script" uid="uid://dnsn4cc74lij2" path="res://scripts/world/collectables/collectable_behaviours/hero_damager_behaviour.gd" id="1_mdhbh"]
+[ext_resource type="Script" uid="uid://dnsn4cc74lij2" path="res://scripts/world/collectables/collectable_behaviours/hero_damager_collectable_behaviour.gd" id="1_mdhbh"]
 [ext_resource type="PackedScene" uid="uid://bq2pr30406woi" path="res://scenes/damage/hitbox.tscn" id="1_pnrq3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mdhbh"]

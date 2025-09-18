@@ -32,7 +32,6 @@ func initialize(config: HeroConfig, world_type: Enums.WorldType) -> void:
 
 func _initialize_hitbox(world_type: Enums.WorldType) -> void:
 	var upgraded_damage: int = _config.damage + int(UpgradesManager.get_modifier_value(world_type, Enums.UpgradeId.DAMAGE))
-	print("DMG: " + str(upgraded_damage))
 	_hitbox.initialize(self, upgraded_damage, _config.attack_speed, true, Enums.DamageFaction.HERO)
 	
 	_hitbox.attack_performed.connect(_animation.play_attack_animation)
@@ -46,7 +45,6 @@ func _initialize_hurtbox() -> void:
 func _initialize_horizontal_movement_speed(world_type: Enums.WorldType) -> void:
 	var base_speed = _config.horizontal_movement_speed
 	var upgraded_speed: float = base_speed + base_speed * UpgradesManager.get_modifier_value(world_type, Enums.UpgradeId.HORIZONTAL_MOVEMENT_SPEED)
-	print("Speed: " + str(upgraded_speed))
 	_horizontal_movement_speed = upgraded_speed
 
 func _ready():
