@@ -15,4 +15,4 @@ func initialize(config_arg: CollectableBehaviourConfig) -> void:
 	config = config_arg
 
 @abstract
-func on_destroyed_by_hero(_source: Hero) -> void
+func on_destroyed_by_hero(source: Hero) -> void

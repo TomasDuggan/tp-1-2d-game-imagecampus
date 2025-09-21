@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://coqec8g1eh0ac"
-path="res://.godot/imported/WhiteCircle256.png-1ee4b670a9c4e371e53004ed5e92deaa.ctex"
+uid="uid://fr8e5cm3ghsr"
+path="res://.godot/imported/Button.png-0c57f1b041b7c0df992f2c6b3c50f84a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/icons/WhiteCircle256.png"
-dest_files=["res://.godot/imported/WhiteCircle256.png-1ee4b670a9c4e371e53004ed5e92deaa.ctex"]
+source_file="res://art/interactables/Button.png"
+dest_files=["res://.godot/imported/Button.png-0c57f1b041b7c0df992f2c6b3c50f84a.ctex"]
 
 [params]
 

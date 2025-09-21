@@ -23,5 +23,5 @@ func _ready():
 func get_hero() -> Hero:
 	return _hero
 
-func set_hero_ally(ally: Hero) -> void:
+func set_ally_hero(ally: Hero) -> void:
 	_hero.set_ally(ally)

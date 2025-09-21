@@ -14,8 +14,8 @@ func _ready():
 	var miner_hero: Hero = _miner_world.get_hero()
 	var warrior_hero: Hero = _warrior_world.get_hero()
 	
-	_miner_world.set_hero_ally(warrior_hero)
-	_warrior_world.set_hero_ally(miner_hero)
+	_miner_world.set_ally_hero(warrior_hero)
+	_warrior_world.set_ally_hero(miner_hero)
 	_hero_selection_manager.initialize([miner_hero, warrior_hero])
 
 

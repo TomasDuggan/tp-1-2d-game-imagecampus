@@ -1,0 +1,69 @@
+[gd_scene load_steps=10 format=3 uid="uid://tcewqetm8xvx"]
+
+[ext_resource type="Script" uid="uid://bdeyihjxtfil3" path="res://scripts/world/interactables/door.gd" id="1_qqm67"]
+[ext_resource type="Texture2D" uid="uid://o5x66ae8gwu4" path="res://art/interactables/doors_lever_chest_animation.png" id="1_y4rrp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qqm67"]
+atlas = ExtResource("1_y4rrp")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j5ube"]
+atlas = ExtResource("1_y4rrp")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ayodx"]
+atlas = ExtResource("1_y4rrp")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o8sed"]
+atlas = ExtResource("1_y4rrp")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qackn"]
+atlas = ExtResource("1_y4rrp")
+region = Rect2(128, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iy23o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qqm67")
+}],
+"loop": false,
+"name": &"close",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j5ube")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ayodx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o8sed")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qackn")
+}],
+"loop": false,
+"name": &"open",
+"speed": 12.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e5tew"]
+size = Vector2(32, 32)
+
+[node name="Door" type="StaticBody2D"]
+scale = Vector2(2, 2)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_qqm67")
+
+[node name="Animation" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_iy23o")
+animation = &"open"
+autoplay = "close"
+
+[node name="PhysicsCollisionShape" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_e5tew")

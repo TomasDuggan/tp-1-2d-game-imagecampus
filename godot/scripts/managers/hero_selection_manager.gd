@@ -8,12 +8,14 @@ var _heroes: Array[Hero]
 var _block_swap_timer := Timer.new()
 var _synergy_effect_activated: bool
 
+const SWAP_HERO_ACTION_NAME := "swap_hero"
+
 
 func initialize(heroes: Array[Hero]) -> void:
 	_heroes = heroes
-	_select_first_hero()
+	_select_only_first_hero()
 
-func _select_first_hero() -> void:
+func _select_only_first_hero() -> void:
 	var start_selected_hero: Hero = _heroes.front()
 	start_selected_hero.select()
 	
@@ -29,7 +31,7 @@ func _ready():
 	SynergyEventBus.synergy_effect_ended.connect(_on_synergy_effect_ended)
 
 func _unhandled_key_input(event: InputEvent):
-	if event.is_action_pressed("swap_hero") && _can_swap():
+	if event.is_action_pressed(SWAP_HERO_ACTION_NAME) && _can_swap():
 		_swap_hero_selection()
 
 func _can_swap() -> bool:
@@ -51,7 +53,7 @@ func _on_synergy_effect_activated() -> void:
 
 func _on_synergy_effect_ended() -> void:
 	_synergy_effect_activated = false
-	_select_first_hero()
+	_select_only_first_hero()
 
 func _block_swap(block_duration: float) -> void:
 	_block_swap_timer.start(block_duration)

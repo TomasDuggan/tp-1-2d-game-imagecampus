@@ -40,7 +40,7 @@ func _on_collectable_gained(_type, _amount) -> void:
 	_update_synergy_value(COLLECTABLE_GAINED_SYNERGY_INCREASE_VALUE)
 
 func _update_synergy_value(value: float) -> void:
-	if !_synergy_effect_timer.is_stopped():
+	if _is_synergy_effect_active():
 		return
 	
 	_current_synergy = clamp(_current_synergy + value, 0.0, 1.0)
@@ -49,6 +49,9 @@ func _update_synergy_value(value: float) -> void:
 
 	if _current_synergy == 1.0:
 		_activate_synergy_effect()
+
+func _is_synergy_effect_active() -> bool:
+	return !_synergy_effect_timer.is_stopped()
 
 func _create_slide_bar_tween(duration: float) -> void:
 	if _current_slidebar_tween:

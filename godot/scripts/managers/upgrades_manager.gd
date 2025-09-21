@@ -8,9 +8,9 @@ var _bought_upgrades: Array[Upgrade] = []
 
 #TODO: borrar esto, es mock testing
 func _ready():
-	add_upgrade(preload("uid://4iq72jx00k26")) # + DMG
-	add_upgrade(preload("uid://4iq72jx00k26")) # + DMG lvl 2 (agrego dos veces la misma config, levelea)
-	add_upgrade(preload("uid://dqsgdu0754klx")) # + horizontal speed
+	#add_upgrade(preload("uid://4iq72jx00k26")) # + DMG
+	#add_upgrade(preload("uid://4iq72jx00k26")) # + DMG lvl 2 (agrego dos veces la misma config, levelea)
+	#add_upgrade(preload("uid://dqsgdu0754klx")) # + horizontal speed
 	
 	var upgrade_names: Array = _bought_upgrades.map(func(u: Upgrade): return u._config.display_name)
 	print_debug("Agregando upgrades mock: ", upgrade_names)
