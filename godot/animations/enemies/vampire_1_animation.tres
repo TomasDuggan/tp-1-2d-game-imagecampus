@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=31 format=3 uid="uid://bbmaygdw40hfm"]
+[gd_resource type="SpriteFrames" load_steps=30 format=3 uid="uid://bbmaygdw40hfm"]
 
 [ext_resource type="Texture2D" uid="uid://cmbtqrxi0gdan" path="res://art/characters/enemies/vampire_1/Vampires1_Attack_with_shadow.png" id="1_2y0en"]
 [ext_resource type="Texture2D" uid="uid://lrlmdqalhjov" path="res://art/characters/enemies/vampire_1/Vampires1_Death_with_shadow.png" id="2_2a6ch"]
@@ -47,10 +47,6 @@ region = Rect2(640, 0, 64, 64)
 [sub_resource type="AtlasTexture" id="AtlasTexture_wasej"]
 atlas = ExtResource("1_2y0en")
 region = Rect2(704, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jrqvc"]
-atlas = ExtResource("1_2y0en")
-region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dy3gx"]
 atlas = ExtResource("2_2a6ch")
@@ -147,9 +143,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_wasej")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jrqvc")
 }],
 "loop": false,
 "name": &"attack_down",

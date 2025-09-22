@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=31 format=3 uid="uid://suay86mb65k"]
+[gd_resource type="SpriteFrames" load_steps=30 format=3 uid="uid://suay86mb65k"]
 
 [ext_resource type="Texture2D" uid="uid://5agow3wt2xpq" path="res://art/characters/enemies/undead_slime/Slime2_Attack_with_shadow.png" id="1_ahmhy"]
 [ext_resource type="Texture2D" uid="uid://cl25r8i37b1lg" path="res://art/characters/enemies/undead_slime/Slime2_Death_with_shadow.png" id="2_2o2gi"]
@@ -43,10 +43,6 @@ region = Rect2(576, 0, 64, 64)
 [sub_resource type="AtlasTexture" id="AtlasTexture_ipsy7"]
 atlas = ExtResource("1_ahmhy")
 region = Rect2(640, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_703l4"]
-atlas = ExtResource("1_ahmhy")
-region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c6h0v"]
 atlas = ExtResource("2_2o2gi")
@@ -144,9 +140,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ipsy7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_703l4")
 }],
 "loop": false,
 "name": &"attack_down",

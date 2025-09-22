@@ -1,0 +1,84 @@
+[gd_scene load_steps=10 format=3 uid="uid://41r7gy6mk5f7"]
+
+[ext_resource type="Script" uid="uid://cqug56r5scugw" path="res://scripts/ui/shop/shop_ui.gd" id="1_rc5g1"]
+[ext_resource type="Script" uid="uid://bhmckujririhf" path="res://configs/upgrades/upgrade_config.gd" id="2_rc5g1"]
+[ext_resource type="Resource" uid="uid://dt51d04n5a11f" path="res://configs/upgrades/miner_mineral_gather_upgrade_config.tres" id="3_3qv50"]
+[ext_resource type="Resource" uid="uid://dqsgdu0754klx" path="res://configs/upgrades/miner_horizontal_movement_speed_upgrade_config.tres" id="3_63ers"]
+[ext_resource type="Script" uid="uid://dpj0vhu4yd0d8" path="res://scripts/ui/shop/upgrades_container_ui.gd" id="3_vgm16"]
+[ext_resource type="Resource" uid="uid://4iq72jx00k26" path="res://configs/upgrades/warrior_damage_upgrade_config.tres" id="4_vgm16"]
+[ext_resource type="Texture2D" uid="uid://b2ro32smbm8p3" path="res://art/ui/tiles/tile_0001.png" id="6_3qv50"]
+[ext_resource type="PackedScene" uid="uid://bbotfj18d8itl" path="res://scenes/ui/score/collectable_ui.tscn" id="7_3qv50"]
+[ext_resource type="Theme" uid="uid://cm2fomdb61et5" path="res://themes/basic_button_theme.tres" id="8_tuamk"]
+
+[node name="ShopUI" type="Control" node_paths=PackedStringArray("_miner_score", "_warrior_score", "_miner_upgrades_container", "_warrior_upgrades_container")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rc5g1")
+_all_miner_upgrades = Array[ExtResource("2_rc5g1")]([ExtResource("3_63ers"), ExtResource("3_3qv50")])
+_all_warrior_upgrades = Array[ExtResource("2_rc5g1")]([ExtResource("4_vgm16")])
+_miner_score = NodePath("Content/TopRow/MinerScore")
+_warrior_score = NodePath("Content/TopRow/WarriorScore")
+_miner_upgrades_container = NodePath("Content/AllUpgradesContainer/MinerUpgradesContainer")
+_warrior_upgrades_container = NodePath("Content/AllUpgradesContainer/WarriorUpgradesContainer")
+
+[node name="Background" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_3qv50")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="Content" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TopRow" type="HBoxContainer" parent="Content"]
+layout_mode = 2
+
+[node name="MinerScore" parent="Content/TopRow" instance=ExtResource("7_3qv50")]
+layout_mode = 2
+
+[node name="WarriorScore" parent="Content/TopRow" instance=ExtResource("7_3qv50")]
+layout_mode = 2
+
+[node name="ExitShopButton" type="Button" parent="Content/TopRow"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+theme = ExtResource("8_tuamk")
+text = "Exit Shop"
+
+[node name="AllUpgradesContainer" type="HBoxContainer" parent="Content"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 25
+
+[node name="MinerUpgradesContainer" type="VBoxContainer" parent="Content/AllUpgradesContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("3_vgm16")
+
+[node name="WarriorUpgradesContainer" type="VBoxContainer" parent="Content/AllUpgradesContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("3_vgm16")
+
+[connection signal="pressed" from="Content/TopRow/ExitShopButton" to="." method="_on_exit_shop_button_pressed"]

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="UpgradeConfig" load_steps=3 format=3 uid="uid://dt51d04n5a11f"]
+
+[ext_resource type="Texture2D" uid="uid://d3wkfe8s0i1f2" path="res://art/icons/skills/cart.png" id="1_4sllj"]
+[ext_resource type="Script" uid="uid://bhmckujririhf" path="res://configs/upgrades/upgrade_config.gd" id="2_cg3g2"]
+
+[resource]
+script = ExtResource("2_cg3g2")
+id = 2
+stat_modifier_value = 1.0
+icon = ExtResource("1_4sllj")
+display_name = "Shopping Cart"
+description = "Increase the miner's mineral recollection by 1"
+price = 75
+metadata/_custom_type_script = "uid://bhmckujririhf"

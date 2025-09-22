@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://y76enpiqi5pc"]
+[gd_scene load_steps=9 format=4 uid="uid://y76enpiqi5pc"]
 
 [ext_resource type="PackedScene" uid="uid://b2q5ss2eqgp18" path="res://scenes/level/world/world.tscn" id="1_mds73"]
 [ext_resource type="Script" uid="uid://bkw6yobd6k4ta" path="res://configs/collectables/collectable_config.gd" id="2_b43ak"]
@@ -16,6 +16,9 @@ horizontal_movement_speed = 75.0
 use_arrows_on_synergy_activation = true
 metadata/_custom_type_script = "uid://b838myufwwsag"
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kf76c"]
+size = Vector2(476, 20)
+
 [node name="World" instance=ExtResource("1_mds73")]
 _world_type = 1
 _hero_config = SubResource("Resource_kf76c")
@@ -32,6 +35,13 @@ position = Vector2(628, 114)
 
 [node name="Door2" parent="Scroll/InteractablesContainer" index="1" instance=ExtResource("6_xg7um")]
 position = Vector2(631, -51)
+
+[node name="WinWorldArea" parent="Scroll" index="5"]
+position = Vector2(642, -768)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scroll/WinWorldArea" index="0"]
+position = Vector2(9, 635)
+shape = SubResource("RectangleShape2D_kf76c")
 
 [node name="Animation" parent="Hero" index="0"]
 scale = Vector2(2, 2)

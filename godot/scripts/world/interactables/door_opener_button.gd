@@ -1,5 +1,5 @@
 extends Area2D
-class_name TrapDisablerButton
+class_name DoorOpenerButton
 
 @onready var _sprite_on: Sprite2D = $SpriteOn
 @onready var _sprite_off: Sprite2D = $SpriteOff

@@ -10,4 +10,5 @@ enum DamageFaction { HERO, ENEMY }
 enum UpgradeId {
 	DAMAGE,
 	HORIZONTAL_MOVEMENT_SPEED,
+	CURRENCY_GATHER,
 }

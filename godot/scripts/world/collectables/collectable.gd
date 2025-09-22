@@ -50,6 +50,8 @@ func _destroyed(damage_source: Hero, _defender: Node2D) -> void:
 
 func _on_animation_requested(animation_name: String) -> void:
 	_animation.play(animation_name)
+	await _animation.animation_finished
+	_animation.play("default")
 
 func _hit() -> void:
 	_animation_player.play("hit")

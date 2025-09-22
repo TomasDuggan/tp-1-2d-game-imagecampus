@@ -11,6 +11,8 @@ var _synergy_effect_timer := Timer.new()
 var _synergy_decay_timer := Timer.new()
 var _current_slidebar_tween: Tween
 
+const MAX_SYNERGY_AMOUNT := 1.0
+const MIN_SYNERGY_AMOUNT := 0.0
 const SYNERGY_EFFECT_DURATION := 10.0
 const SYNERGY_DECAY_DELAY := 5.0
 const SYNERGY_DECAY_VALUE := -0.1
@@ -43,11 +45,11 @@ func _update_synergy_value(value: float) -> void:
 	if _is_synergy_effect_active():
 		return
 	
-	_current_synergy = clamp(_current_synergy + value, 0.0, 1.0)
+	_current_synergy = clamp(_current_synergy + value, MIN_SYNERGY_AMOUNT, MAX_SYNERGY_AMOUNT)
 	
 	_create_slide_bar_tween(0.1)
 
-	if _current_synergy == 1.0:
+	if _current_synergy == MAX_SYNERGY_AMOUNT:
 		_activate_synergy_effect()
 
 func _is_synergy_effect_active() -> bool:
@@ -64,7 +66,7 @@ func _activate_synergy_effect() -> void:
 	_synergy_decay_timer.stop()
 	_synergy_effect_timer.start()
 	
-	_current_synergy = 0.0
+	_current_synergy = MIN_SYNERGY_AMOUNT
 	_create_slide_bar_tween(SYNERGY_EFFECT_DURATION)
 	
 	SynergyEventBus.raise_event_synergy_effect_activated()

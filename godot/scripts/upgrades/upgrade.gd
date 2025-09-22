@@ -17,5 +17,8 @@ func matches(world_type: Enums.WorldType, upgrade_id: Enums.UpgradeId) -> bool:
 func get_value() -> float:
 	return _config.stat_modifier_value * _current_level
 
+func get_current_level() -> int:
+	return _current_level
+
 func get_config() -> UpgradeConfig:
 	return _config

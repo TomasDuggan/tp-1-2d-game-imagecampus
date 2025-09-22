@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://bmjsmxtdlcees"]
+[gd_scene load_steps=9 format=4 uid="uid://bmjsmxtdlcees"]
 
 [ext_resource type="PackedScene" uid="uid://b2q5ss2eqgp18" path="res://scenes/level/world/world.tscn" id="1_cclrl"]
 [ext_resource type="Script" uid="uid://bkw6yobd6k4ta" path="res://configs/collectables/collectable_config.gd" id="2_g2x1l"]
@@ -15,6 +15,9 @@ attack_speed = 1.0
 horizontal_movement_speed = 100.0
 metadata/_custom_type_script = "uid://b838myufwwsag"
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2erno"]
+size = Vector2(497, 20)
+
 [node name="World" instance=ExtResource("1_cclrl")]
 _hero_config = SubResource("Resource_o2gkj")
 _collectables_to_spawn = Array[ExtResource("2_g2x1l")]([ExtResource("3_vkdcb"), ExtResource("5_2erno")])
@@ -30,6 +33,13 @@ position = Vector2(463, -60)
 
 [node name="DoorOpenerButton2" parent="Scroll/InteractablesContainer" index="1" instance=ExtResource("7_vkdcb")]
 position = Vector2(463, -129)
+
+[node name="WinWorldArea" parent="Scroll" index="5"]
+position = Vector2(654, -291)
+
+[node name="AreaCollisionShape" type="CollisionShape2D" parent="Scroll/WinWorldArea" index="0"]
+position = Vector2(-6.5, 0)
+shape = SubResource("RectangleShape2D_2erno")
 
 [node name="Animation" parent="Hero" index="0"]
 animation = &"attack_up"

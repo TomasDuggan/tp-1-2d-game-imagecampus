@@ -1,11 +1,14 @@
-[gd_resource type="Resource" script_class="UpgradeConfig" load_steps=2 format=3 uid="uid://dqsgdu0754klx"]
+[gd_resource type="Resource" script_class="UpgradeConfig" load_steps=3 format=3 uid="uid://dqsgdu0754klx"]
 
 [ext_resource type="Script" uid="uid://bhmckujririhf" path="res://configs/upgrades/upgrade_config.gd" id="1_b4bdy"]
+[ext_resource type="Texture2D" uid="uid://be5xfe6svfj51" path="res://art/icons/skills/boots.png" id="1_diu5v"]
 
 [resource]
 script = ExtResource("1_b4bdy")
 id = 1
-display_name = "Miner horizontal movement speed"
-description = "Speed +20%"
 stat_modifier_value = 0.2
+icon = ExtResource("1_diu5v")
+display_name = "Dodge the creeps"
+description = "Increase the miner's horizontal movement speed by 20%"
+price = 3
 metadata/_custom_type_script = "uid://bhmckujririhf"

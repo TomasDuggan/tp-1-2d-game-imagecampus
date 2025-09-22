@@ -12,11 +12,11 @@
 [ext_resource type="Script" uid="uid://q7wfpo84ki2p" path="res://scripts/world/camera_follower.gd" id="7_7pqs6"]
 [ext_resource type="PackedScene" uid="uid://bq2pr30406woi" path="res://scenes/damage/hitbox.tscn" id="7_srmg5"]
 [ext_resource type="Script" uid="uid://dg5vnk5014wwx" path="res://scripts/world/interactables/interactables_container.gd" id="7_vqxkp"]
+[ext_resource type="Script" uid="uid://dnohk38wr61k7" path="res://scripts/world/win_world_area.gd" id="8_l4vy6"]
 [ext_resource type="Shader" uid="uid://covb8rlea7srk" path="res://shaders/outline.gdshader" id="9_dw3eh"]
 [ext_resource type="PackedScene" uid="uid://bhr40240oq8fk" path="res://scenes/damage/hurtbox.tscn" id="11_5qq27"]
-[ext_resource type="Script" uid="uid://ckuseg7s3ctj5" path="res://scripts/ui/score/score_ui.gd" id="12_6x50t"]
 [ext_resource type="Script" uid="uid://br3sm0otg10yf" path="res://scripts/world/y_hero_death_area.gd" id="13_75ogk"]
-[ext_resource type="Texture2D" uid="uid://bm8eqm7pjupgf" path="res://art/icons/diamond.png" id="15_75ogk"]
+[ext_resource type="PackedScene" uid="uid://bbotfj18d8itl" path="res://scenes/ui/score/collectable_ui.tscn" id="17_vqxkp"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dw3eh"]
 shader = ExtResource("9_dw3eh")
@@ -125,6 +125,11 @@ script = ExtResource("3_1yooq")
 [node name="InteractablesContainer" type="Node2D" parent="Scroll"]
 script = ExtResource("7_vqxkp")
 
+[node name="WinWorldArea" type="Area2D" parent="Scroll"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("8_l4vy6")
+
 [node name="CameraFollower" type="Camera2D" parent="." node_paths=PackedStringArray("_hero")]
 position = Vector2(640, 360)
 editor_draw_limits = true
@@ -211,17 +216,5 @@ grow_horizontal = 0
 theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 50
 
-[node name="ScoreContainer" type="HBoxContainer" parent="CanvasLayer/HUD/MarginContainer"]
-custom_minimum_size = Vector2(50, 50)
+[node name="ScoreContainer" parent="CanvasLayer/HUD/MarginContainer" instance=ExtResource("17_vqxkp")]
 layout_mode = 2
-script = ExtResource("12_6x50t")
-
-[node name="ScoreIcon" type="TextureRect" parent="CanvasLayer/HUD/MarginContainer/ScoreContainer"]
-layout_mode = 2
-texture = ExtResource("15_75ogk")
-expand_mode = 2
-
-[node name="ScoreAmount" type="Label" parent="CanvasLayer/HUD/MarginContainer/ScoreContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-text = "100"

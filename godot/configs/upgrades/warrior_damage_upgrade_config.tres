@@ -1,11 +1,14 @@
-[gd_resource type="Resource" script_class="UpgradeConfig" load_steps=2 format=3 uid="uid://4iq72jx00k26"]
+[gd_resource type="Resource" script_class="UpgradeConfig" load_steps=3 format=3 uid="uid://4iq72jx00k26"]
 
+[ext_resource type="Texture2D" uid="uid://cdy6romyvt764" path="res://art/icons/skills/sword.png" id="1_beg4j"]
 [ext_resource type="Script" uid="uid://bhmckujririhf" path="res://configs/upgrades/upgrade_config.gd" id="1_wm7jo"]
 
 [resource]
 script = ExtResource("1_wm7jo")
 world_type = 1
-display_name = "Warrior dmg"
-description = "Dmg +1"
+icon = ExtResource("1_beg4j")
+display_name = "Kill the creeps"
+description = "Increase the warrior's wamage by 1"
+price = 100
 stat_modifier_value = 1.0
 metadata/_custom_type_script = "uid://bhmckujririhf"

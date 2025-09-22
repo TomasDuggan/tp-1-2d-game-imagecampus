@@ -13,7 +13,7 @@ Sirve como entrypoint centralizado para no tener que configurar las cosas en cad
 @export_category("Dependencies")
 @export var _collectables_spawner: CollectablesSpawner
 @export var _hero: Hero
-@export var _score_container: ScoreUI
+@export var _score_container: CollectableUI
 
 func _ready():
 	_collectables_spawner.initialize(_collectables_to_spawn)

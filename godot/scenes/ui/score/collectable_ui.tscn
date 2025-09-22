@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bbotfj18d8itl"]
+
+[ext_resource type="Script" uid="uid://ckuseg7s3ctj5" path="res://scripts/ui/score/collectable_ui.gd" id="1_vj4ec"]
+[ext_resource type="Texture2D" uid="uid://bm8eqm7pjupgf" path="res://art/icons/currency/diamond.png" id="2_jgk0v"]
+[ext_resource type="Theme" uid="uid://cbp5aehq4d233" path="res://themes/basic_label_theme.tres" id="3_5l8u5"]
+
+[node name="Container" type="HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+theme_override_constants/separation = 0
+script = ExtResource("1_vj4ec")
+
+[node name="CollectableIcon" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_jgk0v")
+expand_mode = 2
+
+[node name="CollectableAmount" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("3_5l8u5")
+text = "100"
