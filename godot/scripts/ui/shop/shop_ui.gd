@@ -1,5 +1,8 @@
 extends Control
 class_name ShopUI
+"""
+Contenedor de view y logica de comprar upgrades
+"""
 
 @export var _all_miner_upgrades: Array[UpgradeConfig]
 @export var _all_warrior_upgrades: Array[UpgradeConfig]

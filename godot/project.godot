@@ -24,6 +24,7 @@ CollectablesManager="*res://scripts/managers/collectables_manager.gd"
 UpgradesManager="*res://scripts/managers/upgrades_manager.gd"
 SynergyEventBus="*res://scripts/event_buses/synergy_event_bus.gd"
 InteractablesEventBus="*res://scripts/event_buses/interactables_event_bus.gd"
+UpgradesEventBus="*res://scripts/event_buses/upgrades_event_bus.gd"
 
 [display]
 

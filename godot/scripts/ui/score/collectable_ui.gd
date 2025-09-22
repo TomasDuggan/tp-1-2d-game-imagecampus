@@ -3,7 +3,7 @@ class_name CollectableUI
 """
 UI para mostrar una cantidad de Collectables (icono + cantidad)
 Lo uso tanto para el Score como para el Shop, por eso la vuelta de tuerca con "_fixed_amount"
-* _fixed_amount: Deja siempre fija la etiqueta del texto
+* _fixed_amount != -1: Deja siempre fija la etiqueta del texto
 """
 
 @onready var _collectable_icon: TextureRect = $CollectableIcon

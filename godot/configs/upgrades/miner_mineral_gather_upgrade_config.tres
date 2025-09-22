@@ -10,5 +10,5 @@ stat_modifier_value = 1.0
 icon = ExtResource("1_4sllj")
 display_name = "Shopping Cart"
 description = "Increase the miner's mineral recollection by 1"
-price = 75
+price = 5
 metadata/_custom_type_script = "uid://bhmckujririhf"

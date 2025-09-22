@@ -1,6 +1,8 @@
 extends Control
 class_name UpgradeUI
-
+"""
+Item que muestra la info de una upgrade
+"""
 
 @export_category("Dependencies")
 @export var _icon: TextureRect
@@ -21,11 +23,11 @@ func _ready():
 	_name.text = _config.display_name
 	_level.text = "Level " + str(UpgradesManager.get_upgrade_level(_config))
 	_description.text = _config.description
-	_initialize_price()
+	calculate_price()
 	
 	_buy_button.pressed.connect(_buy_pressed)
 
-func _initialize_price() -> void:
+func calculate_price() -> void:
 	var price_text_color: Color = Color.LAWN_GREEN if _can_buy_upgrade() else Color.CRIMSON
 	
 	_price.initialize(_config.world_type, _config.price)
@@ -36,9 +38,10 @@ func _can_buy_upgrade() -> bool:
 
 func _buy_pressed() -> void:
 	if _can_buy_upgrade():
-		CollectablesManager.buy_upgrade(_config)
-		hide()
+		UpgradesEventBus.raise_event_upgrade_bought(_config)
 
+func matches_config(config: UpgradeConfig) -> bool:
+	return config == _config
 
 
 

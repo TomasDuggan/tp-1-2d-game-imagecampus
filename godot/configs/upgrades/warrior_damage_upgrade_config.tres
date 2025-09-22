@@ -6,9 +6,9 @@
 [resource]
 script = ExtResource("1_wm7jo")
 world_type = 1
+stat_modifier_value = 1.0
 icon = ExtResource("1_beg4j")
 display_name = "Kill the creeps"
 description = "Increase the warrior's wamage by 1"
-price = 100
-stat_modifier_value = 1.0
+price = 5
 metadata/_custom_type_script = "uid://bhmckujririhf"
