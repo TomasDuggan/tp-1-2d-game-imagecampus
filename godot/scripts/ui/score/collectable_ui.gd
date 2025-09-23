@@ -12,7 +12,7 @@ Lo uso tanto para el Score como para el Shop, por eso la vuelta de tuerca con "_
 var _world_type: Enums.WorldType
 var _fixed_amount: int
 
-const ICONS_BY_WORLD_TYPE := {
+const ICONS_BY_WORLD_TYPE: Dictionary[Enums.WorldType, Texture2D] = {
 	Enums.WorldType.MINER: preload("uid://bm8eqm7pjupgf"),
 	Enums.WorldType.WARRIOR: preload("uid://ccwrpax3qwusa"),
 }

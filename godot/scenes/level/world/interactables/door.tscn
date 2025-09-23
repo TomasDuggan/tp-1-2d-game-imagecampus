@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://tcewqetm8xvx"]
+[gd_scene load_steps=11 format=3 uid="uid://tcewqetm8xvx"]
 
 [ext_resource type="Script" uid="uid://bdeyihjxtfil3" path="res://scripts/world/interactables/door.gd" id="1_qqm67"]
 [ext_resource type="Texture2D" uid="uid://o5x66ae8gwu4" path="res://art/interactables/doors_lever_chest_animation.png" id="1_y4rrp"]
+[ext_resource type="Texture2D" uid="uid://yc74s5xrwbj" path="res://art/icons/generic/key.png" id="3_j5ube"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qqm67"]
 atlas = ExtResource("1_y4rrp")
@@ -67,3 +68,8 @@ autoplay = "close"
 
 [node name="PhysicsCollisionShape" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_e5tew")
+
+[node name="KeySprite" type="Sprite2D" parent="."]
+position = Vector2(10.000002, -9.999999)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_j5ube")

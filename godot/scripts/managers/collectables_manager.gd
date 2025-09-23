@@ -3,7 +3,7 @@ extends Node
 Global que maneja los coleccionables/moneda/score (es todo lo mismo) del jugador
 """
 
-var _collected_by_type := {
+var _collected_by_type: Dictionary[Enums.WorldType, int] = {
 	Enums.WorldType.MINER: 7,
 	Enums.WorldType.WARRIOR: 6,
 }

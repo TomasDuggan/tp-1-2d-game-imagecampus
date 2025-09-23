@@ -20,3 +20,5 @@ func _on_hero_entered(_hero: Hero) -> void:
 # 'interfaz'
 func set_id(id: int) -> void:
 	_door_to_open_id = id
+	_sprite_on.modulate = ColorHelper.int_to_color_hsv(id)
+	_sprite_off.modulate = ColorHelper.int_to_color_hsv(id)

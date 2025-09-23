@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://868w52vkw11w"]
 
 [ext_resource type="Script" uid="uid://6r8tod7gf4f8" path="res://scripts/world/interactables/door_opener_button.gd" id="1_4race"]
-[ext_resource type="Texture2D" uid="uid://fr8e5cm3ghsr" path="res://art/interactables/Button.png" id="2_q86hh"]
+[ext_resource type="Texture2D" uid="uid://31xb2sxueiki" path="res://art/interactables/white_button.png" id="2_4race"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fatc7"]
 size = Vector2(14, 10)
@@ -17,12 +17,12 @@ position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_fatc7")
 
 [node name="SpriteOn" type="Sprite2D" parent="."]
-texture = ExtResource("2_q86hh")
+texture = ExtResource("2_4race")
 hframes = 2
 
 [node name="SpriteOff" type="Sprite2D" parent="."]
 visible = false
 scale = Vector2(1, 0.5)
-texture = ExtResource("2_q86hh")
+texture = ExtResource("2_4race")
 hframes = 2
 frame = 1

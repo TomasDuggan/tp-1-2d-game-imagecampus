@@ -23,14 +23,16 @@ func _ready():
 	_name.text = _config.display_name
 	_level.text = "Level " + str(UpgradesManager.get_upgrade_level(_config))
 	_description.text = _config.description
-	calculate_price()
+	_calculate_price()
 	
 	_buy_button.pressed.connect(_buy_pressed)
 
-func calculate_price() -> void:
-	var price_text_color: Color = Color.LAWN_GREEN if _can_buy_upgrade() else Color.CRIMSON
-	
+func _calculate_price() -> void:
 	_price.initialize(_config.world_type, _config.price)
+	resolve_price_color()
+
+func resolve_price_color() -> void:
+	var price_text_color: Color = Color.GREEN_YELLOW if _can_buy_upgrade() else Color.CRIMSON
 	_price.change_text_color(price_text_color)
 
 func _can_buy_upgrade() -> bool:
