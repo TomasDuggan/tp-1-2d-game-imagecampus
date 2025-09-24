@@ -4,7 +4,7 @@ class_name ShopUI
 Contenedor de view y logica de comprar upgrades
 """
 
-@export_category("Dependencies")
+@export_category("Editor Dependencies")
 @export var _miner_score: CollectableUI
 @export var _warrior_score: CollectableUI
 @export var _upgrade_containers: Array[UpgradesContainerUI]
@@ -13,8 +13,8 @@ signal exit_shop()
 
 
 func _ready():
-	_miner_score.initialize(Enums.WorldType.MINER)
-	_warrior_score.initialize(Enums.WorldType.WARRIOR)
+	_miner_score.initialize(World.WorldType.MINER)
+	_warrior_score.initialize(World.WorldType.WARRIOR)
 	
 	_on_show_buyable_upgrades_pressed()
 

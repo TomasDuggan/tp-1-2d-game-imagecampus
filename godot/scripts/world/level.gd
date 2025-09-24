@@ -4,7 +4,7 @@ class_name Level
 Contenedor y coordinador entre Worlds
 """
 
-@export_category("Dependencies")
+@export_category("Editor Dependencies")
 @export var _miner_world: World
 @export var _warrior_world: World
 @export var _hero_selection_manager: HeroSelectionManager

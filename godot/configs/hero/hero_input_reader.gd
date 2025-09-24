@@ -26,10 +26,10 @@ func _on_synergy_activated() -> void:
 
 func _on_synergy_ended() -> void:
 	if _use_arrows_on_synergy_activation:
-		_right_action = _remove_suffix(_right_action)
-		_left_action = _remove_suffix(_left_action)
+		_right_action = _remove_synergy_suffix(_right_action)
+		_left_action = _remove_synergy_suffix(_left_action)
 
-func _remove_suffix(action: String) -> String:
+func _remove_synergy_suffix(action: String) -> String:
 	return action.substr(0, action.length() - SYNERGY_ACTION_SUFFIX.length())
 
 func get_horizontal_input_direction() -> int:
@@ -38,3 +38,8 @@ func get_horizontal_input_direction() -> int:
 func _exit_tree():
 	SynergyEventBus.synergy_effect_activated.disconnect(_on_synergy_activated)
 	SynergyEventBus.synergy_effect_ended.disconnect(_on_synergy_ended)
+
+
+
+
+#

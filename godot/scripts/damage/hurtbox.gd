@@ -10,13 +10,15 @@ signal hit()
 signal healed()
 signal destroyed(attacker_root: Node2D, defender_root: Node2D)
 
+enum DamageFaction { HERO, ENEMY }
+
 var _root: Node2D
 var _max_hp: int
 var _current_hp: int
-var _faction: Enums.DamageFaction
+var _faction: DamageFaction
 
 
-func initialize(root: Node2D, hp: int, faction: Enums.DamageFaction, show_hp_bar: bool) -> void:
+func initialize(root: Node2D, hp: int, faction: DamageFaction, show_hp_bar: bool) -> void:
 	_root = root
 	_max_hp = hp
 	_current_hp = hp
@@ -44,7 +46,7 @@ func heal(heal_amount: int) -> void:
 func _update_hp_bar() -> void:
 	_hp_bar.value = _current_hp / float(_max_hp)
 
-func is_ally(other: Enums.DamageFaction) -> bool:
+func is_ally(other: DamageFaction) -> bool:
 	return _faction == other
 
 

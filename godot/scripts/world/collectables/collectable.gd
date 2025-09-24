@@ -24,7 +24,7 @@ func _ready():
 	
 	scale = _config.scale_override
 	
-	_hurtbox.initialize(self, _config.hp, Enums.DamageFaction.ENEMY, false)
+	_hurtbox.initialize(self, _config.hp, Hurtbox.DamageFaction.ENEMY, false)
 	_hurtbox.destroyed.connect(_destroyed)
 	_hurtbox.hit.connect(_hit)
 	

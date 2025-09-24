@@ -12,11 +12,11 @@ var _damage_source: Node2D
 var _attack_cd_timer := Timer.new()
 var _damage: int
 var _targets_in_range: Array[Hurtbox] = []
-var _source_faction: Enums.DamageFaction
+var _source_faction: Hurtbox.DamageFaction
 
 
 # TODO: logica de "autoattack == false"
-func initialize(damage_source: Node2D, damage: int, attack_speed: float, autoattack: bool, source_faction: Enums.DamageFaction) -> void:
+func initialize(damage_source: Node2D, damage: int, attack_speed: float, autoattack: bool, source_faction: Hurtbox.DamageFaction) -> void:
 	_damage_source = damage_source
 	_damage = damage
 	_source_faction = source_faction

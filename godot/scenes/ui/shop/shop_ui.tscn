@@ -22,7 +22,7 @@ grow_vertical = 2
 script = ExtResource("1_rc5g1")
 _miner_score = NodePath("Content/TopRow/MinerScore")
 _warrior_score = NodePath("Content/TopRow/WarriorScore")
-_upgrade_containers = [NodePath("Content/CategoriesContainer/MinerCategory/UpgradesContainer"), NodePath("Content/CategoriesContainer/GlobalCategory/UpgradesContainer"), NodePath("Content/CategoriesContainer/WarriorCategory/UpgradesContainer")]
+_upgrade_containers = [NodePath("Content/CategoriesContainer/MinerCategory/ScrollContainer/UpgradesContainer"), NodePath("Content/CategoriesContainer/GlobalsCategory/ScrollContainer/UpgradesContainer"), NodePath("Content/CategoriesContainer/WarriorCategory/ScrollContainer/UpgradesContainer")]
 
 [node name="Background" type="NinePatchRect" parent="."]
 layout_mode = 1
@@ -91,26 +91,36 @@ text = "Miner"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="UpgradesContainer" type="VBoxContainer" parent="Content/CategoriesContainer/MinerCategory"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Content/CategoriesContainer/MinerCategory"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="UpgradesContainer" type="VBoxContainer" parent="Content/CategoriesContainer/MinerCategory/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource("3_vgm16")
 _all_upgrades = Array[ExtResource("2_rc5g1")]([ExtResource("3_63ers"), ExtResource("3_3qv50")])
 
-[node name="GlobalCategory" type="VBoxContainer" parent="Content/CategoriesContainer"]
+[node name="GlobalsCategory" type="VBoxContainer" parent="Content/CategoriesContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="CategoryName" type="Label" parent="Content/CategoriesContainer/GlobalCategory"]
+[node name="CategoryName" type="Label" parent="Content/CategoriesContainer/GlobalsCategory"]
 layout_mode = 2
 theme = ExtResource("10_xvkx0")
 text = "Globals"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="UpgradesContainer" type="VBoxContainer" parent="Content/CategoriesContainer/GlobalCategory"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Content/CategoriesContainer/GlobalsCategory"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="UpgradesContainer" type="VBoxContainer" parent="Content/CategoriesContainer/GlobalsCategory/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource("3_vgm16")
 _all_upgrades = Array[ExtResource("2_rc5g1")]([ExtResource("5_o4tqb")])
 
@@ -125,9 +135,14 @@ text = "Warrior"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="UpgradesContainer" type="VBoxContainer" parent="Content/CategoriesContainer/WarriorCategory"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Content/CategoriesContainer/WarriorCategory"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="UpgradesContainer" type="VBoxContainer" parent="Content/CategoriesContainer/WarriorCategory/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource("3_vgm16")
 _all_upgrades = Array[ExtResource("2_rc5g1")]([ExtResource("4_vgm16")])
 

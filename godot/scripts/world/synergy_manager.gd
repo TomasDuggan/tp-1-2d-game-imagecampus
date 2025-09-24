@@ -60,8 +60,8 @@ func _update_synergy_value(value: float) -> void:
 
 func _get_upgraded_value(base_value: float) -> float:
 		return base_value + base_value * UpgradesManager.get_modifier_value(
-			SYNERGY_GAIN_UPGRADE_CONFIG.world_type as Enums.WorldType,
-			SYNERGY_GAIN_UPGRADE_CONFIG.id as Enums.UpgradeId,
+			SYNERGY_GAIN_UPGRADE_CONFIG.world_type as World.WorldType,
+			SYNERGY_GAIN_UPGRADE_CONFIG.id as UpgradesManager.UpgradeId,
 		)
 
 func _is_synergy_effect_active() -> bool:

@@ -17,7 +17,7 @@ Escena heredable "trampa" para molestar al heroe
 
 
 func _ready():
-	_hitbox.initialize(self, _damage, _dps, true, Enums.DamageFaction.ENEMY)
+	_hitbox.initialize(self, _damage, _dps, true, Hurtbox.DamageFaction.ENEMY)
 	
 	_animation.sprite_frames = _sprite_frames
 	

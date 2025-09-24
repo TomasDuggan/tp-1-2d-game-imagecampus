@@ -1,8 +1,12 @@
 extends Object
 class_name Upgrade
+"""
+Wrapper para modificar y agregar algo de logica a UpgradeConfig en runtime
+"""
 
 var _config: UpgradeConfig
 var _current_level: int
+
 
 func _init(config: UpgradeConfig):
 	_config = config
@@ -11,7 +15,7 @@ func _init(config: UpgradeConfig):
 func level_up():
 	_current_level += 1
 
-func matches(world_type: Enums.WorldType, upgrade_id: Enums.UpgradeId) -> bool:
+func matches(world_type: World.WorldType, upgrade_id: UpgradesManager.UpgradeId) -> bool:
 	return _config.world_type == world_type && _config.id == upgrade_id
 
 func matches_config(config: UpgradeConfig) -> bool:

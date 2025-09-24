@@ -19,7 +19,7 @@ var _is_selected: bool
 var ally: Hero
 
 
-func initialize(config: HeroConfig, world_type: Enums.WorldType) -> void:
+func initialize(config: HeroConfig, world_type: World.WorldType) -> void:
 	_config = config
 	
 	_initialize_hitbox(world_type)
@@ -27,21 +27,21 @@ func initialize(config: HeroConfig, world_type: Enums.WorldType) -> void:
 	_initialize_horizontal_movement_speed(world_type)
 	_initialize_input_reader()
 
-func _initialize_hitbox(world_type: Enums.WorldType) -> void:
-	var upgraded_damage: int = _config.damage + int(UpgradesManager.get_modifier_value(world_type, Enums.UpgradeId.DAMAGE))
-	_hitbox.initialize(self, upgraded_damage, _config.attack_speed, true, Enums.DamageFaction.HERO)
+func _initialize_hitbox(world_type: World.WorldType) -> void:
+	var upgraded_damage: int = _config.damage + int(UpgradesManager.get_modifier_value(world_type, UpgradesManager.UpgradeId.DAMAGE))
+	_hitbox.initialize(self, upgraded_damage, _config.attack_speed, true, Hurtbox.DamageFaction.HERO)
 	
 	_hitbox.attack_performed.connect(_animation.play_attack_animation)
 	_hitbox.target_destroyed.connect(_vertical_speed_boost_handler.on_target_destroyed)
 
 func _initialize_hurtbox() -> void:
-	hp.initialize(self, _config.hp, Enums.DamageFaction.HERO, true)
+	hp.initialize(self, _config.hp, Hurtbox.DamageFaction.HERO, true)
 	hp.hit.connect(func(): _animation_player.play("hit"))
 	hp.healed.connect(func(): _animation_player.play("heal"))
 
-func _initialize_horizontal_movement_speed(world_type: Enums.WorldType) -> void:
+func _initialize_horizontal_movement_speed(world_type: World.WorldType) -> void:
 	var speed: float = _config.horizontal_movement_speed
-	speed += speed * UpgradesManager.get_modifier_value(world_type, Enums.UpgradeId.HORIZONTAL_MOVEMENT_SPEED)
+	speed += speed * UpgradesManager.get_modifier_value(world_type, UpgradesManager.UpgradeId.HORIZONTAL_MOVEMENT_SPEED)
 	_horizontal_movement_speed = speed
 
 func _initialize_input_reader() -> void:
