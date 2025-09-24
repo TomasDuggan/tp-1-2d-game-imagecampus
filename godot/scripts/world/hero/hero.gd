@@ -40,9 +40,9 @@ func _initialize_hurtbox() -> void:
 	hp.healed.connect(func(): _animation_player.play("heal"))
 
 func _initialize_horizontal_movement_speed(world_type: Enums.WorldType) -> void:
-	var base_speed = _config.horizontal_movement_speed
-	var upgraded_speed: float = base_speed + base_speed * UpgradesManager.get_modifier_value(world_type, Enums.UpgradeId.HORIZONTAL_MOVEMENT_SPEED)
-	_horizontal_movement_speed = upgraded_speed
+	var speed: float = _config.horizontal_movement_speed
+	speed += speed * UpgradesManager.get_modifier_value(world_type, Enums.UpgradeId.HORIZONTAL_MOVEMENT_SPEED)
+	_horizontal_movement_speed = speed
 
 func _initialize_input_reader() -> void:
 	add_child(_input_reader)

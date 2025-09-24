@@ -30,7 +30,7 @@ func _add_upgrade(new_upgrade_config: UpgradeConfig) -> void:
 		found_upgrade.level_up()
 
 func _find_upgrade_by_config(upgrade: UpgradeConfig) -> Upgrade:
-	var filtered: Array[Upgrade] = _bought_upgrades.filter(func(u: Upgrade): return u.get_config() == upgrade)
+	var filtered: Array[Upgrade] = _bought_upgrades.filter(func(u: Upgrade): return u.matches_config(upgrade))
 	return null if filtered.is_empty() else filtered.front()
 
 func get_upgrade_level(config: UpgradeConfig) -> int:
@@ -40,6 +40,15 @@ func get_upgrade_level(config: UpgradeConfig) -> int:
 func get_modifier_value(world_type: Enums.WorldType, upgrade_id: Enums.UpgradeId) -> float:
 	var upgrade: Upgrade = _find_upgrade_by_context(world_type, upgrade_id)
 	return 0.0 if upgrade == null else upgrade.get_value()
+
+func filter_owned(upgrades: Array[UpgradeConfig]) -> Array[UpgradeConfig]:
+	var filtered: Array[UpgradeConfig] = []
+	
+	for upgrade: Upgrade in _bought_upgrades:
+		if upgrade.get_config() in upgrades:
+			filtered.append(upgrade.get_config())
+	
+	return filtered
 
 func _find_upgrade_by_context(world_type: Enums.WorldType, upgrade_id: Enums.UpgradeId) -> Upgrade:
 	var filtered: Array[Upgrade] = _bought_upgrades.filter(func(u: Upgrade): return u.matches(world_type, upgrade_id))

@@ -20,6 +20,8 @@ const SYNERGY_DECAY_VALUE := -0.1
 const SWAP_SYNERGY_INCREASE_VALUE := 0.1
 const COLLECTABLE_GAINED_SYNERGY_INCREASE_VALUE := 0.1
 
+const SYNERGY_GAIN_UPGRADE_CONFIG: UpgradeConfig = preload("uid://drg1frcy4axsl")
+
 
 func _ready():
 	_synergy_effect_timer.one_shot = true
@@ -45,12 +47,22 @@ func _update_synergy_value(value: float) -> void:
 	if _is_synergy_effect_active():
 		return
 	
+	# Solo aplicar upgrade si es positivo
+	if value > 0:
+		value = _get_upgraded_value(value)
+	
 	_current_synergy = clamp(_current_synergy + value, MIN_SYNERGY_AMOUNT, MAX_SYNERGY_AMOUNT)
 	
 	_create_slide_bar_tween(0.1)
-
+	
 	if _current_synergy == MAX_SYNERGY_AMOUNT:
 		_activate_synergy_effect()
+
+func _get_upgraded_value(base_value: float) -> float:
+		return base_value + base_value * UpgradesManager.get_modifier_value(
+			SYNERGY_GAIN_UPGRADE_CONFIG.world_type as Enums.WorldType,
+			SYNERGY_GAIN_UPGRADE_CONFIG.id as Enums.UpgradeId,
+		)
 
 func _is_synergy_effect_active() -> bool:
 	return !_synergy_effect_timer.is_stopped()

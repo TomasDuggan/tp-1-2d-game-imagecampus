@@ -1,14 +1,14 @@
 [gd_resource type="Theme" load_steps=4 format=3 uid="uid://cm2fomdb61et5"]
 
 [ext_resource type="FontFile" uid="uid://dbw0qymxxk7rt" path="res://art/fonts/MedodicaRegular.otf" id="1_syyni"]
-[ext_resource type="Texture2D" uid="uid://hrb5poljo6f0" path="res://art/ui/tiles/tile_0003.png" id="2_a48cs"]
+[ext_resource type="Texture2D" uid="uid://d28dx6hx4sxig" path="res://art/ui/tiles/tile_0028.png" id="2_syyni"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o4tqb"]
-texture = ExtResource("2_a48cs")
-texture_margin_left = 3.165514
-texture_margin_top = 2.9676692
-texture_margin_right = 2.9366896
-texture_margin_bottom = 2.8427157
+texture = ExtResource("2_syyni")
+texture_margin_left = 10.196356
+texture_margin_top = 10.652542
+texture_margin_right = 9.477007
+texture_margin_bottom = 11.018112
 
 [resource]
 Button/font_sizes/font_size = 20

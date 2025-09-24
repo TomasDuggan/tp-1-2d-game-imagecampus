@@ -1,13 +1,13 @@
 [gd_scene load_steps=7 format=3 uid="uid://c4xtc8qiymqhb"]
 
 [ext_resource type="Script" uid="uid://doym0w3pawy6q" path="res://scripts/ui/shop/upgrade_ui.gd" id="1_xe6p4"]
-[ext_resource type="Texture2D" uid="uid://vyqo2mn1xvu3" path="res://art/ui/tiles/tile_0002.png" id="2_qpynf"]
+[ext_resource type="Texture2D" uid="uid://hrb5poljo6f0" path="res://art/ui/tiles/tile_0003.png" id="2_uj0qj"]
 [ext_resource type="Texture2D" uid="uid://d3wkfe8s0i1f2" path="res://art/icons/skills/cart.png" id="3_f0jbt"]
 [ext_resource type="Theme" uid="uid://cbp5aehq4d233" path="res://themes/basic_label_theme.tres" id="4_f0jbt"]
 [ext_resource type="PackedScene" uid="uid://bbotfj18d8itl" path="res://scenes/ui/score/collectable_ui.tscn" id="4_qpynf"]
 [ext_resource type="Theme" uid="uid://cm2fomdb61et5" path="res://themes/basic_button_theme.tres" id="6_uj0qj"]
 
-[node name="Upgrade" type="Control" node_paths=PackedStringArray("_icon", "_name", "_level", "_price", "_buy_button", "_description")]
+[node name="Upgrade" type="Control" node_paths=PackedStringArray("_icon", "_name", "_level", "_buy_section", "_price", "_buy_button", "_description")]
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 3
 anchors_preset = 0
@@ -16,6 +16,7 @@ script = ExtResource("1_xe6p4")
 _icon = NodePath("Content/TopRow/Icon")
 _name = NodePath("Content/TopRow/TextContent/NameAndLevelSection/Name")
 _level = NodePath("Content/TopRow/TextContent/NameAndLevelSection/Level")
+_buy_section = NodePath("Content/TopRow/TextContent/BuySection")
 _price = NodePath("Content/TopRow/TextContent/BuySection/Price")
 _buy_button = NodePath("Content/TopRow/TextContent/BuySection/BuyButton")
 _description = NodePath("Content/Description")
@@ -27,7 +28,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_qpynf")
+texture = ExtResource("2_uj0qj")
 patch_margin_left = 4
 patch_margin_top = 4
 patch_margin_right = 4
@@ -52,7 +53,8 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 0
 texture = ExtResource("3_f0jbt")
-expand_mode = 3
+expand_mode = 2
+stretch_mode = 3
 
 [node name="TextContent" type="HBoxContainer" parent="Content/TopRow"]
 layout_mode = 2
@@ -95,6 +97,7 @@ theme = ExtResource("6_uj0qj")
 text = "BUY"
 
 [node name="Description" type="Label" parent="Content"]
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("4_f0jbt")

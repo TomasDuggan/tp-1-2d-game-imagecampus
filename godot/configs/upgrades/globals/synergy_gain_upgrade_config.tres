@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="UpgradeConfig" load_steps=3 format=3 uid="uid://drg1frcy4axsl"]
+
+[ext_resource type="Script" uid="uid://bhmckujririhf" path="res://configs/upgrades/upgrade_config.gd" id="1_aqr3o"]
+[ext_resource type="Texture2D" uid="uid://txdud0wexitl" path="res://art/icons/skills/swap.png" id="1_d2rfs"]
+
+[resource]
+script = ExtResource("1_aqr3o")
+stat_modifier_value = 0.2
+icon = ExtResource("1_d2rfs")
+display_name = "Friendship"
+description = "Gain X% more synergy from events"
+price = 5
+use_percentage_format = true
+metadata/_custom_type_script = "uid://bhmckujririhf"
