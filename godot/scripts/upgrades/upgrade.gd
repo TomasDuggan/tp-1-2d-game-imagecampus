@@ -15,6 +15,9 @@ func _init(config: UpgradeConfig):
 func level_up():
 	_current_level += 1
 
+func is_max_level() -> bool:
+	return _config.max_level == _current_level
+
 func matches(world_type: World.WorldType, upgrade_id: UpgradesManager.UpgradeId) -> bool:
 	return _config.world_type == world_type && _config.id == upgrade_id
 

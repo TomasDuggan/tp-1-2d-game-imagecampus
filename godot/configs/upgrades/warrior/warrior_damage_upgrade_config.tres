@@ -7,6 +7,7 @@
 script = ExtResource("1_wm7jo")
 world_type = 1
 stat_modifier_value = 1.0
+max_level = 2
 icon = ExtResource("1_beg4j")
 display_name = "Kill the Creeps"
 description = "Increase the warrior's damage by X"

@@ -10,7 +10,6 @@ Item que muestra la info de una upgrade
 @export var _level: Label
 @export var _buy_section: Container
 @export var _price: CollectableUI
-@export var _buy_button: Button
 @export var _description: Label
 
 enum ViewMode {
@@ -42,7 +41,7 @@ func _configure_dynamic_content() -> void:
 	_configure_buy_section()
 
 func _get_display_level(current_level: int) -> int:
-	return current_level + 1 if _view_mode == ViewMode.PURCHASE else current_level
+	return current_level if _view_mode == ViewMode.INFORMATIVE else current_level + 1
 
 func _format_level_text(current_level: int, display_level: int) -> String:
 	if current_level <= 0:
@@ -57,8 +56,6 @@ func _configure_buy_section() -> void:
 
 	_price.initialize(_config.world_type, _config.price)
 	resolve_price_color()
-	
-	_buy_button.pressed.connect(_buy_pressed)
 
 func resolve_price_color() -> void:
 	var price_text_color: Color = Color.GREEN_YELLOW if _can_buy_upgrade() else Color.CRIMSON
@@ -70,7 +67,7 @@ func update_dynamic_content() -> void:
 func _can_buy_upgrade() -> bool:
 	return CollectablesManager.can_buy(_config.world_type, _config.price)
 
-func _buy_pressed() -> void:
+func _on_buy_button_pressed():
 	if _can_buy_upgrade():
 		UpgradesEventBus.raise_event_upgrade_bought(_config)
 

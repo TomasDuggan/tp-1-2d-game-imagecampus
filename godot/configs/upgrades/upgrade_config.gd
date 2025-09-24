@@ -11,6 +11,7 @@ const PLACEHOLDER := "X"
 @export var id: UpgradesManager.UpgradeId
 @export var world_type: World.WorldType
 @export var stat_modifier_value: float
+@export var max_level: int
 
 @export_category("UI")
 @export var icon: Texture2D

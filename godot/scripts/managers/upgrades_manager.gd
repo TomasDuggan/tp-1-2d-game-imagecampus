@@ -51,6 +51,19 @@ func filter_owned(upgrades: Array[UpgradeConfig]) -> Array[UpgradeConfig]:
 	
 	return filtered
 
+func filter_non_max_level(upgrades: Array[UpgradeConfig]) -> Array[UpgradeConfig]:
+	var filtered: Array[UpgradeConfig] = []
+	
+	for upgrade_config: UpgradeConfig in upgrades:
+		if !is_max_level(upgrade_config):
+			filtered.append(upgrade_config)
+	
+	return filtered
+
+func is_max_level(upgrade_config: UpgradeConfig) -> bool:
+	var upgrade: Upgrade = _find_upgrade_by_config(upgrade_config)
+	return upgrade != null && upgrade.is_max_level()
+
 func _find_upgrade_by_context(world_type: World.WorldType, upgrade_id: UpgradeId) -> Upgrade:
 	var filtered: Array[Upgrade] = _bought_upgrades.filter(func(u: Upgrade): return u.matches(world_type, upgrade_id))
 	return null if filtered.is_empty() else filtered.front()

@@ -7,6 +7,7 @@
 script = ExtResource("2_cg3g2")
 id = 2
 stat_modifier_value = 1.0
+max_level = 3
 icon = ExtResource("1_4sllj")
 display_name = "Shopping Cart"
 description = "Increase the miner's mineral recollection by X"
