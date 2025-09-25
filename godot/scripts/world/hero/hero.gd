@@ -7,11 +7,12 @@ Script root para las escenas Hero (Minero o Guerrero)
 @onready var _hitbox: Hitbox = $Hitbox
 @onready var _animation: HeroAnimation = $Animation
 @onready var _animation_player: AnimationPlayer = $AnimationPlayer
+@onready var _velocity_boost_particles: CPUParticles2D = $VelocityBoostParticles
 @onready var hp: Hurtbox = $Hurtbox # 'Facade'
 
 var _config: HeroConfig
 var _horizontal_direction: int # 1 o -1
-var _input_reader := HeroInputReader.new()
+var _horizontal_movement_input_reader := HeroHorizontalMovementInputReader.new()
 var _horizontal_movement_speed: float
 var _vertical_speed := 0.0
 var _vertical_speed_boost_handler := VerticalSpeedBoostHandler.new()
@@ -21,6 +22,7 @@ var ally: Hero
 
 func initialize(config: HeroConfig, world_type: World.WorldType) -> void:
 	_config = config
+	_vertical_speed_boost_handler.initialize(_velocity_boost_particles)
 	
 	_initialize_hitbox(world_type)
 	_initialize_hurtbox()
@@ -45,15 +47,15 @@ func _initialize_horizontal_movement_speed(world_type: World.WorldType) -> void:
 	_horizontal_movement_speed = speed
 
 func _initialize_input_reader() -> void:
-	add_child(_input_reader)
-	_input_reader.initialize(_config.use_arrows_on_synergy_activation)
+	add_child(_horizontal_movement_input_reader)
+	_horizontal_movement_input_reader.initialize(_config.use_arrows_on_synergy_activation)
 
 func _ready():
 	_vertical_speed_boost_handler.vertical_speed_changed.connect(_on_vertical_speed_changed)
 	add_child(_vertical_speed_boost_handler)
 
 func _process(_delta):
-	_horizontal_direction = _input_reader.get_horizontal_input_direction()
+	_horizontal_direction = _horizontal_movement_input_reader.get_horizontal_input_direction()
 
 func _physics_process(_delta):
 	velocity.x = _horizontal_direction * _horizontal_movement_speed
@@ -64,14 +66,14 @@ func is_selected() -> bool:
 	return _is_selected
 
 func select() -> void:
-	_is_selected = true
-	_update_selection()
+	_update_selection(true)
 
 func deselect() -> void:
-	_is_selected = false
-	_update_selection()
+	_update_selection(false)
 
-func _update_selection() -> void:
+func _update_selection(is_selected_arg: bool) -> void:
+	_is_selected = is_selected_arg
+	
 	_animation.toggle_selected(_is_selected)
 	set_process(_is_selected)
 	

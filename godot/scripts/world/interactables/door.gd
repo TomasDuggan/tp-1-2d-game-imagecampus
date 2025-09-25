@@ -8,7 +8,6 @@ Escena para puertas bloqueantes
 @onready var _physics_collision_shape: CollisionShape2D = $PhysicsCollisionShape
 @onready var _key_sprite: Sprite2D = $KeySprite
 
-
 var _id: int
 
 
@@ -20,7 +19,6 @@ func _check_open_door(id: int) -> void:
 		return
 	
 	_open_door()
-
 
 func _open_door() -> void:
 	_physics_collision_shape.call_deferred("set_disabled", true)

@@ -10,6 +10,7 @@ var _current_synergy: float
 var _synergy_effect_timer := Timer.new()
 var _synergy_decay_timer := Timer.new()
 var _current_slidebar_tween: Tween
+var _synergy_gain_upgrade_multiplier: float
 
 const MAX_SYNERGY_AMOUNT := 1.0
 const MIN_SYNERGY_AMOUNT := 0.0
@@ -17,10 +18,9 @@ const SYNERGY_EFFECT_DURATION := 10.0
 const SYNERGY_DECAY_DELAY := 5.0
 const SYNERGY_DECAY_VALUE := -0.1
 
-const SWAP_SYNERGY_INCREASE_VALUE := 0.1
-const COLLECTABLE_GAINED_SYNERGY_INCREASE_VALUE := 0.1
-
-const SYNERGY_GAIN_UPGRADE_CONFIG: UpgradeConfig = preload("uid://drg1frcy4axsl")
+const SWAP_SYNERGY_INCREASE_VALUE := 0.03
+const COLLECTABLE_GAINED_SYNERGY_INCREASE_VALUE := 0.05
+const INTERACTABLE_PRESSED_SYNERGY_INCREASE_VALUE := 0.15
 
 
 func _ready():
@@ -34,14 +34,32 @@ func _ready():
 	_synergy_decay_timer.timeout.connect(func(): _update_synergy_value(SYNERGY_DECAY_VALUE))
 	add_child(_synergy_decay_timer)
 	
+	_synergy_gain_upgrade_multiplier = _resolve_synergy_gain_upgrade_multiplier()
+	
+	# Nota: No conecto con lambda para poder desconectarme bien en _exit_tree
 	HeroEventBus.hero_swapped.connect(_on_hero_swapped)
 	CollectableEventBus.collectable_amount_changed.connect(_on_collectable_gained)
+	InteractablesEventBus.interactable_pressed.connect(_on_interactable_pressed)
 
-func _on_hero_swapped():
+func _resolve_synergy_gain_upgrade_multiplier() -> float:
+	const SYNERGY_GAIN_UPGRADE_CONFIG: UpgradeConfig = preload("uid://drg1frcy4axsl")
+	
+	return UpgradesManager.get_modifier_value(
+		SYNERGY_GAIN_UPGRADE_CONFIG.world_type as World.WorldType,
+		SYNERGY_GAIN_UPGRADE_CONFIG.id as UpgradesManager.UpgradeId,
+	)
+
+func _on_hero_swapped(_from, _to, success: bool):
+	if !success:
+		return
+	
 	_update_synergy_value(SWAP_SYNERGY_INCREASE_VALUE)
 
 func _on_collectable_gained(_type, _amount) -> void:
 	_update_synergy_value(COLLECTABLE_GAINED_SYNERGY_INCREASE_VALUE)
+
+func _on_interactable_pressed(_id) -> void:
+	_update_synergy_value(INTERACTABLE_PRESSED_SYNERGY_INCREASE_VALUE)
 
 func _update_synergy_value(value: float) -> void:
 	if _is_synergy_effect_active():
@@ -49,20 +67,15 @@ func _update_synergy_value(value: float) -> void:
 	
 	# Solo aplicar upgrade si es positivo
 	if value > 0:
-		value = _get_upgraded_value(value)
+		value += value * _synergy_gain_upgrade_multiplier
 	
 	_current_synergy = clamp(_current_synergy + value, MIN_SYNERGY_AMOUNT, MAX_SYNERGY_AMOUNT)
 	
 	_create_slide_bar_tween(0.1)
 	
 	if _current_synergy == MAX_SYNERGY_AMOUNT:
+		_synergy_bar.value = MAX_SYNERGY_AMOUNT
 		_activate_synergy_effect()
-
-func _get_upgraded_value(base_value: float) -> float:
-		return base_value + base_value * UpgradesManager.get_modifier_value(
-			SYNERGY_GAIN_UPGRADE_CONFIG.world_type as World.WorldType,
-			SYNERGY_GAIN_UPGRADE_CONFIG.id as UpgradesManager.UpgradeId,
-		)
 
 func _is_synergy_effect_active() -> bool:
 	return !_synergy_effect_timer.is_stopped()
@@ -90,3 +103,4 @@ func _synergy_effect_ended() -> void:
 func _exit_tree():
 	HeroEventBus.hero_swapped.disconnect(_on_hero_swapped)
 	CollectableEventBus.collectable_amount_changed.disconnect(_on_collectable_gained)
+	InteractablesEventBus.interactable_pressed.disconnect(_on_interactable_pressed)

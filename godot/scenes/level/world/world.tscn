@@ -1,11 +1,9 @@
-[gd_scene load_steps=29 format=3 uid="uid://b2q5ss2eqgp18"]
+[gd_scene load_steps=27 format=3 uid="uid://b2q5ss2eqgp18"]
 
 [ext_resource type="Script" uid="uid://du71wkafc61o0" path="res://scripts/world/scroll.gd" id="1_bq33v"]
 [ext_resource type="Script" uid="uid://o8r2jya8p0fw" path="res://scripts/world/world.gd" id="1_gb53w"]
-[ext_resource type="Script" uid="uid://b8vecgqkje2e6" path="res://scripts/managers/collectables_spawner.gd" id="1_j2gmx"]
 [ext_resource type="TileSet" uid="uid://bexs7e33c7b6q" path="res://art/tiles/cave_tile_set.tres" id="2_j2gmx"]
 [ext_resource type="Script" uid="uid://dhsqnlkb2pg63" path="res://scripts/world/collectables/collectable_spawn_points.gd" id="3_1yooq"]
-[ext_resource type="PackedScene" uid="uid://ctkc2ceeqspqm" path="res://scenes/collectables/collectable.tscn" id="3_5qq27"]
 [ext_resource type="Script" uid="uid://bro3w4a1kwbml" path="res://scripts/world/hero/hero.gd" id="4_gb53w"]
 [ext_resource type="SpriteFrames" uid="uid://8dvyppn706ka" path="res://animations/hero/miner_animation.tres" id="5_5qq27"]
 [ext_resource type="Script" uid="uid://dx2akoth87pp5" path="res://scripts/world/hero/hero_animation.gd" id="6_dlabj"]
@@ -26,7 +24,7 @@ shader_parameter/line_thickness = 0.800000038
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dw3eh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a8y0u"]
-size = Vector2(36, 30)
+size = Vector2(35, 30)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_srmg5"]
 size = Vector2(20, 32)
@@ -57,7 +55,7 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
+"transitions": PackedFloat32Array(0.5, 1),
 "update": 0,
 "values": [Color(0, 1, 0, 1), Color(1, 1, 1, 1)]
 }
@@ -73,40 +71,32 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
+"transitions": PackedFloat32Array(0.5, 1),
 "update": 0,
 "values": [Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
 }
-
-[sub_resource type="Animation" id="Animation_l4vy6"]
-resource_name = "walk_up"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vqxkp"]
 _data = {
 &"RESET": SubResource("Animation_dw3eh"),
 &"heal": SubResource("Animation_vqxkp"),
-&"hit": SubResource("Animation_75ogk"),
-&"walk_up": SubResource("Animation_l4vy6")
+&"hit": SubResource("Animation_75ogk")
 }
+
+[sub_resource type="Gradient" id="Gradient_vqxkp"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.7094241, 1)
+colors = PackedColorArray(5.968213e-06, 0, 0.9414572, 1, 0.97535294, 0.050527602, 0.99999994, 1, 0.90707356, 0.90082633, 1, 1)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_n47ow"]
 normal = Vector2(0, 1)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_75ogk"]
 
-[node name="World" type="Node2D" node_paths=PackedStringArray("_collectables_spawner", "_hero", "_score_container")]
+[node name="World" type="Node2D" node_paths=PackedStringArray("_hero", "_score_container")]
 script = ExtResource("1_gb53w")
-_collectables_spawner = NodePath("Managers/CollectablesSpawner")
 _hero = NodePath("Hero")
 _score_container = NodePath("CanvasLayer/HUD/MarginContainer/ScoreContainer")
-
-[node name="Managers" type="Node" parent="."]
-
-[node name="CollectablesSpawner" type="Node" parent="Managers" node_paths=PackedStringArray("_collectables_container", "_collectable_spawn_points")]
-script = ExtResource("1_j2gmx")
-_collectable_scene = ExtResource("3_5qq27")
-_collectables_container = NodePath("../../Scroll/CollectablesContainer")
-_collectable_spawn_points = NodePath("../../Scroll/CollectableSpawnPointsContainer")
 
 [node name="Scroll" type="Node2D" parent="."]
 script = ExtResource("1_bq33v")
@@ -172,6 +162,22 @@ debug_color = Color(0.985726, 0, 0.330869, 0.42)
 libraries = {
 &"": SubResource("AnimationLibrary_vqxkp")
 }
+
+[node name="VelocityBoostParticles" type="CPUParticles2D" parent="Hero"]
+visible = false
+amount = 35
+lifetime = 0.5
+emission_shape = 1
+emission_sphere_radius = 20.0
+direction = Vector2(0, 1)
+spread = 20.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 150.0
+damping_min = 2.0
+damping_max = 4.0
+scale_amount_max = 3.0
+color_ramp = SubResource("Gradient_vqxkp")
 
 [node name="YHeroLimit" type="StaticBody2D" parent="."]
 position = Vector2(0, 180)

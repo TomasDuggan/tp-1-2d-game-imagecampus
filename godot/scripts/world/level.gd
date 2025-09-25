@@ -12,7 +12,9 @@ Contenedor y coordinador entre Worlds
 
 signal level_won()
 
-var _hero_won_world_counter := 0
+const TOTAL_AMOUNT_OF_HEROES := 2
+
+var _heroes_that_won_world: Array[Hero] = []
 
 
 func _ready():
@@ -29,10 +31,13 @@ func _ready():
 	
 	HeroEventBus.hero_won_world.connect(_on_hero_won_world)
 
-func _on_hero_won_world(_hero: Hero) -> void:
-	_hero_won_world_counter += 1
+func _on_hero_won_world(hero: Hero) -> void:
+	if _heroes_that_won_world.has(hero):
+		return
 	
-	if _hero_won_world_counter == 2:
+	_heroes_that_won_world.append(hero)
+	
+	if _heroes_that_won_world.size() == TOTAL_AMOUNT_OF_HEROES:
 		get_tree().paused = true
 		_level_won_menu.show()
 

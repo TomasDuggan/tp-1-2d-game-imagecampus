@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://djim0uu4wpglm"]
+
+[ext_resource type="Script" uid="uid://dcl5lckwqn8bm" path="res://scripts/world/room/room.gd" id="1_2ddm2"]
+[ext_resource type="TileSet" uid="uid://bexs7e33c7b6q" path="res://art/tiles/cave_tile_set.tres" id="1_76igw"]
+[ext_resource type="Script" uid="uid://dhsqnlkb2pg63" path="res://scripts/world/collectables/collectable_spawn_points.gd" id="2_2ddm2"]
+[ext_resource type="Script" uid="uid://dg5vnk5014wwx" path="res://scripts/world/interactables/interactables_container.gd" id="3_d23kf"]
+
+[node name="Room" type="Node2D" node_paths=PackedStringArray("_collectables_spawner")]
+script = ExtResource("1_2ddm2")
+_collectables_spawner = NodePath("CollectableSpawner")
+
+[node name="Background" type="TileMapLayer" parent="."]
+tile_set = ExtResource("1_76igw")
+
+[node name="CollectableSpawner" type="TileMapLayer" parent="." node_paths=PackedStringArray("_collectables_container")]
+tile_set = ExtResource("1_76igw")
+script = ExtResource("2_2ddm2")
+_collectables_container = NodePath("../CollectablesContainer")
+
+[node name="CollectablesContainer" type="Node2D" parent="."]
+
+[node name="TrapsContainer" type="Node2D" parent="."]
+
+[node name="InteractablesContainer" type="Node2D" parent="."]
+script = ExtResource("3_d23kf")

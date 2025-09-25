@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="CollectableConfig" load_steps=8 format=3 uid="uid://d0hq6oyw4fxe2"]
+
+[ext_resource type="Script" uid="uid://clxqxnesk8eta" path="res://configs/collectables/behaviours/collectable_behaviour_config.gd" id="1_q7p06"]
+[ext_resource type="Script" uid="uid://ct5ujndsfuqfc" path="res://configs/collectables/behaviours/currency_reward_behaviour_config.gd" id="2_wahy2"]
+[ext_resource type="Script" uid="uid://dkyvw463kyoem" path="res://configs/collectables/behaviours/hero_damager_behaviour_config.gd" id="3_u2qh2"]
+[ext_resource type="Script" uid="uid://bkw6yobd6k4ta" path="res://configs/collectables/collectable_config.gd" id="4_vincc"]
+[ext_resource type="SpriteFrames" uid="uid://bbmaygdw40hfm" path="res://animations/enemies/vampire_basic_animation.tres" id="5_lwjk7"]
+
+[sub_resource type="Resource" id="Resource_7rlb7"]
+script = ExtResource("2_wahy2")
+type = 1
+reward_amount = 2
+metadata/_custom_type_script = "uid://ct5ujndsfuqfc"
+
+[sub_resource type="Resource" id="Resource_7r4is"]
+script = ExtResource("3_u2qh2")
+damage = 1
+attack_speed = 2.0
+metadata/_custom_type_script = "uid://dkyvw463kyoem"
+
+[resource]
+script = ExtResource("4_vincc")
+sprite_frames = ExtResource("5_lwjk7")
+hp = 2
+scale_override = Vector2(1.5, 1.5)
+destroyed_velocity_boost_duration = 1.0
+behaviour_configs = Array[ExtResource("1_q7p06")]([SubResource("Resource_7rlb7"), SubResource("Resource_7r4is")])
+metadata/_custom_type_script = "uid://bkw6yobd6k4ta"

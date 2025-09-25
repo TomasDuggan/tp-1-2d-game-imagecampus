@@ -11,7 +11,7 @@ const PLACEHOLDER := "X"
 @export var id: UpgradesManager.UpgradeId
 @export var world_type: World.WorldType
 @export var stat_modifier_value: float
-@export var max_level: int
+@export var max_level: int # En este level deja de aparecer para comprar en el Shop
 
 @export_category("UI")
 @export var icon: Texture2D

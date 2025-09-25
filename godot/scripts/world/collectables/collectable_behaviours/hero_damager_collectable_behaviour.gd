@@ -9,7 +9,7 @@ func _ready():
 	_hitbox.attack_performed.connect(_on_attack_performed)
 
 func _on_attack_performed() -> void:
-	request_animation.emit("attack_down")
+	request_animation.emit("attack")
 
 func on_destroyed_by_hero(_source: Hero) -> void:
 	pass

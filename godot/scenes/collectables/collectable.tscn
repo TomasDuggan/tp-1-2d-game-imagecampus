@@ -1,7 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://ctkc2ceeqspqm"]
+[gd_scene load_steps=11 format=3 uid="uid://ctkc2ceeqspqm"]
 
 [ext_resource type="Script" uid="uid://c6hbv3qf53l4y" path="res://scripts/world/collectables/collectable.gd" id="1_uwx36"]
-[ext_resource type="Texture2D" uid="uid://8v28iq216615" path="res://art/minerals/v_1/amethystNode.png" id="2_88g45"]
+[ext_resource type="Texture2D" uid="uid://cbq4frwpotv3f" path="res://art/minerals/v_2/Black_crystal1.png" id="2_88g45"]
 [ext_resource type="PackedScene" uid="uid://bhr40240oq8fk" path="res://scenes/damage/hurtbox.tscn" id="2_vtu06"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6cysq"]
@@ -16,10 +16,9 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yfltg"]
-size = Vector2(15.873571, 16.12544)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_88g45"]
-size = Vector2(14, 14)
+size = Vector2(19, 19)
 
 [sub_resource type="Animation" id="Animation_jmmuo"]
 length = 0.001
@@ -30,6 +29,18 @@ tracks/0/path = NodePath("Animation:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -47,14 +58,31 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
+"transitions": PackedFloat32Array(2, 1),
 "update": 0,
 "values": [Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_88g45"]
+resource_name = "fade_out"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(2, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_p7wuy"]
 _data = {
 &"RESET": SubResource("Animation_jmmuo"),
+&"fade_out": SubResource("Animation_88g45"),
 &"hit": SubResource("Animation_yfltg")
 }
 

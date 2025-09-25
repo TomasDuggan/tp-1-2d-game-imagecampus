@@ -74,7 +74,6 @@ _dps = 0.5
 _sprite_frames = SubResource("SpriteFrames_nmwfu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" index="0"]
-position = Vector2(0.5, 2)
 shape = SubResource("RectangleShape2D_fso42")
 debug_color = Color(0.610818, 0.538704, 1.92523e-07, 0.42)
 

@@ -1,7 +1,7 @@
 extends VBoxContainer
 class_name UpgradesContainerUI
 """
-Listador de upgrades
+Listador de upgrades de una categoria
 """
 
 @export_category("Config")
@@ -36,10 +36,10 @@ func _create_upgrade(upgrade: UpgradeConfig, view_mode: UpgradeUI.ViewMode) -> v
 	add_child(upgrade_instance)
 
 func _on_upgrade_bought(config: UpgradeConfig) -> void:
-	_update_upgrade(config)
+	_update_upgrade_ui(config)
 	_update_all_upgrades_price_color()
 
-func _update_upgrade(config: UpgradeConfig) -> void:
+func _update_upgrade_ui(config: UpgradeConfig) -> void:
 	var bought_upgrade: UpgradeUI = _find_upgrade_ui(config)
 	
 	if bought_upgrade != null:

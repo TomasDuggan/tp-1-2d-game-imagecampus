@@ -63,7 +63,7 @@ script = ExtResource("1_qqm67")
 
 [node name="Animation" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_iy23o")
-animation = &"open"
+animation = &"close"
 autoplay = "close"
 
 [node name="PhysicsCollisionShape" type="CollisionShape2D" parent="."]

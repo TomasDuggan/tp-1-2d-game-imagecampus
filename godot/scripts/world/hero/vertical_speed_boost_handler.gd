@@ -4,14 +4,19 @@ class_name VerticalSpeedBoostHandler
 Manejador del boost que recibe el heroe para avanzar en el eje Y.
 """
 
-
 signal vertical_speed_changed(new_vertical_speed: float)
 
 var _vertical_speed_boost_timer := Timer.new()
+var _boost_particles: CPUParticles2D
 
 const USUAL_VERTICAL_SPEED := 0.0
 const VERTICAL_SPEED_BOOST := -100.0
 
+
+func initialize(boost_particles: CPUParticles2D) -> void:
+	_boost_particles = boost_particles
+	_boost_particles.show()
+	_boost_particles.emitting = false
 
 func _ready():
 	_vertical_speed_boost_timer.one_shot = true
@@ -19,6 +24,7 @@ func _ready():
 
 func on_target_destroyed(collectable: Collectable) -> void:
 	if _vertical_speed_boost_timer.is_stopped():
+		_boost_particles.emitting = true
 		_vertical_speed_boost_timer.timeout.connect(_on_speed_boost_expired, CONNECT_ONE_SHOT)
 	
 	_vertical_speed_boost_timer.start(collectable.get_destroyed_velocity_boost_duration())
@@ -26,4 +32,5 @@ func on_target_destroyed(collectable: Collectable) -> void:
 	vertical_speed_changed.emit(VERTICAL_SPEED_BOOST)
 
 func _on_speed_boost_expired() -> void:
+	_boost_particles.emitting = false
 	vertical_speed_changed.emit(USUAL_VERTICAL_SPEED)

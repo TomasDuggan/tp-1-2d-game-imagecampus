@@ -11,7 +11,6 @@ Sirve como entrypoint centralizado para no tener que configurar las cosas en cad
 @export var _collectables_to_spawn: Array[CollectableConfig]
 
 @export_category("Editor Dependencies")
-@export var _collectables_spawner: CollectablesSpawner
 @export var _hero: Hero
 @export var _score_container: CollectableUI
 
@@ -19,7 +18,6 @@ enum WorldType { MINER, WARRIOR }
 
 
 func _ready():
-	_collectables_spawner.initialize(_collectables_to_spawn)
 	_hero.initialize(_hero_config, _world_type)
 	_score_container.initialize(_world_type)
 

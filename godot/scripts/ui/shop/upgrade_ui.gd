@@ -17,6 +17,9 @@ enum ViewMode {
 	PURCHASE, # Muestra el nivel siguiente y habilita opciones de compra
 }
 
+const LEVEL_TEXT := "Level %d"
+const MAX_LEVEL_TEXT_SUFFIX := " (Max)"
+
 var _config: UpgradeConfig
 var _view_mode: ViewMode
 
@@ -44,10 +47,13 @@ func _get_display_level(current_level: int) -> int:
 	return current_level if _view_mode == ViewMode.INFORMATIVE else current_level + 1
 
 func _format_level_text(current_level: int, display_level: int) -> String:
-	if current_level <= 0:
-		return "Not owned"
+	var shown_level := display_level if current_level > 0 else 1
+	var level_text := LEVEL_TEXT % shown_level
 	
-	return "Level %d" % display_level
+	if UpgradesManager.is_max_level(_config):
+		level_text += MAX_LEVEL_TEXT_SUFFIX
+	
+	return level_text
 
 func _configure_buy_section() -> void:
 	if _view_mode == ViewMode.INFORMATIVE:

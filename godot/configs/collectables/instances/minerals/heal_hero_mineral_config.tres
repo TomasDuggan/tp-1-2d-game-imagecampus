@@ -27,6 +27,7 @@ animations = [{
 script = ExtResource("2_lhw3w")
 sprite_frames = SubResource("SpriteFrames_k0lno")
 hp = 1
+scale_override = Vector2(0.7, 0.7)
 destroyed_velocity_boost_duration = 1.0
 behaviour_configs = Array[ExtResource("1_gbems")]([SubResource("Resource_k0lno")])
 metadata/_custom_type_script = "uid://bkw6yobd6k4ta"

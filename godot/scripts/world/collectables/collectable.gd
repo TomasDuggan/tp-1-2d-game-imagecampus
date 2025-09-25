@@ -9,7 +9,7 @@ Un obstaculo detectable por el ataque de Hero, se compone de comportamientos que
 @onready var _animation: AnimatedSprite2D = $Animation
 @onready var _hurtbox: Hurtbox = $Hurtbox
 @onready var _animation_player: AnimationPlayer = $AnimationPlayer
-
+@onready var _physics_collision_shape: CollisionShape2D = $PhysicsCollisionShape
 
 var _config: CollectableConfig
 var _behaviours: Array[CollectableBehaviour] = []
@@ -22,12 +22,11 @@ func _ready():
 	if _override_config != null:
 		_config = _override_config
 	
-	scale = _config.scale_override
-	
 	_hurtbox.initialize(self, _config.hp, Hurtbox.DamageFaction.ENEMY, false)
-	_hurtbox.destroyed.connect(_destroyed)
+	_hurtbox.destroyed.connect(_on_hurtbox_destroyed)
 	_hurtbox.hit.connect(_hit)
 	
+	_animation.scale = _config.scale_override
 	_animation.sprite_frames = _config.sprite_frames
 	_animation.play("default")
 	
@@ -42,9 +41,23 @@ func _add_behaviour(behaviour_config: CollectableBehaviourConfig) -> void:
 	behaviour_instance.request_animation.connect(_on_animation_requested)
 	add_child(behaviour_instance)
 
-func _destroyed(damage_source: Hero, _defender: Node2D) -> void:
+func _on_hurtbox_destroyed(damage_source: Hero, _defender: Node2D) -> void:
 	for behaviour: CollectableBehaviour in _behaviours:
 		behaviour.on_destroyed_by_hero(damage_source)
+	
+	_remove_collectable()
+
+func _remove_collectable() -> void:
+	_hurtbox.deactivate()
+	_physics_collision_shape.call_deferred("set_disabled", true)
+	
+	# TODO: esto justifica hacer un script al animation
+	if _animation.sprite_frames.has_animation("death"):
+		_animation.play("death")
+		await _animation.animation_finished
+	else:
+		_animation_player.play("fade_out")
+		await _animation_player.animation_finished
 	
 	queue_free()
 

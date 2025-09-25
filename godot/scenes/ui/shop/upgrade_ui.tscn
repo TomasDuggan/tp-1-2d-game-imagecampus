@@ -67,13 +67,11 @@ size_flags_stretch_ratio = 2.0
 
 [node name="Name" type="Label" parent="Content/TopRow/TextContent/NameAndLevelSection"]
 layout_mode = 2
-size_flags_horizontal = 4
 theme = ExtResource("4_f0jbt")
 text = "Item Name"
 
 [node name="Level" type="Label" parent="Content/TopRow/TextContent/NameAndLevelSection"]
 layout_mode = 2
-size_flags_horizontal = 0
 theme = ExtResource("4_f0jbt")
 text = "Level: 1"
 
@@ -83,8 +81,6 @@ size_flags_horizontal = 3
 
 [node name="BuySection" type="VBoxContainer" parent="Content/TopRow/TextContent"]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
 
 [node name="Price" parent="Content/TopRow/TextContent/BuySection" instance=ExtResource("4_qpynf")]
 layout_mode = 2

@@ -7,10 +7,10 @@
 script = ExtResource("1_b4bdy")
 id = 1
 stat_modifier_value = 0.2
-max_level = 3
+max_level = 5
 icon = ExtResource("1_diu5v")
 display_name = "Dodge the Creeps"
-description = "Increase the miner's horizontal movement speed by X%"
+description = "Increase horizontal movement speed by X%"
 price = 3
 use_percentage_format = true
 metadata/_custom_type_script = "uid://bhmckujririhf"

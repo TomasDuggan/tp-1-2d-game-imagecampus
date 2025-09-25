@@ -142,7 +142,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_ipsy7")
 }],
 "loop": false,
-"name": &"attack_down",
+"name": &"attack",
 "speed": 12.0
 }, {
 "frames": [{
@@ -177,7 +177,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_bxfmg")
 }],
 "loop": false,
-"name": &"death_down",
+"name": &"death",
 "speed": 12.0
 }, {
 "frames": [{

@@ -31,20 +31,28 @@ func _ready():
 	SynergyEventBus.synergy_effect_ended.connect(_on_synergy_effect_ended)
 
 func _unhandled_key_input(event: InputEvent):
-	if event.is_action_pressed(SWAP_HERO_ACTION_NAME) && _can_swap():
+	if event.is_action_pressed(SWAP_HERO_ACTION_NAME):
 		_swap_hero_selection()
 
 func _can_swap() -> bool:
 	return _block_swap_timer.is_stopped() && !_synergy_effect_activated
 
+func _find_selected_hero() -> Hero:
+	return _heroes.filter(func(h: Hero): return h.is_selected()).front()
+
+func _find_unselected_hero() -> Hero:
+	return _heroes.filter(func(h: Hero): return !h.is_selected()).front()
+
 func _swap_hero_selection() -> void:
-	for hero: Hero in _heroes:
-		if hero.is_selected():
-			hero.deselect()
-		else:
-			hero.select()
+	var selected: Hero = _find_selected_hero()
+	var unselected: Hero = _find_unselected_hero()
+	var can_swap: bool = _can_swap()
 	
-	HeroEventBus.raise_event_swap_hero()
+	if can_swap:
+		selected.deselect()
+		unselected.select()
+	
+	HeroEventBus.raise_event_swap_hero(selected, unselected, can_swap)
 
 func _on_synergy_effect_activated() -> void:
 	_synergy_effect_activated = true

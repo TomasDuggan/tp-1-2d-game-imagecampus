@@ -1,7 +1,7 @@
 [gd_resource type="SpriteFrames" load_steps=27 format=3 uid="uid://dycf4ffpsmhmr"]
 
-[ext_resource type="Texture2D" uid="uid://di4wdryhqavrl" path="res://art/characters/heroes/warrior/lvl_3/Swordsman_lvl3_Run_Attack_with_shadow.png" id="1_t0s15"]
-[ext_resource type="Texture2D" uid="uid://8posouas0f7f" path="res://art/characters/heroes/warrior/lvl_3/Swordsman_lvl3_Run_with_shadow.png" id="2_trbbd"]
+[ext_resource type="Texture2D" uid="uid://di4wdryhqavrl" path="res://art/characters/heroes/warrior/Swordsman_lvl3_Run_Attack_with_shadow.png" id="1_t0s15"]
+[ext_resource type="Texture2D" uid="uid://8posouas0f7f" path="res://art/characters/heroes/warrior/Swordsman_lvl3_Run_with_shadow.png" id="2_trbbd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_trbbd"]
 atlas = ExtResource("1_t0s15")

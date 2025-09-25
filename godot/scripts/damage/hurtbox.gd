@@ -49,7 +49,8 @@ func _update_hp_bar() -> void:
 func is_ally(other: DamageFaction) -> bool:
 	return _faction == other
 
-
+func deactivate() -> void:
+	set_deferred("monitoring", false)
 
 
 
