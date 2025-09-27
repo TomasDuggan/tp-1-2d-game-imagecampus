@@ -5,9 +5,10 @@
 [ext_resource type="Script" uid="uid://dhsqnlkb2pg63" path="res://scripts/world/collectables/collectable_spawn_points.gd" id="2_2ddm2"]
 [ext_resource type="Script" uid="uid://dg5vnk5014wwx" path="res://scripts/world/interactables/interactables_container.gd" id="3_d23kf"]
 
-[node name="Room" type="Node2D" node_paths=PackedStringArray("_collectables_spawner")]
+[node name="Room" type="Node2D" node_paths=PackedStringArray("_collectables_spawner", "_map")]
 script = ExtResource("1_2ddm2")
 _collectables_spawner = NodePath("CollectableSpawner")
+_map = NodePath("Background")
 
 [node name="Background" type="TileMapLayer" parent="."]
 tile_set = ExtResource("1_76igw")

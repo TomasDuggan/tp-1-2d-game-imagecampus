@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CollectablesDB" load_steps=7 format=3 uid="uid://by8m5vbld0b1g"]
+
+[ext_resource type="Script" uid="uid://bkw6yobd6k4ta" path="res://configs/collectables/collectable_config.gd" id="1_8qi45"]
+[ext_resource type="Script" uid="uid://paaj50f6arku" path="res://db/collectables/collectables_db.gd" id="2_nvv4n"]
+[ext_resource type="Resource" uid="uid://bn8fa3frucwhi" path="res://configs/collectables/instances/minerals/currency_mineral_config.tres" id="2_q01rj"]
+[ext_resource type="Resource" uid="uid://cw5d021tymnuh" path="res://configs/collectables/instances/minerals/heal_hero_mineral_config.tres" id="3_xg71k"]
+[ext_resource type="Resource" uid="uid://d0hq6oyw4fxe2" path="res://configs/collectables/instances/enemies/vampire_basic_enemy_config.tres" id="4_uosrj"]
+[ext_resource type="Resource" uid="uid://c4fyc808g5mh3" path="res://configs/collectables/instances/enemies/undead_slime_enemy_config.tres" id="5_faxw1"]
+
+[resource]
+script = ExtResource("2_nvv4n")
+_miner_collectable_configs = Array[ExtResource("1_8qi45")]([ExtResource("2_q01rj"), ExtResource("3_xg71k")])
+_warrior_collectable_configs = Array[ExtResource("1_8qi45")]([ExtResource("4_uosrj"), ExtResource("5_faxw1")])
+metadata/_custom_type_script = "uid://paaj50f6arku"

@@ -41,7 +41,8 @@ func _find_selected_hero() -> Hero:
 	return _heroes.filter(func(h: Hero): return h.is_selected()).front()
 
 func _find_unselected_hero() -> Hero:
-	return _heroes.filter(func(h: Hero): return !h.is_selected()).front()
+	var unselecteds: Array = _heroes.filter(func(h: Hero): return !h.is_selected())
+	return null if unselecteds.is_empty() else unselecteds.front()
 
 func _swap_hero_selection() -> void:
 	var selected: Hero = _find_selected_hero()

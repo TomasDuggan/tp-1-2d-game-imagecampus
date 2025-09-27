@@ -8,6 +8,9 @@ Animacion de un heroe y su Outline al estar seleccionado
 var _default_material: Material
 
 
+func initialize(hero_sprite_frames: SpriteFrames) -> void:
+	sprite_frames = hero_sprite_frames
+
 func _ready():
 	_default_material = material
 	

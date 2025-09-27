@@ -10,3 +10,4 @@ Se le puede agregar comportamiento con 'behaviour_configs'
 @export var scale_override := Vector2.ONE
 @export var destroyed_velocity_boost_duration: float
 @export var behaviour_configs: Array[CollectableBehaviourConfig]
+@export var min_level_to_show: int

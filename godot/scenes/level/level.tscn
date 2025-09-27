@@ -1,16 +1,34 @@
-[gd_scene load_steps=9 format=3 uid="uid://cw7v32643ol2t"]
+[gd_scene load_steps=11 format=3 uid="uid://cw7v32643ol2t"]
 
 [ext_resource type="Script" uid="uid://ywf7pwru2s70" path="res://scripts/world/level.gd" id="1_vpf64"]
+[ext_resource type="Script" uid="uid://b838myufwwsag" path="res://configs/hero/hero_config.gd" id="2_b7m21"]
 [ext_resource type="Script" uid="uid://w6k62hjfi6jo" path="res://scripts/managers/hero_selection_manager.gd" id="2_wcngd"]
-[ext_resource type="PackedScene" uid="uid://bmjsmxtdlcees" path="res://scenes/level/level_1/miner_world_level_1.tscn" id="3_qkmgm"]
 [ext_resource type="Script" uid="uid://cges3ilf47io3" path="res://scripts/world/synergy_manager.gd" id="3_tf2q7"]
-[ext_resource type="PackedScene" uid="uid://y76enpiqi5pc" path="res://scenes/level/level_1/warrior_world_level_1.tscn" id="4_hnne4"]
+[ext_resource type="PackedScene" uid="uid://b2q5ss2eqgp18" path="res://scenes/level/world/world.tscn" id="4_wcngd"]
 [ext_resource type="Texture2D" uid="uid://b0prl0robq55h" path="res://art/bars/health meter-01.png" id="8_sytrn"]
 [ext_resource type="Texture2D" uid="uid://x4tfenq0dus" path="res://art/bars/health meter-05.png" id="9_tf2q7"]
 [ext_resource type="Theme" uid="uid://cm2fomdb61et5" path="res://themes/basic_button_theme.tres" id="11_pe1ox"]
 
+[sub_resource type="Resource" id="Resource_pm6rs"]
+script = ExtResource("2_b7m21")
+hp = 5
+damage = 1
+attack_speed = 1.0
+horizontal_movement_speed = 100.0
+metadata/_custom_type_script = "uid://b838myufwwsag"
+
+[sub_resource type="Resource" id="Resource_vrc4q"]
+script = ExtResource("2_b7m21")
+hp = 5
+damage = 2
+attack_speed = 0.7
+horizontal_movement_speed = 75.0
+metadata/_custom_type_script = "uid://b838myufwwsag"
+
 [node name="Level" type="Node" node_paths=PackedStringArray("_miner_world", "_warrior_world", "_hero_selection_manager", "_level_won_menu")]
 script = ExtResource("1_vpf64")
+_miner_config = SubResource("Resource_pm6rs")
+_warrior_config = SubResource("Resource_vrc4q")
 _miner_world = NodePath("HBoxContainer/SubViewportContainer/SubViewport/MinerWorld")
 _warrior_world = NodePath("HBoxContainer/SubViewportContainer2/SubViewport/WarriorWorld")
 _hero_selection_manager = NodePath("Managers/HeroSelectionManager")
@@ -43,7 +61,7 @@ canvas_item_default_texture_filter = 0
 size = Vector2i(638, 720)
 render_target_update_mode = 4
 
-[node name="MinerWorld" parent="HBoxContainer/SubViewportContainer/SubViewport" instance=ExtResource("3_qkmgm")]
+[node name="MinerWorld" parent="HBoxContainer/SubViewportContainer/SubViewport" instance=ExtResource("4_wcngd")]
 
 [node name="SubViewportContainer2" type="SubViewportContainer" parent="HBoxContainer"]
 layout_mode = 2
@@ -56,7 +74,7 @@ canvas_item_default_texture_filter = 0
 size = Vector2i(638, 720)
 render_target_update_mode = 4
 
-[node name="WarriorWorld" parent="HBoxContainer/SubViewportContainer2/SubViewport" instance=ExtResource("4_hnne4")]
+[node name="WarriorWorld" parent="HBoxContainer/SubViewportContainer2/SubViewport" instance=ExtResource("4_wcngd")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

@@ -1,10 +1,11 @@
 extends Node2D
 class_name Scroll
 """
-Contenedor del contenido del nivel. Todo lo que esta dentro baja en Y, simulando que Hero avanza
+Scrollea el contenido hacia abajo (+Y) para simular que Hero avanza.
 """
 
-@export var scroll_speed: float = 75.0
+const SCROLL_SPEED := 75.0
+
 
 func _process(delta: float) -> void:
-	position.y += scroll_speed * delta
+	position.y += SCROLL_SPEED * delta

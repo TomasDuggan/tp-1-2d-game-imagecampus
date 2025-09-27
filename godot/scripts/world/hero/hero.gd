@@ -22,12 +22,13 @@ var ally: Hero
 
 func initialize(config: HeroConfig, world_type: World.WorldType) -> void:
 	_config = config
+	_animation.initialize(config.get_sprite_frames(world_type))
 	_vertical_speed_boost_handler.initialize(_velocity_boost_particles)
 	
 	_initialize_hitbox(world_type)
 	_initialize_hurtbox()
 	_initialize_horizontal_movement_speed(world_type)
-	_initialize_input_reader()
+	_initialize_input_reader(world_type)
 
 func _initialize_hitbox(world_type: World.WorldType) -> void:
 	var upgraded_damage: int = _config.damage + int(UpgradesManager.get_modifier_value(world_type, UpgradesManager.UpgradeId.DAMAGE))
@@ -46,9 +47,9 @@ func _initialize_horizontal_movement_speed(world_type: World.WorldType) -> void:
 	speed += speed * UpgradesManager.get_modifier_value(world_type, UpgradesManager.UpgradeId.HORIZONTAL_MOVEMENT_SPEED)
 	_horizontal_movement_speed = speed
 
-func _initialize_input_reader() -> void:
+func _initialize_input_reader(world_type: World.WorldType) -> void:
 	add_child(_horizontal_movement_input_reader)
-	_horizontal_movement_input_reader.initialize(_config.use_arrows_on_synergy_activation)
+	_horizontal_movement_input_reader.initialize(World.is_warrior_world(world_type))
 
 func _ready():
 	_vertical_speed_boost_handler.vertical_speed_changed.connect(_on_vertical_speed_changed)
