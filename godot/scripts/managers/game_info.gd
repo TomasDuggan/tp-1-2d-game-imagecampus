@@ -1,7 +1,9 @@
 extends Node
+"""
+Global para info generica del juego
+"""
 
-
-var _current_level: int
+var _current_level := 0
 
 
 func _ready():
