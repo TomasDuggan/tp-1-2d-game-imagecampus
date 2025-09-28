@@ -58,10 +58,23 @@ func _ready():
 func _process(_delta):
 	_horizontal_direction = _horizontal_movement_input_reader.get_horizontal_input_direction()
 
-func _physics_process(_delta):
+#func _physics_process(_delta):
+	#velocity.x = _horizontal_direction * _horizontal_movement_speed
+	#velocity.y = _vertical_speed
+	#move_and_slide()
+
+func _physics_process(delta: float) -> void:
+	_move(delta)
+
+func _move(delta: float) -> void:
 	velocity.x = _horizontal_direction * _horizontal_movement_speed
 	velocity.y = _vertical_speed
-	move_and_slide()
+
+	var collision: KinematicCollision2D = move_and_collide(velocity * delta)
+	if collision != null:
+		if abs(collision.get_normal().y) > 0.9: # Colision bloquea eje Y
+			velocity.y = 0 # "Trabarse" verticalmente
+		global_position.x += velocity.x * delta # Movimiento lateral libre
 
 func is_selected() -> bool:
 	return _is_selected
