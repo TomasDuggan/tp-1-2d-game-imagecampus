@@ -39,7 +39,7 @@ func _ready():
 	# Nota: No conecto con lambda para poder desconectarme bien en _exit_tree
 	HeroEventBus.hero_swapped.connect(_on_hero_swapped)
 	CollectableEventBus.collectable_amount_changed.connect(_on_collectable_gained)
-	InteractablesEventBus.interactable_pressed.connect(_on_interactable_pressed)
+	InteractablesManager.interactable_pressed.connect(_on_interactable_pressed)
 
 func _resolve_synergy_gain_upgrade_multiplier() -> float:
 	const SYNERGY_GAIN_UPGRADE_CONFIG: UpgradeConfig = preload("uid://drg1frcy4axsl")
@@ -103,4 +103,4 @@ func _synergy_effect_ended() -> void:
 func _exit_tree():
 	HeroEventBus.hero_swapped.disconnect(_on_hero_swapped)
 	CollectableEventBus.collectable_amount_changed.disconnect(_on_collectable_gained)
-	InteractablesEventBus.interactable_pressed.disconnect(_on_interactable_pressed)
+	InteractablesManager.interactable_pressed.disconnect(_on_interactable_pressed)

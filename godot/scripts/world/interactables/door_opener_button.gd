@@ -15,7 +15,7 @@ func _ready():
 func _on_hero_entered(_hero: Hero) -> void:
 	_sprite_on.set_visible(false)
 	_sprite_off.set_visible(true)
-	InteractablesEventBus.raise_event_interactable_pressed(_door_to_open_id)
+	InteractablesManager.press_interactable(_door_to_open_id)
 
 # 'interfaz'
 func set_id(id: int) -> void:

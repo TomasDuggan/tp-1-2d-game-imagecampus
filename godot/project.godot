@@ -22,10 +22,10 @@ CollectableEventBus="*res://scripts/event_buses/collectables_event_bus.gd"
 CollectablesManager="*res://scripts/managers/collectables_manager.gd"
 UpgradesManager="*res://scripts/managers/upgrades_manager.gd"
 SynergyEventBus="*res://scripts/event_buses/synergy_event_bus.gd"
-InteractablesEventBus="*res://scripts/event_buses/interactables_event_bus.gd"
 UpgradesEventBus="*res://scripts/event_buses/upgrades_event_bus.gd"
 GameInfo="*res://scripts/managers/game_info.gd"
 LevelEventBus="*res://scripts/event_buses/level_event_bus.gd"
+InteractablesManager="*res://scripts/managers/interactables_manager.gd"
 
 [display]
 
