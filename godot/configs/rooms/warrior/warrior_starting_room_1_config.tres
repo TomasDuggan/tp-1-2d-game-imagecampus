@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="RoomConfig" load_steps=3 format=3 uid="uid://boadfqvoupsqy"]
+
+[ext_resource type="PackedScene" uid="uid://dpgl0y5oegknw" path="res://scenes/level/world/rooms/warrior/startings/warrior_starting_room_1.tscn" id="1_gjjc5"]
+[ext_resource type="Script" uid="uid://sp0ivn7va6cy" path="res://configs/rooms/room_config.gd" id="2_em5yb"]
+
+[resource]
+script = ExtResource("2_em5yb")
+scene = ExtResource("1_gjjc5")
+is_start_room = true
+metadata/_custom_type_script = "uid://sp0ivn7va6cy"

@@ -4,19 +4,21 @@ class_name RoomSpawner
 @export_category("Editor Dependencies")
 @export var _rooms_container: Node2D
 @export var _main_ground_tilemap: MainGroundTileMap
-@export var _room_picker: RoomPicker
 
 signal interactable_room_spawned()
 
 const VIEWPORT_HEIGHT := 720.0
 const MERGE_TERRAIN_ID := 0
 
+var _room_picker := RoomPicker.new()
 var _collectables_to_spawn: Array[CollectableConfig] = []
 var _rooms_height_accumulator := 0.0
 
 
 func initialize(world_type: World.WorldType) -> void:
+	add_child(_room_picker)
 	_room_picker.interactable_room_spawned.connect(interactable_room_spawned.emit)
+	_room_picker.end_room_spawned.connect(_on_end_room_spawned, CONNECT_ONE_SHOT)
 	_room_picker.initialize(world_type)
 	
 	_main_ground_tilemap.initialize(world_type)
@@ -24,6 +26,9 @@ func initialize(world_type: World.WorldType) -> void:
 	_collectables_to_spawn = RoomSpawnerConfigHelper.get_valid_collectable_configs(world_type)
 	
 	_spawn_room(Vector2(0, VIEWPORT_HEIGHT))
+
+func _on_end_room_spawned() -> void:
+	set_process(false)
 
 func _process(_delta: float) -> void:
 	if _room_reached_end():
