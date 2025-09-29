@@ -1,7 +1,7 @@
 extends ItemListerUI
 class_name UpgradesListerUI
 """
-Listador de upgrades de una categoria
+Listador de upgrades
 """
 
 @export_category("Config")

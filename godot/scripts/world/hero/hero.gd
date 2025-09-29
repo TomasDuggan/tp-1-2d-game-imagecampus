@@ -10,6 +10,8 @@ Script root para las escenas Hero (Minero o Guerrero)
 @onready var _velocity_boost_particles: CPUParticles2D = $VelocityBoostParticles
 @onready var hp: Hurtbox = $Hurtbox # 'Facade'
 
+const ATTACK_SPEED_UPGRADE := 0.3
+
 var _config: HeroConfig
 var _horizontal_direction: int # 1 o -1
 var _horizontal_movement_input_reader := HeroHorizontalMovementInputReader.new()
@@ -90,7 +92,7 @@ func _update_selection(is_selected_arg: bool) -> void:
 		_hitbox.reset_attack_speed()
 		_horizontal_direction = 0
 	else:
-		_hitbox.upgrade_attack_speed(0.5)
+		_hitbox.upgrade_attack_speed(ATTACK_SPEED_UPGRADE)
 
 func _on_vertical_speed_changed(new_vertical_speed: float) -> void:
 	_vertical_speed = new_vertical_speed

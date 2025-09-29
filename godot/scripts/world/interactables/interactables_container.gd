@@ -9,5 +9,5 @@ func _ready():
 	var i := 0
 	
 	for c: Node2D in get_children():
-		c.set_id(i)
+		c.set_id(i) # interfaz de puertas y botones
 		i += 1

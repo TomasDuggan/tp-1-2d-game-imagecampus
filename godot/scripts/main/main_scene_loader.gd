@@ -4,9 +4,7 @@ class_name MainSceneLoader
 Swappea entre las escenas 'principales/main': Level y ShopUI
 """
 
-@export_category("Config")
-@export var _all_levels: Array[PackedScene]
-
+const LEVEL_SCENE: PackedScene = preload("uid://cw7v32643ol2t")
 const SHOP_SCENE: PackedScene = preload("uid://41r7gy6mk5f7")
 
 var _current_main_scene: Node
@@ -20,9 +18,7 @@ func _ready():
 func _load_level() -> void:
 	_unload_current_main_scene()
 	
-	# TODO: debuggeando con level = 0, usar GameInfo.get_current_level()
-	print_debug("Testing: Cargando level 0")
-	var level_instance: Level = _all_levels[0].instantiate()
+	var level_instance: Level = LEVEL_SCENE.instantiate()
 	_current_main_scene = level_instance
 	add_child(level_instance)
 

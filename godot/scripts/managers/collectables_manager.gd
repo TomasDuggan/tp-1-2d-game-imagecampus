@@ -1,6 +1,6 @@
 extends Node
 """
-Global que maneja los coleccionables/moneda/score (es todo lo mismo) del jugador
+Global que maneja los coleccionables/moneda/score (misma semantica) del jugador
 """
 
 var _collected_by_type: Dictionary[World.WorldType, int] = {

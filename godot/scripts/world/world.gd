@@ -7,7 +7,6 @@ class_name World
 @export var _score_container: CollectableUI
 @export var _hero_messages_manager: HeroMessagesManager
 
-@warning_ignore("unused_signal")
 signal interactable_room_spawned()
 
 enum WorldType { MINER, WARRIOR }

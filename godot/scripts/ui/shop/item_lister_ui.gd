@@ -1,6 +1,9 @@
 @abstract
 extends VBoxContainer
 class_name ItemListerUI
+"""
+Clase base para listadores de Items en la UI
+"""
 
 const ITEM_UI_SCENE: PackedScene = preload("uid://c4xtc8qiymqhb")
 

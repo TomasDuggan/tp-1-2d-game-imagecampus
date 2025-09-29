@@ -1,5 +1,5 @@
 extends TileMapLayer
-class_name CollectablesSpawner2
+class_name CollectablesSpawner
 
 @export_category("Editor Dependencies")
 @export var _collectables_container: Node2D

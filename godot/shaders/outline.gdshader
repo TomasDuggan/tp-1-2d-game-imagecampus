@@ -1,6 +1,6 @@
 // Agrega Outline a un sprite
 // IMPORTANTE: este codigo no es mio, lo encontre en "https://github.com/gdquest-demos/godot-shaders"
-// 	y luego lo pase por una IA para fixear algunos aspectos
+// 	y luego lo pase por una IA para fixear algunos detalles
 
 shader_type canvas_item;
 

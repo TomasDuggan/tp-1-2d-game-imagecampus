@@ -6,7 +6,7 @@ Cada Room es una escena separada.
 """
 
 @export_category("Editor Dependencies")
-@export var _collectables_spawner: CollectablesSpawner2
+@export var _collectables_spawner: CollectablesSpawner
 @export var _map: TileMapLayer
 
 
