@@ -34,26 +34,26 @@ func _unhandled_key_input(event: InputEvent):
 	if event.is_action_pressed(SWAP_HERO_ACTION_NAME):
 		_swap_hero_selection()
 
+func _swap_hero_selection() -> void:
+	var selected: Hero = _find_selected_hero()
+	var deselected: Hero = _find_deselected_hero()
+	var can_swap: bool = _can_swap()
+	
+	if can_swap:
+		selected.deselect()
+		deselected.select()
+	
+	HeroEventBus.raise_event_swap_hero(selected, deselected, can_swap)
+
 func _can_swap() -> bool:
 	return _block_swap_timer.is_stopped() && !_synergy_effect_activated
 
 func _find_selected_hero() -> Hero:
 	return _heroes.filter(func(h: Hero): return h.is_selected()).front()
 
-func _find_unselected_hero() -> Hero:
-	var unselecteds: Array = _heroes.filter(func(h: Hero): return !h.is_selected())
-	return null if unselecteds.is_empty() else unselecteds.front()
-
-func _swap_hero_selection() -> void:
-	var selected: Hero = _find_selected_hero()
-	var unselected: Hero = _find_unselected_hero()
-	var can_swap: bool = _can_swap()
-	
-	if can_swap:
-		selected.deselect()
-		unselected.select()
-	
-	HeroEventBus.raise_event_swap_hero(selected, unselected, can_swap)
+func _find_deselected_hero() -> Hero:
+	var deselecteds: Array = _heroes.filter(func(h: Hero): return !h.is_selected())
+	return null if deselecteds.is_empty() else deselecteds.front()
 
 func _on_synergy_effect_activated() -> void:
 	_synergy_effect_activated = true

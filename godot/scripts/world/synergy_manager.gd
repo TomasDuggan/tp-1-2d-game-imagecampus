@@ -50,10 +50,8 @@ func _resolve_synergy_gain_upgrade_multiplier() -> float:
 	)
 
 func _on_hero_swapped(_from, _to, success: bool):
-	if !success:
-		return
-	
-	_update_synergy_value(SWAP_SYNERGY_INCREASE_VALUE)
+	if success:
+		_update_synergy_value(SWAP_SYNERGY_INCREASE_VALUE)
 
 func _on_collectable_gained(_type, _amount) -> void:
 	_update_synergy_value(COLLECTABLE_GAINED_SYNERGY_INCREASE_VALUE)

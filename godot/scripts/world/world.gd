@@ -5,6 +5,7 @@ class_name World
 @export var _room_spawner: RoomSpawner
 @export var _hero: Hero
 @export var _score_container: CollectableUI
+@export var _hero_messages_manager: HeroMessagesManager
 
 @warning_ignore("unused_signal")
 signal interactable_room_spawned()
@@ -20,6 +21,8 @@ func initialize(world_type: World.WorldType, hero_config: HeroConfig, ally_hero:
 	_room_spawner.initialize(world_type)
 	
 	_score_container.initialize(world_type)
+	
+	_hero_messages_manager.initialize(_hero)
 
 func get_hero() -> Hero:
 	return _hero

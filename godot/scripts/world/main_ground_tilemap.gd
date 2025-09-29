@@ -1,7 +1,7 @@
 extends TileMapLayer
 class_name MainGroundTileMap
 """
-Cada World tiene un tilemap que se va generando a partir de los tilemaps de los Rooms
+World tiene un tilemap principal que se va generando a partir de los tilemaps de los Rooms
 """
 
 const MERGE_TERRAIN_ID := 0
@@ -46,7 +46,6 @@ func _connect_tilemaps(before_rect: Rect2i) -> void:
 			#set_cell(cell, 0, Vector2i(9,1))
 		set_cells_terrain_connect(row_cells, terrain_set_id, MERGE_TERRAIN_ID)
 
-# El grupo de cells que van a conectar el tilemap con el del nuevo room
 func _get_band_cells(rect: Rect2i, y: int) -> Array[Vector2i]:
 	const TILES_HEIGHT := 3
 	var cells: Array[Vector2i] = []
