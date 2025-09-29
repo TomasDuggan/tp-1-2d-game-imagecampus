@@ -32,4 +32,4 @@ func set_id(id: int) -> void:
 
 func _exit_tree():
 	if InteractablesManager.interactable_pressed.is_connected(_check_open_door):
-		InteractablesManager.interactable_pressed.connect(_check_open_door)
+		InteractablesManager.interactable_pressed.disconnect(_check_open_door)

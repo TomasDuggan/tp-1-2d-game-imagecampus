@@ -1,15 +1,21 @@
-[gd_resource type="Resource" script_class="UpgradeConfig" load_steps=3 format=3 uid="uid://dt51d04n5a11f"]
+[gd_resource type="Resource" script_class="UpgradeConfig" load_steps=5 format=3 uid="uid://dt51d04n5a11f"]
 
 [ext_resource type="Texture2D" uid="uid://d3wkfe8s0i1f2" path="res://art/icons/skills/cart.png" id="1_4sllj"]
+[ext_resource type="Script" uid="uid://bmfrhj7p3gkr8" path="res://configs/bestiary/basic_item_config.gd" id="2_afe26"]
 [ext_resource type="Script" uid="uid://bhmckujririhf" path="res://configs/upgrades/upgrade_config.gd" id="2_cg3g2"]
+
+[sub_resource type="Resource" id="Resource_ps4y4"]
+script = ExtResource("2_afe26")
+icon = ExtResource("1_4sllj")
+display_name = "Shopping Cart"
+description = "Gain +1 more minerals"
+metadata/_custom_type_script = "uid://bmfrhj7p3gkr8"
 
 [resource]
 script = ExtResource("2_cg3g2")
 id = 2
 stat_modifier_value = 1.0
 max_level = 3
-icon = ExtResource("1_4sllj")
-display_name = "Shopping Cart"
-description = "Increase mineral recollection by X"
+basic_config = SubResource("Resource_ps4y4")
 price = 5
 metadata/_custom_type_script = "uid://bhmckujririhf"

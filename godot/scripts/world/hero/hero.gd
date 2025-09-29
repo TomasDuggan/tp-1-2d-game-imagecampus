@@ -33,7 +33,6 @@ func initialize(config: HeroConfig, world_type: World.WorldType) -> void:
 func _initialize_hitbox(world_type: World.WorldType) -> void:
 	var upgraded_damage: int = _config.damage + int(UpgradesManager.get_modifier_value(world_type, UpgradesManager.UpgradeId.DAMAGE))
 	_hitbox.initialize(self, upgraded_damage, _config.attack_speed, true, Hurtbox.DamageFaction.HERO)
-	
 	_hitbox.attack_performed.connect(_animation.play_attack_animation)
 	_hitbox.target_destroyed.connect(_vertical_speed_boost_handler.on_target_destroyed)
 
@@ -84,11 +83,14 @@ func deselect() -> void:
 func _update_selection(is_selected_arg: bool) -> void:
 	_is_selected = is_selected_arg
 	
-	_animation.toggle_selected(_is_selected)
 	set_process(_is_selected)
+	_animation.toggle_selected(_is_selected)
 	
 	if !_is_selected:
+		_hitbox.reset_attack_speed()
 		_horizontal_direction = 0
+	else:
+		_hitbox.upgrade_attack_speed(0.5)
 
 func _on_vertical_speed_changed(new_vertical_speed: float) -> void:
 	_vertical_speed = new_vertical_speed

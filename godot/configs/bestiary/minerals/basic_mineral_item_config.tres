@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BasicItemConfig" load_steps=3 format=3 uid="uid://d3ocmvivv53ai"]
+
+[ext_resource type="Script" uid="uid://bmfrhj7p3gkr8" path="res://configs/bestiary/basic_item_config.gd" id="1_04gax"]
+[ext_resource type="Texture2D" uid="uid://f1cwo3v6t0kk" path="res://art/minerals/v_2/Blue_crystal1.png" id="1_v174u"]
+
+[resource]
+script = ExtResource("1_04gax")
+icon = ExtResource("1_v174u")
+display_name = "Basic Mineral"
+description = "Gives resources"
+metadata/_custom_type_script = "uid://bmfrhj7p3gkr8"

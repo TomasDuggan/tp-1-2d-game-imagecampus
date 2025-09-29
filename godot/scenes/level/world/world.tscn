@@ -19,7 +19,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dw3eh"]
 shader = ExtResource("9_dw3eh")
 shader_parameter/line_color = Color(1, 1, 0, 1)
-shader_parameter/line_thickness = 0.800000038
+shader_parameter/line_thickness = 2.000000095
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dw3eh"]
 

@@ -1,16 +1,22 @@
-[gd_resource type="Resource" script_class="UpgradeConfig" load_steps=3 format=3 uid="uid://dqsgdu0754klx"]
+[gd_resource type="Resource" script_class="UpgradeConfig" load_steps=5 format=3 uid="uid://dqsgdu0754klx"]
 
 [ext_resource type="Script" uid="uid://bhmckujririhf" path="res://configs/upgrades/upgrade_config.gd" id="1_b4bdy"]
 [ext_resource type="Texture2D" uid="uid://be5xfe6svfj51" path="res://art/icons/skills/boots.png" id="1_diu5v"]
+[ext_resource type="Script" uid="uid://bmfrhj7p3gkr8" path="res://configs/bestiary/basic_item_config.gd" id="2_h7mvj"]
+
+[sub_resource type="Resource" id="Resource_q8j67"]
+script = ExtResource("2_h7mvj")
+icon = ExtResource("1_diu5v")
+display_name = "Dodge the Creeps"
+description = "Move X% faster"
+metadata/_custom_type_script = "uid://bmfrhj7p3gkr8"
 
 [resource]
 script = ExtResource("1_b4bdy")
 id = 1
 stat_modifier_value = 0.2
 max_level = 5
-icon = ExtResource("1_diu5v")
-display_name = "Dodge the Creeps"
-description = "Increase horizontal movement speed by X%"
+basic_config = SubResource("Resource_q8j67")
 price = 3
 use_percentage_format = true
 metadata/_custom_type_script = "uid://bhmckujririhf"

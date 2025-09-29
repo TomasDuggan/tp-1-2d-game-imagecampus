@@ -1,4 +1,7 @@
 extends Node
+"""
+Global para manejar los interactuables
+"""
 
 signal interactable_pressed(id: int)
 

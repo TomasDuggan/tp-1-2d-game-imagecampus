@@ -4,7 +4,7 @@ class_name Scroll
 Scrollea el contenido (Rooms) hacia abajo (+Y) para simular que Hero avanza.
 """
 
-const SCROLL_SPEED := 150.0
+const SCROLL_SPEED := 75.0
 
 
 func _process(delta: float) -> void:

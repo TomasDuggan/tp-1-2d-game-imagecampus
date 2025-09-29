@@ -14,9 +14,7 @@ const PLACEHOLDER := "X"
 @export var max_level: int # En este level deja de aparecer para comprar en el Shop
 
 @export_category("UI")
-@export var icon: Texture2D
-@export var display_name: String
-@export var description: String
+@export var basic_config: BasicItemConfig
 @export var price: int
 @export var use_percentage_format: bool
 
@@ -27,7 +25,7 @@ func format_description(level: int) -> String:
 	if use_percentage_format:
 		replacement_value *= 100
 	
-	return description.replace(PLACEHOLDER, str(int(replacement_value)))
+	return basic_config.description.replace(PLACEHOLDER, str(int(replacement_value)))
 
 
 

@@ -8,7 +8,6 @@ class_name RoomSpawner
 signal interactable_room_spawned()
 
 const VIEWPORT_HEIGHT := 720.0
-const MERGE_TERRAIN_ID := 0
 
 var _room_picker := RoomPicker.new()
 var _collectables_to_spawn: Array[CollectableConfig] = []
@@ -16,9 +15,9 @@ var _rooms_height_accumulator := 0.0
 
 
 func initialize(world_type: World.WorldType) -> void:
-	add_child(_room_picker)
 	_room_picker.interactable_room_spawned.connect(interactable_room_spawned.emit)
 	_room_picker.end_room_spawned.connect(_on_end_room_spawned, CONNECT_ONE_SHOT)
+	add_child(_room_picker)
 	_room_picker.initialize(world_type)
 	
 	_main_ground_tilemap.initialize(world_type)

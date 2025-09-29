@@ -4,11 +4,11 @@ class_name Hitbox
 Escena para hacer dmg a Hurtbox
 """
 
-
 signal attack_performed()
 signal target_destroyed(defender_root: Node2D)
 
 var _damage_source: Node2D
+var _base_attack_speed: float
 var _attack_cd_timer := Timer.new()
 var _damage: int
 var _targets_in_range: Array[Hurtbox] = []
@@ -20,6 +20,7 @@ func initialize(damage_source: Node2D, damage: int, attack_speed: float, autoatt
 	_damage_source = damage_source
 	_damage = damage
 	_source_faction = source_faction
+	_base_attack_speed = attack_speed
 	
 	_attack_cd_timer.autostart = autoattack
 	_attack_cd_timer.wait_time = attack_speed
@@ -58,8 +59,11 @@ func _damage_targets_in_range() -> void:
 func toggle_detection() -> void:
 	set_deferred("monitoring", !monitoring)
 
+func upgrade_attack_speed(normalized_value: float) -> void:
+	_attack_cd_timer.wait_time -= _attack_cd_timer.wait_time * normalized_value
 
-
+func reset_attack_speed() -> void:
+	_attack_cd_timer.wait_time = _base_attack_speed
 
 
 

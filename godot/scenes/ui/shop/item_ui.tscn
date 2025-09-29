@@ -1,18 +1,18 @@
 [gd_scene load_steps=7 format=3 uid="uid://c4xtc8qiymqhb"]
 
-[ext_resource type="Script" uid="uid://doym0w3pawy6q" path="res://scripts/ui/shop/upgrade_ui.gd" id="1_xe6p4"]
-[ext_resource type="Texture2D" uid="uid://2idfg1gk0nrh" path="res://art/ui/tiles/tile_0020.png" id="2_uj0qj"]
-[ext_resource type="Texture2D" uid="uid://d3wkfe8s0i1f2" path="res://art/icons/skills/cart.png" id="3_f0jbt"]
-[ext_resource type="Theme" uid="uid://cbp5aehq4d233" path="res://themes/basic_label_theme.tres" id="4_f0jbt"]
-[ext_resource type="PackedScene" uid="uid://bbotfj18d8itl" path="res://scenes/ui/score/collectable_ui.tscn" id="4_qpynf"]
-[ext_resource type="Theme" uid="uid://cm2fomdb61et5" path="res://themes/basic_button_theme.tres" id="6_uj0qj"]
+[ext_resource type="Script" uid="uid://doym0w3pawy6q" path="res://scripts/ui/shop/item_ui.gd" id="1_fobm2"]
+[ext_resource type="Texture2D" uid="uid://2idfg1gk0nrh" path="res://art/ui/tiles/tile_0020.png" id="2_sj45p"]
+[ext_resource type="Texture2D" uid="uid://d3wkfe8s0i1f2" path="res://art/icons/skills/cart.png" id="3_loexb"]
+[ext_resource type="Theme" uid="uid://cbp5aehq4d233" path="res://themes/basic_label_theme.tres" id="4_om2mb"]
+[ext_resource type="PackedScene" uid="uid://bbotfj18d8itl" path="res://scenes/ui/score/collectable_ui.tscn" id="5_n7lwq"]
+[ext_resource type="Theme" uid="uid://cm2fomdb61et5" path="res://themes/basic_button_theme.tres" id="6_oiawk"]
 
-[node name="Upgrade" type="Control" node_paths=PackedStringArray("_icon", "_name", "_level", "_buy_section", "_price", "_description")]
+[node name="Item" type="Control" node_paths=PackedStringArray("_icon", "_name", "_level", "_buy_section", "_price", "_description")]
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 3
 anchors_preset = 0
 size_flags_horizontal = 3
-script = ExtResource("1_xe6p4")
+script = ExtResource("1_fobm2")
 _icon = NodePath("Content/TopRow/Icon")
 _name = NodePath("Content/TopRow/TextContent/NameAndLevelSection/Name")
 _level = NodePath("Content/TopRow/TextContent/NameAndLevelSection/Level")
@@ -27,7 +27,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_uj0qj")
+texture = ExtResource("2_sj45p")
 patch_margin_left = 13
 patch_margin_top = 13
 patch_margin_right = 13
@@ -46,12 +46,13 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TopRow" type="HBoxContainer" parent="Content"]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 
 [node name="Icon" type="TextureRect" parent="Content/TopRow"]
 layout_mode = 2
 size_flags_horizontal = 0
-texture = ExtResource("3_f0jbt")
+texture = ExtResource("3_loexb")
 expand_mode = 2
 stretch_mode = 3
 
@@ -67,12 +68,12 @@ size_flags_stretch_ratio = 2.0
 
 [node name="Name" type="Label" parent="Content/TopRow/TextContent/NameAndLevelSection"]
 layout_mode = 2
-theme = ExtResource("4_f0jbt")
+theme = ExtResource("4_om2mb")
 text = "Item Name"
 
 [node name="Level" type="Label" parent="Content/TopRow/TextContent/NameAndLevelSection"]
 layout_mode = 2
-theme = ExtResource("4_f0jbt")
+theme = ExtResource("4_om2mb")
 text = "Level: 1"
 
 [node name="Separator" type="Control" parent="Content/TopRow/TextContent"]
@@ -82,20 +83,20 @@ size_flags_horizontal = 3
 [node name="BuySection" type="VBoxContainer" parent="Content/TopRow/TextContent"]
 layout_mode = 2
 
-[node name="Price" parent="Content/TopRow/TextContent/BuySection" instance=ExtResource("4_qpynf")]
+[node name="Price" parent="Content/TopRow/TextContent/BuySection" instance=ExtResource("5_n7lwq")]
 layout_mode = 2
 
 [node name="BuyButton" type="Button" parent="Content/TopRow/TextContent/BuySection"]
 layout_mode = 2
 size_flags_vertical = 4
-theme = ExtResource("6_uj0qj")
+theme = ExtResource("6_oiawk")
 text = "BUY"
 
 [node name="Description" type="Label" parent="Content"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_vertical = 3
-theme = ExtResource("4_f0jbt")
+theme = ExtResource("4_om2mb")
 text = "This is the item description This is the item descriptionThis is the item descriptionThis is the item description"
 autowrap_mode = 3
 

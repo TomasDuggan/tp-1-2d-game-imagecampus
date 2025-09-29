@@ -1,16 +1,22 @@
-[gd_resource type="Resource" script_class="UpgradeConfig" load_steps=3 format=3 uid="uid://drg1frcy4axsl"]
+[gd_resource type="Resource" script_class="UpgradeConfig" load_steps=5 format=3 uid="uid://drg1frcy4axsl"]
 
 [ext_resource type="Script" uid="uid://bhmckujririhf" path="res://configs/upgrades/upgrade_config.gd" id="1_aqr3o"]
 [ext_resource type="Texture2D" uid="uid://txdud0wexitl" path="res://art/icons/skills/swap.png" id="1_d2rfs"]
+[ext_resource type="Script" uid="uid://bmfrhj7p3gkr8" path="res://configs/bestiary/basic_item_config.gd" id="2_yvkho"]
+
+[sub_resource type="Resource" id="Resource_0typ2"]
+script = ExtResource("2_yvkho")
+icon = ExtResource("1_d2rfs")
+display_name = "Swap"
+description = "Gain X% more synergy from events"
+metadata/_custom_type_script = "uid://bmfrhj7p3gkr8"
 
 [resource]
 script = ExtResource("1_aqr3o")
 id = 3
 stat_modifier_value = 0.2
 max_level = 1
-icon = ExtResource("1_d2rfs")
-display_name = "Synergize"
-description = "Gain X% more synergy from events"
+basic_config = SubResource("Resource_0typ2")
 price = 5
 use_percentage_format = true
 metadata/_custom_type_script = "uid://bhmckujririhf"
