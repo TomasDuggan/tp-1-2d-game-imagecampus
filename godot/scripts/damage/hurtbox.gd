@@ -16,19 +16,22 @@ var _root: Node2D
 var _max_hp: int
 var _current_hp: int
 var _faction: DamageFaction
+var _hit_sfx: AudioStream
 
 
-func initialize(root: Node2D, hp: int, faction: DamageFaction, show_hp_bar: bool) -> void:
+func initialize(root: Node2D, hp: int, faction: DamageFaction, show_hp_bar: bool, hit_sfx: AudioStream) -> void:
 	_root = root
 	_max_hp = hp
 	_current_hp = hp
 	_faction = faction
+	_hit_sfx = hit_sfx
 	
 	_update_hp_bar()
 	if !show_hp_bar:
 		_hp_bar.hide()
 
 func receive_damage(attacker_root: Node2D, damage_amount: int) -> void:
+	AudioEventBus.raise_event_play_sfx(_hit_sfx)
 	_current_hp = max(_current_hp - damage_amount, 0)
 	
 	_update_hp_bar()

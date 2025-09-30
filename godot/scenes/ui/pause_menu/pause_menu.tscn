@@ -1,0 +1,131 @@
+[gd_scene load_steps=6 format=3 uid="uid://c7a6foritfkqo"]
+
+[ext_resource type="Script" uid="uid://b6dnvpn847np1" path="res://scripts/ui/pause_menu/pause_menu_ui.gd" id="1_rv5mv"]
+[ext_resource type="Texture2D" uid="uid://vc7p5hvahei2" path="res://art/ui/tiles/tile_0021.png" id="1_xgg5q"]
+[ext_resource type="Theme" uid="uid://cm2fomdb61et5" path="res://themes/basic_button_theme.tres" id="2_rv5mv"]
+[ext_resource type="Script" uid="uid://6aelr2g0dpvu" path="res://scripts/ui/generic/custom_button.gd" id="3_2mh1u"]
+[ext_resource type="Theme" uid="uid://cbp5aehq4d233" path="res://themes/basic_label_theme.tres" id="3_xtvdp"]
+
+[node name="PauseMenu" type="Control" node_paths=PackedStringArray("_background", "_options_container", "_playing_options_container", "_shop_options_container", "_music_slider", "_sfx_slider")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rv5mv")
+_background = NodePath("Content/Background")
+_options_container = NodePath("Content/MarginContainer")
+_playing_options_container = NodePath("Content/MarginContainer/OptionsContainer/PlayingOptionsContainer")
+_shop_options_container = NodePath("Content/MarginContainer/OptionsContainer/ShopOptionsContainer")
+_music_slider = NodePath("Content/MarginContainer/OptionsContainer/VolumeOptions/MusicVolumeContainer/MusicSlider")
+_sfx_slider = NodePath("Content/MarginContainer/OptionsContainer/VolumeOptions/SFXVolumeContainer/SFXSlider")
+
+[node name="Content" type="Control" parent="."]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_right = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="NinePatchRect" parent="Content"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_xgg5q")
+patch_margin_left = 10
+patch_margin_top = 12
+patch_margin_right = 10
+patch_margin_bottom = 11
+
+[node name="MarginContainer" type="MarginContainer" parent="Content"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="OptionsContainer" type="VBoxContainer" parent="Content/MarginContainer"]
+layout_mode = 2
+
+[node name="VolumeOptions" type="VBoxContainer" parent="Content/MarginContainer/OptionsContainer"]
+layout_mode = 2
+
+[node name="MusicVolumeContainer" type="VBoxContainer" parent="Content/MarginContainer/OptionsContainer/VolumeOptions"]
+layout_mode = 2
+
+[node name="MusicVolume" type="Label" parent="Content/MarginContainer/OptionsContainer/VolumeOptions/MusicVolumeContainer"]
+layout_mode = 2
+theme = ExtResource("3_xtvdp")
+text = "Music Volume"
+
+[node name="MusicSlider" type="HSlider" parent="Content/MarginContainer/OptionsContainer/VolumeOptions/MusicVolumeContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+
+[node name="SFXVolumeContainer" type="VBoxContainer" parent="Content/MarginContainer/OptionsContainer/VolumeOptions"]
+layout_mode = 2
+
+[node name="SFXVolume" type="Label" parent="Content/MarginContainer/OptionsContainer/VolumeOptions/SFXVolumeContainer"]
+layout_mode = 2
+theme = ExtResource("3_xtvdp")
+text = "SFX Volume"
+
+[node name="SFXSlider" type="HSlider" parent="Content/MarginContainer/OptionsContainer/VolumeOptions/SFXVolumeContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+
+[node name="PlayingOptionsContainer" type="VBoxContainer" parent="Content/MarginContainer/OptionsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ResumeButton" type="Button" parent="Content/MarginContainer/OptionsContainer/PlayingOptionsContainer"]
+layout_mode = 2
+theme = ExtResource("2_rv5mv")
+text = "Resume"
+script = ExtResource("3_2mh1u")
+
+[node name="RetryButton" type="Button" parent="Content/MarginContainer/OptionsContainer/PlayingOptionsContainer"]
+layout_mode = 2
+theme = ExtResource("2_rv5mv")
+text = "Retry"
+script = ExtResource("3_2mh1u")
+
+[node name="ShopOptionsContainer" type="VBoxContainer" parent="Content/MarginContainer/OptionsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="BackButton" type="Button" parent="Content/MarginContainer/OptionsContainer/ShopOptionsContainer"]
+layout_mode = 2
+theme = ExtResource("2_rv5mv")
+text = "Back"
+script = ExtResource("3_2mh1u")
+
+[node name="QuitButton" type="Button" parent="Content/MarginContainer/OptionsContainer"]
+layout_mode = 2
+theme = ExtResource("2_rv5mv")
+text = "Quit"
+script = ExtResource("3_2mh1u")
+
+[connection signal="value_changed" from="Content/MarginContainer/OptionsContainer/VolumeOptions/MusicVolumeContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="drag_ended" from="Content/MarginContainer/OptionsContainer/VolumeOptions/SFXVolumeContainer/SFXSlider" to="." method="_on_sfx_slider_drag_ended"]
+[connection signal="pressed" from="Content/MarginContainer/OptionsContainer/PlayingOptionsContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="Content/MarginContainer/OptionsContainer/PlayingOptionsContainer/RetryButton" to="." method="_on_retry_button_pressed"]
+[connection signal="pressed" from="Content/MarginContainer/OptionsContainer/ShopOptionsContainer/BackButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="Content/MarginContainer/OptionsContainer/QuitButton" to="." method="_on_quit_button_pressed"]

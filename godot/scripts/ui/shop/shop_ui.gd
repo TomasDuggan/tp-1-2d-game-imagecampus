@@ -4,6 +4,9 @@ class_name ShopUI
 Contenedor de view y logica de comprar upgrades
 """
 
+@export_category("Config")
+@export var _music: AudioStream
+
 @export_category("Editor Dependencies")
 @export var _miner_score: CollectableUI
 @export var _warrior_score: CollectableUI
@@ -12,11 +15,15 @@ Contenedor de view y logica de comprar upgrades
 
 signal exit_shop()
 
+const SETTINGS_SCENE: PackedScene = preload("uid://c7a6foritfkqo")
+
 var _upgrade_listers: Array[ItemListerUI]
 var _bestiary_listers: Array[ItemListerUI]
 
 
 func _ready():
+	AudioEventBus.raise_event_play_music(_music)
+	
 	_miner_score.initialize(World.WorldType.MINER)
 	_warrior_score.initialize(World.WorldType.WARRIOR)
 	
@@ -53,6 +60,11 @@ func _show_items(show_upgrades: bool, listers: Array[ItemListerUI], view_mode: I
 func _on_exit_shop_button_pressed():
 	exit_shop.emit()
 
+func _on_settings_button_pressed():
+	var pause_menu: PauseMenuUI = SETTINGS_SCENE.instantiate()
+	pause_menu.initialize(PauseMenuUI.MenuMode.SHOP)
+	pause_menu.resume.connect(func(): pause_menu.queue_free())
+	add_child(pause_menu)
 
 
 

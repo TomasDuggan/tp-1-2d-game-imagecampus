@@ -8,6 +8,7 @@ Escena heredable "trampa" para molestar al heroe
 @export var _duration: float
 @export var _cooldown: float
 @export var _dps: float
+@export var _is_permanently_active: bool
 @export var _sprite_frames: SpriteFrames
 
 @onready var _animation: AnimatedSprite2D = $Animation
@@ -20,6 +21,10 @@ func _ready():
 	_hitbox.initialize(self, _damage, _dps, true, Hurtbox.DamageFaction.ENEMY)
 	
 	_animation.sprite_frames = _sprite_frames
+	
+	if _is_permanently_active:
+		_animation.play("enabling")
+		return
 	
 	_duration_timer.wait_time = _duration
 	_duration_timer.one_shot = true

@@ -4,6 +4,9 @@ class_name Hero
 Script root para las escenas Hero (Minero o Guerrero)
 """
 
+@export_category("Config")
+@export var _hit_sfx: AudioStream
+
 @onready var _hitbox: Hitbox = $Hitbox
 @onready var _animation: HeroAnimation = $Animation
 @onready var _animation_player: AnimationPlayer = $AnimationPlayer
@@ -39,7 +42,7 @@ func _initialize_hitbox(world_type: World.WorldType) -> void:
 	_hitbox.target_destroyed.connect(_vertical_speed_boost_handler.on_target_destroyed)
 
 func _initialize_hurtbox() -> void:
-	hp.initialize(self, _config.hp, Hurtbox.DamageFaction.HERO, true)
+	hp.initialize(self, _config.hp, Hurtbox.DamageFaction.HERO, true, _hit_sfx)
 	hp.hit.connect(func(): _animation_player.play("hit"))
 	hp.healed.connect(func(): _animation_player.play("heal"))
 

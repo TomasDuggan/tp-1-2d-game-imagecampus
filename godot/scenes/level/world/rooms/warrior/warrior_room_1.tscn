@@ -14,6 +14,7 @@ tile_map_data = PackedByteArray("AAAnAMz/AAAFAAIAAAAnAM3/AAAFAAIAAAAnAM7/AAAFAAI
 
 [node name="Trap" parent="TrapsContainer" index="0" instance=ExtResource("2_ajrjy")]
 position = Vector2(672, -532)
+_is_permanently_active = true
 
 [node name="Trap2" parent="TrapsContainer" index="1" instance=ExtResource("2_ajrjy")]
 position = Vector2(707, -532)

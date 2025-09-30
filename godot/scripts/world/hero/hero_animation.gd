@@ -15,7 +15,10 @@ func _ready():
 	_default_material = material
 	
 	animation_finished.connect(_on_animation_finished)
-	play("walk_up")
+	_play_vertical_movement_animation()
+
+func play_movement_animation(facing_direction: Vector2) -> void:
+	pass
 
 func _play_vertical_movement_animation() -> void:
 	play("walk_up")
@@ -25,7 +28,7 @@ func play_attack_animation() -> void:
 
 func _on_animation_finished():
 	if animation == "attack_up":
-		play("walk_up")
+		_play_vertical_movement_animation()
 
 func toggle_selected(is_selected: bool) -> void:
 	material = _outline_material if is_selected else _default_material

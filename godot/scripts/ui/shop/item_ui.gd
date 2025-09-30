@@ -31,7 +31,7 @@ func initialize(upgrade_config: UpgradeConfig, basic_config: BasicItemConfig, vi
 	_basic_config = basic_config
 	_view_mode = view_mode
 
-func _ready() -> void:
+func _ready():
 	_icon.texture = _basic_config.icon
 	_name.text = _basic_config.display_name
 	

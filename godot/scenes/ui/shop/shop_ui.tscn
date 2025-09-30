@@ -1,13 +1,15 @@
-[gd_scene load_steps=16 format=3 uid="uid://41r7gy6mk5f7"]
+[gd_scene load_steps=18 format=3 uid="uid://41r7gy6mk5f7"]
 
 [ext_resource type="Script" uid="uid://cqug56r5scugw" path="res://scripts/ui/shop/shop_ui.gd" id="1_rc5g1"]
 [ext_resource type="Script" uid="uid://bhmckujririhf" path="res://configs/upgrades/upgrade_config.gd" id="2_rc5g1"]
+[ext_resource type="AudioStream" uid="uid://dxigesmle5jm3" path="res://art/sound/music/shop_music.wav" id="2_rr3h0"]
 [ext_resource type="Resource" uid="uid://dt51d04n5a11f" path="res://configs/upgrades/miner/miner_mineral_gather_upgrade_config.tres" id="3_3qv50"]
 [ext_resource type="Resource" uid="uid://dqsgdu0754klx" path="res://configs/upgrades/miner/miner_horizontal_movement_speed_upgrade_config.tres" id="3_63ers"]
 [ext_resource type="Script" uid="uid://dpj0vhu4yd0d8" path="res://scripts/ui/shop/upgrades_lister_ui.gd" id="3_vgm16"]
 [ext_resource type="Resource" uid="uid://4iq72jx00k26" path="res://configs/upgrades/warrior/warrior_damage_upgrade_config.tres" id="4_vgm16"]
 [ext_resource type="Resource" uid="uid://drg1frcy4axsl" path="res://configs/upgrades/globals/synergy_gain_upgrade_config.tres" id="5_o4tqb"]
 [ext_resource type="Texture2D" uid="uid://b2ro32smbm8p3" path="res://art/ui/tiles/tile_0001.png" id="6_3qv50"]
+[ext_resource type="Script" uid="uid://6aelr2g0dpvu" path="res://scripts/ui/generic/custom_button.gd" id="6_nxg8l"]
 [ext_resource type="PackedScene" uid="uid://bbotfj18d8itl" path="res://scenes/ui/score/collectable_ui.tscn" id="7_3qv50"]
 [ext_resource type="Theme" uid="uid://cm2fomdb61et5" path="res://themes/basic_button_theme.tres" id="8_tuamk"]
 [ext_resource type="Theme" uid="uid://cbp5aehq4d233" path="res://themes/basic_label_theme.tres" id="10_xvkx0"]
@@ -24,6 +26,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_rc5g1")
+_music = ExtResource("2_rr3h0")
 _miner_score = NodePath("MarginContainer/Content/TopRow/MinerScore")
 _warrior_score = NodePath("MarginContainer/Content/TopRow/WarriorScore")
 _upgrades_container = NodePath("MarginContainer/Content/UpgradesContainer")
@@ -70,16 +73,27 @@ layout_mode = 2
 layout_mode = 2
 theme = ExtResource("8_tuamk")
 text = "Buy Upgrades"
+script = ExtResource("6_nxg8l")
 
 [node name="ShowOwnedUpgrades" type="Button" parent="MarginContainer/Content/TopRow"]
 layout_mode = 2
 theme = ExtResource("8_tuamk")
 text = "Owned Upgrades"
+script = ExtResource("6_nxg8l")
 
 [node name="ShowBestiary" type="Button" parent="MarginContainer/Content/TopRow"]
 layout_mode = 2
 theme = ExtResource("8_tuamk")
 text = "Bestiary"
+script = ExtResource("6_nxg8l")
+
+[node name="SettingsButton" type="Button" parent="MarginContainer/Content/TopRow"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+theme = ExtResource("8_tuamk")
+text = "Settings"
+script = ExtResource("6_nxg8l")
 
 [node name="ExitShopButton" type="Button" parent="MarginContainer/Content/TopRow"]
 custom_minimum_size = Vector2(100, 0)
@@ -87,6 +101,7 @@ layout_mode = 2
 size_flags_horizontal = 10
 theme = ExtResource("8_tuamk")
 text = "Exit Shop"
+script = ExtResource("6_nxg8l")
 
 [node name="UpgradesContainer" type="HBoxContainer" parent="MarginContainer/Content"]
 layout_mode = 2
@@ -212,4 +227,5 @@ _item_configs = Array[ExtResource("13_ea7pq")]([ExtResource("14_ea7pq")])
 [connection signal="pressed" from="MarginContainer/Content/TopRow/ShowBuyableUpgrades" to="." method="_on_show_buyable_upgrades_pressed"]
 [connection signal="pressed" from="MarginContainer/Content/TopRow/ShowOwnedUpgrades" to="." method="_on_show_owned_upgrades_pressed"]
 [connection signal="pressed" from="MarginContainer/Content/TopRow/ShowBestiary" to="." method="_on_show_bestiary_pressed"]
+[connection signal="pressed" from="MarginContainer/Content/TopRow/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="MarginContainer/Content/TopRow/ExitShopButton" to="." method="_on_exit_shop_button_pressed"]

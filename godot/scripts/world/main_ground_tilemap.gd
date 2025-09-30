@@ -13,7 +13,7 @@ var _world_type: World.WorldType
 func initialize(world_type: World.WorldType) -> void:
 	_world_type = world_type
 
-func _ready() -> void:
+func _ready():
 	_tile_height = tile_set.tile_size.y
 
 func add_new_room_ground_tilemap(room_tilemap: TileMapLayer, room_spawn_point: float) -> void:

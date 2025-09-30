@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c4xtc8qiymqhb"]
+[gd_scene load_steps=8 format=3 uid="uid://c4xtc8qiymqhb"]
 
 [ext_resource type="Script" uid="uid://doym0w3pawy6q" path="res://scripts/ui/shop/item_ui.gd" id="1_fobm2"]
 [ext_resource type="Texture2D" uid="uid://2idfg1gk0nrh" path="res://art/ui/tiles/tile_0020.png" id="2_sj45p"]
@@ -6,6 +6,7 @@
 [ext_resource type="Theme" uid="uid://cbp5aehq4d233" path="res://themes/basic_label_theme.tres" id="4_om2mb"]
 [ext_resource type="PackedScene" uid="uid://bbotfj18d8itl" path="res://scenes/ui/score/collectable_ui.tscn" id="5_n7lwq"]
 [ext_resource type="Theme" uid="uid://cm2fomdb61et5" path="res://themes/basic_button_theme.tres" id="6_oiawk"]
+[ext_resource type="Script" uid="uid://6aelr2g0dpvu" path="res://scripts/ui/generic/custom_button.gd" id="7_sj45p"]
 
 [node name="Item" type="Control" node_paths=PackedStringArray("_icon", "_name", "_level", "_buy_section", "_price", "_description")]
 custom_minimum_size = Vector2(0, 200)
@@ -91,6 +92,7 @@ layout_mode = 2
 size_flags_vertical = 4
 theme = ExtResource("6_oiawk")
 text = "BUY"
+script = ExtResource("7_sj45p")
 
 [node name="Description" type="Label" parent="Content"]
 custom_minimum_size = Vector2(50, 50)

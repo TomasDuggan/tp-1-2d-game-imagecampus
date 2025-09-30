@@ -4,6 +4,9 @@ class_name HeroSelectionManager
 Manager de la logica de seleccion de un Heroe para controlarlo
 """
 
+@export_category("Config")
+@export var _swap_sfx: AudioStream
+
 var _heroes: Array[Hero]
 var _block_swap_timer := Timer.new()
 var _synergy_effect_activated: bool
@@ -40,6 +43,7 @@ func _swap_hero_selection() -> void:
 	var can_swap: bool = _can_swap()
 	
 	if can_swap:
+		AudioEventBus.raise_event_play_sfx(_swap_sfx)
 		selected.deselect()
 		deselected.select()
 	

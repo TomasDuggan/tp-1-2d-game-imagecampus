@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://ctkc2ceeqspqm"]
+[gd_scene load_steps=12 format=3 uid="uid://ctkc2ceeqspqm"]
 
 [ext_resource type="Script" uid="uid://c6hbv3qf53l4y" path="res://scripts/world/collectables/collectable.gd" id="1_uwx36"]
 [ext_resource type="Texture2D" uid="uid://cbq4frwpotv3f" path="res://art/minerals/v_2/Black_crystal1.png" id="2_88g45"]
 [ext_resource type="PackedScene" uid="uid://bhr40240oq8fk" path="res://scenes/damage/hurtbox.tscn" id="2_vtu06"]
+[ext_resource type="Script" uid="uid://cv8w1b3gq3sxs" path="res://scripts/world/collectables/collectable_animation.gd" id="3_yfltg"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6cysq"]
 animations = [{
@@ -14,11 +15,6 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yfltg"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_88g45"]
-size = Vector2(19, 19)
 
 [sub_resource type="Animation" id="Animation_jmmuo"]
 length = 0.001
@@ -47,6 +43,22 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_88g45"]
+resource_name = "fade_out"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(2, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_yfltg"]
 resource_name = "hit"
 length = 0.2
@@ -63,28 +75,17 @@ tracks/0/keys = {
 "values": [Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_88g45"]
-resource_name = "fade_out"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(2, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_p7wuy"]
 _data = {
 &"RESET": SubResource("Animation_jmmuo"),
 &"fade_out": SubResource("Animation_88g45"),
 &"hit": SubResource("Animation_yfltg")
 }
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yfltg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_88g45"]
+size = Vector2(19, 19)
 
 [node name="Collectable" type="StaticBody2D"]
 collision_layer = 8
@@ -93,6 +94,13 @@ script = ExtResource("1_uwx36")
 
 [node name="Animation" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_6cysq")
+script = ExtResource("3_yfltg")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Animation"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_p7wuy")
+}
 
 [node name="PhysicsCollisionShape" type="CollisionShape2D" parent="."]
 position = Vector2(2.3841858e-07, 2.3841858e-07)
@@ -105,8 +113,3 @@ shape = SubResource("RectangleShape2D_yfltg")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 shape = SubResource("RectangleShape2D_88g45")
 debug_color = Color(1, 0, 0, 0.419608)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_p7wuy")
-}

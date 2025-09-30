@@ -1,14 +1,18 @@
-[gd_scene load_steps=12 format=3 uid="uid://cw7v32643ol2t"]
+[gd_scene load_steps=16 format=3 uid="uid://cw7v32643ol2t"]
 
 [ext_resource type="Script" uid="uid://ywf7pwru2s70" path="res://scripts/world/level.gd" id="1_vpf64"]
 [ext_resource type="Script" uid="uid://b838myufwwsag" path="res://configs/hero/hero_config.gd" id="2_b7m21"]
 [ext_resource type="Script" uid="uid://w6k62hjfi6jo" path="res://scripts/managers/hero_selection_manager.gd" id="2_wcngd"]
+[ext_resource type="AudioStream" uid="uid://dxdbsg7rdj3up" path="res://art/sound/music/combat_music.ogg" id="3_pe1ox"]
 [ext_resource type="Script" uid="uid://cges3ilf47io3" path="res://scripts/world/synergy_manager.gd" id="3_tf2q7"]
 [ext_resource type="PackedScene" uid="uid://b2q5ss2eqgp18" path="res://scenes/level/world/world.tscn" id="4_wcngd"]
+[ext_resource type="AudioStream" uid="uid://crq7t0tgo8h78" path="res://art/sound/sfx/swap_sfx.wav" id="5_pe1ox"]
 [ext_resource type="Script" uid="uid://bf4bfvd68n0fs" path="res://scripts/managers/level_won_manager.gd" id="5_sytrn"]
+[ext_resource type="Script" uid="uid://dm7ip3udkr1gh" path="res://scripts/managers/pause_manager.gd" id="8_b7m21"]
 [ext_resource type="Texture2D" uid="uid://b0prl0robq55h" path="res://art/bars/health meter-01.png" id="8_sytrn"]
 [ext_resource type="Texture2D" uid="uid://x4tfenq0dus" path="res://art/bars/health meter-05.png" id="9_tf2q7"]
 [ext_resource type="Theme" uid="uid://cm2fomdb61et5" path="res://themes/basic_button_theme.tres" id="11_pe1ox"]
+[ext_resource type="Script" uid="uid://6aelr2g0dpvu" path="res://scripts/ui/generic/custom_button.gd" id="12_m0bv2"]
 
 [sub_resource type="Resource" id="Resource_pm6rs"]
 script = ExtResource("2_b7m21")
@@ -30,6 +34,7 @@ metadata/_custom_type_script = "uid://b838myufwwsag"
 script = ExtResource("1_vpf64")
 _miner_config = SubResource("Resource_pm6rs")
 _warrior_config = SubResource("Resource_vrc4q")
+_music = ExtResource("3_pe1ox")
 _miner_world = NodePath("HBoxContainer/SubViewportContainer/SubViewport/MinerWorld")
 _warrior_world = NodePath("HBoxContainer/SubViewportContainer2/SubViewport/WarriorWorld")
 _hero_selection_manager = NodePath("Managers/HeroSelectionManager")
@@ -38,6 +43,7 @@ _hero_selection_manager = NodePath("Managers/HeroSelectionManager")
 
 [node name="HeroSelectionManager" type="Node" parent="Managers"]
 script = ExtResource("2_wcngd")
+_swap_sfx = ExtResource("5_pe1ox")
 
 [node name="SynergyManager" type="Node" parent="Managers" node_paths=PackedStringArray("_synergy_bar")]
 script = ExtResource("3_tf2q7")
@@ -46,6 +52,11 @@ _synergy_bar = NodePath("../../CanvasLayer/HUD/SynergyBar/SynergyProgressBar")
 [node name="LevelWonManager" type="Node" parent="Managers" node_paths=PackedStringArray("_level_won_menu")]
 script = ExtResource("5_sytrn")
 _level_won_menu = NodePath("../../CanvasLayer/LevelWonMenu")
+
+[node name="PauseManager" type="Node" parent="Managers" node_paths=PackedStringArray("_canvas_layer")]
+process_mode = 3
+script = ExtResource("8_b7m21")
+_canvas_layer = NodePath("../../CanvasLayer")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 anchors_preset = 15
@@ -140,5 +151,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("11_pe1ox")
 text = "Go to Shop"
+script = ExtResource("12_m0bv2")
 
-[connection signal="pressed" from="CanvasLayer/LevelWonMenu/GoToShopButton" to="Managers/LevelWonManager" method="_on_go_to_shop_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/LevelWonMenu/GoToShopButton" to="." method="_on_go_to_shop_button_pressed"]
