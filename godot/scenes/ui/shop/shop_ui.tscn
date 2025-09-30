@@ -5,10 +5,10 @@
 [ext_resource type="AudioStream" uid="uid://dxigesmle5jm3" path="res://art/sound/music/shop_music.wav" id="2_rr3h0"]
 [ext_resource type="Resource" uid="uid://dt51d04n5a11f" path="res://configs/upgrades/miner/miner_mineral_gather_upgrade_config.tres" id="3_3qv50"]
 [ext_resource type="Resource" uid="uid://dqsgdu0754klx" path="res://configs/upgrades/miner/miner_horizontal_movement_speed_upgrade_config.tres" id="3_63ers"]
+[ext_resource type="Texture2D" uid="uid://bosrioetah620" path="res://art/ui/tiles/tile_0035.png" id="3_nxg8l"]
 [ext_resource type="Script" uid="uid://dpj0vhu4yd0d8" path="res://scripts/ui/shop/upgrades_lister_ui.gd" id="3_vgm16"]
 [ext_resource type="Resource" uid="uid://4iq72jx00k26" path="res://configs/upgrades/warrior/warrior_damage_upgrade_config.tres" id="4_vgm16"]
 [ext_resource type="Resource" uid="uid://drg1frcy4axsl" path="res://configs/upgrades/globals/synergy_gain_upgrade_config.tres" id="5_o4tqb"]
-[ext_resource type="Texture2D" uid="uid://b2ro32smbm8p3" path="res://art/ui/tiles/tile_0001.png" id="6_3qv50"]
 [ext_resource type="Script" uid="uid://6aelr2g0dpvu" path="res://scripts/ui/generic/custom_button.gd" id="6_nxg8l"]
 [ext_resource type="PackedScene" uid="uid://bbotfj18d8itl" path="res://scenes/ui/score/collectable_ui.tscn" id="7_3qv50"]
 [ext_resource type="Theme" uid="uid://cm2fomdb61et5" path="res://themes/basic_button_theme.tres" id="8_tuamk"]
@@ -39,11 +39,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("6_3qv50")
-patch_margin_left = 4
-patch_margin_top = 4
-patch_margin_right = 4
-patch_margin_bottom = 4
+texture = ExtResource("3_nxg8l")
+patch_margin_left = 11
+patch_margin_top = 12
+patch_margin_right = 9
+patch_margin_bottom = 11
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1

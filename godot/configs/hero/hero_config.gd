@@ -7,6 +7,9 @@ class_name HeroConfig
 @export var horizontal_movement_speed: float
 
 
+func get_hit_sfx() -> AudioStream:
+	return preload("uid://btpk3g3l6nusm")
+
 func get_sprite_frames(world_type: World.WorldType) -> SpriteFrames:
 	const MINER_ANIMATION = preload("uid://8dvyppn706ka")
 	const WARRIOR_ANIMATION = preload("uid://dycf4ffpsmhmr")

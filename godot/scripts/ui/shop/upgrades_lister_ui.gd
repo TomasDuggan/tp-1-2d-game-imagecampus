@@ -21,7 +21,10 @@ func _show_upgrades(upgrades: Array[UpgradeConfig], view_mode: ItemUI.ViewMode) 
 	for upgrade: UpgradeConfig in upgrades:
 		create_item(upgrade, upgrade.basic_config, view_mode)
 
-func _on_upgrade_bought(config: UpgradeConfig) -> void:
+func _on_upgrade_bought(config: UpgradeConfig, success: bool) -> void:
+	if !success:
+		return
+	
 	_update_upgrade_ui(config)
 	_update_all_upgrades_price_color()
 

@@ -83,8 +83,7 @@ func _can_buy_upgrade() -> bool:
 	return CollectablesManager.can_buy(_upgrade_config.world_type, _upgrade_config.price)
 
 func _on_buy_button_pressed():
-	if _can_buy_upgrade():
-		UpgradesEventBus.raise_event_upgrade_bought(_upgrade_config)
+	UpgradesEventBus.raise_event_upgrade_bought(_upgrade_config, _can_buy_upgrade())
 
 func matches_config(config: UpgradeConfig) -> bool:
 	return config == _upgrade_config

@@ -1,7 +1,7 @@
 [gd_resource type="Theme" load_steps=4 format=3 uid="uid://cm2fomdb61et5"]
 
 [ext_resource type="FontFile" uid="uid://dbw0qymxxk7rt" path="res://art/fonts/MedodicaRegular.otf" id="1_syyni"]
-[ext_resource type="Texture2D" uid="uid://k1dinfhlk4e6" path="res://art/ui/tiles/tile_0029.png" id="2_syyni"]
+[ext_resource type="Texture2D" uid="uid://w26ls5i7rnps" path="res://art/ui/tiles/tile_0022.png" id="2_syyni"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o4tqb"]
 texture = ExtResource("2_syyni")

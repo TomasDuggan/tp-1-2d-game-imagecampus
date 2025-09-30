@@ -10,6 +10,5 @@ signal play_sfx(stream: AudioStream, volume: float)
 func raise_event_play_music(stream: AudioStream) -> void:
 	play_music.emit(stream)
 
-# Nota: 'volume' es en escala linear normalizada
-func raise_event_play_sfx(stream: AudioStream, volume: float = 1.0) -> void:
-	play_sfx.emit(stream, volume)
+func raise_event_play_sfx(stream: AudioStream, linear_volume: float = 1.0) -> void:
+	play_sfx.emit(stream, linear_volume)

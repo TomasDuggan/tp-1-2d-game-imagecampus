@@ -21,7 +21,10 @@ func print_current_bought_upgrades():
 	var upgrade_names: Array = _bought_upgrades.map(func(u: Upgrade): return u._config.basic_config.display_name + " (lvl " + str(u.get_current_level()) + ")")
 	print_debug("Upgrades compradas: ", upgrade_names)
 
-func _add_upgrade(new_upgrade_config: UpgradeConfig) -> void:
+func _add_upgrade(new_upgrade_config: UpgradeConfig, success: bool) -> void:
+	if !success:
+		return
+	
 	var found_upgrade: Upgrade = _find_upgrade_by_config(new_upgrade_config)
 	
 	if found_upgrade == null:

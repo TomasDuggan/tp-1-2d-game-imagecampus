@@ -33,6 +33,9 @@ func _ready():
 	_music_slider.value = AudioManager.get_music_volume()
 	_sfx_slider.value = AudioManager.get_sfx_volume()
 	
+	call_deferred("_resize_background")
+
+func _resize_background() -> void:
 	_background.size.y = _options_container.size.y
 	_background.position = _options_container.position
 

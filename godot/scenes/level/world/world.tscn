@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://b2q5ss2eqgp18"]
+[gd_scene load_steps=27 format=3 uid="uid://b2q5ss2eqgp18"]
 
 [ext_resource type="Script" uid="uid://du71wkafc61o0" path="res://scripts/world/room/room_spawner.gd" id="1_bq33v"]
 [ext_resource type="Script" uid="uid://o8r2jya8p0fw" path="res://scripts/world/world.gd" id="1_gb53w"]
@@ -12,7 +12,6 @@
 [ext_resource type="Script" uid="uid://q7wfpo84ki2p" path="res://scripts/world/camera_follower.gd" id="7_7pqs6"]
 [ext_resource type="PackedScene" uid="uid://bq2pr30406woi" path="res://scenes/damage/hitbox.tscn" id="7_srmg5"]
 [ext_resource type="Shader" uid="uid://covb8rlea7srk" path="res://shaders/outline.gdshader" id="9_dw3eh"]
-[ext_resource type="AudioStream" uid="uid://btpk3g3l6nusm" path="res://art/sound/sfx/enemy_hit_sfx.wav" id="9_vqxkp"]
 [ext_resource type="PackedScene" uid="uid://bhr40240oq8fk" path="res://scenes/damage/hurtbox.tscn" id="11_5qq27"]
 [ext_resource type="Script" uid="uid://br3sm0otg10yf" path="res://scripts/world/y_hero_death_area.gd" id="13_75ogk"]
 [ext_resource type="PackedScene" uid="uid://bbotfj18d8itl" path="res://scenes/ui/score/collectable_ui.tscn" id="17_vqxkp"]
@@ -131,7 +130,6 @@ collision_layer = 2
 collision_mask = 12
 motion_mode = 1
 script = ExtResource("4_gb53w")
-_hit_sfx = ExtResource("9_vqxkp")
 
 [node name="Animation" type="AnimatedSprite2D" parent="Hero"]
 scale = Vector2(2, 2)

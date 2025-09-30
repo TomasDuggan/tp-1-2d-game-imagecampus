@@ -13,6 +13,9 @@ _map = NodePath("Background")
 [node name="Background" type="TileMapLayer" parent="."]
 tile_set = ExtResource("1_76igw")
 
+[node name="Decorations" type="TileMapLayer" parent="."]
+tile_set = ExtResource("1_76igw")
+
 [node name="CollectableSpawner" type="TileMapLayer" parent="." node_paths=PackedStringArray("_collectables_container")]
 tile_set = ExtResource("1_76igw")
 script = ExtResource("2_2ddm2")
