@@ -5,7 +5,7 @@ class_name RoomSpawner
 @export var _rooms_container: Node2D
 @export var _main_ground_tilemap: MainGroundTileMap
 
-signal interactable_room_spawned()
+signal interactable_room_spawned(amount_of_interactables: int)
 
 const VIEWPORT_HEIGHT := 720.0
 
@@ -55,8 +55,8 @@ func _spawn_room(pos: Vector2 = Vector2.ZERO) -> void:
 	_rooms_height_accumulator -= room_instance.get_room_height()
 
 # Pasamanos
-func spawn_interactable_room() -> void:
-	_room_picker.spawn_interactable_room()
+func spawn_interactable_room(amount_of_interactables: int) -> void:
+	_room_picker.spawn_interactable_room(amount_of_interactables)
 
 
 

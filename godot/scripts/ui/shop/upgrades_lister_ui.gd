@@ -9,7 +9,7 @@ Listador de upgrades
 
 
 func _ready():
-	UpgradesEventBus.upgrade_bought.connect(_on_upgrade_bought)
+	UpgradesEventBus.try_buy_upgrade.connect(_on_upgrade_bought)
 
 func create_items(view_mode: ItemUI.ViewMode) -> void:
 	if view_mode == ItemUI.ViewMode.PURCHASE:
@@ -54,7 +54,7 @@ func _get_upgrades() -> Array[ItemUI]:
 	return upgrades
 
 func _exit_tree():
-	UpgradesEventBus.upgrade_bought.disconnect(_on_upgrade_bought)
+	UpgradesEventBus.try_buy_upgrade.disconnect(_on_upgrade_bought)
 
 
 

@@ -10,11 +10,14 @@ var _collected_by_type: Dictionary[World.WorldType, int] = {
 
 
 func _ready():
-	UpgradesEventBus.upgrade_bought.connect(_on_upgrade_bought)
+	UpgradesEventBus.try_buy_upgrade.connect(_on_upgrade_bought)
 
 func add_collectables(type: World.WorldType, amount: int) -> void:
 	_collected_by_type[type] += amount
 	_on_collectables_amount_changed(type)
+
+func try_buy_upgrade(upgrade_config: UpgradeConfig) -> void:
+	UpgradesEventBus.raise_event_try_buy_upgrade(upgrade_config, can_buy(upgrade_config.world_type, upgrade_config.price))
 
 func can_buy(type: World.WorldType, price: int) -> bool:
 	return _collected_by_type[type] >= price
@@ -33,7 +36,7 @@ func get_current_amount(type: World.WorldType) -> int:
 	return _collected_by_type[type]
 
 func _exit_tree():
-	UpgradesEventBus.upgrade_bought.disconnect(_on_upgrade_bought)
+	UpgradesEventBus.try_buy_upgrade.disconnect(_on_upgrade_bought)
 
 
 

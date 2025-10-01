@@ -36,7 +36,7 @@ func _ready():
 	
 	_synergy_gain_upgrade_multiplier = _resolve_synergy_gain_upgrade_multiplier()
 	
-	# Nota: No conecto con lambda para poder desconectarme bien en _exit_tree
+	# No conecto con lambda para poder desconectarme bien en _exit_tree
 	HeroEventBus.hero_swapped.connect(_on_hero_swapped)
 	CollectableEventBus.collectable_amount_changed.connect(_on_collectable_gained)
 	InteractablesManager.interactable_pressed.connect(_on_interactable_pressed)

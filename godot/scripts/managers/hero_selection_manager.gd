@@ -16,10 +16,16 @@ func initialize(heroes: Array[Hero]) -> void:
 	_select_only_first_hero()
 
 func _select_only_first_hero() -> void:
+	_deselect_all_heroes()
+	
 	var start_selected_hero: Hero = _heroes.front()
 	start_selected_hero.select()
 	
 	for hero: Hero in _heroes.filter(func(h: Hero): return h != start_selected_hero):
+		hero.deselect()
+
+func _deselect_all_heroes() -> void:
+	for hero: Hero in _heroes:
 		hero.deselect()
 
 func _ready():

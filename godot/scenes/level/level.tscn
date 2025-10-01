@@ -5,8 +5,8 @@
 [ext_resource type="Script" uid="uid://w6k62hjfi6jo" path="res://scripts/managers/hero_selection_manager.gd" id="2_wcngd"]
 [ext_resource type="AudioStream" uid="uid://dxdbsg7rdj3up" path="res://art/sound/music/combat_music.ogg" id="3_pe1ox"]
 [ext_resource type="Script" uid="uid://cges3ilf47io3" path="res://scripts/world/synergy_manager.gd" id="3_tf2q7"]
+[ext_resource type="AudioStream" uid="uid://8wyrjox7yfld" path="res://art/sound/music/combat_2_music.wav" id="4_b7m21"]
 [ext_resource type="PackedScene" uid="uid://b2q5ss2eqgp18" path="res://scenes/level/world/world.tscn" id="4_wcngd"]
-[ext_resource type="AudioStream" uid="uid://crq7t0tgo8h78" path="res://art/sound/sfx/swap_sfx.wav" id="5_pe1ox"]
 [ext_resource type="Script" uid="uid://bf4bfvd68n0fs" path="res://scripts/managers/level_won_manager.gd" id="5_sytrn"]
 [ext_resource type="Script" uid="uid://dm7ip3udkr1gh" path="res://scripts/managers/pause_manager.gd" id="8_b7m21"]
 [ext_resource type="Texture2D" uid="uid://b0prl0robq55h" path="res://art/bars/health meter-01.png" id="8_sytrn"]
@@ -34,7 +34,7 @@ metadata/_custom_type_script = "uid://b838myufwwsag"
 script = ExtResource("1_vpf64")
 _miner_config = SubResource("Resource_pm6rs")
 _warrior_config = SubResource("Resource_vrc4q")
-_music = ExtResource("3_pe1ox")
+_music = Array[AudioStream]([ExtResource("3_pe1ox"), ExtResource("4_b7m21")])
 _miner_world = NodePath("HBoxContainer/SubViewportContainer/SubViewport/MinerWorld")
 _warrior_world = NodePath("HBoxContainer/SubViewportContainer2/SubViewport/WarriorWorld")
 _hero_selection_manager = NodePath("Managers/HeroSelectionManager")
@@ -43,7 +43,6 @@ _hero_selection_manager = NodePath("Managers/HeroSelectionManager")
 
 [node name="HeroSelectionManager" type="Node" parent="Managers"]
 script = ExtResource("2_wcngd")
-_swap_sfx = ExtResource("5_pe1ox")
 
 [node name="SynergyManager" type="Node" parent="Managers" node_paths=PackedStringArray("_synergy_bar")]
 script = ExtResource("3_tf2q7")

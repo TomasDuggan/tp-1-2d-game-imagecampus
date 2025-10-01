@@ -3,8 +3,8 @@ extends Node
 Bus para eventos relacionados a Upgrades
 """
 
-signal upgrade_bought(upgrade_config: UpgradeConfig, success: bool)
+signal try_buy_upgrade(upgrade_config: UpgradeConfig, success: bool)
 
 
-func raise_event_upgrade_bought(upgrade_config: UpgradeConfig, success: bool) -> void:
-	upgrade_bought.emit(upgrade_config, success)
+func raise_event_try_buy_upgrade(upgrade_config: UpgradeConfig, success: bool) -> void:
+	try_buy_upgrade.emit(upgrade_config, success)

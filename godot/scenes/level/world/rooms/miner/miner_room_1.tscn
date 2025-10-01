@@ -38,4 +38,4 @@ offset_bottom = 6.0
 text = "MIDDLE"
 
 [node name="DoorOpenerButton" parent="InteractablesContainer" index="0" instance=ExtResource("3_ue7p6")]
-position = Vector2(799, -600)
+position = Vector2(656, -600)

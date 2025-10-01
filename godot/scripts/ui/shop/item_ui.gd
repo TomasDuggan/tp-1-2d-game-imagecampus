@@ -20,6 +20,9 @@ enum ViewMode {
 
 const LEVEL_TEXT := "Level %d"
 const MAX_LEVEL_TEXT_SUFFIX := " (Max)"
+const BUYABLE_COLOR := Color.GREEN_YELLOW
+const NON_BUYABLE_COLOR := Color.RED
+
 
 var _upgrade_config: UpgradeConfig
 var _basic_config: BasicItemConfig
@@ -73,7 +76,7 @@ func _configure_buy_section() -> void:
 	resolve_price_color()
 
 func resolve_price_color() -> void:
-	var price_text_color: Color = Color.GREEN_YELLOW if _can_buy_upgrade() else Color.CRIMSON
+	var price_text_color: Color = BUYABLE_COLOR if _can_buy_upgrade() else NON_BUYABLE_COLOR
 	_price.change_text_color(price_text_color)
 
 func update_dynamic_content() -> void:
@@ -83,7 +86,7 @@ func _can_buy_upgrade() -> bool:
 	return CollectablesManager.can_buy(_upgrade_config.world_type, _upgrade_config.price)
 
 func _on_buy_button_pressed():
-	UpgradesEventBus.raise_event_upgrade_bought(_upgrade_config, _can_buy_upgrade())
+	CollectablesManager.try_buy_upgrade(_upgrade_config)
 
 func matches_config(config: UpgradeConfig) -> bool:
 	return config == _upgrade_config

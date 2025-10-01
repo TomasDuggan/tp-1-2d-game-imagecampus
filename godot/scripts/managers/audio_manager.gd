@@ -25,10 +25,11 @@ func _ready():
 	
 	HeroEventBus.hero_swapped.connect(_on_hero_swapped)
 	SynergyEventBus.synergy_effect_activated.connect(_on_synergy_activated)
-	UpgradesEventBus.upgrade_bought.connect(_on_upgrade_bought)
+	UpgradesEventBus.try_buy_upgrade.connect(_on_upgrade_bought)
 	
 	_music_player.process_mode = Node.PROCESS_MODE_ALWAYS
 	_music_player.bus = MUSIC_BUS_NAME
+	_music_player.finished.connect(_music_player.play) # Loop
 	add_child(_music_player)
 	add_child(_sfx_pool)
 	
@@ -96,7 +97,7 @@ func _exit_tree():
 	
 	HeroEventBus.hero_swapped.disconnect(_on_hero_swapped)
 	SynergyEventBus.synergy_effect_activated.disconnect(_on_synergy_activated)
-	UpgradesEventBus.upgrade_bought.disconnect(_on_upgrade_bought)
+	UpgradesEventBus.try_buy_upgrade.disconnect(_on_upgrade_bought)
 
 
 

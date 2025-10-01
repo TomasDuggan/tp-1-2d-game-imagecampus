@@ -14,7 +14,7 @@ enum UpgradeId {
 
 
 func _ready():
-	UpgradesEventBus.upgrade_bought.connect(_add_upgrade)
+	UpgradesEventBus.try_buy_upgrade.connect(_add_upgrade)
 
 #TODO: borrar esto, es para testing
 func print_current_bought_upgrades():
@@ -72,7 +72,7 @@ func _find_upgrade_by_context(world_type: World.WorldType, upgrade_id: UpgradeId
 	return null if filtered.is_empty() else filtered.front()
 
 func _exit_tree():
-	UpgradesEventBus.upgrade_bought.disconnect(_add_upgrade)
+	UpgradesEventBus.try_buy_upgrade.disconnect(_add_upgrade)
 
 
 

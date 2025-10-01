@@ -27,8 +27,8 @@ func get_hero() -> Hero:
 	return _hero
 
 # Pasamanos
-func spawn_interactable_room() -> void:
-	_room_spawner.spawn_interactable_room()
+func spawn_interactable_room(amount_of_interactables: int) -> void:
+	_room_spawner.spawn_interactable_room(amount_of_interactables)
 
 static func is_miner_world(world_type: WorldType) -> bool:
 	return world_type == WorldType.MINER

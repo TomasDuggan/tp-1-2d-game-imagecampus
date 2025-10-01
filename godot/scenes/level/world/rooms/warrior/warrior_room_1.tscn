@@ -30,4 +30,4 @@ offset_bottom = 4.0
 text = "MIDDLE"
 
 [node name="Door" parent="InteractablesContainer" index="0" instance=ExtResource("3_7ugij")]
-position = Vector2(694, -609)
+position = Vector2(651, -609)

@@ -8,7 +8,7 @@ Contenedor y coordinador entre Worlds
 @export_category("Config")
 @export var _miner_config: HeroConfig
 @export var _warrior_config: HeroConfig
-@export var _music: AudioStream
+@export var _music: Array[AudioStream]
 
 @export_category("Editor Dependencies")
 @export var _miner_world: World
@@ -20,7 +20,7 @@ signal go_to_shop()
 
 func _ready():
 	UpgradesManager.print_current_bought_upgrades() # TODO: borrar
-	AudioEventBus.raise_event_play_music(_music)
+	AudioEventBus.raise_event_play_music(_music.pick_random())
 	
 	var miner_hero: Hero = _miner_world.get_hero()
 	var warrior_hero: Hero = _warrior_world.get_hero()

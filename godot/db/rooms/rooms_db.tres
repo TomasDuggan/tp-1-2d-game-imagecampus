@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="RoomsDB" load_steps=11 format=3 uid="uid://bwy0rnkbodshd"]
+[gd_resource type="Resource" script_class="RoomsDB" load_steps=13 format=3 uid="uid://bwy0rnkbodshd"]
 
 [ext_resource type="Script" uid="uid://sp0ivn7va6cy" path="res://configs/rooms/room_config.gd" id="1_6ic1w"]
 [ext_resource type="Script" uid="uid://csaddeay1y7ur" path="res://db/rooms/rooms_db.gd" id="1_83mkq"]
@@ -7,12 +7,14 @@
 [ext_resource type="Resource" uid="uid://d0xll2bgbk31a" path="res://configs/rooms/warrior/warrior_room_1_config.tres" id="3_2tbp1"]
 [ext_resource type="Resource" uid="uid://duuw0fmt2yxwb" path="res://configs/rooms/miner/miner_room_ending_1_config.tres" id="3_r4v3p"]
 [ext_resource type="Resource" uid="uid://bwsvm2bsi0m5q" path="res://configs/rooms/miner/miner_room_2_config.tres" id="4_pmk8d"]
+[ext_resource type="Resource" uid="uid://bo2w3ik7yjd3v" path="res://configs/rooms/miner/miner_room_3_config.tres" id="6_3o6q3"]
 [ext_resource type="Resource" uid="uid://boadfqvoupsqy" path="res://configs/rooms/warrior/warrior_starting_room_1_config.tres" id="6_71u81"]
 [ext_resource type="Resource" uid="uid://dcwufwxrf0370" path="res://configs/rooms/warrior/warrior_ending_room_1_config.tres" id="7_3o6q3"]
 [ext_resource type="Resource" uid="uid://c635c1dwd1w52" path="res://configs/rooms/warrior/warrior_room_2_config.tres" id="7_ih7wq"]
+[ext_resource type="Resource" uid="uid://42io53mxi6pb" path="res://configs/rooms/warrior/warrior_room_3_config.tres" id="11_jpfcm"]
 
 [resource]
 script = ExtResource("1_83mkq")
-_miner_room_configs = Array[ExtResource("1_6ic1w")]([ExtResource("2_46qfq"), ExtResource("3_r4v3p"), ExtResource("2_r4v3p"), ExtResource("4_pmk8d")])
-_warrior_room_configs = Array[ExtResource("1_6ic1w")]([ExtResource("6_71u81"), ExtResource("7_3o6q3"), ExtResource("3_2tbp1"), ExtResource("7_ih7wq")])
+_miner_room_configs = Array[ExtResource("1_6ic1w")]([ExtResource("2_46qfq"), ExtResource("3_r4v3p"), ExtResource("2_r4v3p"), ExtResource("4_pmk8d"), ExtResource("6_3o6q3")])
+_warrior_room_configs = Array[ExtResource("1_6ic1w")]([ExtResource("6_71u81"), ExtResource("7_3o6q3"), ExtResource("3_2tbp1"), ExtResource("7_ih7wq"), ExtResource("11_jpfcm")])
 metadata/_custom_type_script = "uid://csaddeay1y7ur"

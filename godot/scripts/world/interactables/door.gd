@@ -22,6 +22,7 @@ func _check_open_door(id: int) -> void:
 		_open_door()
 
 func _open_door() -> void:
+	InteractablesManager.consume_counter(_id)
 	_physics_collision_shape.call_deferred("set_disabled", true)
 	_animation.play("open")
 
