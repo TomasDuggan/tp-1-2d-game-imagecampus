@@ -23,7 +23,7 @@ func _ready():
 	_animation.sprite_frames = _sprite_frames
 	
 	if _is_permanently_active:
-		_animation.play("enabling")
+		_animation.play("enabled")
 		return
 	
 	_duration_timer.wait_time = _duration

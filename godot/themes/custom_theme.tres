@@ -14,3 +14,5 @@ texture_margin_bottom = 11.018112
 Button/font_sizes/font_size = 20
 Button/fonts/font = ExtResource("1_syyni")
 Button/styles/normal = SubResource("StyleBoxTexture_o4tqb")
+Label/font_sizes/font_size = 32
+Label/fonts/font = ExtResource("1_syyni")

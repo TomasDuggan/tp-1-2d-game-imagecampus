@@ -78,4 +78,4 @@ shape = SubResource("RectangleShape2D_fso42")
 debug_color = Color(0.610818, 0.538704, 1.92523e-07, 0.42)
 
 [node name="Animation" parent="." index="1"]
-animation = &"enabled"
+animation = &"disabled"

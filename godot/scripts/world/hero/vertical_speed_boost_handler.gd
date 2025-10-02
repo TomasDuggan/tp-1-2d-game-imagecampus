@@ -7,10 +7,12 @@ Manejador del boost que recibe el heroe para avanzar en el eje Y.
 signal vertical_speed_changed(new_vertical_speed: float)
 
 var _vertical_speed_boost_timer := Timer.new()
+var _boost_duration_modifier: float
 var _boost_particles: CPUParticles2D
 
 const USUAL_VERTICAL_SPEED := 0.0
-const VERTICAL_SPEED_BOOST := -100.0
+const VERTICAL_SPEED_BOOST := -100
+const SPEED_BOOST_UPGRADE_CONFIG: UpgradeConfig = preload("uid://8uf7i4twtmc4")
 
 
 func initialize(boost_particles: CPUParticles2D) -> void:
@@ -19,17 +21,28 @@ func initialize(boost_particles: CPUParticles2D) -> void:
 	_boost_particles.emitting = false
 
 func _ready():
+	_boost_duration_modifier = UpgradesManager.get_modifier_value(
+		SPEED_BOOST_UPGRADE_CONFIG.world_type as World.WorldType,
+		SPEED_BOOST_UPGRADE_CONFIG.id as UpgradesManager.UpgradeId
+	)
 	_vertical_speed_boost_timer.one_shot = true
 	add_child(_vertical_speed_boost_timer)
 
 func on_target_destroyed(collectable: Collectable) -> void:
+	var boost_duration: float = collectable.get_destroyed_velocity_boost_duration()
+	if boost_duration <= 0:
+		return
+	
 	if _vertical_speed_boost_timer.is_stopped():
 		_boost_particles.emitting = true
 		_vertical_speed_boost_timer.timeout.connect(_on_speed_boost_expired, CONNECT_ONE_SHOT)
 	
-	_vertical_speed_boost_timer.start(collectable.get_destroyed_velocity_boost_duration())
+	_vertical_speed_boost_timer.start(_get_boost_duration(boost_duration))
 	
 	vertical_speed_changed.emit(VERTICAL_SPEED_BOOST)
+
+func _get_boost_duration(collectable_boost_duration: float) -> float:
+	return collectable_boost_duration + collectable_boost_duration * _boost_duration_modifier
 
 func _on_speed_boost_expired() -> void:
 	_boost_particles.emitting = false

@@ -28,7 +28,7 @@ func initialize(config: HeroConfig, world_type: World.WorldType) -> void:
 	_vertical_speed_boost_handler.initialize(_velocity_boost_particles)
 	
 	_initialize_hitbox(world_type)
-	_initialize_hurtbox()
+	_initialize_hurtbox(world_type)
 	_initialize_horizontal_movement_speed(world_type)
 	_initialize_input_reader(world_type)
 
@@ -38,8 +38,10 @@ func _initialize_hitbox(world_type: World.WorldType) -> void:
 	_hitbox.attack_performed.connect(_animation.play_attack_animation)
 	_hitbox.target_destroyed.connect(_vertical_speed_boost_handler.on_target_destroyed)
 
-func _initialize_hurtbox() -> void:
-	hp.initialize(self, _config.hp, Hurtbox.DamageFaction.HERO, true, _config.get_hit_sfx())
+func _initialize_hurtbox(world_type: World.WorldType) -> void:
+	var hp_amount: int = _config.hp + int(_config.hp * UpgradesManager.get_modifier_value(world_type, UpgradesManager.UpgradeId.HP))
+	print(hp_amount)
+	hp.initialize(self, hp_amount, Hurtbox.DamageFaction.HERO, true, _config.get_hit_sfx())
 	hp.hit.connect(func(): _animation_player.play("hit"))
 	hp.healed.connect(func(): _animation_player.play("heal"))
 

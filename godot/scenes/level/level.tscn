@@ -5,13 +5,13 @@
 [ext_resource type="Script" uid="uid://w6k62hjfi6jo" path="res://scripts/managers/hero_selection_manager.gd" id="2_wcngd"]
 [ext_resource type="AudioStream" uid="uid://dxdbsg7rdj3up" path="res://art/sound/music/combat_music.ogg" id="3_pe1ox"]
 [ext_resource type="Script" uid="uid://cges3ilf47io3" path="res://scripts/world/synergy_manager.gd" id="3_tf2q7"]
-[ext_resource type="AudioStream" uid="uid://8wyrjox7yfld" path="res://art/sound/music/combat_2_music.wav" id="4_b7m21"]
+[ext_resource type="AudioStream" uid="uid://8wyrjox7yfld" path="res://art/sound/music/combat_music_2.wav" id="4_b7m21"]
 [ext_resource type="PackedScene" uid="uid://b2q5ss2eqgp18" path="res://scenes/level/world/world.tscn" id="4_wcngd"]
 [ext_resource type="Script" uid="uid://bf4bfvd68n0fs" path="res://scripts/managers/level_won_manager.gd" id="5_sytrn"]
 [ext_resource type="Script" uid="uid://dm7ip3udkr1gh" path="res://scripts/managers/pause_manager.gd" id="8_b7m21"]
 [ext_resource type="Texture2D" uid="uid://b0prl0robq55h" path="res://art/bars/health meter-01.png" id="8_sytrn"]
 [ext_resource type="Texture2D" uid="uid://x4tfenq0dus" path="res://art/bars/health meter-05.png" id="9_tf2q7"]
-[ext_resource type="Theme" uid="uid://cm2fomdb61et5" path="res://themes/basic_button_theme.tres" id="11_pe1ox"]
+[ext_resource type="Theme" uid="uid://cm2fomdb61et5" path="res://themes/custom_theme.tres" id="11_pe1ox"]
 [ext_resource type="Script" uid="uid://6aelr2g0dpvu" path="res://scripts/ui/generic/custom_button.gd" id="12_m0bv2"]
 
 [sub_resource type="Resource" id="Resource_pm6rs"]
@@ -25,7 +25,7 @@ metadata/_custom_type_script = "uid://b838myufwwsag"
 [sub_resource type="Resource" id="Resource_vrc4q"]
 script = ExtResource("2_b7m21")
 hp = 5
-damage = 2
+damage = 1
 attack_speed = 1.0
 horizontal_movement_speed = 75.0
 metadata/_custom_type_script = "uid://b838myufwwsag"

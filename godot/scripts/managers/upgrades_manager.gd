@@ -1,15 +1,21 @@
 extends Node
 """
-Global para almacenar y hacer query sobre las upgrades compradas
+Global para almacenar y hacer query sobre las upgrades compradas.
+Las upgrades afectan valores basicos (numericos) del gameplay.
+	Aunque tambien podrian usarse como flags para hacer cosas mas locas
 """
 
 var _bought_upgrades: Array[Upgrade] = []
 
+# UpgradeId + World.WorldType para afectar a un Hero puntual
+# UpgradeId y usar la instancia del resource para afectar globalmente
 enum UpgradeId {
 	DAMAGE,
+	HP,
 	HORIZONTAL_MOVEMENT_SPEED,
 	CURRENCY_GATHER,
 	SYNERGY_GAIN,
+	SPEED_BOOST,
 }
 
 

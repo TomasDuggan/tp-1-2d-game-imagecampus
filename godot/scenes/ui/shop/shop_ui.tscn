@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://41r7gy6mk5f7"]
+[gd_scene load_steps=19 format=3 uid="uid://41r7gy6mk5f7"]
 
 [ext_resource type="Script" uid="uid://cqug56r5scugw" path="res://scripts/ui/shop/shop_ui.gd" id="1_rc5g1"]
 [ext_resource type="Script" uid="uid://bhmckujririhf" path="res://configs/upgrades/upgrade_config.gd" id="2_rc5g1"]
@@ -11,12 +11,13 @@
 [ext_resource type="Resource" uid="uid://drg1frcy4axsl" path="res://configs/upgrades/globals/synergy_gain_upgrade_config.tres" id="5_o4tqb"]
 [ext_resource type="Script" uid="uid://6aelr2g0dpvu" path="res://scripts/ui/generic/custom_button.gd" id="6_nxg8l"]
 [ext_resource type="PackedScene" uid="uid://bbotfj18d8itl" path="res://scenes/ui/score/collectable_ui.tscn" id="7_3qv50"]
-[ext_resource type="Theme" uid="uid://cm2fomdb61et5" path="res://themes/basic_button_theme.tres" id="8_tuamk"]
-[ext_resource type="Theme" uid="uid://cbp5aehq4d233" path="res://themes/basic_label_theme.tres" id="10_xvkx0"]
+[ext_resource type="Theme" uid="uid://cm2fomdb61et5" path="res://themes/custom_theme.tres" id="8_tuamk"]
 [ext_resource type="Script" uid="uid://okb0hrn70a8" path="res://scripts/ui/shop/basic_item_lister_ui.gd" id="12_37d3d"]
 [ext_resource type="Resource" uid="uid://d3ocmvivv53ai" path="res://configs/bestiary/minerals/basic_mineral_item_config.tres" id="13_dyc1o"]
 [ext_resource type="Script" uid="uid://bmfrhj7p3gkr8" path="res://configs/bestiary/basic_item_config.gd" id="13_ea7pq"]
+[ext_resource type="Resource" uid="uid://8uf7i4twtmc4" path="res://configs/upgrades/globals/speed_boost_upgrade_config.tres" id="13_nve4w"]
 [ext_resource type="Resource" uid="uid://3kj3yu05yela" path="res://configs/bestiary/enemies/basic_vampire_item_config.tres" id="14_ea7pq"]
+[ext_resource type="Resource" uid="uid://bcy17in6xw0r3" path="res://configs/upgrades/warrior/warrior_hp_upgrade_config.tres" id="15_6xv11"]
 
 [node name="ShopUI" type="Control" node_paths=PackedStringArray("_miner_score", "_warrior_score", "_upgrades_container", "_bestiary_container")]
 layout_mode = 3
@@ -87,12 +88,12 @@ theme = ExtResource("8_tuamk")
 text = "Bestiary"
 script = ExtResource("6_nxg8l")
 
-[node name="SettingsButton" type="Button" parent="MarginContainer/Content/TopRow"]
+[node name="OptionsButton" type="Button" parent="MarginContainer/Content/TopRow"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 10
 theme = ExtResource("8_tuamk")
-text = "Settings"
+text = "Options Menu"
 script = ExtResource("6_nxg8l")
 
 [node name="ExitShopButton" type="Button" parent="MarginContainer/Content/TopRow"]
@@ -114,7 +115,7 @@ size_flags_horizontal = 3
 
 [node name="CategoryName" type="Label" parent="MarginContainer/Content/UpgradesContainer/MinerCategory"]
 layout_mode = 2
-theme = ExtResource("10_xvkx0")
+theme = ExtResource("8_tuamk")
 text = "Miner"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -136,7 +137,7 @@ size_flags_horizontal = 3
 
 [node name="CategoryName" type="Label" parent="MarginContainer/Content/UpgradesContainer/GlobalsCategory"]
 layout_mode = 2
-theme = ExtResource("10_xvkx0")
+theme = ExtResource("8_tuamk")
 text = "Globals"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -150,7 +151,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("3_vgm16")
-_all_upgrades = Array[ExtResource("2_rc5g1")]([ExtResource("5_o4tqb")])
+_all_upgrades = Array[ExtResource("2_rc5g1")]([ExtResource("5_o4tqb"), ExtResource("13_nve4w")])
 
 [node name="WarriorCategory" type="VBoxContainer" parent="MarginContainer/Content/UpgradesContainer"]
 layout_mode = 2
@@ -158,7 +159,7 @@ size_flags_horizontal = 3
 
 [node name="CategoryName" type="Label" parent="MarginContainer/Content/UpgradesContainer/WarriorCategory"]
 layout_mode = 2
-theme = ExtResource("10_xvkx0")
+theme = ExtResource("8_tuamk")
 text = "Warrior"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -172,7 +173,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("3_vgm16")
-_all_upgrades = Array[ExtResource("2_rc5g1")]([ExtResource("4_vgm16")])
+_all_upgrades = Array[ExtResource("2_rc5g1")]([ExtResource("4_vgm16"), ExtResource("15_6xv11")])
 
 [node name="BestiaryContainer" type="HBoxContainer" parent="MarginContainer/Content"]
 visible = false
@@ -186,7 +187,7 @@ size_flags_horizontal = 3
 
 [node name="CategoryName" type="Label" parent="MarginContainer/Content/BestiaryContainer/MinerCategory"]
 layout_mode = 2
-theme = ExtResource("10_xvkx0")
+theme = ExtResource("8_tuamk")
 text = "Miner"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -208,7 +209,7 @@ size_flags_horizontal = 3
 
 [node name="CategoryName" type="Label" parent="MarginContainer/Content/BestiaryContainer/WarriorCategory"]
 layout_mode = 2
-theme = ExtResource("10_xvkx0")
+theme = ExtResource("8_tuamk")
 text = "Warrior"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -227,5 +228,5 @@ _item_configs = Array[ExtResource("13_ea7pq")]([ExtResource("14_ea7pq")])
 [connection signal="pressed" from="MarginContainer/Content/TopRow/ShowBuyableUpgrades" to="." method="_on_show_buyable_upgrades_pressed"]
 [connection signal="pressed" from="MarginContainer/Content/TopRow/ShowOwnedUpgrades" to="." method="_on_show_owned_upgrades_pressed"]
 [connection signal="pressed" from="MarginContainer/Content/TopRow/ShowBestiary" to="." method="_on_show_bestiary_pressed"]
-[connection signal="pressed" from="MarginContainer/Content/TopRow/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="MarginContainer/Content/TopRow/OptionsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="MarginContainer/Content/TopRow/ExitShopButton" to="." method="_on_exit_shop_button_pressed"]

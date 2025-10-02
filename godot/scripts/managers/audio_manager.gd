@@ -11,7 +11,8 @@ var _sfx_pool := Node.new()
 const MUSIC_BUS_NAME := "Music"
 const SFX_BUS_NAME := "SFX"
 const MAX_VOLUME := 1.0
-const START_MUSIC_VOLUME := 0.35
+const START_MUSIC_VOLUME := 0.3
+const START_SFX_VOLUME := 0.5
 
 const ERROR_SFX: AudioStream = preload("uid://7jtvn36vic81")
 const SWAP_SFX: AudioStream = preload("uid://crq7t0tgo8h78")
@@ -30,10 +31,12 @@ func _ready():
 	_music_player.process_mode = Node.PROCESS_MODE_ALWAYS
 	_music_player.bus = MUSIC_BUS_NAME
 	_music_player.finished.connect(_music_player.play) # Loop
+	
 	add_child(_music_player)
 	add_child(_sfx_pool)
 	
 	change_music_volume(START_MUSIC_VOLUME)
+	change_sfx_volume(START_SFX_VOLUME)
 
 func _on_play_music(stream: AudioStream) -> void:
 	_music_player.stream = stream
@@ -74,10 +77,13 @@ func _create_sfx_player() -> AudioStreamPlayer:
 	return sfx_player
 
 func get_music_volume() -> float:
-	return db_to_linear(AudioServer.get_bus_volume_db(_get_bus_index(MUSIC_BUS_NAME)))
+	return _get_bus_linear_volume(MUSIC_BUS_NAME)
 
 func get_sfx_volume() -> float:
-	return db_to_linear(AudioServer.get_bus_volume_db(_get_bus_index(SFX_BUS_NAME)))
+	return _get_bus_linear_volume(SFX_BUS_NAME)
+
+func _get_bus_linear_volume(bus_name: String) -> float:
+	return AudioServer.get_bus_volume_linear(_get_bus_index(bus_name))
 
 func change_music_volume(linear_value: float) -> void:
 	_change_bus_volume(MUSIC_BUS_NAME, linear_value)
@@ -86,7 +92,7 @@ func change_sfx_volume(linear_value: float) -> void:
 	_change_bus_volume(SFX_BUS_NAME, linear_value)
 
 func _change_bus_volume(bus_name: String, volume_linear: float) -> void:
-	AudioServer.set_bus_volume_db(_get_bus_index(bus_name), linear_to_db(volume_linear))
+	AudioServer.set_bus_volume_linear(_get_bus_index(bus_name), volume_linear)
 
 func _get_bus_index(bus_name: String) -> int:
 	return AudioServer.get_bus_index(bus_name)

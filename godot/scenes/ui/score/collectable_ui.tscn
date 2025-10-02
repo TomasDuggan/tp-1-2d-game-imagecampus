@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ckuseg7s3ctj5" path="res://scripts/ui/score/collectable_ui.gd" id="1_vj4ec"]
 [ext_resource type="Texture2D" uid="uid://bm8eqm7pjupgf" path="res://art/icons/currency/diamond.png" id="2_jgk0v"]
-[ext_resource type="Theme" uid="uid://cbp5aehq4d233" path="res://themes/basic_label_theme.tres" id="3_5l8u5"]
+[ext_resource type="Theme" uid="uid://cm2fomdb61et5" path="res://themes/custom_theme.tres" id="3_vj4ec"]
 
 [node name="Container" type="HBoxContainer"]
 custom_minimum_size = Vector2(50, 50)
@@ -17,5 +17,5 @@ expand_mode = 2
 [node name="CollectableAmount" type="Label" parent="."]
 layout_mode = 2
 size_flags_horizontal = 4
-theme = ExtResource("3_5l8u5")
+theme = ExtResource("3_vj4ec")
 text = "100"

@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="UpgradeConfig" load_steps=5 format=3 uid="uid://8uf7i4twtmc4"]
+
+[ext_resource type="Texture2D" uid="uid://b7ngkkl7iepqq" path="res://art/icons/skills/green_arrow.png" id="1_w4okh"]
+[ext_resource type="Script" uid="uid://bmfrhj7p3gkr8" path="res://configs/bestiary/basic_item_config.gd" id="2_4u71t"]
+[ext_resource type="Script" uid="uid://bhmckujririhf" path="res://configs/upgrades/upgrade_config.gd" id="3_3st3c"]
+
+[sub_resource type="Resource" id="Resource_nwrgc"]
+script = ExtResource("2_4u71t")
+icon = ExtResource("1_w4okh")
+display_name = "Speed Boost"
+description = "Speed boost after killing lasts X% longer"
+metadata/_custom_type_script = "uid://bmfrhj7p3gkr8"
+
+[resource]
+script = ExtResource("3_3st3c")
+id = 4
+world_type = 1
+stat_modifier_value = 0.2
+max_level = 5
+basic_config = SubResource("Resource_nwrgc")
+price = 3
+use_percentage_format = true
+metadata/_custom_type_script = "uid://bhmckujririhf"
