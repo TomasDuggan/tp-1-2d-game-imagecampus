@@ -7,7 +7,7 @@ const LEVEL_SCENE: PackedScene = preload("uid://cw7v32643ol2t")
 const SHOP_SCENE: PackedScene = preload("uid://41r7gy6mk5f7")
 
 func _ready():
-	call_deferred("load_shop")
+	call_deferred("load_level")
 
 func load_level() -> void:
 	get_tree().paused = false
