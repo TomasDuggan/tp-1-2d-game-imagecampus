@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="BasicItemConfig" load_steps=3 format=3 uid="uid://3kj3yu05yela"]
 
 [ext_resource type="Script" uid="uid://bmfrhj7p3gkr8" path="res://configs/bestiary/basic_item_config.gd" id="1_8g4bf"]
-[ext_resource type="Texture2D" uid="uid://w0jiesbk4dal" path="res://art/icons/skills/mineral.png" id="1_jm8bt"]
+[ext_resource type="Texture2D" uid="uid://c8k5uhed80n1s" path="res://art/characters/enemies/vampire_basic/basic_vampire_base_128px.png" id="1_jm8bt"]
 
 [resource]
 script = ExtResource("1_8g4bf")
 icon = ExtResource("1_jm8bt")
-display_name = "Basic vampire"
-description = "Does damage"
+display_name = "Vampire Pawn"
+description = "???"
 metadata/_custom_type_script = "uid://bmfrhj7p3gkr8"

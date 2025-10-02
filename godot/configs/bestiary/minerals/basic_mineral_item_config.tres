@@ -6,6 +6,6 @@
 [resource]
 script = ExtResource("1_04gax")
 icon = ExtResource("1_v174u")
-display_name = "Basic Mineral"
-description = "Gives resources"
+display_name = "Stone"
+description = "Gives some resources when destroyed"
 metadata/_custom_type_script = "uid://bmfrhj7p3gkr8"

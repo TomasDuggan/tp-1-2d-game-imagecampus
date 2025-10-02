@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cw7v32643ol2t"]
+[gd_scene load_steps=19 format=3 uid="uid://cw7v32643ol2t"]
 
 [ext_resource type="Script" uid="uid://ywf7pwru2s70" path="res://scripts/world/level.gd" id="1_vpf64"]
 [ext_resource type="Script" uid="uid://b838myufwwsag" path="res://configs/hero/hero_config.gd" id="2_b7m21"]
@@ -14,11 +14,12 @@
 [ext_resource type="Theme" uid="uid://cm2fomdb61et5" path="res://themes/custom_theme.tres" id="11_pe1ox"]
 [ext_resource type="Script" uid="uid://6aelr2g0dpvu" path="res://scripts/ui/generic/custom_button.gd" id="12_m0bv2"]
 [ext_resource type="Script" uid="uid://oma2dt08eqc2" path="res://scripts/ui/level/level_won_menu_ui.gd" id="12_pm6rs"]
+[ext_resource type="Texture2D" uid="uid://d28dx6hx4sxig" path="res://art/ui/tiles/tile_0028.png" id="13_x4oov"]
 [ext_resource type="Script" uid="uid://bes7mfkh6ms1r" path="res://scripts/ui/level/level_lost_menu_ui.gd" id="15_vrc4q"]
 
 [sub_resource type="Resource" id="Resource_pm6rs"]
 script = ExtResource("2_b7m21")
-hp = 1
+hp = 100
 damage = 25
 attack_speed = 1.5
 horizontal_movement_speed = 100.0
@@ -26,7 +27,7 @@ metadata/_custom_type_script = "uid://b838myufwwsag"
 
 [sub_resource type="Resource" id="Resource_vrc4q"]
 script = ExtResource("2_b7m21")
-hp = 1
+hp = 100
 damage = 25
 attack_speed = 1.0
 horizontal_movement_speed = 75.0
@@ -137,7 +138,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("12_pm6rs")
 
-[node name="Panel" type="Panel" parent="CanvasLayer/LevelWonMenu"]
+[node name="Panel" type="NinePatchRect" parent="CanvasLayer/LevelWonMenu"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -145,11 +146,16 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -150.0
-offset_top = -150.0
+offset_top = -79.5
 offset_right = 150.0
-offset_bottom = 150.0
+offset_bottom = 79.5
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("13_x4oov")
+patch_margin_left = 10
+patch_margin_top = 12
+patch_margin_right = 11
+patch_margin_bottom = 12
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/LevelWonMenu/Panel"]
 layout_mode = 1
@@ -194,7 +200,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("15_vrc4q")
 
-[node name="Panel" type="Panel" parent="CanvasLayer/LevelLostMenu"]
+[node name="Panel" type="NinePatchRect" parent="CanvasLayer/LevelLostMenu"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -202,11 +208,16 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -150.0
-offset_top = -150.0
+offset_top = -101.5
 offset_right = 150.0
-offset_bottom = 150.0
+offset_bottom = 101.5
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("13_x4oov")
+patch_margin_left = 12
+patch_margin_top = 12
+patch_margin_right = 11
+patch_margin_bottom = 12
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/LevelLostMenu/Panel"]
 layout_mode = 1

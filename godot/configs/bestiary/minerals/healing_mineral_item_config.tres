@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BasicItemConfig" load_steps=3 format=3 uid="uid://cxfr8fa53ccvp"]
+
+[ext_resource type="Texture2D" uid="uid://h67k2x5wkc0a" path="res://art/minerals/v_2/Green_crystal1.png" id="1_61v6l"]
+[ext_resource type="Script" uid="uid://bmfrhj7p3gkr8" path="res://configs/bestiary/basic_item_config.gd" id="2_sr5d5"]
+
+[resource]
+script = ExtResource("2_sr5d5")
+icon = ExtResource("1_61v6l")
+display_name = "Emerald"
+description = "Heals both Heroes when destroyed"
+metadata/_custom_type_script = "uid://bmfrhj7p3gkr8"

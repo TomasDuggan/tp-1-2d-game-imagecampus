@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BasicItemConfig" load_steps=3 format=3 uid="uid://d0iy4mg3oc2lj"]
+
+[ext_resource type="Texture2D" uid="uid://bosd0ngmquty5" path="res://art/characters/enemies/undead_slime/undead_slime_base_128px.png" id="1_k7n5r"]
+[ext_resource type="Script" uid="uid://bmfrhj7p3gkr8" path="res://configs/bestiary/basic_item_config.gd" id="2_pfh6a"]
+
+[resource]
+script = ExtResource("2_pfh6a")
+icon = ExtResource("1_k7n5r")
+display_name = "Undead Slime"
+description = "High reward, but it blocks swap for some time when killed"
+metadata/_custom_type_script = "uid://bmfrhj7p3gkr8"

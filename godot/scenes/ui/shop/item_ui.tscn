@@ -46,13 +46,13 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TopRow" type="HBoxContainer" parent="Content"]
-custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
+size_flags_vertical = 3
 
 [node name="Icon" type="TextureRect" parent="Content/TopRow"]
 layout_mode = 2
-size_flags_horizontal = 0
 texture = ExtResource("3_loexb")
+expand_mode = 3
 stretch_mode = 3
 
 [node name="TextContent" type="HBoxContainer" parent="Content/TopRow"]
@@ -63,7 +63,6 @@ size_flags_horizontal = 3
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-size_flags_stretch_ratio = 2.0
 
 [node name="Name" type="Label" parent="Content/TopRow/TextContent/NameAndLevelSection"]
 layout_mode = 2

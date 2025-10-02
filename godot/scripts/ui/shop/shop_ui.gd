@@ -59,8 +59,8 @@ func _on_exit_shop_button_pressed():
 	SceneLoadManager.load_level()
 
 func _on_settings_button_pressed():
-	var pause_menu: PauseMenuUI = SETTINGS_SCENE.instantiate()
-	pause_menu.initialize(PauseMenuUI.MenuMode.SHOP)
+	var pause_menu: OptionsMenuUI = SETTINGS_SCENE.instantiate()
+	pause_menu.initialize(OptionsMenuUI.MenuMode.SHOP)
 	pause_menu.resume.connect(func(): pause_menu.queue_free())
 	add_child(pause_menu)
 

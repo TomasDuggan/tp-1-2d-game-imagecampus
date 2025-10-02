@@ -109,6 +109,4 @@ func set_ally(ally_arg: Hero) -> void:
 
 
 
-
-
 #

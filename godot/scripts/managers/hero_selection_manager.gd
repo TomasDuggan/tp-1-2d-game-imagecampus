@@ -32,6 +32,7 @@ func _ready():
 	_block_swap_timer.one_shot = true
 	add_child(_block_swap_timer)
 	
+	HeroEventBus.hero_won_world.connect(_on_hero_won_world)
 	HeroEventBus.block_hero_swap.connect(_block_swap)
 	SynergyEventBus.synergy_effect_activated.connect(_on_synergy_effect_activated)
 	SynergyEventBus.synergy_effect_ended.connect(_on_synergy_effect_ended)
@@ -52,7 +53,7 @@ func _swap_hero_selection() -> void:
 	HeroEventBus.raise_event_swap_hero(selected, deselected, can_swap)
 
 func _can_swap() -> bool:
-	return _block_swap_timer.is_stopped() && !_synergy_effect_activated
+	return _block_swap_timer.is_stopped() && !_synergy_effect_activated && _heroes.size() > 1
 
 func _find_selected_hero() -> Hero:
 	return _heroes.filter(func(h: Hero): return h.is_selected()).front()
@@ -70,10 +71,18 @@ func _on_synergy_effect_ended() -> void:
 	_synergy_effect_activated = false
 	_select_only_first_hero()
 
+func _on_hero_won_world(hero: Hero) -> void:
+	hero.deselect()
+	_heroes.erase(hero)
+	
+	if !_heroes.is_empty():
+		_select_only_first_hero()
+
 func _block_swap(block_duration: float) -> void:
 	_block_swap_timer.start(block_duration)
 
 func _exit_tree():
+	HeroEventBus.hero_won_world.disconnect(_on_hero_won_world)
 	HeroEventBus.block_hero_swap.disconnect(_block_swap)
 	SynergyEventBus.synergy_effect_activated.disconnect(_on_synergy_effect_activated)
 	SynergyEventBus.synergy_effect_ended.disconnect(_on_synergy_effect_ended)

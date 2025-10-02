@@ -1,7 +1,7 @@
 extends Control
-class_name PauseMenuUI
+class_name OptionsMenuUI
 """
-Menu de Pausa
+Menu de opciones (settings, botones de reload, quit, etc)
 """
 
 @export_category("Editor dependencies")
@@ -33,9 +33,9 @@ func _ready():
 	_music_slider.value = AudioManager.get_music_volume()
 	_sfx_slider.value = AudioManager.get_sfx_volume()
 	
-	call_deferred("_resize_background")
+	call_deferred("_resize_background_based_on_content")
 
-func _resize_background() -> void:
+func _resize_background_based_on_content() -> void:
 	_background.size.y = _options_container.size.y
 	_background.position = _options_container.position
 
