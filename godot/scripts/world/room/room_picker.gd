@@ -20,7 +20,7 @@ const CHANCE_TO_SPAWN_INTERACTABLE_ROOM := 0.5
 func initialize(world_type: World.WorldType) -> void:
 	_room_configs = RoomSpawnerConfigHelper.get_valid_room_configs(world_type)
 	_can_spawn_interactables = World.is_miner_world(world_type)
-	_amount_of_rooms_to_spawn = GameInfo.get_current_level() + 1 # * 5 # TODO
+	_amount_of_rooms_to_spawn = GameInfo.get_current_level() + 1 * 5 # TODO
 
 func spawn_interactable_room(amount_of_interactables: int) -> void:
 	_spawn_interactable_room_requests.append(amount_of_interactables)
