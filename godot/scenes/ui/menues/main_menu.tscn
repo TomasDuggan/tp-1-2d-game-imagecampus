@@ -1,19 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://sbseylgpog5c"]
+[gd_scene load_steps=6 format=3 uid="uid://sbseylgpog5c"]
 
 [ext_resource type="Script" uid="uid://wv6pdypeqsv7" path="res://scripts/ui/menues/main_menu_ui.gd" id="1_ktben"]
 [ext_resource type="Texture2D" uid="uid://vyqo2mn1xvu3" path="res://art/ui/tiles/tile_0002.png" id="2_ds3em"]
 [ext_resource type="AudioStream" uid="uid://dxigesmle5jm3" path="res://art/sound/music/shop_music.wav" id="2_hx66e"]
 [ext_resource type="Theme" uid="uid://cm2fomdb61et5" path="res://themes/custom_theme.tres" id="3_hx66e"]
+[ext_resource type="Texture2D" uid="uid://b2ro32smbm8p3" path="res://art/ui/tiles/tile_0001.png" id="5_hx66e"]
 
-[node name="MainMenu" type="Control"]
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("_credits_container")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("3_hx66e")
 script = ExtResource("1_ktben")
 _music = ExtResource("2_hx66e")
+_credits_container = NodePath("CreditsModal")
 
 [node name="Background" type="NinePatchRect" parent="."]
 layout_mode = 1
@@ -58,10 +61,140 @@ layout_mode = 2
 theme = ExtResource("3_hx66e")
 text = "Play"
 
+[node name="CreditsButton" type="Button" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_hx66e")
+text = "Credits"
+
 [node name="QuitButton" type="Button" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 theme = ExtResource("3_hx66e")
 text = "Quit"
 
+[node name="CreditsModal" type="NinePatchRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -150.0
+offset_right = 300.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_hx66e")
+region_rect = Rect2(0, 0, 32, 32)
+patch_margin_left = 11
+patch_margin_top = 9
+patch_margin_right = 9
+patch_margin_bottom = 12
+
+[node name="MarginContainer" type="MarginContainer" parent="CreditsModal"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Content" type="VBoxContainer" parent="CreditsModal/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Title" type="Label" parent="CreditsModal/MarginContainer/Content"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Credits"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="CreditsModal/MarginContainer/Content"]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CreditsModal/MarginContainer/Content/MarginContainer"]
+layout_mode = 2
+
+[node name="Dev" type="HBoxContainer" parent="CreditsModal/MarginContainer/Content/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Key" type="Label" parent="CreditsModal/MarginContainer/Content/MarginContainer/VBoxContainer/Dev"]
+layout_mode = 2
+text = "Dev: "
+
+[node name="Value" type="Label" parent="CreditsModal/MarginContainer/Content/MarginContainer/VBoxContainer/Dev"]
+layout_mode = 2
+text = "Tomas Duggan"
+
+[node name="Art" type="HBoxContainer" parent="CreditsModal/MarginContainer/Content/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Key" type="Label" parent="CreditsModal/MarginContainer/Content/MarginContainer/VBoxContainer/Art"]
+layout_mode = 2
+text = "Art: "
+
+[node name="Value" type="Label" parent="CreditsModal/MarginContainer/Content/MarginContainer/VBoxContainer/Art"]
+layout_mode = 2
+text = "Craftpix"
+
+[node name="ShopMusic" type="HBoxContainer" parent="CreditsModal/MarginContainer/Content/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Key" type="Label" parent="CreditsModal/MarginContainer/Content/MarginContainer/VBoxContainer/ShopMusic"]
+layout_mode = 2
+text = "Shop music:"
+
+[node name="Value" type="Label" parent="CreditsModal/MarginContainer/Content/MarginContainer/VBoxContainer/ShopMusic"]
+layout_mode = 2
+text = "M-Murray *"
+
+[node name="CombatMusic" type="HBoxContainer" parent="CreditsModal/MarginContainer/Content/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Key" type="Label" parent="CreditsModal/MarginContainer/Content/MarginContainer/VBoxContainer/CombatMusic"]
+layout_mode = 2
+text = "Combat music (short):"
+
+[node name="Value" type="Label" parent="CreditsModal/MarginContainer/Content/MarginContainer/VBoxContainer/CombatMusic"]
+layout_mode = 2
+text = "guillermochicasonido *"
+
+[node name="CoinSfx" type="HBoxContainer" parent="CreditsModal/MarginContainer/Content/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Key" type="Label" parent="CreditsModal/MarginContainer/Content/MarginContainer/VBoxContainer/CoinSfx"]
+layout_mode = 2
+text = "Coin SFX:"
+
+[node name="Value" type="Label" parent="CreditsModal/MarginContainer/Content/MarginContainer/VBoxContainer/CoinSfx"]
+layout_mode = 2
+text = "LittleRobotSoundFactory *"
+
+[node name="Info" type="Label" parent="CreditsModal/MarginContainer/Content"]
+layout_mode = 2
+text = "* Link in itch.io project"
+
+[node name="CloseCreditsButton" type="Button" parent="CreditsModal"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -45.0
+offset_top = 5.0
+offset_right = -5.0
+offset_bottom = 46.670654
+grow_horizontal = 0
+text = "X"
+
 [connection signal="pressed" from="MarginContainer/HBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="CreditsModal/CloseCreditsButton" to="." method="_on_close_credits_button_pressed"]
