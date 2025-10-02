@@ -2,7 +2,7 @@ extends Node
 """
 Global para escucha eventos y corre los sonidos.
 - Para sonidos particulares se usa el bus.
-- Para eventos (ej HeroSwapped) se conecta a los buses
+- Para eventos (ej HeroSwapped) este manager se conecta a los buses
 """
 
 var _music_player := AudioStreamPlayer.new()
@@ -18,6 +18,7 @@ const ERROR_SFX: AudioStream = preload("uid://7jtvn36vic81")
 const SWAP_SFX: AudioStream = preload("uid://crq7t0tgo8h78")
 const SYNERGY_SFX: AudioStream = preload("uid://5qmmiom1prwg")
 const PURCHASE_SFX: AudioStream = preload("uid://5ky4kodokwy4")
+const INTERACTABLE_PRESSED_SFX: AudioStream = preload("uid://bx3ha5tvj4own")
 
 
 func _ready():
@@ -27,6 +28,7 @@ func _ready():
 	HeroEventBus.hero_swapped.connect(_on_hero_swapped)
 	SynergyEventBus.synergy_effect_activated.connect(_on_synergy_activated)
 	UpgradesEventBus.try_buy_upgrade.connect(_on_upgrade_bought)
+	InteractablesManager.interactable_pressed.connect(_on_interactable_pressed)
 	
 	_music_player.process_mode = Node.PROCESS_MODE_ALWAYS
 	_music_player.bus = MUSIC_BUS_NAME
@@ -45,11 +47,14 @@ func _on_play_music(stream: AudioStream) -> void:
 func _on_hero_swapped(_from, _to, success: bool) -> void:
 	_on_play_sfx(_get_sfx_or_use_error_sfx(SWAP_SFX, success))
 
-func _on_upgrade_bought(_u, success: bool) -> void:
+func _on_upgrade_bought(_upg, success: bool) -> void:
 	_on_play_sfx(_get_sfx_or_use_error_sfx(PURCHASE_SFX, success))
 
 func _on_synergy_activated() -> void:
 	_on_play_sfx(SYNERGY_SFX)
+
+func _on_interactable_pressed(_id) -> void:
+	_on_play_sfx(INTERACTABLE_PRESSED_SFX)
 
 func _get_sfx_or_use_error_sfx(sfx: AudioStream, success: bool) -> AudioStream:
 	return sfx if success else ERROR_SFX
@@ -104,6 +109,7 @@ func _exit_tree():
 	HeroEventBus.hero_swapped.disconnect(_on_hero_swapped)
 	SynergyEventBus.synergy_effect_activated.disconnect(_on_synergy_activated)
 	UpgradesEventBus.try_buy_upgrade.disconnect(_on_upgrade_bought)
+	InteractablesManager.interactable_pressed.disconnect(_on_interactable_pressed)
 
 
 

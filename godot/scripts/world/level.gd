@@ -15,8 +15,6 @@ Contenedor y coordinador entre Worlds
 @export var _warrior_world: World
 @export var _hero_selection_manager: HeroSelectionManager
 
-signal go_to_shop()
-
 
 func _ready():
 	UpgradesManager.print_current_bought_upgrades() # TODO: borrar
@@ -43,9 +41,6 @@ func _initialize_worlds(miner_hero: Hero, warrior_hero: Hero) -> void:
 	
 	_miner_world.interactable_room_spawned.connect(_warrior_world.spawn_interactable_room)
 
-func _on_go_to_shop_button_pressed():
-	get_tree().paused = false
-	go_to_shop.emit()
 
 
 #

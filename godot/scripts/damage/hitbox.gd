@@ -10,17 +10,17 @@ signal target_destroyed(defender_root: Node2D)
 var _damage_source: Node2D
 var _base_attack_speed: float
 var _attack_cd_timer := Timer.new()
-var _damage: int
 var _targets_in_range: Array[Hurtbox] = []
 var _source_faction: Hurtbox.DamageFaction
-
+var _damage_info: DamageInfo
 
 # TODO: logica de "autoattack == false"
-func initialize(damage_source: Node2D, damage: int, attack_speed: float, autoattack: bool, source_faction: Hurtbox.DamageFaction) -> void:
+func initialize(damage_source: Node2D, damage: int, attack_speed: float, autoattack: bool, source_faction: Hurtbox.DamageFaction, damage_type := DamageInfo.DamageType.PHYSICAL) -> void:
 	_damage_source = damage_source
-	_damage = damage
 	_source_faction = source_faction
 	_base_attack_speed = attack_speed
+	
+	_damage_info = DamageInfo.new(damage_source, damage, damage_type)
 	
 	_attack_cd_timer.autostart = autoattack
 	_attack_cd_timer.wait_time = attack_speed
@@ -54,7 +54,7 @@ func _on_attack_timeout() -> void:
 
 func _damage_targets_in_range() -> void:
 	for target: Hurtbox in _targets_in_range:
-		target.receive_damage(_damage_source, _damage)
+		target.receive_damage(_damage_info)
 
 func toggle_detection() -> void:
 	set_deferred("monitoring", !monitoring)

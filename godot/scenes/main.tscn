@@ -1,8 +1,3 @@
-[gd_scene load_steps=2 format=3 uid="uid://cssd7bjaqj0re"]
-
-[ext_resource type="Script" uid="uid://d242upnd0nvdj" path="res://scripts/main/main_scene_loader.gd" id="2_sugp2"]
+[gd_scene format=3 uid="uid://cssd7bjaqj0re"]
 
 [node name="Main" type="Node2D"]
-
-[node name="MainSceneLoader" type="Node" parent="."]
-script = ExtResource("2_sugp2")

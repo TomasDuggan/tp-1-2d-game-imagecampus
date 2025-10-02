@@ -8,6 +8,7 @@ class_name RoomSpawner
 signal interactable_room_spawned(amount_of_interactables: int)
 
 const VIEWPORT_HEIGHT := 720.0
+const ROOM_SPAWN_MARGIN := 50.0
 
 var _room_picker := RoomPicker.new()
 var _collectables_to_spawn: Array[CollectableConfig] = []
@@ -24,7 +25,7 @@ func initialize(world_type: World.WorldType) -> void:
 	
 	_collectables_to_spawn = RoomSpawnerConfigHelper.get_valid_collectable_configs(world_type)
 	
-	_spawn_room(Vector2(0, VIEWPORT_HEIGHT))
+	_spawn_room(Vector2(0, VIEWPORT_HEIGHT + ROOM_SPAWN_MARGIN))
 
 func _on_end_room_spawned() -> void:
 	set_process(false)
@@ -40,9 +41,10 @@ Explicacion x las dudas
 * Restar VIEWPORT_HEIGHT: spawn justo cuando la parte visible alcanza el final del room anterior.
 """
 func _room_reached_end() -> bool:
-	return _rooms_height_accumulator > -_rooms_container.position.y - VIEWPORT_HEIGHT
+	return _rooms_height_accumulator > -_rooms_container.position.y - VIEWPORT_HEIGHT - ROOM_SPAWN_MARGIN
 
-func _spawn_room(pos: Vector2 = Vector2.ZERO) -> void:
+
+func _spawn_room(pos: Vector2 = Vector2(0, -ROOM_SPAWN_MARGIN)) -> void:
 	var room_config: RoomConfig = _room_picker.pick_room()
 	var room_instance: Room = room_config.scene.instantiate()
 	

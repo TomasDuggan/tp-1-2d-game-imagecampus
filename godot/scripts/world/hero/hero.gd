@@ -33,15 +33,15 @@ func initialize(config: HeroConfig, world_type: World.WorldType) -> void:
 	_initialize_input_reader(world_type)
 
 func _initialize_hitbox(world_type: World.WorldType) -> void:
-	var upgraded_damage: int = _config.damage + int(UpgradesManager.get_modifier_value(world_type, UpgradesManager.UpgradeId.DAMAGE))
+	var upgraded_damage: int = _config.damage + ceil(_config.damage * UpgradesManager.get_modifier_value(world_type, UpgradesManager.UpgradeId.DAMAGE))
 	_hitbox.initialize(self, upgraded_damage, _config.attack_speed, true, Hurtbox.DamageFaction.HERO)
 	_hitbox.attack_performed.connect(_animation.play_attack_animation)
 	_hitbox.target_destroyed.connect(_vertical_speed_boost_handler.on_target_destroyed)
 
 func _initialize_hurtbox(world_type: World.WorldType) -> void:
 	var hp_amount: int = _config.hp + int(_config.hp * UpgradesManager.get_modifier_value(world_type, UpgradesManager.UpgradeId.HP))
-	print(hp_amount)
 	hp.initialize(self, hp_amount, Hurtbox.DamageFaction.HERO, true, _config.get_hit_sfx())
+	hp.destroyed.connect(_on_hero_died)
 	hp.hit.connect(func(): _animation_player.play("hit"))
 	hp.healed.connect(func(): _animation_player.play("heal"))
 
@@ -95,6 +95,9 @@ func _update_selection(is_selected_arg: bool) -> void:
 		_horizontal_direction = 0
 	else:
 		_hitbox.upgrade_attack_speed(ATTACK_SPEED_UPGRADE)
+
+func _on_hero_died(_attacker, _defender) -> void:
+	HeroEventBus.raise_event_hero_lost_world(self)
 
 func _on_vertical_speed_changed(new_vertical_speed: float) -> void:
 	_vertical_speed = new_vertical_speed

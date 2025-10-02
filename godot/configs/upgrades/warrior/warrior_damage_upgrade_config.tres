@@ -8,14 +8,15 @@
 script = ExtResource("2_ql8xn")
 icon = ExtResource("1_beg4j")
 display_name = "Kill the Creeps"
-description = "+1 more damage to monsters"
+description = "+X% more damage to monsters"
 metadata/_custom_type_script = "uid://bmfrhj7p3gkr8"
 
 [resource]
 script = ExtResource("1_wm7jo")
 world_type = 1
-stat_modifier_value = 1.0
-max_level = 2
+stat_modifier_value = 0.2
+max_level = 5
 basic_config = SubResource("Resource_7lcj2")
-price = 5
+price = 100
+use_percentage_format = true
 metadata/_custom_type_script = "uid://bhmckujririhf"

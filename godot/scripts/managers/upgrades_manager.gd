@@ -14,10 +14,10 @@ enum UpgradeId {
 	HP,
 	HORIZONTAL_MOVEMENT_SPEED,
 	CURRENCY_GATHER,
+	FIRE_DAMAGE_REDUCTION,
 	SYNERGY_GAIN,
 	SPEED_BOOST,
 }
-
 
 func _ready():
 	UpgradesEventBus.try_buy_upgrade.connect(_add_upgrade)

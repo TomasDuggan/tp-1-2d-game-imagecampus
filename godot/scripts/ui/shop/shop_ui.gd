@@ -13,8 +13,6 @@ Contenedor de view y logica de comprar upgrades
 @export var _upgrades_container: Container
 @export var _bestiary_container: Container
 
-signal exit_shop()
-
 const SETTINGS_SCENE: PackedScene = preload("uid://c7a6foritfkqo")
 
 var _upgrade_listers: Array[ItemListerUI]
@@ -58,7 +56,7 @@ func _show_items(show_upgrades: bool, listers: Array[ItemListerUI], view_mode: I
 		upgrade_lister.list_items(view_mode)
 
 func _on_exit_shop_button_pressed():
-	exit_shop.emit()
+	SceneLoadManager.load_level()
 
 func _on_settings_button_pressed():
 	var pause_menu: PauseMenuUI = SETTINGS_SCENE.instantiate()

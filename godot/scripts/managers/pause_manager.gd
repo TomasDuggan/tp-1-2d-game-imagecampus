@@ -33,7 +33,7 @@ func _on_resume_pressed() -> void:
 func _on_retry_pressed() -> void:
 	var tree: SceneTree = get_tree()
 	tree.paused = false
-	tree.reload_current_scene()
+	SceneLoadManager.reload()
 
 func _on_level_won() -> void:
 	_level_won = true

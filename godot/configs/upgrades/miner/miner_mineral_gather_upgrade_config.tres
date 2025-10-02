@@ -8,14 +8,15 @@
 script = ExtResource("2_afe26")
 icon = ExtResource("1_4sllj")
 display_name = "Shopping Cart"
-description = "Gain +1 more minerals"
+description = "Gain +X% more minerals"
 metadata/_custom_type_script = "uid://bmfrhj7p3gkr8"
 
 [resource]
 script = ExtResource("2_cg3g2")
 id = 2
-stat_modifier_value = 1.0
-max_level = 3
+stat_modifier_value = 0.2
+max_level = 5
 basic_config = SubResource("Resource_ps4y4")
-price = 5
+price = 150
+use_percentage_format = true
 metadata/_custom_type_script = "uid://bhmckujririhf"

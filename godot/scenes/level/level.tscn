@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cw7v32643ol2t"]
+[gd_scene load_steps=18 format=3 uid="uid://cw7v32643ol2t"]
 
 [ext_resource type="Script" uid="uid://ywf7pwru2s70" path="res://scripts/world/level.gd" id="1_vpf64"]
 [ext_resource type="Script" uid="uid://b838myufwwsag" path="res://configs/hero/hero_config.gd" id="2_b7m21"]
@@ -13,19 +13,21 @@
 [ext_resource type="Texture2D" uid="uid://x4tfenq0dus" path="res://art/bars/health meter-05.png" id="9_tf2q7"]
 [ext_resource type="Theme" uid="uid://cm2fomdb61et5" path="res://themes/custom_theme.tres" id="11_pe1ox"]
 [ext_resource type="Script" uid="uid://6aelr2g0dpvu" path="res://scripts/ui/generic/custom_button.gd" id="12_m0bv2"]
+[ext_resource type="Script" uid="uid://oma2dt08eqc2" path="res://scripts/ui/level/level_won_menu_ui.gd" id="12_pm6rs"]
+[ext_resource type="Script" uid="uid://bes7mfkh6ms1r" path="res://scripts/ui/level/level_lost_menu_ui.gd" id="15_vrc4q"]
 
 [sub_resource type="Resource" id="Resource_pm6rs"]
 script = ExtResource("2_b7m21")
-hp = 5
-damage = 1
-attack_speed = 1.3
+hp = 1
+damage = 25
+attack_speed = 1.5
 horizontal_movement_speed = 100.0
 metadata/_custom_type_script = "uid://b838myufwwsag"
 
 [sub_resource type="Resource" id="Resource_vrc4q"]
 script = ExtResource("2_b7m21")
-hp = 5
-damage = 1
+hp = 1
+damage = 25
 attack_speed = 1.0
 horizontal_movement_speed = 75.0
 metadata/_custom_type_script = "uid://b838myufwwsag"
@@ -48,9 +50,8 @@ script = ExtResource("2_wcngd")
 script = ExtResource("3_tf2q7")
 _synergy_bar = NodePath("../../CanvasLayer/HUD/SynergyBar/SynergyProgressBar")
 
-[node name="LevelWonManager" type="Node" parent="Managers" node_paths=PackedStringArray("_level_won_menu")]
+[node name="LevelEndManager" type="Node" parent="Managers"]
 script = ExtResource("5_sytrn")
-_level_won_menu = NodePath("../../CanvasLayer/LevelWonMenu")
 
 [node name="PauseManager" type="Node" parent="Managers" node_paths=PackedStringArray("_canvas_layer")]
 process_mode = 3
@@ -127,29 +128,125 @@ texture_progress_offset = Vector2(40, 44)
 
 [node name="LevelWonMenu" type="Control" parent="CanvasLayer"]
 process_mode = 3
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("12_pm6rs")
 
-[node name="GoToShopButton" type="Button" parent="CanvasLayer/LevelWonMenu"]
-custom_minimum_size = Vector2(100, 0)
+[node name="Panel" type="Panel" parent="CanvasLayer/LevelWonMenu"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 4.0
-offset_bottom = 4.0
+offset_left = -150.0
+offset_top = -150.0
+offset_right = 150.0
+offset_bottom = 150.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/LevelWonMenu/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="HBoxContainer" type="VBoxContainer" parent="CanvasLayer/LevelWonMenu/Panel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="Title" type="Label" parent="CanvasLayer/LevelWonMenu/Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("11_pe1ox")
+theme_override_font_sizes/font_size = 48
+text = "Level Won!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GoToShopButton" type="Button" parent="CanvasLayer/LevelWonMenu/Panel/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_vertical = 4
 theme = ExtResource("11_pe1ox")
 text = "Go to Shop"
 script = ExtResource("12_m0bv2")
 
-[connection signal="pressed" from="CanvasLayer/LevelWonMenu/GoToShopButton" to="." method="_on_go_to_shop_button_pressed"]
+[node name="LevelLostMenu" type="Control" parent="CanvasLayer"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("15_vrc4q")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/LevelLostMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -150.0
+offset_right = 150.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/LevelLostMenu/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="HBoxContainer" type="VBoxContainer" parent="CanvasLayer/LevelLostMenu/Panel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="Title" type="Label" parent="CanvasLayer/LevelLostMenu/Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("11_pe1ox")
+theme_override_font_sizes/font_size = 48
+text = "You lost"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RetryLevelButton" type="Button" parent="CanvasLayer/LevelLostMenu/Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("11_pe1ox")
+text = "Retry Level"
+script = ExtResource("12_m0bv2")
+
+[node name="GoToShopButton" type="Button" parent="CanvasLayer/LevelLostMenu/Panel/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("11_pe1ox")
+text = "Go to Shop"
+script = ExtResource("12_m0bv2")
+
+[connection signal="pressed" from="CanvasLayer/LevelWonMenu/Panel/MarginContainer/HBoxContainer/GoToShopButton" to="Managers/LevelEndManager" method="_on_go_to_shop_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/LevelLostMenu/Panel/MarginContainer/HBoxContainer/RetryLevelButton" to="CanvasLayer/LevelLostMenu" method="_on_retry_level_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/LevelLostMenu/Panel/MarginContainer/HBoxContainer/GoToShopButton" to="Managers/LevelEndManager" method="_on_go_to_shop_button_pressed"]

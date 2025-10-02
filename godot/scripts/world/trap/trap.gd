@@ -4,6 +4,7 @@ class_name Trap
 Escena heredable "trampa" para molestar al heroe
 """
 
+@export var _damage_type: DamageInfo.DamageType
 @export var _damage: int
 @export var _duration: float
 @export var _cooldown: float
@@ -18,7 +19,7 @@ Escena heredable "trampa" para molestar al heroe
 
 
 func _ready():
-	_hitbox.initialize(self, _damage, _dps, true, Hurtbox.DamageFaction.ENEMY)
+	_hitbox.initialize(self, _damage, _dps, true, Hurtbox.DamageFaction.ENEMY, _damage_type)
 	
 	_animation.sprite_frames = _sprite_frames
 	

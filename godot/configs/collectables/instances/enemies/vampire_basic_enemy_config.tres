@@ -9,20 +9,20 @@
 [sub_resource type="Resource" id="Resource_7rlb7"]
 script = ExtResource("2_wahy2")
 type = 1
-reward_amount = 2
+reward_amount = 15
 metadata/_custom_type_script = "uid://ct5ujndsfuqfc"
 
 [sub_resource type="Resource" id="Resource_7r4is"]
 script = ExtResource("3_u2qh2")
-damage = 1
-attack_speed = 2.0
+damage = 20
+attack_speed = 1.5
 metadata/_custom_type_script = "uid://dkyvw463kyoem"
 
 [resource]
 script = ExtResource("4_vincc")
 world_type = 1
 sprite_frames = ExtResource("5_lwjk7")
-hp = 2
+hp = 35
 scale_override = Vector2(1.5, 1.5)
 destroyed_velocity_boost_duration = 0.5
 behaviour_configs = Array[ExtResource("1_q7p06")]([SubResource("Resource_7rlb7"), SubResource("Resource_7r4is")])

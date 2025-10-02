@@ -4,8 +4,8 @@ Global que maneja los coleccionables/moneda/score (misma semantica) del jugador
 """
 
 var _collected_by_type: Dictionary[World.WorldType, int] = {
-	World.WorldType.MINER: 10,
-	World.WorldType.WARRIOR: 35,
+	World.WorldType.MINER: 300,
+	World.WorldType.WARRIOR: 300,
 }
 
 

@@ -24,6 +24,8 @@ const INTERACTABLE_PRESSED_SYNERGY_INCREASE_VALUE := 0.15
 
 
 func _ready():
+	LevelEventBus.level_won.connect(_on_level_won)
+	
 	_synergy_effect_timer.one_shot = true
 	_synergy_effect_timer.wait_time = SYNERGY_EFFECT_DURATION
 	_synergy_effect_timer.timeout.connect(_synergy_effect_ended)
@@ -98,7 +100,12 @@ func _synergy_effect_ended() -> void:
 	_synergy_decay_timer.start()
 	SynergyEventBus.raise_event_synergy_effect_ended()
 
+func _on_level_won() -> void:
+	_synergy_bar.hide()
+
 func _exit_tree():
+	LevelEventBus.level_won.disconnect(_on_level_won)
+	
 	HeroEventBus.hero_swapped.disconnect(_on_hero_swapped)
 	CollectableEventBus.collectable_amount_changed.disconnect(_on_collectable_gained)
 	InteractablesManager.interactable_pressed.disconnect(_on_interactable_pressed)

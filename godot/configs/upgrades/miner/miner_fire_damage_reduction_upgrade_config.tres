@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="UpgradeConfig" load_steps=5 format=3 uid="uid://bmsm7vp5de2fi"]
+
+[ext_resource type="Texture2D" uid="uid://bij067u8by51i" path="res://art/icons/skills/fire_armor.png" id="1_ldbst"]
+[ext_resource type="Script" uid="uid://bmfrhj7p3gkr8" path="res://configs/bestiary/basic_item_config.gd" id="2_he7i6"]
+[ext_resource type="Script" uid="uid://bhmckujririhf" path="res://configs/upgrades/upgrade_config.gd" id="3_5le83"]
+
+[sub_resource type="Resource" id="Resource_5le83"]
+script = ExtResource("2_he7i6")
+icon = ExtResource("1_ldbst")
+display_name = "Fire Armor"
+description = "Reduce fire trap damage by X%"
+metadata/_custom_type_script = "uid://bmfrhj7p3gkr8"
+
+[resource]
+script = ExtResource("3_5le83")
+id = 4
+stat_modifier_value = 0.3
+max_level = 2
+basic_config = SubResource("Resource_5le83")
+price = 100
+use_percentage_format = true
+metadata/_custom_type_script = "uid://bhmckujririhf"

@@ -28,6 +28,7 @@ LevelEventBus="*res://scripts/event_buses/level_event_bus.gd"
 InteractablesManager="*res://scripts/managers/interactables_manager.gd"
 AudioEventBus="*res://scripts/event_buses/audio_event_bus.gd"
 AudioManager="*res://scripts/managers/audio_manager.gd"
+SceneLoadManager="*res://scripts/managers/scene_load_manager.gd"
 
 [display]
 

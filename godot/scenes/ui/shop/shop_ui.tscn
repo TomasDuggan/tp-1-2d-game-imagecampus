@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://41r7gy6mk5f7"]
+[gd_scene load_steps=20 format=3 uid="uid://41r7gy6mk5f7"]
 
 [ext_resource type="Script" uid="uid://cqug56r5scugw" path="res://scripts/ui/shop/shop_ui.gd" id="1_rc5g1"]
 [ext_resource type="Script" uid="uid://bhmckujririhf" path="res://configs/upgrades/upgrade_config.gd" id="2_rc5g1"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://6aelr2g0dpvu" path="res://scripts/ui/generic/custom_button.gd" id="6_nxg8l"]
 [ext_resource type="PackedScene" uid="uid://bbotfj18d8itl" path="res://scenes/ui/score/collectable_ui.tscn" id="7_3qv50"]
 [ext_resource type="Theme" uid="uid://cm2fomdb61et5" path="res://themes/custom_theme.tres" id="8_tuamk"]
+[ext_resource type="Resource" uid="uid://bmsm7vp5de2fi" path="res://configs/upgrades/miner/miner_fire_damage_reduction_upgrade_config.tres" id="11_6xv11"]
 [ext_resource type="Script" uid="uid://okb0hrn70a8" path="res://scripts/ui/shop/basic_item_lister_ui.gd" id="12_37d3d"]
 [ext_resource type="Resource" uid="uid://d3ocmvivv53ai" path="res://configs/bestiary/minerals/basic_mineral_item_config.tres" id="13_dyc1o"]
 [ext_resource type="Script" uid="uid://bmfrhj7p3gkr8" path="res://configs/bestiary/basic_item_config.gd" id="13_ea7pq"]
@@ -129,7 +130,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("3_vgm16")
-_all_upgrades = Array[ExtResource("2_rc5g1")]([ExtResource("3_63ers"), ExtResource("3_3qv50")])
+_all_upgrades = Array[ExtResource("2_rc5g1")]([ExtResource("3_63ers"), ExtResource("3_3qv50"), ExtResource("11_6xv11")])
 
 [node name="GlobalsCategory" type="VBoxContainer" parent="MarginContainer/Content/UpgradesContainer"]
 layout_mode = 2
