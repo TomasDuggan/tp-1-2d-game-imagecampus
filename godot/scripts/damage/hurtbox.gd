@@ -59,8 +59,6 @@ func _resolve_damage_reduction_by_resistances(info: DamageInfo) -> int:
 	if info.damage_type == DamageInfo.DamageType.PHYSICAL:
 		return info.damage_amount
 	
-	print("Fire dmg. Normal dmg: " + str(info.damage_amount) + ". Reduced damage: " + str(int(info.damage_amount - info.damage_amount * _fire_damage_reduction)) )
-	
 	return int(info.damage_amount - info.damage_amount * _fire_damage_reduction)
 
 func heal(heal_amount: int) -> void:

@@ -1,0 +1,67 @@
+[gd_scene load_steps=5 format=3 uid="uid://sbseylgpog5c"]
+
+[ext_resource type="Script" uid="uid://wv6pdypeqsv7" path="res://scripts/ui/menues/main_menu_ui.gd" id="1_ktben"]
+[ext_resource type="Texture2D" uid="uid://vyqo2mn1xvu3" path="res://art/ui/tiles/tile_0002.png" id="2_ds3em"]
+[ext_resource type="AudioStream" uid="uid://dxigesmle5jm3" path="res://art/sound/music/shop_music.wav" id="2_hx66e"]
+[ext_resource type="Theme" uid="uid://cm2fomdb61et5" path="res://themes/custom_theme.tres" id="3_hx66e"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ktben")
+_music = ExtResource("2_hx66e")
+
+[node name="Background" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ds3em")
+patch_margin_left = 9
+patch_margin_top = 11
+patch_margin_right = 8
+patch_margin_bottom = 11
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="HBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="GameTitle" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_hx66e")
+theme_override_font_sizes/font_size = 80
+text = "Game Title"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayButton" type="Button" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_hx66e")
+text = "Play"
+
+[node name="QuitButton" type="Button" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_hx66e")
+text = "Quit"
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
