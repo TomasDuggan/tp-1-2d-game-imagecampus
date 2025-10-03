@@ -13,7 +13,7 @@ Contenedor de view y logica de comprar upgrades
 @export var _upgrades_container: Container
 @export var _bestiary_container: Container
 
-const SETTINGS_SCENE: PackedScene = preload("uid://c7a6foritfkqo")
+const SETTINGS_SCENE: PackedScene = preload("uid://bmwvgt0131dh6")
 
 var _upgrade_listers: Array[ItemListerUI]
 var _bestiary_listers: Array[ItemListerUI]

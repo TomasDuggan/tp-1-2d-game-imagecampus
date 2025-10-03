@@ -163,7 +163,7 @@ libraries = {
 
 [node name="VelocityBoostParticles" type="CPUParticles2D" parent="Hero"]
 visible = false
-amount = 35
+amount = 50
 lifetime = 0.5
 emission_shape = 1
 emission_sphere_radius = 20.0

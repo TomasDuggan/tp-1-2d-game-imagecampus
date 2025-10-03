@@ -7,7 +7,7 @@ Manager de pausa durante gameplay
 @export_category("Editor dependencies")
 @export var _canvas_layer: CanvasLayer
 
-const PAUSE_MENU_SCENE: PackedScene = preload("uid://c7a6foritfkqo")
+const PAUSE_MENU_SCENE: PackedScene = preload("uid://bmwvgt0131dh6")
 const pause_action_name := "pause"
 
 var _pause_menu_cache: OptionsMenuUI

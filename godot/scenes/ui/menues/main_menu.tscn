@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://sbseylgpog5c"]
+[gd_scene load_steps=7 format=3 uid="uid://sbseylgpog5c"]
 
 [ext_resource type="Script" uid="uid://wv6pdypeqsv7" path="res://scripts/ui/menues/main_menu_ui.gd" id="1_ktben"]
 [ext_resource type="Texture2D" uid="uid://vyqo2mn1xvu3" path="res://art/ui/tiles/tile_0002.png" id="2_ds3em"]
 [ext_resource type="AudioStream" uid="uid://dxigesmle5jm3" path="res://art/sound/music/shop_music.wav" id="2_hx66e"]
 [ext_resource type="Theme" uid="uid://cm2fomdb61et5" path="res://themes/custom_theme.tres" id="3_hx66e"]
+[ext_resource type="Script" uid="uid://6aelr2g0dpvu" path="res://scripts/ui/generic/custom_button.gd" id="5_ar7nb"]
 [ext_resource type="Texture2D" uid="uid://b2ro32smbm8p3" path="res://art/ui/tiles/tile_0001.png" id="5_hx66e"]
 
 [node name="MainMenu" type="Control" node_paths=PackedStringArray("_credits_container")]
@@ -60,16 +61,31 @@ vertical_alignment = 1
 layout_mode = 2
 theme = ExtResource("3_hx66e")
 text = "Play"
+script = ExtResource("5_ar7nb")
+
+[node name="TutorialButton" type="Button" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_hx66e")
+text = "Tutorial"
+script = ExtResource("5_ar7nb")
+
+[node name="SettingsButton" type="Button" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_hx66e")
+text = "Settings"
+script = ExtResource("5_ar7nb")
 
 [node name="CreditsButton" type="Button" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 theme = ExtResource("3_hx66e")
 text = "Credits"
+script = ExtResource("5_ar7nb")
 
 [node name="QuitButton" type="Button" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 theme = ExtResource("3_hx66e")
 text = "Quit"
+script = ExtResource("5_ar7nb")
 
 [node name="CreditsModal" type="NinePatchRect" parent="."]
 visible = false
@@ -195,6 +211,8 @@ grow_horizontal = 0
 text = "X"
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/TutorialButton" to="." method="_on_tutorial_button_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="CreditsModal/CloseCreditsButton" to="." method="_on_close_credits_button_pressed"]

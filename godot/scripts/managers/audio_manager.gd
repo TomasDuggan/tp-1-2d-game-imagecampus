@@ -41,6 +41,9 @@ func _ready():
 	change_sfx_volume(START_SFX_VOLUME)
 
 func _on_play_music(stream: AudioStream) -> void:
+	if stream == _music_player.stream:
+		return
+	
 	_music_player.stream = stream
 	_music_player.play()
 

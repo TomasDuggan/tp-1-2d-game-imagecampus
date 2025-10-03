@@ -15,7 +15,7 @@ Menu de opciones (settings, botones de reload, quit, etc)
 signal resume()
 signal retry()
 
-enum MenuMode { PLAYING, SHOP }
+enum MenuMode { PLAYING, SHOP, MAIN_MENU }
 
 var _test_sfx_sound: AudioStream = preload("uid://c2bhh78cx5el1")
 var _mode: MenuMode
@@ -27,7 +27,7 @@ func initialize(mode: MenuMode) -> void:
 func _ready():
 	if _mode == MenuMode.PLAYING:
 		_shop_options_container.hide()
-	if _mode == MenuMode.SHOP:
+	if _mode == MenuMode.SHOP || _mode == MenuMode.MAIN_MENU:
 		_playing_options_container.hide()
 	
 	_music_slider.value = AudioManager.get_music_volume()

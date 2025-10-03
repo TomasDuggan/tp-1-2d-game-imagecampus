@@ -1,9 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://c7a6foritfkqo"]
+[gd_scene load_steps=5 format=3 uid="uid://bmwvgt0131dh6"]
 
-[ext_resource type="Script" uid="uid://b6dnvpn847np1" path="res://scripts/ui/menues/options_menu_ui.gd" id="1_rv5mv"]
-[ext_resource type="Texture2D" uid="uid://d28dx6hx4sxig" path="res://art/ui/tiles/tile_0028.png" id="2_2mh1u"]
-[ext_resource type="Theme" uid="uid://cm2fomdb61et5" path="res://themes/custom_theme.tres" id="2_rv5mv"]
-[ext_resource type="Script" uid="uid://6aelr2g0dpvu" path="res://scripts/ui/generic/custom_button.gd" id="3_2mh1u"]
+[ext_resource type="Script" uid="uid://b6dnvpn847np1" path="res://scripts/ui/menues/options_menu_ui.gd" id="1_pvb50"]
+[ext_resource type="Texture2D" uid="uid://d28dx6hx4sxig" path="res://art/ui/tiles/tile_0028.png" id="2_k5tc7"]
+[ext_resource type="Theme" uid="uid://cm2fomdb61et5" path="res://themes/custom_theme.tres" id="3_qg6g0"]
+[ext_resource type="Script" uid="uid://6aelr2g0dpvu" path="res://scripts/ui/generic/custom_button.gd" id="4_qlnqb"]
 
 [node name="OptionsMenu" type="Control" node_paths=PackedStringArray("_background", "_options_container", "_playing_options_container", "_shop_options_container", "_music_slider", "_sfx_slider")]
 layout_mode = 3
@@ -12,7 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_rv5mv")
+script = ExtResource("1_pvb50")
 _background = NodePath("Content/Background")
 _options_container = NodePath("Content/MarginContainer")
 _playing_options_container = NodePath("Content/MarginContainer/OptionsContainer/PlayingOptionsContainer")
@@ -39,9 +39,11 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -11.5
+offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_2mh1u")
+texture = ExtResource("2_k5tc7")
 patch_margin_left = 10
 patch_margin_top = 12
 patch_margin_right = 10
@@ -74,7 +76,7 @@ layout_mode = 2
 
 [node name="MusicVolume" type="Label" parent="Content/MarginContainer/OptionsContainer/MarginContainer/VolumeOptions/MusicVolumeContainer"]
 layout_mode = 2
-theme = ExtResource("2_rv5mv")
+theme = ExtResource("3_qg6g0")
 text = "Music Volume"
 
 [node name="MusicSlider" type="HSlider" parent="Content/MarginContainer/OptionsContainer/MarginContainer/VolumeOptions/MusicVolumeContainer"]
@@ -87,7 +89,7 @@ layout_mode = 2
 
 [node name="SFXVolume" type="Label" parent="Content/MarginContainer/OptionsContainer/MarginContainer/VolumeOptions/SFXVolumeContainer"]
 layout_mode = 2
-theme = ExtResource("2_rv5mv")
+theme = ExtResource("3_qg6g0")
 text = "SFX Volume"
 
 [node name="SFXSlider" type="HSlider" parent="Content/MarginContainer/OptionsContainer/MarginContainer/VolumeOptions/SFXVolumeContainer"]
@@ -101,15 +103,15 @@ size_flags_vertical = 3
 
 [node name="ResumeButton" type="Button" parent="Content/MarginContainer/OptionsContainer/PlayingOptionsContainer"]
 layout_mode = 2
-theme = ExtResource("2_rv5mv")
+theme = ExtResource("3_qg6g0")
 text = "Resume"
-script = ExtResource("3_2mh1u")
+script = ExtResource("4_qlnqb")
 
 [node name="RetryButton" type="Button" parent="Content/MarginContainer/OptionsContainer/PlayingOptionsContainer"]
 layout_mode = 2
-theme = ExtResource("2_rv5mv")
+theme = ExtResource("3_qg6g0")
 text = "Retry"
-script = ExtResource("3_2mh1u")
+script = ExtResource("4_qlnqb")
 
 [node name="ShopOptionsContainer" type="VBoxContainer" parent="Content/MarginContainer/OptionsContainer"]
 layout_mode = 2
@@ -117,15 +119,15 @@ size_flags_vertical = 3
 
 [node name="BackButton" type="Button" parent="Content/MarginContainer/OptionsContainer/ShopOptionsContainer"]
 layout_mode = 2
-theme = ExtResource("2_rv5mv")
+theme = ExtResource("3_qg6g0")
 text = "Back"
-script = ExtResource("3_2mh1u")
+script = ExtResource("4_qlnqb")
 
 [node name="QuitButton" type="Button" parent="Content/MarginContainer/OptionsContainer"]
 layout_mode = 2
-theme = ExtResource("2_rv5mv")
+theme = ExtResource("3_qg6g0")
 text = "Quit Game"
-script = ExtResource("3_2mh1u")
+script = ExtResource("4_qlnqb")
 
 [connection signal="value_changed" from="Content/MarginContainer/OptionsContainer/MarginContainer/VolumeOptions/MusicVolumeContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]
 [connection signal="drag_ended" from="Content/MarginContainer/OptionsContainer/MarginContainer/VolumeOptions/SFXVolumeContainer/SFXSlider" to="." method="_on_sfx_slider_drag_ended"]
