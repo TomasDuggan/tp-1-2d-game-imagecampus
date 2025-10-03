@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://biih73gy6wah6"
-path="res://.godot/imported/Vampires2_Walk_with_shadow.png-fafeb2b3a5f50f648a7303b598878c48.ctex"
+uid="uid://haav8hy38fsh"
+path="res://.godot/imported/LevelWon.png-53174351ed9c8033996476d64d90f8a3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/characters/enemies/vampire_prince/Vampires2_Walk_with_shadow.png"
-dest_files=["res://.godot/imported/Vampires2_Walk_with_shadow.png-fafeb2b3a5f50f648a7303b598878c48.ctex"]
+source_file="res://art/snapshots/LevelWon.png"
+dest_files=["res://.godot/imported/LevelWon.png-53174351ed9c8033996476d64d90f8a3.ctex"]
 
 [params]
 

@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="CollectableConfig" load_steps=10 format=3 uid="uid://lgev45o2ujf0"]
+
+[ext_resource type="Script" uid="uid://clxqxnesk8eta" path="res://configs/collectables/behaviours/collectable_behaviour_config.gd" id="1_dv2ef"]
+[ext_resource type="Script" uid="uid://ct5ujndsfuqfc" path="res://configs/collectables/behaviours/currency_reward_behaviour_config.gd" id="2_y8fss"]
+[ext_resource type="Script" uid="uid://dkyvw463kyoem" path="res://configs/collectables/behaviours/hero_damager_behaviour_config.gd" id="3_h3xss"]
+[ext_resource type="Script" uid="uid://bkw6yobd6k4ta" path="res://configs/collectables/collectable_config.gd" id="4_lim3r"]
+[ext_resource type="Script" uid="uid://dhm5gjf3up8tp" path="res://configs/collectables/behaviours/hero_teleporter_behaviour_config.gd" id="4_y8fss"]
+[ext_resource type="SpriteFrames" uid="uid://cn8c0y8wvjd8x" path="res://animations/enemies/vampire_lord_animation.tres" id="5_dv2ef"]
+
+[sub_resource type="Resource" id="Resource_7rlb7"]
+script = ExtResource("2_y8fss")
+type = 1
+reward_amount = 100
+metadata/_custom_type_script = "uid://ct5ujndsfuqfc"
+
+[sub_resource type="Resource" id="Resource_7r4is"]
+script = ExtResource("3_h3xss")
+damage = 35
+attack_speed = 1.5
+metadata/_custom_type_script = "uid://dkyvw463kyoem"
+
+[sub_resource type="Resource" id="Resource_h3xss"]
+script = ExtResource("4_y8fss")
+teleport_radius = 75.0
+metadata/_custom_type_script = "uid://dhm5gjf3up8tp"
+
+[resource]
+script = ExtResource("4_lim3r")
+world_type = 1
+sprite_frames = ExtResource("5_dv2ef")
+hp = 150
+scale_override = Vector2(1.5, 1.5)
+destroyed_velocity_boost_duration = 0.5
+behaviour_configs = Array[ExtResource("1_dv2ef")]([SubResource("Resource_7rlb7"), SubResource("Resource_7r4is"), SubResource("Resource_h3xss")])
+metadata/_custom_type_script = "uid://bkw6yobd6k4ta"

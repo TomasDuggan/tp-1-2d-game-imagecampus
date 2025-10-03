@@ -38,6 +38,7 @@ func _add_behaviour(behaviour_config: CollectableBehaviourConfig) -> void:
 	behaviour_instance.initialize(behaviour_config)
 	behaviour_instance.request_animation.connect(_on_animation_requested)
 	add_child(behaviour_instance)
+	behaviour_instance.global_position = global_position
 
 func _on_hurtbox_destroyed(damage_source: Hero, _defender: Node2D) -> void:
 	for behaviour: CollectableBehaviour in _behaviours:

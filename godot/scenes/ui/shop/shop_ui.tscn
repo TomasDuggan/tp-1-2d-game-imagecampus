@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://41r7gy6mk5f7"]
+[gd_scene load_steps=27 format=3 uid="uid://41r7gy6mk5f7"]
 
 [ext_resource type="Script" uid="uid://cqug56r5scugw" path="res://scripts/ui/shop/shop_ui.gd" id="1_rc5g1"]
 [ext_resource type="Script" uid="uid://bhmckujririhf" path="res://configs/upgrades/upgrade_config.gd" id="2_rc5g1"]
@@ -17,7 +17,7 @@
 [ext_resource type="Resource" uid="uid://d3ocmvivv53ai" path="res://configs/bestiary/minerals/basic_mineral_item_config.tres" id="13_dyc1o"]
 [ext_resource type="Script" uid="uid://bmfrhj7p3gkr8" path="res://configs/bestiary/basic_item_config.gd" id="13_ea7pq"]
 [ext_resource type="Resource" uid="uid://8uf7i4twtmc4" path="res://configs/upgrades/globals/speed_boost_upgrade_config.tres" id="13_nve4w"]
-[ext_resource type="Resource" uid="uid://3kj3yu05yela" path="res://configs/bestiary/enemies/basic_vampire_item_config.tres" id="14_ea7pq"]
+[ext_resource type="Resource" uid="uid://3kj3yu05yela" path="res://configs/bestiary/enemies/vampire_basic_item_config.tres" id="14_ea7pq"]
 [ext_resource type="Resource" uid="uid://bcy17in6xw0r3" path="res://configs/upgrades/warrior/warrior_hp_upgrade_config.tres" id="15_6xv11"]
 [ext_resource type="Resource" uid="uid://cxfr8fa53ccvp" path="res://configs/bestiary/minerals/healing_mineral_item_config.tres" id="19_8w2r5"]
 [ext_resource type="Resource" uid="uid://d0iy4mg3oc2lj" path="res://configs/bestiary/enemies/undead_slime_item_config.tres" id="20_6dts4"]
@@ -25,6 +25,7 @@
 [ext_resource type="Resource" uid="uid://c6bqpcurbbnol" path="res://configs/bestiary/minerals/gain_synergy_mineral_item_config.tres" id="21_7dyof"]
 [ext_resource type="Resource" uid="uid://eu5exe56yrbk" path="res://configs/bestiary/enemies/orc_basic_item_config.tres" id="21_ku36f"]
 [ext_resource type="Resource" uid="uid://we5rqgtem7td" path="res://configs/bestiary/enemies/plant_purple_item_config.tres" id="25_fsp1k"]
+[ext_resource type="Resource" uid="uid://d4clgvsffoejc" path="res://configs/bestiary/enemies/vampire_lord_item_config.tres" id="26_77wqo"]
 
 [node name="ShopUI" type="Control" node_paths=PackedStringArray("_miner_score", "_warrior_score", "_upgrades_container", "_bestiary_container")]
 layout_mode = 3
@@ -33,6 +34,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("8_tuamk")
 script = ExtResource("1_rc5g1")
 _music = ExtResource("2_rr3h0")
 _miner_score = NodePath("MarginContainer/Content/TopRow/MinerScore")
@@ -79,19 +81,16 @@ layout_mode = 2
 
 [node name="ShowBuyableUpgrades" type="Button" parent="MarginContainer/Content/TopRow"]
 layout_mode = 2
-theme = ExtResource("8_tuamk")
 text = "Buy Upgrades"
 script = ExtResource("6_nxg8l")
 
 [node name="ShowOwnedUpgrades" type="Button" parent="MarginContainer/Content/TopRow"]
 layout_mode = 2
-theme = ExtResource("8_tuamk")
 text = "Owned Upgrades"
 script = ExtResource("6_nxg8l")
 
 [node name="ShowBestiary" type="Button" parent="MarginContainer/Content/TopRow"]
 layout_mode = 2
-theme = ExtResource("8_tuamk")
 text = "Bestiary"
 script = ExtResource("6_nxg8l")
 
@@ -99,7 +98,6 @@ script = ExtResource("6_nxg8l")
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 10
-theme = ExtResource("8_tuamk")
 text = "Options Menu"
 script = ExtResource("6_nxg8l")
 
@@ -107,7 +105,6 @@ script = ExtResource("6_nxg8l")
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 10
-theme = ExtResource("8_tuamk")
 text = "Exit Shop"
 script = ExtResource("6_nxg8l")
 
@@ -122,7 +119,6 @@ size_flags_horizontal = 3
 
 [node name="CategoryName" type="Label" parent="MarginContainer/Content/UpgradesContainer/MinerCategory"]
 layout_mode = 2
-theme = ExtResource("8_tuamk")
 text = "Miner"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -144,7 +140,6 @@ size_flags_horizontal = 3
 
 [node name="CategoryName" type="Label" parent="MarginContainer/Content/UpgradesContainer/GlobalsCategory"]
 layout_mode = 2
-theme = ExtResource("8_tuamk")
 text = "Globals"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -166,7 +161,6 @@ size_flags_horizontal = 3
 
 [node name="CategoryName" type="Label" parent="MarginContainer/Content/UpgradesContainer/WarriorCategory"]
 layout_mode = 2
-theme = ExtResource("8_tuamk")
 text = "Warrior"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -194,7 +188,6 @@ size_flags_horizontal = 3
 
 [node name="CategoryName" type="Label" parent="MarginContainer/Content/BestiaryContainer/MinerCategory"]
 layout_mode = 2
-theme = ExtResource("8_tuamk")
 text = "Miner"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -216,7 +209,6 @@ size_flags_horizontal = 3
 
 [node name="CategoryName" type="Label" parent="MarginContainer/Content/BestiaryContainer/WarriorCategory"]
 layout_mode = 2
-theme = ExtResource("8_tuamk")
 text = "Warrior"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -230,7 +222,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("12_37d3d")
-_item_configs = Array[ExtResource("13_ea7pq")]([ExtResource("21_ku36f"), ExtResource("14_ea7pq"), ExtResource("20_6dts4"), ExtResource("25_fsp1k")])
+_item_configs = Array[ExtResource("13_ea7pq")]([ExtResource("21_ku36f"), ExtResource("14_ea7pq"), ExtResource("20_6dts4"), ExtResource("25_fsp1k"), ExtResource("26_77wqo")])
 
 [connection signal="pressed" from="MarginContainer/Content/TopRow/ShowBuyableUpgrades" to="." method="_on_show_buyable_upgrades_pressed"]
 [connection signal="pressed" from="MarginContainer/Content/TopRow/ShowOwnedUpgrades" to="." method="_on_show_owned_upgrades_pressed"]

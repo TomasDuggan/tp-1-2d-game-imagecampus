@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvfmvt6kye4mf"
-path="res://.godot/imported/Vampires2_Run_with_shadow.png-9d5d78677835a198b33e8e69172f5afc.ctex"
+uid="uid://bppqt5ymist4m"
+path="res://.godot/imported/WarriorWorld.png-f7b3139f011198ccbc0ae5d5808f8221.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/characters/enemies/vampire_prince/Vampires2_Run_with_shadow.png"
-dest_files=["res://.godot/imported/Vampires2_Run_with_shadow.png-9d5d78677835a198b33e8e69172f5afc.ctex"]
+source_file="res://art/snapshots/WarriorWorld.png"
+dest_files=["res://.godot/imported/WarriorWorld.png-f7b3139f011198ccbc0ae5d5808f8221.ctex"]
 
 [params]
 

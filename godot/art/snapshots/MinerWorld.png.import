@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cj4hfva06snp6"
-path="res://.godot/imported/Vampires2_Idle_with_shadow.png-836a360bc2403dc08e1080d38dbadf28.ctex"
+uid="uid://c83l6y304okpt"
+path="res://.godot/imported/MinerWorld.png-b1645bac0aab7c7ebeab671089958c25.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/characters/enemies/vampire_prince/Vampires2_Idle_with_shadow.png"
-dest_files=["res://.godot/imported/Vampires2_Idle_with_shadow.png-836a360bc2403dc08e1080d38dbadf28.ctex"]
+source_file="res://art/snapshots/MinerWorld.png"
+dest_files=["res://.godot/imported/MinerWorld.png-b1645bac0aab7c7ebeab671089958c25.ctex"]
 
 [params]
 

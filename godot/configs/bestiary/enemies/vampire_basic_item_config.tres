@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BasicItemConfig" load_steps=3 format=3 uid="uid://3kj3yu05yela"]
+
+[ext_resource type="Texture2D" uid="uid://c8k5uhed80n1s" path="res://art/characters/enemies/vampire_basic/basic_vampire_base_128px.png" id="1_xax7v"]
+[ext_resource type="Script" uid="uid://bmfrhj7p3gkr8" path="res://configs/bestiary/basic_item_config.gd" id="2_k75nk"]
+
+[resource]
+script = ExtResource("2_k75nk")
+icon = ExtResource("1_xax7v")
+display_name = "Vampire Pawn"
+description = "A strong monster that deals high damage"
+metadata/_custom_type_script = "uid://bmfrhj7p3gkr8"

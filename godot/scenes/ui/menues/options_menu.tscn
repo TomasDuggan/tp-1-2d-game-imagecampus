@@ -12,6 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("3_qg6g0")
 script = ExtResource("1_pvb50")
 _background = NodePath("Content/Background")
 _options_container = NodePath("Content/MarginContainer")
@@ -76,7 +77,6 @@ layout_mode = 2
 
 [node name="MusicVolume" type="Label" parent="Content/MarginContainer/OptionsContainer/MarginContainer/VolumeOptions/MusicVolumeContainer"]
 layout_mode = 2
-theme = ExtResource("3_qg6g0")
 text = "Music Volume"
 
 [node name="MusicSlider" type="HSlider" parent="Content/MarginContainer/OptionsContainer/MarginContainer/VolumeOptions/MusicVolumeContainer"]
@@ -89,7 +89,6 @@ layout_mode = 2
 
 [node name="SFXVolume" type="Label" parent="Content/MarginContainer/OptionsContainer/MarginContainer/VolumeOptions/SFXVolumeContainer"]
 layout_mode = 2
-theme = ExtResource("3_qg6g0")
 text = "SFX Volume"
 
 [node name="SFXSlider" type="HSlider" parent="Content/MarginContainer/OptionsContainer/MarginContainer/VolumeOptions/SFXVolumeContainer"]
@@ -103,13 +102,11 @@ size_flags_vertical = 3
 
 [node name="ResumeButton" type="Button" parent="Content/MarginContainer/OptionsContainer/PlayingOptionsContainer"]
 layout_mode = 2
-theme = ExtResource("3_qg6g0")
 text = "Resume"
 script = ExtResource("4_qlnqb")
 
 [node name="RetryButton" type="Button" parent="Content/MarginContainer/OptionsContainer/PlayingOptionsContainer"]
 layout_mode = 2
-theme = ExtResource("3_qg6g0")
 text = "Retry"
 script = ExtResource("4_qlnqb")
 
@@ -119,13 +116,11 @@ size_flags_vertical = 3
 
 [node name="BackButton" type="Button" parent="Content/MarginContainer/OptionsContainer/ShopOptionsContainer"]
 layout_mode = 2
-theme = ExtResource("3_qg6g0")
 text = "Back"
 script = ExtResource("4_qlnqb")
 
 [node name="QuitButton" type="Button" parent="Content/MarginContainer/OptionsContainer"]
 layout_mode = 2
-theme = ExtResource("3_qg6g0")
 text = "Quit Game"
 script = ExtResource("4_qlnqb")
 

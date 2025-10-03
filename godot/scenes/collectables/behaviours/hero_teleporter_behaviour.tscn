@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://cmcans4uc7y82"]
+
+[ext_resource type="Script" uid="uid://cposcrfpravdh" path="res://scripts/world/collectables/collectable_behaviours/hero_teleporter_collectable_behaviour.gd" id="1_d8dcd"]
+
+[node name="HeroTeleporterBehaviour" type="Node2D"]
+script = ExtResource("1_d8dcd")
+
+[node name="TeleportArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[connection signal="body_entered" from="TeleportArea" to="." method="_on_teleport_area_body_entered"]

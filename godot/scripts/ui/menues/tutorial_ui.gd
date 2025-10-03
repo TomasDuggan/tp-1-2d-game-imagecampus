@@ -4,6 +4,9 @@ class_name TutorialUI
 Slides para el tutorial
 """
 
+@export_category("Config")
+@export var _word_colors: Dictionary[String, Color]
+
 @export_category("Editor Dependencies")
 @export var _slides_container: Control # Nota: El orden de los slides en el editor es el que se usa en runtime.
 @export var _slide_title: Label # Nota: por simplicidad uso el nombre del nodo
@@ -20,6 +23,12 @@ func _ready():
 	for slide: Control in _slides_container.get_children():
 		slide.hide()
 		_slides.append(slide)
+	
+	for slide_text: RichTextLabel in find_children("*", "RichTextLabel"):
+		for key in _word_colors.keys():
+			var hex_color: String = _word_colors[key].to_html(true)
+			var replacement: String = "[color=%s]%s[/color]" % [hex_color, key]
+			slide_text.text = slide_text.text.replace(key, replacement)
 	
 	_slides.front().show()
 	_slide_title.text = _slides[_current_slide_index].name

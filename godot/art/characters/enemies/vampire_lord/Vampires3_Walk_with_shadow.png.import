@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbvp8lceavacc"
-path="res://.godot/imported/Vampires2_Death_with_shadow.png-deba7c2152ec67f89d4d2c43e61bc6f5.ctex"
+uid="uid://cf6pj3qma8hxv"
+path="res://.godot/imported/Vampires3_Walk_with_shadow.png-4e4c78ef657242f62c4fe59dd864c783.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/characters/enemies/vampire_prince/Vampires2_Death_with_shadow.png"
-dest_files=["res://.godot/imported/Vampires2_Death_with_shadow.png-deba7c2152ec67f89d4d2c43e61bc6f5.ctex"]
+source_file="res://art/characters/enemies/vampire_lord/Vampires3_Walk_with_shadow.png"
+dest_files=["res://.godot/imported/Vampires3_Walk_with_shadow.png-4e4c78ef657242f62c4fe59dd864c783.ctex"]
 
 [params]
 
