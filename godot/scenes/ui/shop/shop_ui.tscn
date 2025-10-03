@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://41r7gy6mk5f7"]
+[gd_scene load_steps=26 format=3 uid="uid://41r7gy6mk5f7"]
 
 [ext_resource type="Script" uid="uid://cqug56r5scugw" path="res://scripts/ui/shop/shop_ui.gd" id="1_rc5g1"]
 [ext_resource type="Script" uid="uid://bhmckujririhf" path="res://configs/upgrades/upgrade_config.gd" id="2_rc5g1"]
@@ -21,6 +21,10 @@
 [ext_resource type="Resource" uid="uid://bcy17in6xw0r3" path="res://configs/upgrades/warrior/warrior_hp_upgrade_config.tres" id="15_6xv11"]
 [ext_resource type="Resource" uid="uid://cxfr8fa53ccvp" path="res://configs/bestiary/minerals/healing_mineral_item_config.tres" id="19_8w2r5"]
 [ext_resource type="Resource" uid="uid://d0iy4mg3oc2lj" path="res://configs/bestiary/enemies/undead_slime_item_config.tres" id="20_6dts4"]
+[ext_resource type="Resource" uid="uid://bfw6esopwabys" path="res://configs/bestiary/minerals/damager_mineral_item_config.tres" id="20_ajfog"]
+[ext_resource type="Resource" uid="uid://c6bqpcurbbnol" path="res://configs/bestiary/minerals/gain_synergy_mineral_item_config.tres" id="21_7dyof"]
+[ext_resource type="Resource" uid="uid://eu5exe56yrbk" path="res://configs/bestiary/enemies/orc_basic_item_config.tres" id="21_ku36f"]
+[ext_resource type="Resource" uid="uid://we5rqgtem7td" path="res://configs/bestiary/enemies/plant_purple_item_config.tres" id="25_fsp1k"]
 
 [node name="ShopUI" type="Control" node_paths=PackedStringArray("_miner_score", "_warrior_score", "_upgrades_container", "_bestiary_container")]
 layout_mode = 3
@@ -204,7 +208,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("12_37d3d")
-_item_configs = Array[ExtResource("13_ea7pq")]([ExtResource("13_dyc1o"), ExtResource("19_8w2r5")])
+_item_configs = Array[ExtResource("13_ea7pq")]([ExtResource("13_dyc1o"), ExtResource("19_8w2r5"), ExtResource("20_ajfog"), ExtResource("21_7dyof")])
 
 [node name="WarriorCategory" type="VBoxContainer" parent="MarginContainer/Content/BestiaryContainer"]
 layout_mode = 2
@@ -226,7 +230,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("12_37d3d")
-_item_configs = Array[ExtResource("13_ea7pq")]([ExtResource("14_ea7pq"), ExtResource("20_6dts4")])
+_item_configs = Array[ExtResource("13_ea7pq")]([ExtResource("21_ku36f"), ExtResource("14_ea7pq"), ExtResource("20_6dts4"), ExtResource("25_fsp1k")])
 
 [connection signal="pressed" from="MarginContainer/Content/TopRow/ShowBuyableUpgrades" to="." method="_on_show_buyable_upgrades_pressed"]
 [connection signal="pressed" from="MarginContainer/Content/TopRow/ShowOwnedUpgrades" to="." method="_on_show_owned_upgrades_pressed"]

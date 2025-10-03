@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="CollectableConfig" load_steps=9 format=3 uid="uid://op5oc4gdg8k"]
+
+[ext_resource type="Script" uid="uid://clxqxnesk8eta" path="res://configs/collectables/behaviours/collectable_behaviour_config.gd" id="1_iqc2u"]
+[ext_resource type="Script" uid="uid://ct5ujndsfuqfc" path="res://configs/collectables/behaviours/currency_reward_behaviour_config.gd" id="2_u7woj"]
+[ext_resource type="Script" uid="uid://bkw6yobd6k4ta" path="res://configs/collectables/collectable_config.gd" id="3_hkgsc"]
+[ext_resource type="Script" uid="uid://dkyvw463kyoem" path="res://configs/collectables/behaviours/hero_damager_behaviour_config.gd" id="3_u7woj"]
+[ext_resource type="Texture2D" uid="uid://5wq66s1xp6bm" path="res://art/minerals/v_2/Dark_red_ crystal1.png" id="5_hkgsc"]
+
+[sub_resource type="Resource" id="Resource_3r1fb"]
+script = ExtResource("2_u7woj")
+reward_amount = 100
+metadata/_custom_type_script = "uid://ct5ujndsfuqfc"
+
+[sub_resource type="Resource" id="Resource_rvi45"]
+script = ExtResource("3_u7woj")
+damage = 10
+attack_speed = 1.0
+metadata/_custom_type_script = "uid://dkyvw463kyoem"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2ktiv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_hkgsc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[resource]
+script = ExtResource("3_hkgsc")
+sprite_frames = SubResource("SpriteFrames_2ktiv")
+hp = 75
+scale_override = Vector2(0.7, 0.7)
+destroyed_velocity_boost_duration = 1.0
+behaviour_configs = Array[ExtResource("1_iqc2u")]([SubResource("Resource_3r1fb"), SubResource("Resource_rvi45")])
+metadata/_custom_type_script = "uid://bkw6yobd6k4ta"

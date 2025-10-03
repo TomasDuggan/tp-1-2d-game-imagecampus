@@ -62,6 +62,13 @@ func toggle_detection() -> void:
 func upgrade_attack_speed(normalized_value: float) -> void:
 	_attack_cd_timer.wait_time -= _attack_cd_timer.wait_time * normalized_value
 
+func upgrade_damage(normalized_value: float) -> void:
+	_damage_info = DamageInfo.new(
+		_damage_info.attacker,
+		_damage_info.damage_amount + ceil(_damage_info.damage_amount * normalized_value),
+		_damage_info.damage_type
+	)
+
 func reset_attack_speed() -> void:
 	_attack_cd_timer.wait_time = _base_attack_speed
 

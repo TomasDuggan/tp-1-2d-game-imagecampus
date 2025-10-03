@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BasicItemConfig" load_steps=3 format=3 uid="uid://eu5exe56yrbk"]
+
+[ext_resource type="Texture2D" uid="uid://bmd51j3hc46bq" path="res://art/characters/enemies/orc_basic/orc_basic_128px.png" id="1_yqtuy"]
+[ext_resource type="Script" uid="uid://bmfrhj7p3gkr8" path="res://configs/bestiary/basic_item_config.gd" id="2_uhuc7"]
+
+[resource]
+script = ExtResource("2_uhuc7")
+icon = ExtResource("1_yqtuy")
+display_name = "Orc"
+description = "A weak creature, but there is a lot of them"
+metadata/_custom_type_script = "uid://bmfrhj7p3gkr8"

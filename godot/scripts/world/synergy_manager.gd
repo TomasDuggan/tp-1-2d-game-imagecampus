@@ -40,6 +40,7 @@ func _ready():
 	_synergy_gain_upgrade_multiplier = _resolve_synergy_gain_upgrade_multiplier()
 	
 	# No conecto con lambda para poder desconectarme bien en _exit_tree
+	SynergyEventBus.gain_synergy.connect(_on_gain_synergy)
 	HeroEventBus.hero_swapped.connect(_on_hero_swapped)
 	CollectableEventBus.collectable_amount_changed.connect(_on_collectable_gained)
 	InteractablesManager.interactable_pressed.connect(_on_interactable_pressed)
@@ -51,6 +52,9 @@ func _resolve_synergy_gain_upgrade_multiplier() -> float:
 		SYNERGY_GAIN_UPGRADE_CONFIG.world_type as World.WorldType,
 		SYNERGY_GAIN_UPGRADE_CONFIG.id as UpgradesManager.UpgradeId,
 	)
+
+func _on_gain_synergy(normalized_value: float) -> void:
+	_update_synergy_value(normalized_value)
 
 func _on_hero_swapped(_from, _to, success: bool):
 	if success:
@@ -108,6 +112,7 @@ func _exit_tree():
 	LevelEventBus.level_won.disconnect(_on_level_ended)
 	LevelEventBus.level_lost.disconnect(_on_level_ended)
 	
+	SynergyEventBus.gain_synergy.disconnect(_on_gain_synergy)
 	HeroEventBus.hero_swapped.disconnect(_on_hero_swapped)
 	CollectableEventBus.collectable_amount_changed.disconnect(_on_collectable_gained)
 	InteractablesManager.interactable_pressed.disconnect(_on_interactable_pressed)

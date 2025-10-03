@@ -12,9 +12,10 @@ func initialize(scale_override: Vector2, frames: SpriteFrames) -> void:
 	play("default")
 
 func animation_requested(animation_name: String) -> void:
-	play(animation_name)
-	await animation_finished
-	play("default")
+	if sprite_frames.has_animation(animation_name):
+		play(animation_name)
+		await animation_finished
+		play("default")
 
 func play_hit_animation() -> void:
 	_animation_player.play("hit")

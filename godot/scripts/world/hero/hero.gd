@@ -4,10 +4,10 @@ class_name Hero
 Script root para las escenas Hero (Minero o Guerrero)
 """
 
-@onready var _hitbox: Hitbox = $Hitbox
 @onready var _animation: HeroAnimation = $Animation
 @onready var _animation_player: AnimationPlayer = $AnimationPlayer
 @onready var _velocity_boost_particles: CPUParticles2D = $VelocityBoostParticles
+@onready var hit: Hitbox = $Hitbox # 'Facade'
 @onready var hp: Hurtbox = $Hurtbox # 'Facade'
 
 const ATTACK_SPEED_UPGRADE := 0.3
@@ -34,9 +34,9 @@ func initialize(config: HeroConfig, world_type: World.WorldType) -> void:
 
 func _initialize_hitbox(world_type: World.WorldType) -> void:
 	var upgraded_damage: int = _config.damage + ceil(_config.damage * UpgradesManager.get_modifier_value(world_type, UpgradesManager.UpgradeId.DAMAGE))
-	_hitbox.initialize(self, upgraded_damage, _config.attack_speed, true, Hurtbox.DamageFaction.HERO)
-	_hitbox.attack_performed.connect(_animation.play_attack_animation)
-	_hitbox.target_destroyed.connect(_vertical_speed_boost_handler.on_target_destroyed)
+	hit.initialize(self, upgraded_damage, _config.attack_speed, true, Hurtbox.DamageFaction.HERO)
+	hit.attack_performed.connect(_animation.play_attack_animation)
+	hit.target_destroyed.connect(_vertical_speed_boost_handler.on_target_destroyed)
 
 func _initialize_hurtbox(world_type: World.WorldType) -> void:
 	var hp_amount: int = _config.hp + int(_config.hp * UpgradesManager.get_modifier_value(world_type, UpgradesManager.UpgradeId.HP))
@@ -91,10 +91,10 @@ func _update_selection(is_selected_arg: bool) -> void:
 	_animation.toggle_selected(_is_selected)
 	
 	if !_is_selected:
-		_hitbox.reset_attack_speed()
+		hit.reset_attack_speed()
 		_horizontal_direction = 0
 	else:
-		_hitbox.upgrade_attack_speed(ATTACK_SPEED_UPGRADE)
+		hit.upgrade_attack_speed(ATTACK_SPEED_UPGRADE)
 
 func _on_hero_died(_attacker, _defender) -> void:
 	HeroEventBus.raise_event_hero_lost_world(self)

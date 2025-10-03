@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="CollectableConfig" load_steps=9 format=3 uid="uid://cbhknkdjis88d"]
+
+[ext_resource type="Script" uid="uid://clxqxnesk8eta" path="res://configs/collectables/behaviours/collectable_behaviour_config.gd" id="1_oahi1"]
+[ext_resource type="Script" uid="uid://ct5ujndsfuqfc" path="res://configs/collectables/behaviours/currency_reward_behaviour_config.gd" id="2_11lwv"]
+[ext_resource type="Script" uid="uid://bkw6yobd6k4ta" path="res://configs/collectables/collectable_config.gd" id="3_3dbli"]
+[ext_resource type="Script" uid="uid://bjrnddgnqm6pm" path="res://configs/collectables/behaviours/gain_synergy_behaviour_config.gd" id="3_s3ysg"]
+[ext_resource type="Texture2D" uid="uid://cfjgtgisj7ohu" path="res://art/minerals/v_2/Violet_crystal1.png" id="5_44t0c"]
+
+[sub_resource type="Resource" id="Resource_h0s7t"]
+script = ExtResource("2_11lwv")
+reward_amount = 20
+metadata/_custom_type_script = "uid://ct5ujndsfuqfc"
+
+[sub_resource type="Resource" id="Resource_qsyqn"]
+script = ExtResource("3_s3ysg")
+amount = 0.3
+metadata/_custom_type_script = "uid://bjrnddgnqm6pm"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k0lno"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_44t0c")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[resource]
+script = ExtResource("3_3dbli")
+sprite_frames = SubResource("SpriteFrames_k0lno")
+hp = 2
+scale_override = Vector2(0.7, 0.7)
+destroyed_velocity_boost_duration = 1.0
+behaviour_configs = Array[ExtResource("1_oahi1")]([SubResource("Resource_h0s7t"), SubResource("Resource_qsyqn")])
+metadata/_custom_type_script = "uid://bkw6yobd6k4ta"

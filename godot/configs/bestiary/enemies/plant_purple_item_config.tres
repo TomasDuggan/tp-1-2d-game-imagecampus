@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BasicItemConfig" load_steps=3 format=3 uid="uid://we5rqgtem7td"]
+
+[ext_resource type="Texture2D" uid="uid://b6igyq7vluuvn" path="res://art/characters/enemies/plant_purple/purple_plant_idle_128px.png" id="1_2ymqc"]
+[ext_resource type="Script" uid="uid://bmfrhj7p3gkr8" path="res://configs/bestiary/basic_item_config.gd" id="2_fy40u"]
+
+[resource]
+script = ExtResource("2_fy40u")
+icon = ExtResource("1_2ymqc")
+display_name = "Memory Plant"
+description = "Every time you kill it, it'll upgrade your damage by 20% for the duration of this level"
+metadata/_custom_type_script = "uid://bmfrhj7p3gkr8"

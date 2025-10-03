@@ -186,7 +186,7 @@ collision_mask = 2
 shape = SubResource("WorldBoundaryShape2D_n47ow")
 
 [node name="YHeroDeathArea" type="Area2D" parent="."]
-position = Vector2(0, 720)
+position = Vector2(0, 730)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("13_75ogk")

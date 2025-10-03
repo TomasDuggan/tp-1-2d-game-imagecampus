@@ -54,7 +54,7 @@ func receive_damage(info: DamageInfo) -> void:
 	else:
 		hit.emit()
 
-# Si agrego resistencias meter refactor
+# TODO: si agrego resistencias meter refactor
 func _resolve_damage_reduction_by_resistances(info: DamageInfo) -> int:
 	if info.damage_type == DamageInfo.DamageType.PHYSICAL:
 		return info.damage_amount

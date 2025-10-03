@@ -7,5 +7,5 @@
 script = ExtResource("2_sr5d5")
 icon = ExtResource("1_61v6l")
 display_name = "Emerald"
-description = "Heals both Heroes when destroyed"
+description = "Heals both Heroes when destroyed, but does'nt give resources or speed boost"
 metadata/_custom_type_script = "uid://bmfrhj7p3gkr8"

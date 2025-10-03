@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BasicItemConfig" load_steps=3 format=3 uid="uid://bfw6esopwabys"]
+
+[ext_resource type="Texture2D" uid="uid://5wq66s1xp6bm" path="res://art/minerals/v_2/Dark_red_ crystal1.png" id="1_vosid"]
+[ext_resource type="Script" uid="uid://bmfrhj7p3gkr8" path="res://configs/bestiary/basic_item_config.gd" id="2_kmct0"]
+
+[resource]
+script = ExtResource("2_kmct0")
+icon = ExtResource("1_vosid")
+display_name = "Cinnabar"
+description = "Gives a lot of reward, but it's tough and damages whoever touches it"
+metadata/_custom_type_script = "uid://bmfrhj7p3gkr8"

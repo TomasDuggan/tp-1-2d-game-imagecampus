@@ -1,17 +1,21 @@
-[gd_scene load_steps=11 format=3 uid="uid://dmbqul4rm3vvb"]
+[gd_scene load_steps=15 format=3 uid="uid://dmbqul4rm3vvb"]
 
 [ext_resource type="Theme" uid="uid://cm2fomdb61et5" path="res://themes/custom_theme.tres" id="1_h81gt"]
 [ext_resource type="Texture2D" uid="uid://b2ro32smbm8p3" path="res://art/ui/tiles/tile_0001.png" id="1_jlhys"]
 [ext_resource type="Texture2D" uid="uid://bptu4oq6qbxtd" path="res://art/snapshots/TwoHeroes.png" id="2_hnicy"]
 [ext_resource type="Script" uid="uid://bbh2btj52qph7" path="res://scripts/ui/menues/tutorial_ui.gd" id="2_lguia"]
 [ext_resource type="Script" uid="uid://6aelr2g0dpvu" path="res://scripts/ui/generic/custom_button.gd" id="4_vw6fe"]
+[ext_resource type="Texture2D" uid="uid://ksly4lquvec3" path="res://art/snapshots/Minerals.png" id="5_arohx"]
 [ext_resource type="Texture2D" uid="uid://2wv4uwovad5l" path="res://art/snapshots/SynergyBar.png" id="5_bbjmu"]
+[ext_resource type="Texture2D" uid="uid://cle4urxsbvmew" path="res://art/snapshots/Enemies.png" id="6_4fje3"]
 [ext_resource type="Texture2D" uid="uid://cv44kmslfuq0u" path="res://art/snapshots/SynergyActivated.png" id="6_vw6fe"]
 [ext_resource type="Texture2D" uid="uid://dntaxok1nsh8k" path="res://art/snapshots/MinerDeath.png" id="7_ryxqm"]
+[ext_resource type="Texture2D" uid="uid://dvsf1e7sylo1k" path="res://art/snapshots/shop.png" id="8_h736b"]
 [ext_resource type="Texture2D" uid="uid://b3x0182uqnywi" path="res://art/snapshots/WarriorScreenDeath.png" id="8_s6l8d"]
 [ext_resource type="Texture2D" uid="uid://dfdefiiihakx7" path="res://art/snapshots/SpeedBoost.png" id="9_1hq7j"]
+[ext_resource type="Texture2D" uid="uid://cogtcad6x88tx" path="res://art/snapshots/Bestiary.png" id="9_it6nk"]
 
-[node name="Tutorial" type="Control" node_paths=PackedStringArray("_slides_container", "_previous_slide_button", "_next_slide_button")]
+[node name="Tutorial" type="Control" node_paths=PackedStringArray("_slides_container", "_slide_title", "_previous_slide_button", "_next_slide_button")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -22,6 +26,7 @@ mouse_filter = 1
 theme = ExtResource("1_h81gt")
 script = ExtResource("2_lguia")
 _slides_container = NodePath("Slides/SlidesContainer")
+_slide_title = NodePath("MarginContainer/SlideTitle")
 _previous_slide_button = NodePath("Buttons/ButtonsContainer/PreviousSlideButton")
 _next_slide_button = NodePath("Buttons/ButtonsContainer/NextSlideButton")
 
@@ -37,6 +42,21 @@ patch_margin_left = 10
 patch_margin_top = 7
 patch_margin_right = 9
 patch_margin_bottom = 8
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 15
+
+[node name="SlideTitle" type="Label" parent="MarginContainer"]
+layout_mode = 2
+text = "SLIDE TITLE"
 
 [node name="Slides" type="Control" parent="."]
 layout_mode = 1
@@ -59,11 +79,11 @@ theme_override_constants/margin_top = 60
 theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
 
-[node name="SlideHeroSelection" type="Control" parent="Slides/SlidesContainer"]
+[node name="Heroes" type="Control" parent="Slides/SlidesContainer"]
 visible = false
 layout_mode = 2
 
-[node name="Content" type="VBoxContainer" parent="Slides/SlidesContainer/SlideHeroSelection"]
+[node name="Content" type="VBoxContainer" parent="Slides/SlidesContainer/Heroes"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -71,19 +91,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Images" type="HBoxContainer" parent="Slides/SlidesContainer/SlideHeroSelection/Content"]
+[node name="Images" type="HBoxContainer" parent="Slides/SlidesContainer/Heroes/Content"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Image" type="TextureRect" parent="Slides/SlidesContainer/SlideHeroSelection/Content/Images"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture = ExtResource("2_hnicy")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="Image2" type="TextureRect" parent="Slides/SlidesContainer/SlideHeroSelection/Content/Images"]
+[node name="Image2" type="TextureRect" parent="Slides/SlidesContainer/Heroes/Content/Images"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -91,12 +103,12 @@ texture = ExtResource("2_hnicy")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Text" type="VBoxContainer" parent="Slides/SlidesContainer/SlideHeroSelection/Content"]
+[node name="Text" type="VBoxContainer" parent="Slides/SlidesContainer/Heroes/Content"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.2
 
-[node name="RTL - Tips" type="RichTextLabel" parent="Slides/SlidesContainer/SlideHeroSelection/Content/Text"]
+[node name="RTL - Tips" type="RichTextLabel" parent="Slides/SlidesContainer/Heroes/Content/Text"]
 visible = false
 layout_mode = 2
 size_flags_vertical = 3
@@ -107,29 +119,29 @@ text = "Mi fuente no soporta negrita o cursiva, solo subrayado y color (creo que
 [u]subrayado[/u]
 [color=red]rojo[/color] (se puede hex tmb: hex: #ffcc00)"
 
-[node name="1" type="RichTextLabel" parent="Slides/SlidesContainer/SlideHeroSelection/Content/Text"]
+[node name="1" type="RichTextLabel" parent="Slides/SlidesContainer/Heroes/Content/Text"]
 layout_mode = 2
 bbcode_enabled = true
 text = "- You have two Heroes, the [color=blue]Miner[/color] and the [color=red]Warrior[/color]. They both move in a straight line and attack automatically."
 fit_content = true
 
-[node name="2" type="RichTextLabel" parent="Slides/SlidesContainer/SlideHeroSelection/Content/Text"]
+[node name="2" type="RichTextLabel" parent="Slides/SlidesContainer/Heroes/Content/Text"]
 layout_mode = 2
 bbcode_enabled = true
 text = "- You can only control one at a time. When you control a Hero you can move them horizontally with the \"A\" and \"D\" keys. The selected Hero also gains attack speed."
 fit_content = true
 
-[node name="3" type="RichTextLabel" parent="Slides/SlidesContainer/SlideHeroSelection/Content/Text"]
+[node name="3" type="RichTextLabel" parent="Slides/SlidesContainer/Heroes/Content/Text"]
 layout_mode = 2
 bbcode_enabled = true
 text = "- You can [color=\"yellow\"]Swap[/color] the selection of the Heroes by pressing \"Spacebar\""
 fit_content = true
 
-[node name="SlideSpeedBoost" type="Control" parent="Slides/SlidesContainer"]
+[node name="Collectables" type="Control" parent="Slides/SlidesContainer"]
 visible = false
 layout_mode = 2
 
-[node name="Content" type="VBoxContainer" parent="Slides/SlidesContainer/SlideSpeedBoost"]
+[node name="Content" type="VBoxContainer" parent="Slides/SlidesContainer/Collectables"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -137,11 +149,71 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Images" type="HBoxContainer" parent="Slides/SlidesContainer/SlideSpeedBoost/Content"]
+[node name="Images" type="HBoxContainer" parent="Slides/SlidesContainer/Collectables/Content"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Image" type="TextureRect" parent="Slides/SlidesContainer/SlideSpeedBoost/Content/Images"]
+[node name="Image" type="TextureRect" parent="Slides/SlidesContainer/Collectables/Content/Images"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("5_arohx")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Image2" type="TextureRect" parent="Slides/SlidesContainer/Collectables/Content/Images"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("6_4fje3")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Text" type="VBoxContainer" parent="Slides/SlidesContainer/Collectables/Content"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.2
+
+[node name="RTL - Tips" type="RichTextLabel" parent="Slides/SlidesContainer/Collectables/Content/Text"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "Mi fuente no soporta negrita o cursiva, solo subrayado y color (creo que es default en godot)
+[b]negrita[/b]
+[i]cursiva[/i]
+[u]subrayado[/u]
+[color=red]rojo[/color] (se puede hex tmb: hex: #ffcc00)"
+
+[node name="1" type="RichTextLabel" parent="Slides/SlidesContainer/Collectables/Content/Text"]
+layout_mode = 2
+bbcode_enabled = true
+text = "- [color=\"green\"]Collectables[/color] are the destroyable things in each World. The Miner has Minerals and the Warrior has Enemies."
+fit_content = true
+
+[node name="2" type="RichTextLabel" parent="Slides/SlidesContainer/Collectables/Content/Text"]
+layout_mode = 2
+bbcode_enabled = true
+text = "- Destroy them to gain their resources."
+fit_content = true
+
+[node name="Speed Boost" type="Control" parent="Slides/SlidesContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Content" type="VBoxContainer" parent="Slides/SlidesContainer/Speed Boost"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Images" type="HBoxContainer" parent="Slides/SlidesContainer/Speed Boost/Content"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Image" type="TextureRect" parent="Slides/SlidesContainer/Speed Boost/Content/Images"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -149,12 +221,12 @@ texture = ExtResource("9_1hq7j")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Text" type="VBoxContainer" parent="Slides/SlidesContainer/SlideSpeedBoost/Content"]
+[node name="Text" type="VBoxContainer" parent="Slides/SlidesContainer/Speed Boost/Content"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.2
 
-[node name="RTL - Tips" type="RichTextLabel" parent="Slides/SlidesContainer/SlideSpeedBoost/Content/Text"]
+[node name="RTL - Tips" type="RichTextLabel" parent="Slides/SlidesContainer/Speed Boost/Content/Text"]
 visible = false
 layout_mode = 2
 size_flags_vertical = 3
@@ -165,22 +237,23 @@ text = "Mi fuente no soporta negrita o cursiva, solo subrayado y color (creo que
 [u]subrayado[/u]
 [color=red]rojo[/color] (se puede hex tmb: hex: #ffcc00)"
 
-[node name="1" type="RichTextLabel" parent="Slides/SlidesContainer/SlideSpeedBoost/Content/Text"]
+[node name="1" type="RichTextLabel" parent="Slides/SlidesContainer/Speed Boost/Content/Text"]
 layout_mode = 2
 bbcode_enabled = true
-text = "- Destroying [color=\"green\"]collectables[/color] (enemies minerals) will grant you [color=blue]Vertical speed boost[/color] temporarily."
+text = "- Destroying [color=\"green\"]collectables[/color] will also grant you [color=blue]Vertical speed boost[/color] temporarily."
 fit_content = true
 
-[node name="2" type="RichTextLabel" parent="Slides/SlidesContainer/SlideSpeedBoost/Content/Text"]
+[node name="2" type="RichTextLabel" parent="Slides/SlidesContainer/Speed Boost/Content/Text"]
 layout_mode = 2
 bbcode_enabled = true
-text = "- Some collectables give a lot of speed boost time, others give none."
+text = "- Some give a lot of speed boost time, others give none."
 fit_content = true
 
-[node name="SlideSynergy" type="Control" parent="Slides/SlidesContainer"]
+[node name="Shop" type="Control" parent="Slides/SlidesContainer"]
+visible = false
 layout_mode = 2
 
-[node name="Content" type="VBoxContainer" parent="Slides/SlidesContainer/SlideSynergy"]
+[node name="Content" type="VBoxContainer" parent="Slides/SlidesContainer/Shop"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -188,11 +261,108 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Images" type="HBoxContainer" parent="Slides/SlidesContainer/SlideSynergy/Content"]
+[node name="Images" type="HBoxContainer" parent="Slides/SlidesContainer/Shop/Content"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Image" type="TextureRect" parent="Slides/SlidesContainer/SlideSynergy/Content/Images"]
+[node name="Image" type="TextureRect" parent="Slides/SlidesContainer/Shop/Content/Images"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("8_h736b")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Text" type="VBoxContainer" parent="Slides/SlidesContainer/Shop/Content"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.2
+
+[node name="RTL - Tips" type="RichTextLabel" parent="Slides/SlidesContainer/Shop/Content/Text"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "Mi fuente no soporta negrita o cursiva, solo subrayado y color (creo que es default en godot)
+[b]negrita[/b]
+[i]cursiva[/i]
+[u]subrayado[/u]
+[color=red]rojo[/color] (se puede hex tmb: hex: #ffcc00)"
+
+[node name="1" type="RichTextLabel" parent="Slides/SlidesContainer/Shop/Content/Text"]
+layout_mode = 2
+bbcode_enabled = true
+text = "- After wining or losing a level you can go to the [color=yellow]Shop[/color] and buy upgrades."
+fit_content = true
+
+[node name="2" type="RichTextLabel" parent="Slides/SlidesContainer/Shop/Content/Text"]
+layout_mode = 2
+bbcode_enabled = true
+text = "- Upgrades can affect the Miner, the Warrior or Both (Globals)"
+fit_content = true
+
+[node name="Bestiary" type="Control" parent="Slides/SlidesContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Content" type="VBoxContainer" parent="Slides/SlidesContainer/Bestiary"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Images" type="HBoxContainer" parent="Slides/SlidesContainer/Bestiary/Content"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Image" type="TextureRect" parent="Slides/SlidesContainer/Bestiary/Content/Images"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("9_it6nk")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Text" type="VBoxContainer" parent="Slides/SlidesContainer/Bestiary/Content"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.2
+
+[node name="RTL - Tips" type="RichTextLabel" parent="Slides/SlidesContainer/Bestiary/Content/Text"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "Mi fuente no soporta negrita o cursiva, solo subrayado y color (creo que es default en godot)
+[b]negrita[/b]
+[i]cursiva[/i]
+[u]subrayado[/u]
+[color=red]rojo[/color] (se puede hex tmb: hex: #ffcc00)"
+
+[node name="1" type="RichTextLabel" parent="Slides/SlidesContainer/Bestiary/Content/Text"]
+layout_mode = 2
+bbcode_enabled = true
+text = "- Some [color=yellow]Collectables[/color] have special effects, you can check them out at the [color=red]Bestiary[/color] tab in the Shop."
+fit_content = true
+
+[node name="Synergy" type="Control" parent="Slides/SlidesContainer"]
+layout_mode = 2
+
+[node name="Content" type="VBoxContainer" parent="Slides/SlidesContainer/Synergy"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Images" type="HBoxContainer" parent="Slides/SlidesContainer/Synergy/Content"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Image" type="TextureRect" parent="Slides/SlidesContainer/Synergy/Content/Images"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -200,7 +370,7 @@ texture = ExtResource("5_bbjmu")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Image2" type="TextureRect" parent="Slides/SlidesContainer/SlideSynergy/Content/Images"]
+[node name="Image2" type="TextureRect" parent="Slides/SlidesContainer/Synergy/Content/Images"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -208,12 +378,12 @@ texture = ExtResource("6_vw6fe")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Text" type="VBoxContainer" parent="Slides/SlidesContainer/SlideSynergy/Content"]
+[node name="Text" type="VBoxContainer" parent="Slides/SlidesContainer/Synergy/Content"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.2
 
-[node name="RTL - Tips" type="RichTextLabel" parent="Slides/SlidesContainer/SlideSynergy/Content/Text"]
+[node name="RTL - Tips" type="RichTextLabel" parent="Slides/SlidesContainer/Synergy/Content/Text"]
 visible = false
 layout_mode = 2
 size_flags_vertical = 3
@@ -224,23 +394,29 @@ text = "Mi fuente no soporta negrita o cursiva, solo subrayado y color (creo que
 [u]subrayado[/u]
 [color=red]rojo[/color] (se puede hex tmb: hex: #ffcc00)"
 
-[node name="1" type="RichTextLabel" parent="Slides/SlidesContainer/SlideSynergy/Content/Text"]
+[node name="1" type="RichTextLabel" parent="Slides/SlidesContainer/Synergy/Content/Text"]
 layout_mode = 2
 bbcode_enabled = true
 text = "- Gathering minerals, killing enemies, swapping and other events will charge your [color=violet]Synergy Bar[/color]."
 fit_content = true
 
-[node name="2" type="RichTextLabel" parent="Slides/SlidesContainer/SlideSynergy/Content/Text"]
+[node name="2" type="RichTextLabel" parent="Slides/SlidesContainer/Synergy/Content/Text"]
 layout_mode = 2
 bbcode_enabled = true
 text = "- When the bar is fully charged you'll be able to control both Heroes simultaneously, the Miner with \"A\" and \"D\" and the Warrior with the arrow keys \"<-\" and \"->\""
 fit_content = true
 
-[node name="SlideDefeatReasons" type="Control" parent="Slides/SlidesContainer"]
+[node name="3" type="RichTextLabel" parent="Slides/SlidesContainer/Synergy/Content/Text"]
+layout_mode = 2
+bbcode_enabled = true
+text = "- Also, activating Synergy will grant you a breif speed boost."
+fit_content = true
+
+[node name="Defeat Reasons" type="Control" parent="Slides/SlidesContainer"]
 visible = false
 layout_mode = 2
 
-[node name="Content" type="VBoxContainer" parent="Slides/SlidesContainer/SlideDefeatReasons"]
+[node name="Content" type="VBoxContainer" parent="Slides/SlidesContainer/Defeat Reasons"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -248,11 +424,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Images" type="HBoxContainer" parent="Slides/SlidesContainer/SlideDefeatReasons/Content"]
+[node name="Images" type="HBoxContainer" parent="Slides/SlidesContainer/Defeat Reasons/Content"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Image" type="TextureRect" parent="Slides/SlidesContainer/SlideDefeatReasons/Content/Images"]
+[node name="Image" type="TextureRect" parent="Slides/SlidesContainer/Defeat Reasons/Content/Images"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -260,7 +436,7 @@ texture = ExtResource("7_ryxqm")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Image2" type="TextureRect" parent="Slides/SlidesContainer/SlideDefeatReasons/Content/Images"]
+[node name="Image2" type="TextureRect" parent="Slides/SlidesContainer/Defeat Reasons/Content/Images"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -268,12 +444,12 @@ texture = ExtResource("8_s6l8d")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Text" type="VBoxContainer" parent="Slides/SlidesContainer/SlideDefeatReasons/Content"]
+[node name="Text" type="VBoxContainer" parent="Slides/SlidesContainer/Defeat Reasons/Content"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.2
 
-[node name="RTL - Tips" type="RichTextLabel" parent="Slides/SlidesContainer/SlideDefeatReasons/Content/Text"]
+[node name="RTL - Tips" type="RichTextLabel" parent="Slides/SlidesContainer/Defeat Reasons/Content/Text"]
 visible = false
 layout_mode = 2
 size_flags_vertical = 3
@@ -284,7 +460,7 @@ text = "Mi fuente no soporta negrita o cursiva, solo subrayado y color (creo que
 [u]subrayado[/u]
 [color=red]rojo[/color] (se puede hex tmb: hex: #ffcc00)"
 
-[node name="1" type="RichTextLabel" parent="Slides/SlidesContainer/SlideDefeatReasons/Content/Text"]
+[node name="1" type="RichTextLabel" parent="Slides/SlidesContainer/Defeat Reasons/Content/Text"]
 layout_mode = 2
 bbcode_enabled = true
 text = "- You [color=red]Lose[/color] when a Hero's HP is depleated or when they touch the bottom of the screen."

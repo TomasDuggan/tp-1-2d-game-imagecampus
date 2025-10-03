@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BasicItemConfig" load_steps=3 format=3 uid="uid://c6bqpcurbbnol"]
+
+[ext_resource type="Texture2D" uid="uid://cfjgtgisj7ohu" path="res://art/minerals/v_2/Violet_crystal1.png" id="1_gfemc"]
+[ext_resource type="Script" uid="uid://bmfrhj7p3gkr8" path="res://configs/bestiary/basic_item_config.gd" id="2_cxvqv"]
+
+[resource]
+script = ExtResource("2_cxvqv")
+icon = ExtResource("1_gfemc")
+display_name = "Amethyst"
+description = "Gain a lot of synergy when destroyed"
+metadata/_custom_type_script = "uid://bmfrhj7p3gkr8"

@@ -6,6 +6,7 @@ Slides para el tutorial
 
 @export_category("Editor Dependencies")
 @export var _slides_container: Control # Nota: El orden de los slides en el editor es el que se usa en runtime.
+@export var _slide_title: Label # Nota: por simplicidad uso el nombre del nodo
 @export var _previous_slide_button: Button
 @export var _next_slide_button: Button
 
@@ -21,6 +22,7 @@ func _ready():
 		_slides.append(slide)
 	
 	_slides.front().show()
+	_slide_title.text = _slides[_current_slide_index].name
 	_previous_slide_button.hide()
 	_next_slide_button.show()
 
@@ -48,10 +50,14 @@ func _change_slide(type: ChangeSlideType) -> void:
 	
 	_slides[_current_slide_index].hide()
 	_current_slide_index = new_index
-	_slides[_current_slide_index].show()
 	
 	if _current_slide_index == hide_button_index:
 		button_to_hide.hide()
+	
+	var current_slide: Control = _slides[_current_slide_index]
+	
+	current_slide.show()
+	_slide_title.text = _slides[_current_slide_index].name
 
 func _on_close_button_pressed():
 	SceneLoadManager.load_main_menu()

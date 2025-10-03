@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="CollectableConfig" load_steps=8 format=3 uid="uid://clpen1gphgsyj"]
+
+[ext_resource type="Script" uid="uid://clxqxnesk8eta" path="res://configs/collectables/behaviours/collectable_behaviour_config.gd" id="1_csftd"]
+[ext_resource type="Script" uid="uid://ct5ujndsfuqfc" path="res://configs/collectables/behaviours/currency_reward_behaviour_config.gd" id="2_wc4qt"]
+[ext_resource type="Script" uid="uid://dkyvw463kyoem" path="res://configs/collectables/behaviours/hero_damager_behaviour_config.gd" id="3_70r7y"]
+[ext_resource type="Script" uid="uid://bkw6yobd6k4ta" path="res://configs/collectables/collectable_config.gd" id="4_alwkt"]
+[ext_resource type="SpriteFrames" uid="uid://by7tlgcnkg17g" path="res://animations/enemies/orc_basic_animation.tres" id="5_csftd"]
+
+[sub_resource type="Resource" id="Resource_7rlb7"]
+script = ExtResource("2_wc4qt")
+type = 1
+reward_amount = 10
+metadata/_custom_type_script = "uid://ct5ujndsfuqfc"
+
+[sub_resource type="Resource" id="Resource_7r4is"]
+script = ExtResource("3_70r7y")
+damage = 10
+attack_speed = 2.0
+metadata/_custom_type_script = "uid://dkyvw463kyoem"
+
+[resource]
+script = ExtResource("4_alwkt")
+world_type = 1
+sprite_frames = ExtResource("5_csftd")
+hp = 25
+scale_override = Vector2(1.5, 1.5)
+destroyed_velocity_boost_duration = 0.3
+behaviour_configs = Array[ExtResource("1_csftd")]([SubResource("Resource_7rlb7"), SubResource("Resource_7r4is")])
+metadata/_custom_type_script = "uid://bkw6yobd6k4ta"
