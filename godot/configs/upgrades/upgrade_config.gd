@@ -16,7 +16,7 @@ const PLACEHOLDER := "X"
 @export_category("UI")
 @export var basic_config: BasicItemConfig
 @export var price: int
-@export var use_percentage_format: bool
+@export var use_percentage_format: bool = true
 
 
 func format_description(level: int) -> String:

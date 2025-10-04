@@ -15,6 +15,8 @@ Slides para el tutorial
 
 enum ChangeSlideType { NEXT, PREVIOUS }
 
+const COLOR_FORMAT := "[color=%s]%s[/color]"
+
 var _slides: Array[Control]
 var _current_slide_index := 0
 
@@ -24,16 +26,20 @@ func _ready():
 		slide.hide()
 		_slides.append(slide)
 	
-	for slide_text: RichTextLabel in find_children("*", "RichTextLabel"):
-		for key in _word_colors.keys():
-			var hex_color: String = _word_colors[key].to_html(true)
-			var replacement: String = "[color=%s]%s[/color]" % [hex_color, key]
-			slide_text.text = slide_text.text.replace(key, replacement)
+	_color_key_words()
 	
 	_slides.front().show()
 	_slide_title.text = _slides[_current_slide_index].name
 	_previous_slide_button.hide()
 	_next_slide_button.show()
+
+func _color_key_words() -> void:
+	for slide_text: RichTextLabel in find_children("*", "RichTextLabel"):
+		for key in _word_colors.keys():
+			var hex_color: String = _word_colors[key].to_html(true)
+			var replacement: String = COLOR_FORMAT % [hex_color, key]
+			
+			slide_text.text = slide_text.text.replace(key, replacement)
 
 func _on_next_slide_button_pressed():
 	_change_slide(ChangeSlideType.NEXT)

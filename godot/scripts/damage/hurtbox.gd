@@ -12,7 +12,7 @@ signal destroyed(attacker_root: Node2D, defender_root: Node2D)
 
 enum DamageFaction { HERO, ENEMY }
 
-const FIRE_DAMAGE_REDUCTION_UPGRADE_CONFIG: UpgradeConfig = preload("uid://bmsm7vp5de2fi")
+
 
 
 var _root: Node2D
@@ -35,9 +35,11 @@ func initialize(root: Node2D, hp: int, faction: DamageFaction, show_hp_bar: bool
 		_hp_bar.hide()
 
 func _ready():
+	var fire_damage_reduction_upgrade_config: UpgradeConfig = load("uid://bmsm7vp5de2fi")
+	
 	_fire_damage_reduction = UpgradesManager.get_modifier_value(
-		FIRE_DAMAGE_REDUCTION_UPGRADE_CONFIG.world_type as World.WorldType,
-		FIRE_DAMAGE_REDUCTION_UPGRADE_CONFIG.id as UpgradesManager.UpgradeId,
+		fire_damage_reduction_upgrade_config.world_type as World.WorldType,
+		fire_damage_reduction_upgrade_config.id as UpgradesManager.UpgradeId,
 	)
 
 func receive_damage(info: DamageInfo) -> void:

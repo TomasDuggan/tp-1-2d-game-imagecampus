@@ -17,6 +17,7 @@ enum UpgradeId {
 	FIRE_DAMAGE_REDUCTION,
 	SYNERGY_GAIN,
 	SPEED_BOOST,
+	ATTACK_SPEED,
 }
 
 func _ready():

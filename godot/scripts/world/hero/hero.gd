@@ -10,7 +10,7 @@ Script root para las escenas Hero (Minero o Guerrero)
 @onready var hit: Hitbox = $Hitbox # 'Facade'
 @onready var hp: Hurtbox = $Hurtbox # 'Facade'
 
-const ATTACK_SPEED_UPGRADE := 0.3
+const ATTACK_SPEED_UPGRADE_CONFIG: UpgradeConfig = preload("uid://cof8rwntte32m")
 
 var _config: HeroConfig
 var _horizontal_direction: int # 1 o -1
@@ -19,6 +19,7 @@ var _horizontal_movement_speed: float
 var _vertical_speed := 0.0
 var _vertical_speed_boost_handler := VerticalSpeedBoostHandler.new()
 var _is_selected: bool
+var _selected_attack_speed_upgrade := 0.2 # 20% base
 var ally: Hero
 
 
@@ -55,6 +56,11 @@ func _initialize_input_reader(world_type: World.WorldType) -> void:
 	_horizontal_movement_input_reader.initialize(World.is_warrior_world(world_type))
 
 func _ready():
+	_selected_attack_speed_upgrade += _selected_attack_speed_upgrade * UpgradesManager.get_modifier_value(
+		ATTACK_SPEED_UPGRADE_CONFIG.world_type as World.WorldType,
+		ATTACK_SPEED_UPGRADE_CONFIG.id as UpgradesManager.UpgradeId,
+	)
+	
 	_vertical_speed_boost_handler.vertical_speed_changed.connect(_on_vertical_speed_changed)
 	add_child(_vertical_speed_boost_handler)
 
@@ -94,7 +100,7 @@ func _update_selection(is_selected_arg: bool) -> void:
 		hit.reset_attack_speed()
 		_horizontal_direction = 0
 	else:
-		hit.upgrade_attack_speed(ATTACK_SPEED_UPGRADE)
+		hit.upgrade_attack_speed(_selected_attack_speed_upgrade)
 
 func _on_hero_died(_attacker, _defender) -> void:
 	HeroEventBus.raise_event_hero_lost_world(self)

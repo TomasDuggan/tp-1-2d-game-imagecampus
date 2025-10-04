@@ -10,8 +10,9 @@ Se le puede agregar comportamiento con 'behaviour_configs'
 @export var hp: int
 @export var scale_override := Vector2.ONE
 @export var destroyed_velocity_boost_duration: float
-@export var behaviour_configs: Array[CollectableBehaviourConfig]
 @export var min_level_to_show: int
+@export_range(0, 1, 0.01) var appearance_weight: float = 0.5
+@export var behaviour_configs: Array[CollectableBehaviourConfig]
 
 
 func get_hit_sfx() -> AudioStream:

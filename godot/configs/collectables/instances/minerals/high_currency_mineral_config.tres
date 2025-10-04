@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="CollectableConfig" load_steps=7 format=3 uid="uid://bifh07oydajma"]
+
+[ext_resource type="Script" uid="uid://clxqxnesk8eta" path="res://configs/collectables/behaviours/collectable_behaviour_config.gd" id="1_kj565"]
+[ext_resource type="Script" uid="uid://ct5ujndsfuqfc" path="res://configs/collectables/behaviours/currency_reward_behaviour_config.gd" id="2_kj565"]
+[ext_resource type="Script" uid="uid://bkw6yobd6k4ta" path="res://configs/collectables/collectable_config.gd" id="3_prwx3"]
+[ext_resource type="Texture2D" uid="uid://dx1tluqpq7gjj" path="res://art/minerals/v_2/Yellow_crystal1.png" id="4_abkh4"]
+
+[sub_resource type="Resource" id="Resource_prwx3"]
+script = ExtResource("2_kj565")
+reward_amount = 200
+metadata/_custom_type_script = "uid://ct5ujndsfuqfc"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k0lno"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_abkh4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[resource]
+script = ExtResource("3_prwx3")
+sprite_frames = SubResource("SpriteFrames_k0lno")
+hp = 75
+scale_override = Vector2(0.7, 0.7)
+destroyed_velocity_boost_duration = 0.5
+appearance_weight = 0.05
+behaviour_configs = Array[ExtResource("1_kj565")]([SubResource("Resource_prwx3")])
+metadata/_custom_type_script = "uid://bkw6yobd6k4ta"

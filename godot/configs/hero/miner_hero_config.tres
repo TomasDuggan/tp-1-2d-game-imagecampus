@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="HeroConfig" load_steps=2 format=3 uid="uid://gakixhwp6hug"]
+
+[ext_resource type="Script" uid="uid://b838myufwwsag" path="res://configs/hero/hero_config.gd" id="1_k88ae"]
+
+[resource]
+script = ExtResource("1_k88ae")
+hp = 100
+damage = 25
+attack_speed = 1.5
+horizontal_movement_speed = 100.0
+metadata/_custom_type_script = "uid://b838myufwwsag"

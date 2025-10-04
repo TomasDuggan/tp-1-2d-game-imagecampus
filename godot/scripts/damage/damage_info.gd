@@ -1,5 +1,8 @@
 extends Object
 class_name DamageInfo
+"""
+Parametro de dmg
+"""
 
 enum DamageType { PHYSICAL, FIRE }
 

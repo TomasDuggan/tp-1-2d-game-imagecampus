@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="UpgradeConfig" load_steps=5 format=3 uid="uid://cof8rwntte32m"]
+
+[ext_resource type="Texture2D" uid="uid://lx1j8rg0jgl6" path="res://art/icons/skills/attack_speed.png" id="1_2gsab"]
+[ext_resource type="Script" uid="uid://bmfrhj7p3gkr8" path="res://configs/bestiary/basic_item_config.gd" id="2_12j77"]
+[ext_resource type="Script" uid="uid://bhmckujririhf" path="res://configs/upgrades/upgrade_config.gd" id="3_o6o8r"]
+
+[sub_resource type="Resource" id="Resource_12j77"]
+script = ExtResource("2_12j77")
+icon = ExtResource("1_2gsab")
+display_name = "Micromanagment"
+description = "The attack speed gain on a selected Hero is augmented by X%"
+metadata/_custom_type_script = "uid://bmfrhj7p3gkr8"
+
+[resource]
+script = ExtResource("3_o6o8r")
+id = 7
+stat_modifier_value = 0.2
+max_level = 5
+basic_config = SubResource("Resource_12j77")
+price = 75
+metadata/_custom_type_script = "uid://bhmckujririhf"

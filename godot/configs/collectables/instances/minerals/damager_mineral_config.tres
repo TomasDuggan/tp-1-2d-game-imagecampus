@@ -34,5 +34,6 @@ sprite_frames = SubResource("SpriteFrames_2ktiv")
 hp = 75
 scale_override = Vector2(0.7, 0.7)
 destroyed_velocity_boost_duration = 1.0
+appearance_weight = 0.2
 behaviour_configs = Array[ExtResource("1_iqc2u")]([SubResource("Resource_3r1fb"), SubResource("Resource_rvi45")])
 metadata/_custom_type_script = "uid://bkw6yobd6k4ta"

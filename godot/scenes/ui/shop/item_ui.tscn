@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://6aelr2g0dpvu" path="res://scripts/ui/generic/custom_button.gd" id="7_sj45p"]
 
 [node name="Item" type="Control" node_paths=PackedStringArray("_icon", "_name", "_level", "_buy_section", "_price", "_description")]
-custom_minimum_size = Vector2(0, 200)
+custom_minimum_size = Vector2(410, 200)
 layout_mode = 3
 anchors_preset = 0
 size_flags_horizontal = 3

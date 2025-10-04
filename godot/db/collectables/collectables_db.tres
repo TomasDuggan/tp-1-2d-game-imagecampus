@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CollectablesDB" load_steps=12 format=3 uid="uid://by8m5vbld0b1g"]
+[gd_resource type="Resource" script_class="CollectablesDB" load_steps=13 format=3 uid="uid://by8m5vbld0b1g"]
 
 [ext_resource type="Script" uid="uid://bkw6yobd6k4ta" path="res://configs/collectables/collectable_config.gd" id="1_8qi45"]
 [ext_resource type="Script" uid="uid://paaj50f6arku" path="res://db/collectables/collectables_db.gd" id="2_nvv4n"]
@@ -11,9 +11,9 @@
 [ext_resource type="Resource" uid="uid://clpen1gphgsyj" path="res://configs/collectables/instances/enemies/orc_basic_enemy_config.tres" id="7_uosrj"]
 [ext_resource type="Resource" uid="uid://44rgfo3wqvxw" path="res://configs/collectables/instances/enemies/plant_purple_enemy_config.tres" id="9_8brah"]
 [ext_resource type="Resource" uid="uid://lgev45o2ujf0" path="res://configs/collectables/instances/enemies/vampire_lord_enemy_config.tres" id="10_w663i"]
+[ext_resource type="Resource" uid="uid://bifh07oydajma" path="res://configs/collectables/instances/minerals/high_currency_mineral_config.tres" id="11_lcckp"]
 
 [resource]
 script = ExtResource("2_nvv4n")
-_miner_collectable_configs = Array[ExtResource("1_8qi45")]([ExtResource("2_q01rj"), ExtResource("3_xg71k"), ExtResource("4_xg71k"), ExtResource("5_8brah")])
-_warrior_collectable_configs = Array[ExtResource("1_8qi45")]([ExtResource("4_uosrj"), ExtResource("5_faxw1"), ExtResource("7_uosrj"), ExtResource("9_8brah"), ExtResource("10_w663i")])
+_all_collectable_configs = Array[ExtResource("1_8qi45")]([ExtResource("7_uosrj"), ExtResource("4_xg71k"), ExtResource("2_q01rj"), ExtResource("9_8brah"), ExtResource("5_faxw1"), ExtResource("10_w663i"), ExtResource("3_xg71k"), ExtResource("4_uosrj"), ExtResource("5_8brah"), ExtResource("11_lcckp")])
 metadata/_custom_type_script = "uid://paaj50f6arku"

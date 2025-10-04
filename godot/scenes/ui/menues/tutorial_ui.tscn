@@ -31,7 +31,7 @@ script = ExtResource("2_lguia")
 _word_colors = Dictionary[String, Color]({
 "Bestiary": Color(0.32156864, 0, 0.48235294, 1),
 "Collectables": Color(0, 1, 1, 1),
-"Heroes": Color(0.1223133, 0.35863125, 1, 1),
+"Heroes": Color(0.31360894, 0.5219811, 1, 1),
 "Lose": Color(1, 0, 0, 1),
 "Miner": Color(0.57712036, 0.17917126, 1.4439226e-07, 1),
 "Runner": Color(0.728822, 0.728822, 0.728822, 1),
@@ -40,7 +40,8 @@ _word_colors = Dictionary[String, Color]({
 "Synergy": Color(1, 0, 1, 1),
 "Vertical Speed Boost": Color(0.6627451, 0.8666667, 0.24705882, 1),
 "Warrior": Color(0.16206557, 0.1620656, 0.16206557, 1),
-"Win": Color(0, 1, 0, 1)
+"Win": Color(0, 1, 0, 1),
+"World": Color(0.5802528, 1, 0.7045629, 1)
 })
 _slides_container = NodePath("Slides/SlidesContainer")
 _slide_title = NodePath("MarginContainer/SlideTitle")
@@ -112,7 +113,6 @@ theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
 
 [node name="Gameplay" type="Control" parent="Slides/SlidesContainer"]
-visible = false
 layout_mode = 2
 
 [node name="Content" type="VBoxContainer" parent="Slides/SlidesContainer/Gameplay"]
@@ -157,7 +157,7 @@ fit_content = true
 [node name="2" type="RichTextLabel" parent="Slides/SlidesContainer/Gameplay/Content/Text"]
 layout_mode = 2
 bbcode_enabled = true
-text = "- But, instead of controlling olny one character, you'll control two. Each of them live in their own world and have their own problems to deal with."
+text = "- But, instead of controlling olny one character, you'll control two. Each of them live in their own World and have their own problems to deal with."
 fit_content = true
 
 [node name="Heroes" type="Control" parent="Slides/SlidesContainer"]
@@ -198,7 +198,7 @@ fit_content = true
 [node name="2" type="RichTextLabel" parent="Slides/SlidesContainer/Heroes/Content/Text"]
 layout_mode = 2
 bbcode_enabled = true
-text = "- You can only control one at a time. When you control a Hero you can move them horizontally with the \"A\" and \"D\" keys. The selected Hero also gains attack speed."
+text = "- You can only control one at a time. When you control a Hero you can move it horizontally with the \"A\" and \"D\" keys. The selected Hero also gains attack speed."
 fit_content = true
 
 [node name="3" type="RichTextLabel" parent="Slides/SlidesContainer/Heroes/Content/Text"]
@@ -208,6 +208,7 @@ text = "- You can Swap the selection of the Heroes by pressing \"Spacebar\""
 fit_content = true
 
 [node name="Collectables" type="Control" parent="Slides/SlidesContainer"]
+visible = false
 layout_mode = 2
 
 [node name="Content" type="VBoxContainer" parent="Slides/SlidesContainer/Collectables"]
@@ -296,6 +297,12 @@ bbcode_enabled = true
 text = "- Some give a lot of speed boost time, others give none."
 fit_content = true
 
+[node name="3" type="RichTextLabel" parent="Slides/SlidesContainer/Vertical Speed Boost/Content/Text"]
+layout_mode = 2
+bbcode_enabled = true
+text = "- There is a limit of how much you can advance vertically."
+fit_content = true
+
 [node name="Shop" type="Control" parent="Slides/SlidesContainer"]
 visible = false
 layout_mode = 2
@@ -373,6 +380,7 @@ text = "- Some Collectables have special effects, you can check them out at the 
 fit_content = true
 
 [node name="Synergy" type="Control" parent="Slides/SlidesContainer"]
+visible = false
 layout_mode = 2
 
 [node name="Content" type="VBoxContainer" parent="Slides/SlidesContainer/Synergy"]
@@ -501,7 +509,19 @@ size_flags_stretch_ratio = 1.2
 [node name="1" type="RichTextLabel" parent="Slides/SlidesContainer/Defeat Reasons/Content/Text"]
 layout_mode = 2
 bbcode_enabled = true
-text = "- You Lose when a Hero's HP is depleated or when they touch the bottom of the screen."
+text = "- You Lose a level when a Hero's HP is depleated or when they touch the bottom of the screen."
+fit_content = true
+
+[node name="2" type="RichTextLabel" parent="Slides/SlidesContainer/Defeat Reasons/Content/Text"]
+layout_mode = 2
+bbcode_enabled = true
+text = "- When you Lose you keep the resources that you gained so you can spend them in the Shop and get stronger."
+fit_content = true
+
+[node name="3" type="RichTextLabel" parent="Slides/SlidesContainer/Defeat Reasons/Content/Text"]
+layout_mode = 2
+bbcode_enabled = true
+text = "- Good luck!"
 fit_content = true
 
 [node name="Buttons" type="MarginContainer" parent="."]

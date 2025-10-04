@@ -18,5 +18,4 @@ stat_modifier_value = 0.3
 max_level = 2
 basic_config = SubResource("Resource_5le83")
 price = 100
-use_percentage_format = true
 metadata/_custom_type_script = "uid://bhmckujririhf"

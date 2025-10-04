@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BasicItemConfig" load_steps=3 format=3 uid="uid://c4cetg3pfkf3k"]
+
+[ext_resource type="Texture2D" uid="uid://dx1tluqpq7gjj" path="res://art/minerals/v_2/Yellow_crystal1.png" id="1_56ppm"]
+[ext_resource type="Script" uid="uid://bmfrhj7p3gkr8" path="res://configs/bestiary/basic_item_config.gd" id="2_agoxb"]
+
+[resource]
+script = ExtResource("2_agoxb")
+icon = ExtResource("1_56ppm")
+display_name = "Citrine"
+description = "Extremely valuable, but it's tough and hard to find"
+metadata/_custom_type_script = "uid://bmfrhj7p3gkr8"

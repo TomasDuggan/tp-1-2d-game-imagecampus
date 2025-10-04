@@ -78,8 +78,8 @@ func _pick_weighted_room(interactable_request: int) -> RoomConfig:
 	for room: RoomConfig in rooms_to_evaluate:
 		total_weight += room.get_appearance_weight()
 	
-	var rand: float = randf() * total_weight
-	var cumulative: float = 0.0
+	var rand: float = randf() * total_weight # rango total [0, total_weight)
+	var cumulative: float = 0.0 # Rango que abarca en la linea 'rand', se desplaza en cada iteracion
 	
 	for room_config: RoomConfig in rooms_to_evaluate:
 		cumulative += room_config.get_appearance_weight()

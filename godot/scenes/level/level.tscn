@@ -1,9 +1,10 @@
-[gd_scene load_steps=19 format=3 uid="uid://cw7v32643ol2t"]
+[gd_scene load_steps=18 format=3 uid="uid://cw7v32643ol2t"]
 
 [ext_resource type="Script" uid="uid://ywf7pwru2s70" path="res://scripts/world/level.gd" id="1_vpf64"]
-[ext_resource type="Script" uid="uid://b838myufwwsag" path="res://configs/hero/hero_config.gd" id="2_b7m21"]
+[ext_resource type="Resource" uid="uid://gakixhwp6hug" path="res://configs/hero/miner_hero_config.tres" id="2_ivku7"]
 [ext_resource type="Script" uid="uid://w6k62hjfi6jo" path="res://scripts/managers/hero_selection_manager.gd" id="2_wcngd"]
 [ext_resource type="AudioStream" uid="uid://dxdbsg7rdj3up" path="res://art/sound/music/combat_music.ogg" id="3_pe1ox"]
+[ext_resource type="Resource" uid="uid://diqa16ei8uke5" path="res://configs/hero/warrior_hero_config.tres" id="3_ss4b2"]
 [ext_resource type="Script" uid="uid://cges3ilf47io3" path="res://scripts/world/synergy_manager.gd" id="3_tf2q7"]
 [ext_resource type="AudioStream" uid="uid://8wyrjox7yfld" path="res://art/sound/music/combat_music_2.wav" id="4_b7m21"]
 [ext_resource type="PackedScene" uid="uid://b2q5ss2eqgp18" path="res://scenes/level/world/world.tscn" id="4_wcngd"]
@@ -17,26 +18,10 @@
 [ext_resource type="Texture2D" uid="uid://d28dx6hx4sxig" path="res://art/ui/tiles/tile_0028.png" id="13_x4oov"]
 [ext_resource type="Script" uid="uid://bes7mfkh6ms1r" path="res://scripts/ui/level/level_lost_menu_ui.gd" id="15_vrc4q"]
 
-[sub_resource type="Resource" id="Resource_pm6rs"]
-script = ExtResource("2_b7m21")
-hp = 100
-damage = 25
-attack_speed = 1.5
-horizontal_movement_speed = 100.0
-metadata/_custom_type_script = "uid://b838myufwwsag"
-
-[sub_resource type="Resource" id="Resource_vrc4q"]
-script = ExtResource("2_b7m21")
-hp = 100
-damage = 25
-attack_speed = 1.0
-horizontal_movement_speed = 75.0
-metadata/_custom_type_script = "uid://b838myufwwsag"
-
 [node name="Level" type="Node" node_paths=PackedStringArray("_miner_world", "_warrior_world", "_hero_selection_manager")]
 script = ExtResource("1_vpf64")
-_miner_config = SubResource("Resource_pm6rs")
-_warrior_config = SubResource("Resource_vrc4q")
+_miner_config = ExtResource("2_ivku7")
+_warrior_config = ExtResource("3_ss4b2")
 _music = Array[AudioStream]([ExtResource("3_pe1ox"), ExtResource("4_b7m21")])
 _miner_world = NodePath("HBoxContainer/SubViewportContainer/SubViewport/MinerWorld")
 _warrior_world = NodePath("HBoxContainer/SubViewportContainer2/SubViewport/WarriorWorld")
