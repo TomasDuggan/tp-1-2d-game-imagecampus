@@ -7,8 +7,8 @@
 [sub_resource type="Resource" id="Resource_nwrgc"]
 script = ExtResource("2_4u71t")
 icon = ExtResource("1_w4okh")
-display_name = "Speed Boost"
-description = "Speed boost after killing lasts X% longer"
+display_name = "Vanguard"
+description = "Vertical Speed Boost after killing lasts X% longer."
 metadata/_custom_type_script = "uid://bmfrhj7p3gkr8"
 
 [resource]

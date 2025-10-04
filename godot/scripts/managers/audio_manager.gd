@@ -11,7 +11,7 @@ var _sfx_pool := Node.new()
 const MUSIC_BUS_NAME := "Music"
 const SFX_BUS_NAME := "SFX"
 const MAX_VOLUME := 1.0
-const START_MUSIC_VOLUME := 0.3
+const START_MUSIC_VOLUME := 0.25
 const START_SFX_VOLUME := 0.5
 
 const ERROR_SFX: AudioStream = preload("uid://7jtvn36vic81")

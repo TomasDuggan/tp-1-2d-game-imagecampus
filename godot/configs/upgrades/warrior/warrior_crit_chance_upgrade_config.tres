@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="UpgradeConfig" load_steps=5 format=3 uid="uid://d3m7180f4nj8e"]
+
+[ext_resource type="Texture2D" uid="uid://c8nygve08nwxi" path="res://art/icons/skills/crit.png" id="1_usymi"]
+[ext_resource type="Script" uid="uid://bmfrhj7p3gkr8" path="res://configs/bestiary/basic_item_config.gd" id="2_rg4d8"]
+[ext_resource type="Script" uid="uid://bhmckujririhf" path="res://configs/upgrades/upgrade_config.gd" id="3_wvin7"]
+
+[sub_resource type="Resource" id="Resource_gtisg"]
+script = ExtResource("2_rg4d8")
+icon = ExtResource("1_usymi")
+display_name = "Sword Expertise"
+description = "Increases the warrior's critical chance by X% (Dmg x2)."
+metadata/_custom_type_script = "uid://bmfrhj7p3gkr8"
+
+[resource]
+script = ExtResource("3_wvin7")
+id = 2
+world_type = 1
+stat_modifier_value = 0.2
+max_level = 5
+basic_config = SubResource("Resource_gtisg")
+price = 75
+metadata/_custom_type_script = "uid://bhmckujririhf"

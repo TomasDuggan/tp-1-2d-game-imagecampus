@@ -1,5 +1,5 @@
 extends Button
-class_name CustomButton
+class_name ButtonWithSound
 
 var _hover_sound: AudioStream = preload("uid://c2bhh78cx5el1")
 

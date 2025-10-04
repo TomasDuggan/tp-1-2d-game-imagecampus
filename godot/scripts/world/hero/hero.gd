@@ -35,7 +35,10 @@ func initialize(config: HeroConfig, world_type: World.WorldType) -> void:
 
 func _initialize_hitbox(world_type: World.WorldType) -> void:
 	var upgraded_damage: int = _config.damage + ceil(_config.damage * UpgradesManager.get_modifier_value(world_type, UpgradesManager.UpgradeId.DAMAGE))
-	hit.initialize(self, upgraded_damage, _config.attack_speed, true, Hurtbox.DamageFaction.HERO)
+	var upgraded_crit_chance: float = min(_config.crit_chance + UpgradesManager.get_modifier_value(world_type, UpgradesManager.UpgradeId.CRIT_CHANCE), 1.0)
+	
+	print_debug(upgraded_crit_chance)
+	hit.initialize(self, upgraded_damage, _config.attack_speed, true, Hurtbox.DamageFaction.HERO, DamageInfo.DamageType.PHYSICAL, upgraded_crit_chance)
 	hit.attack_performed.connect(_animation.play_attack_animation)
 	hit.target_destroyed.connect(_vertical_speed_boost_handler.on_target_destroyed)
 

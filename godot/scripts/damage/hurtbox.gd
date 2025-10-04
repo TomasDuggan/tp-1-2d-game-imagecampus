@@ -12,8 +12,7 @@ signal destroyed(attacker_root: Node2D, defender_root: Node2D)
 
 enum DamageFaction { HERO, ENEMY }
 
-
-
+const FLOATING_LABEL_SCENE: PackedScene = preload("uid://dtaor3dpc268a")
 
 var _root: Node2D
 var _max_hp: int
@@ -43,18 +42,34 @@ func _ready():
 	)
 
 func receive_damage(info: DamageInfo) -> void:
+	_trigger_damage_effects(info.is_crit)
+	_deal_damage_to_hp(info)
+	_check_signal_emmisions(info.attacker)
+
+func _trigger_damage_effects(is_crit: bool) -> void:
 	AudioEventBus.raise_event_play_sfx(_hit_sfx)
 	
+	if is_crit:
+		_create_crit_tween()
+
+func _deal_damage_to_hp(info: DamageInfo) -> void:
 	var damage: int = _resolve_damage_reduction_by_resistances(info)
 	
 	_current_hp = max(_current_hp - damage, 0)
-	
 	_update_hp_bar()
-	
+
+func _check_signal_emmisions(attacker: Node2D) -> void:
 	if _current_hp == 0:
-		destroyed.emit(info.attacker, _root)
+		destroyed.emit(attacker, _root)
 	else:
 		hit.emit()
+
+func _create_crit_tween() -> void:
+	var floating_label_instance: FloatingLabel = FLOATING_LABEL_SCENE.instantiate()
+	add_child(floating_label_instance) # TODO: esto asume que si este Hurtbox muere se queda en escena unos segundos
+	
+	floating_label_instance.global_position = global_position
+	floating_label_instance.show_message("CRIT!", Color.CRIMSON, 1.0)
 
 # TODO: si agrego resistencias meter refactor
 func _resolve_damage_reduction_by_resistances(info: DamageInfo) -> int:

@@ -8,7 +8,7 @@
 script = ExtResource("2_12j77")
 icon = ExtResource("1_2gsab")
 display_name = "Micromanagment"
-description = "The attack speed gain on a selected Hero is augmented by X%"
+description = "The attack speed gain on a selected Hero is augmented by X%."
 metadata/_custom_type_script = "uid://bmfrhj7p3gkr8"
 
 [resource]

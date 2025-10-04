@@ -2,12 +2,12 @@
 
 [ext_resource type="Script" uid="uid://wv6pdypeqsv7" path="res://scripts/ui/menues/main_menu_ui.gd" id="1_ktben"]
 [ext_resource type="Texture2D" uid="uid://vyqo2mn1xvu3" path="res://art/ui/tiles/tile_0002.png" id="2_ds3em"]
-[ext_resource type="AudioStream" uid="uid://dxigesmle5jm3" path="res://art/sound/music/shop_music.wav" id="2_hx66e"]
+[ext_resource type="AudioStream" uid="uid://rhnq4yy51v33" path="res://art/sound/music/main_menu_music.mp3" id="3_ar7nb"]
 [ext_resource type="Theme" uid="uid://cm2fomdb61et5" path="res://themes/custom_theme.tres" id="3_hx66e"]
-[ext_resource type="Script" uid="uid://6aelr2g0dpvu" path="res://scripts/ui/generic/custom_button.gd" id="5_ar7nb"]
+[ext_resource type="Script" uid="uid://6aelr2g0dpvu" path="res://scripts/ui/generic/button_with_sound.gd" id="5_ar7nb"]
 [ext_resource type="Texture2D" uid="uid://b2ro32smbm8p3" path="res://art/ui/tiles/tile_0001.png" id="5_hx66e"]
 
-[node name="MainMenu" type="Control" node_paths=PackedStringArray("_credits_container")]
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("_credits_modal")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -16,8 +16,8 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("3_hx66e")
 script = ExtResource("1_ktben")
-_music = ExtResource("2_hx66e")
-_credits_container = NodePath("CreditsModal")
+_music = ExtResource("3_ar7nb")
+_credits_modal = NodePath("CreditsModal")
 
 [node name="Background" type="NinePatchRect" parent="."]
 layout_mode = 1
@@ -87,8 +87,7 @@ theme = ExtResource("3_hx66e")
 text = "Quit"
 script = ExtResource("5_ar7nb")
 
-[node name="CreditsModal" type="NinePatchRect" parent="."]
-visible = false
+[node name="CreditsModal" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -96,17 +95,24 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -300.0
-offset_top = -150.0
+offset_top = -200.0
 offset_right = 300.0
 offset_bottom = 200.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Background" type="NinePatchRect" parent="CreditsModal"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("5_hx66e")
-region_rect = Rect2(0, 0, 32, 32)
-patch_margin_left = 11
-patch_margin_top = 9
-patch_margin_right = 9
-patch_margin_bottom = 12
+patch_margin_left = 9
+patch_margin_top = 8
+patch_margin_right = 7
+patch_margin_bottom = 9
 
 [node name="MarginContainer" type="MarginContainer" parent="CreditsModal"]
 layout_mode = 1
@@ -161,6 +167,17 @@ text = "Art: "
 layout_mode = 2
 text = "Craftpix"
 
+[node name="MainMenuMusic" type="HBoxContainer" parent="CreditsModal/MarginContainer/Content/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Key" type="Label" parent="CreditsModal/MarginContainer/Content/MarginContainer/VBoxContainer/MainMenuMusic"]
+layout_mode = 2
+text = "Main Menu music:"
+
+[node name="Value" type="Label" parent="CreditsModal/MarginContainer/Content/MarginContainer/VBoxContainer/MainMenuMusic"]
+layout_mode = 2
+text = "CorentinGazon *"
+
 [node name="ShopMusic" type="HBoxContainer" parent="CreditsModal/MarginContainer/Content/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
@@ -188,7 +205,7 @@ layout_mode = 2
 
 [node name="Key" type="Label" parent="CreditsModal/MarginContainer/Content/MarginContainer/VBoxContainer/CoinSfx"]
 layout_mode = 2
-text = "Coin SFX:"
+text = "Purchase SFX:"
 
 [node name="Value" type="Label" parent="CreditsModal/MarginContainer/Content/MarginContainer/VBoxContainer/CoinSfx"]
 layout_mode = 2
@@ -196,7 +213,7 @@ text = "LittleRobotSoundFactory *"
 
 [node name="Info" type="Label" parent="CreditsModal/MarginContainer/Content"]
 layout_mode = 2
-text = "* Link in itch.io project"
+text = "* CC 4.0, Link in itch.io project"
 
 [node name="CloseCreditsButton" type="Button" parent="CreditsModal"]
 layout_mode = 1
@@ -209,6 +226,7 @@ offset_right = -5.0
 offset_bottom = 46.670654
 grow_horizontal = 0
 text = "X"
+script = ExtResource("5_ar7nb")
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/TutorialButton" to="." method="_on_tutorial_button_pressed"]

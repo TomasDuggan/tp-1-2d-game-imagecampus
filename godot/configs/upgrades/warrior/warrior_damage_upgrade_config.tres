@@ -8,7 +8,7 @@
 script = ExtResource("2_ql8xn")
 icon = ExtResource("1_beg4j")
 display_name = "Kill the Creeps"
-description = "+X% more damage to monsters"
+description = "+X% more damage to monsters."
 metadata/_custom_type_script = "uid://bmfrhj7p3gkr8"
 
 [resource]

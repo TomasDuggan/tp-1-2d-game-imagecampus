@@ -5,15 +5,14 @@ class_name MainMenuUI
 @export var _music: AudioStream
 
 @export_category("Editor Dependencies")
-@export var _credits_container: Control
+@export var _credits_modal: Control
 
 const OPTIONS_MENU_SCENE: PackedScene = preload("uid://bmwvgt0131dh6")
 
 
-
 func _ready():
-	_credits_container.hide()
 	AudioEventBus.raise_event_play_music(_music)
+	_credits_modal.hide()
 
 func _on_play_button_pressed():
 	SceneLoadManager.load_level()
@@ -22,10 +21,10 @@ func _on_quit_button_pressed():
 	get_tree().quit()
 
 func _on_credits_button_pressed():
-	_credits_container.show()
+	_credits_modal.show()
 
 func _on_close_credits_button_pressed():
-	_credits_container.hide()
+	_credits_modal.hide()
 
 func _on_tutorial_button_pressed():
 	SceneLoadManager.load_tutorial()

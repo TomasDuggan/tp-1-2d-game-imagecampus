@@ -7,8 +7,8 @@
 [sub_resource type="Resource" id="Resource_5le83"]
 script = ExtResource("2_he7i6")
 icon = ExtResource("1_ldbst")
-display_name = "Fire Armor"
-description = "Reduce fire trap damage by X%"
+display_name = "Fire Adept"
+description = "Reduce fire trap damage by X%."
 metadata/_custom_type_script = "uid://bmfrhj7p3gkr8"
 
 [resource]

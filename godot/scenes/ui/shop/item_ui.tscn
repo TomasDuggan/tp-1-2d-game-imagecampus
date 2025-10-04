@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://d3wkfe8s0i1f2" path="res://art/icons/skills/cart.png" id="3_loexb"]
 [ext_resource type="PackedScene" uid="uid://bbotfj18d8itl" path="res://scenes/ui/score/collectable_ui.tscn" id="5_n7lwq"]
 [ext_resource type="Theme" uid="uid://cm2fomdb61et5" path="res://themes/custom_theme.tres" id="6_oiawk"]
-[ext_resource type="Script" uid="uid://6aelr2g0dpvu" path="res://scripts/ui/generic/custom_button.gd" id="7_sj45p"]
+[ext_resource type="Script" uid="uid://6aelr2g0dpvu" path="res://scripts/ui/generic/button_with_sound.gd" id="7_sj45p"]
 
 [node name="Item" type="Control" node_paths=PackedStringArray("_icon", "_name", "_level", "_buy_section", "_price", "_description")]
 custom_minimum_size = Vector2(410, 200)

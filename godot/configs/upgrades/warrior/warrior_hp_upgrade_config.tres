@@ -8,7 +8,7 @@
 script = ExtResource("2_hr2nr")
 icon = ExtResource("1_63c31")
 display_name = "Vitality"
-description = "Increase the warrior's health by X%"
+description = "Increase the warrior's health by X%."
 metadata/_custom_type_script = "uid://bmfrhj7p3gkr8"
 
 [resource]

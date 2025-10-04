@@ -3,6 +3,7 @@ class_name HeroConfig
 
 @export var hp: int
 @export var damage: int
+@export var crit_chance: float
 @export var attack_speed: float
 @export var horizontal_movement_speed: float
 

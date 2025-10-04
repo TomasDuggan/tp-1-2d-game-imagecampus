@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://41r7gy6mk5f7"]
+[gd_scene load_steps=30 format=3 uid="uid://41r7gy6mk5f7"]
 
 [ext_resource type="Script" uid="uid://cqug56r5scugw" path="res://scripts/ui/shop/shop_ui.gd" id="1_rc5g1"]
 [ext_resource type="Script" uid="uid://bhmckujririhf" path="res://configs/upgrades/upgrade_config.gd" id="2_rc5g1"]
@@ -9,7 +9,7 @@
 [ext_resource type="Script" uid="uid://dpj0vhu4yd0d8" path="res://scripts/ui/shop/upgrades_lister_ui.gd" id="3_vgm16"]
 [ext_resource type="Resource" uid="uid://4iq72jx00k26" path="res://configs/upgrades/warrior/warrior_damage_upgrade_config.tres" id="4_vgm16"]
 [ext_resource type="Resource" uid="uid://drg1frcy4axsl" path="res://configs/upgrades/globals/synergy_gain_upgrade_config.tres" id="5_o4tqb"]
-[ext_resource type="Script" uid="uid://6aelr2g0dpvu" path="res://scripts/ui/generic/custom_button.gd" id="6_nxg8l"]
+[ext_resource type="Script" uid="uid://6aelr2g0dpvu" path="res://scripts/ui/generic/button_with_sound.gd" id="6_nxg8l"]
 [ext_resource type="PackedScene" uid="uid://bbotfj18d8itl" path="res://scenes/ui/score/collectable_ui.tscn" id="7_3qv50"]
 [ext_resource type="Theme" uid="uid://cm2fomdb61et5" path="res://themes/custom_theme.tres" id="8_tuamk"]
 [ext_resource type="Resource" uid="uid://bmsm7vp5de2fi" path="res://configs/upgrades/miner/miner_fire_damage_reduction_upgrade_config.tres" id="11_6xv11"]
@@ -20,6 +20,7 @@
 [ext_resource type="Resource" uid="uid://3kj3yu05yela" path="res://configs/bestiary/enemies/vampire_basic_item_config.tres" id="14_ea7pq"]
 [ext_resource type="Resource" uid="uid://cof8rwntte32m" path="res://configs/upgrades/globals/attack_speed_upgrade_config.tres" id="14_ftjlm"]
 [ext_resource type="Resource" uid="uid://bcy17in6xw0r3" path="res://configs/upgrades/warrior/warrior_hp_upgrade_config.tres" id="15_6xv11"]
+[ext_resource type="Resource" uid="uid://d3m7180f4nj8e" path="res://configs/upgrades/warrior/warrior_crit_chance_upgrade_config.tres" id="17_v76nk"]
 [ext_resource type="Resource" uid="uid://cxfr8fa53ccvp" path="res://configs/bestiary/minerals/healing_mineral_item_config.tres" id="19_8w2r5"]
 [ext_resource type="Resource" uid="uid://d0iy4mg3oc2lj" path="res://configs/bestiary/enemies/undead_slime_item_config.tres" id="20_6dts4"]
 [ext_resource type="Resource" uid="uid://bfw6esopwabys" path="res://configs/bestiary/minerals/damager_mineral_item_config.tres" id="20_ajfog"]
@@ -141,7 +142,7 @@ size_flags_horizontal = 3
 
 [node name="CategoryName" type="Label" parent="MarginContainer/Content/UpgradesContainer/GlobalsCategory"]
 layout_mode = 2
-text = "Globals"
+text = "Globals (affects both)"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -175,7 +176,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("3_vgm16")
-_all_upgrades = Array[ExtResource("2_rc5g1")]([ExtResource("4_vgm16"), ExtResource("15_6xv11")])
+_all_upgrades = Array[ExtResource("2_rc5g1")]([ExtResource("4_vgm16"), ExtResource("15_6xv11"), ExtResource("17_v76nk")])
 
 [node name="BestiaryContainer" type="HBoxContainer" parent="MarginContainer/Content"]
 visible = false

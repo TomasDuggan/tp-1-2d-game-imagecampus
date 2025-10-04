@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bptu4oq6qbxtd" path="res://art/snapshots/TwoHeroes.png" id="2_hnicy"]
 [ext_resource type="Script" uid="uid://bbh2btj52qph7" path="res://scripts/ui/menues/tutorial_ui.gd" id="2_lguia"]
 [ext_resource type="Texture2D" uid="uid://c83l6y304okpt" path="res://art/snapshots/MinerWorld.png" id="4_4fje3"]
-[ext_resource type="Script" uid="uid://6aelr2g0dpvu" path="res://scripts/ui/generic/custom_button.gd" id="4_vw6fe"]
+[ext_resource type="Script" uid="uid://6aelr2g0dpvu" path="res://scripts/ui/generic/button_with_sound.gd" id="4_vw6fe"]
 [ext_resource type="Texture2D" uid="uid://ksly4lquvec3" path="res://art/snapshots/Minerals.png" id="5_arohx"]
 [ext_resource type="Texture2D" uid="uid://2wv4uwovad5l" path="res://art/snapshots/SynergyBar.png" id="5_bbjmu"]
 [ext_resource type="Texture2D" uid="uid://bppqt5ymist4m" path="res://art/snapshots/WarriorWorld.png" id="5_sk15n"]

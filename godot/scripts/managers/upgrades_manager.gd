@@ -12,6 +12,7 @@ var _bought_upgrades: Array[Upgrade] = []
 enum UpgradeId {
 	DAMAGE,
 	HP,
+	CRIT_CHANCE,
 	HORIZONTAL_MOVEMENT_SPEED,
 	CURRENCY_GATHER,
 	FIRE_DAMAGE_REDUCTION,

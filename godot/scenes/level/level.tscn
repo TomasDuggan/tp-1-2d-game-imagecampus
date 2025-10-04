@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://b0prl0robq55h" path="res://art/bars/health meter-01.png" id="8_sytrn"]
 [ext_resource type="Texture2D" uid="uid://x4tfenq0dus" path="res://art/bars/health meter-05.png" id="9_tf2q7"]
 [ext_resource type="Theme" uid="uid://cm2fomdb61et5" path="res://themes/custom_theme.tres" id="11_pe1ox"]
-[ext_resource type="Script" uid="uid://6aelr2g0dpvu" path="res://scripts/ui/generic/custom_button.gd" id="12_m0bv2"]
+[ext_resource type="Script" uid="uid://6aelr2g0dpvu" path="res://scripts/ui/generic/button_with_sound.gd" id="12_m0bv2"]
 [ext_resource type="Script" uid="uid://oma2dt08eqc2" path="res://scripts/ui/level/level_won_menu_ui.gd" id="12_pm6rs"]
 [ext_resource type="Texture2D" uid="uid://d28dx6hx4sxig" path="res://art/ui/tiles/tile_0028.png" id="13_x4oov"]
 [ext_resource type="Script" uid="uid://bes7mfkh6ms1r" path="res://scripts/ui/level/level_lost_menu_ui.gd" id="15_vrc4q"]
@@ -59,7 +59,7 @@ stretch = true
 [node name="SubViewport" type="SubViewport" parent="HBoxContainer/SubViewportContainer"]
 handle_input_locally = false
 canvas_item_default_texture_filter = 0
-size = Vector2i(638, 720)
+size = Vector2i(2, 2)
 render_target_update_mode = 4
 
 [node name="MinerWorld" parent="HBoxContainer/SubViewportContainer/SubViewport" instance=ExtResource("4_wcngd")]
@@ -72,7 +72,7 @@ stretch = true
 [node name="SubViewport" type="SubViewport" parent="HBoxContainer/SubViewportContainer2"]
 handle_input_locally = false
 canvas_item_default_texture_filter = 0
-size = Vector2i(638, 720)
+size = Vector2i(2, 2)
 render_target_update_mode = 4
 
 [node name="WarriorWorld" parent="HBoxContainer/SubViewportContainer2/SubViewport" instance=ExtResource("4_wcngd")]
