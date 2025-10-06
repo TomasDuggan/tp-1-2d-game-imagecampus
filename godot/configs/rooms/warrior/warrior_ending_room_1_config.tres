@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="RoomConfig" load_steps=3 format=3 uid="uid://dcwufwxrf0370"]
 
-[ext_resource type="PackedScene" uid="uid://cdisjbp7yyrjx" path="res://scenes/level/world/rooms/warrior/endings/warrior_room_ending_1.tscn" id="1_cudif"]
+[ext_resource type="PackedScene" uid="uid://drt0sono03dq2" path="res://scenes/level/world/rooms/warrior/endings/warrior_room_ending_1.tscn" id="1_cudif"]
 [ext_resource type="Script" uid="uid://sp0ivn7va6cy" path="res://configs/rooms/room_config.gd" id="2_0lgxg"]
 
 [resource]

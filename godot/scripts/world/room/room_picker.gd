@@ -14,8 +14,8 @@ var _amount_of_rooms_to_spawn: int
 var _can_spawn_interactables: bool
 var _spawn_interactable_room_requests: Array[int] = [] # FIFO, amount of interactables to spawn
 
-const CHANCE_TO_SPAWN_INTERACTABLE_ROOM := 0.5
-const AMOUNT_OF_ROOMS_PER_CURRENT_LEVEL_MULTIPLIER := 5
+const CHANCE_TO_SPAWN_INTERACTABLE_ROOM := 0.9
+const AMOUNT_OF_ROOMS_PER_CURRENT_LEVEL_MULTIPLIER := 3
 
 
 func initialize(world_type: World.WorldType) -> void:
@@ -50,7 +50,7 @@ func _get_special_case_room() -> RoomConfig:
 func _get_interactables_amount() -> int:
 	if _can_spawn_interactables and randf() < CHANCE_TO_SPAWN_INTERACTABLE_ROOM:
 		return -1 
-	elif not _spawn_interactable_room_requests.is_empty():
+	elif !_spawn_interactable_room_requests.is_empty():
 		return _spawn_interactable_room_requests.pop_front()
 	
 	return 0
@@ -65,7 +65,7 @@ func _pick_weighted_room(interactable_request: int) -> RoomConfig:
 	var rooms_to_evaluate: Array[RoomConfig]
 	
 	if interactable_request == 0: # Sin interactalbes
-		rooms_to_evaluate = _room_configs.filter(func(r: RoomConfig): return not r.has_interactables())
+		rooms_to_evaluate = _room_configs.filter(func(r: RoomConfig): return !r.has_interactables())
 	elif interactable_request == -1: # Cantidad aleatoria de interactuables
 		rooms_to_evaluate = _room_configs.filter(func(r: RoomConfig): return r.has_interactables())
 	else: # Cantidad fija de interactuables

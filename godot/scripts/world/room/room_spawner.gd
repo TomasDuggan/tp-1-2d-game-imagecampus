@@ -43,7 +43,6 @@ Explicacion x las dudas
 func _room_reached_end() -> bool:
 	return _rooms_height_accumulator > -_rooms_container.position.y - VIEWPORT_HEIGHT - ROOM_SPAWN_MARGIN
 
-
 func _spawn_room(pos: Vector2 = Vector2(0, -ROOM_SPAWN_MARGIN)) -> void:
 	var room_config: RoomConfig = _room_picker.pick_room()
 	var room_instance: Room = room_config.scene.instantiate()

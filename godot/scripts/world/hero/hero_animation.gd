@@ -24,10 +24,17 @@ func _ready():
 	animation_finished.connect(_on_animation_finished)
 	_play_walk_animation()
 
+func _on_animation_finished() -> void:
+	if _is_attacking():
+		_play_walk_animation()
+
+func _is_attacking() -> bool:
+	return animation.begins_with(ATTACK_PREFIX)
+
 func set_direction(new_dir: int) -> void:
 	if new_dir != _current_raw_direction:
 		_current_raw_direction = new_dir
-		if not animation.begins_with(ATTACK_PREFIX):
+		if !_is_attacking():
 			_play_walk_animation()
 
 func _play_walk_animation() -> void:
@@ -43,10 +50,6 @@ func _resolve_suffix() -> String:
 		return UP_SUFFIX
 	
 	return RIGHT_SUFFIX
-
-func _on_animation_finished():
-	if animation.begins_with(ATTACK_PREFIX):
-		_play_walk_animation()
 
 func toggle_selected(is_selected: bool) -> void:
 	material = _outline_material if is_selected else _default_material

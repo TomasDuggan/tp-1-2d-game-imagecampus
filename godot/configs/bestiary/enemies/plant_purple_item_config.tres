@@ -7,5 +7,5 @@
 script = ExtResource("2_fy40u")
 icon = ExtResource("1_2ymqc")
 display_name = "Memory Plant"
-description = "Every time you kill it, it'll upgrade your damage by 20% for the duration of the level"
+description = "Every time you kill it, it'll upgrade your damage by 10% for the duration of the level"
 metadata/_custom_type_script = "uid://bmfrhj7p3gkr8"

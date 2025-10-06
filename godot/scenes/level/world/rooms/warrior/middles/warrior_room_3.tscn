@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=4 uid="uid://ccry8yo4l2yxq"]
+[gd_scene load_steps=6 format=4 uid="uid://ccry8yo4l2yxq"]
 
 [ext_resource type="PackedScene" uid="uid://djim0uu4wpglm" path="res://scenes/level/world/rooms/room_base.tscn" id="1_3byk0"]
 [ext_resource type="PackedScene" uid="uid://b2qvuondh51pn" path="res://scenes/level/world/trap/spike_trap.tscn" id="2_a5525"]
 [ext_resource type="PackedScene" uid="uid://tcewqetm8xvx" path="res://scenes/level/world/interactables/door.tscn" id="3_bq8dd"]
+[ext_resource type="PackedScene" uid="uid://ctkc2ceeqspqm" path="res://scenes/collectables/collectable.tscn" id="4_1uypi"]
+[ext_resource type="Resource" uid="uid://44rgfo3wqvxw" path="res://configs/collectables/instances/enemies/plant_purple_enemy_config.tres" id="5_mdlgh"]
 
 [node name="Room" instance=ExtResource("1_3byk0")]
 
@@ -12,43 +14,31 @@ tile_map_data = PackedByteArray("AAAvAOX/AQACAAgAAAAvAOT/AQACAAgAAAAvAOP/AQACAAg
 [node name="Decorations" parent="." index="1"]
 tile_map_data = PackedByteArray("AAAnANP/AQAHAA4AAAAnANv/AQAIAA0AAAAnANz/AQAIAA4AAAAnAN7/AQAIAA0AAAAnAPX/AQAIAA0AAAAnAP7/AQAHAA0AAAAoAMr/AQAIAA4AAAAoAND/AQAIAA4AAAAoAOD/AQAIAA0AAAAoAOP/AQAHAA4AAAAoAOr/AQAIAA0AAAApAM//AQAHAA0AAAApANz/AQAHAA0AAAApAOT/AQAIAA4AAAApAPL/AQAIAA0AAAApAPT/AQAIAA0AAAApAPf/AQAHAA4AAAAqAOD/AQAHAA0AAAAqAOv/AQAHAA0AAAAqAO7/AQAHAA4AAAAqAPb/AQAHAA0AAAArAND/AQAIAA0AAAArANX/AQAIAA0AAAArAO//AQAIAA4AAAArAPL/AQAIAA4AAAArAPX/AQAIAA0AAAArAPn/AQAHAA4AAAAsAOT/AQAHAA0AAAAsAOb/AQAIAA0AAAAsAO3/AQAHAA0AAAAsAO//AQAHAA4AAAAsAPb/AQAIAA0AAAAtAM7/AQAIAA0AAAAtANP/AQAIAA0AAAAtAN//AQAHAA4AAAAuANP/AQAIAA0AAAAuANv/AQAIAA0AAAAuAO//AQAIAA4AAAAuAPP/AQAIAA0AAAAuAPf/AQAIAA0AAAAuAP7/AQAHAA4AAAAvAMv/AQAIAA4AAAAvAPb/AQAHAA4AAAAvAPj/AQAHAA4AAAAiAM3/AQAIAA4AAAAjAMr/AQAIAA0AAAAhAMv/AQAIAA0AAAAhANX/AQAIAA4AAAAiANH/AQAHAA4AAAAjANb/AQAHAA0AAAAzANP/AQAHAA0AAAA0ANL/AQAHAA4AAAAzANX/AQAHAA4AAAAzAM7/AQAIAA0AAAA0AMz/AQAHAA0AAAA0ANH/AQAHAA0AAAA1AMr/AQAIAA0AAAAqANf/AQAIAA4AAAAuANf/AQAIAA0AAAA=")
 
-[node name="CollectableSpawner" parent="." index="2"]
-tile_map_data = PackedByteArray("AAAnAMr/AAAFAAIAAAAnAMz/AAAFAAIAAAAnAM7/AAAFAAIAAAAnAND/AAAFAAIAAAAnANL/AAAFAAIAAAAnANT/AAAFAAIAAAAqAMr/AAAFAAIAAAAqAMz/AAAFAAIAAAAqAM7/AAAFAAIAAAAqAND/AAAFAAIAAAAqANL/AAAFAAIAAAAqANT/AAAFAAIAAAAtAMr/AAAFAAIAAAAtAMz/AAAFAAIAAAAtAM7/AAAFAAIAAAAtAND/AAAFAAIAAAAtANL/AAAFAAIAAAAtANT/AAAFAAIAAAAwAMr/AAAFAAIAAAAwAMz/AAAFAAIAAAAwAM7/AAAFAAIAAAAwAND/AAAFAAIAAAAwANL/AAAFAAIAAAAwANT/AAAFAAIAAAAnAOD/AAAFAAIAAAAnAOX/AAAFAAIAAAApAPr/AAAFAAIAAAAqAO3/AAAFAAIAAAAsAOP/AAAFAAIAAAAtAOX/AAAFAAIAAAAuAN3/AAAFAAIAAAAuAOH/AAAFAAIAAAAuAPH/AAAFAAIAAAAuAPj/AAAFAAIAAAAvAOb/AAAFAAIAAAAvAOr/AAAFAAIAAAAvAPz/AAAFAAIAAAAwAPP/AAAFAAIAAAAnAPP/AAAFAAIAAAAoAPH/AAAFAAIAAAA=")
+[node name="RandomCollectableSpawner" parent="." index="2"]
+tile_map_data = PackedByteArray("AAAnANr/AAAFAAIAAAAnAN//AAAFAAIAAAAnAOX/AAAFAAIAAAAoAPv/AAAFAAIAAAApANz/AAAFAAIAAAApAOT/AAAFAAIAAAApAPj/AAAFAAIAAAAqAOH/AAAFAAIAAAAqAPX/AAAFAAIAAAArAPL/AAAFAAIAAAArAPb/AAAFAAIAAAArAPj/AAAFAAIAAAAsAN7/AAAFAAIAAAAsAOj/AAAFAAIAAAAsAPr/AAAFAAIAAAAtAN3/AAAFAAIAAAAtAOT/AAAFAAIAAAAtAOr/AAAFAAIAAAAtAPv/AAAFAAIAAAAuANz/AAAFAAIAAAAuAO7/AAAFAAIAAAAuAP7/AAAFAAIAAAAvAOL/AAAFAAIAAAAvAOf/AAAFAAIAAAAnAM3/AAAFAAIAAAAnANL/AAAFAAIAAAArAM3/AAAFAAIAAAArANL/AAAFAAIAAAAvAM3/AAAFAAIAAAAvANL/AAAFAAIAAAA=")
 
 [node name="Trap3" parent="TrapsContainer" index="0" instance=ExtResource("2_a5525")]
-position = Vector2(653, -689)
+position = Vector2(660, -689)
 _is_permanently_active = true
 
-[node name="Trap4" parent="TrapsContainer" index="1" instance=ExtResource("2_a5525")]
-position = Vector2(701, -689)
+[node name="Trap5" parent="TrapsContainer" index="1" instance=ExtResource("2_a5525")]
+position = Vector2(730, -689)
 _is_permanently_active = true
 
-[node name="Trap5" parent="TrapsContainer" index="2" instance=ExtResource("2_a5525")]
-position = Vector2(747, -689)
+[node name="Trap6" parent="TrapsContainer" index="2" instance=ExtResource("2_a5525")]
+position = Vector2(660, -768)
 _is_permanently_active = true
 
-[node name="Trap6" parent="TrapsContainer" index="3" instance=ExtResource("2_a5525")]
-position = Vector2(653, -774)
+[node name="Trap8" parent="TrapsContainer" index="3" instance=ExtResource("2_a5525")]
+position = Vector2(730, -768)
 _is_permanently_active = true
 
-[node name="Trap7" parent="TrapsContainer" index="4" instance=ExtResource("2_a5525")]
-position = Vector2(701, -774)
+[node name="Trap9" parent="TrapsContainer" index="4" instance=ExtResource("2_a5525")]
+position = Vector2(660, -842)
 _is_permanently_active = true
 
-[node name="Trap8" parent="TrapsContainer" index="5" instance=ExtResource("2_a5525")]
-position = Vector2(747, -774)
-_is_permanently_active = true
-
-[node name="Trap9" parent="TrapsContainer" index="6" instance=ExtResource("2_a5525")]
-position = Vector2(653, -842)
-_is_permanently_active = true
-
-[node name="Trap10" parent="TrapsContainer" index="7" instance=ExtResource("2_a5525")]
-position = Vector2(701, -842)
-_is_permanently_active = true
-
-[node name="Trap11" parent="TrapsContainer" index="8" instance=ExtResource("2_a5525")]
-position = Vector2(747, -842)
+[node name="Trap11" parent="TrapsContainer" index="5" instance=ExtResource("2_a5525")]
+position = Vector2(730, -842)
 _is_permanently_active = true
 
 [node name="Door" parent="InteractablesContainer" index="0" instance=ExtResource("3_bq8dd")]
@@ -56,3 +46,27 @@ position = Vector2(552, -713)
 
 [node name="Door2" parent="InteractablesContainer" index="1" instance=ExtResource("3_bq8dd")]
 position = Vector2(840, -713)
+
+[node name="Collectable" parent="FixedCollectablesContainer" index="0" instance=ExtResource("4_1uypi")]
+position = Vector2(829, -780)
+_override_config = ExtResource("5_mdlgh")
+
+[node name="Collectable2" parent="FixedCollectablesContainer" index="1" instance=ExtResource("4_1uypi")]
+position = Vector2(856, -780)
+_override_config = ExtResource("5_mdlgh")
+
+[node name="Collectable3" parent="FixedCollectablesContainer" index="2" instance=ExtResource("4_1uypi")]
+position = Vector2(829, -814)
+_override_config = ExtResource("5_mdlgh")
+
+[node name="Collectable4" parent="FixedCollectablesContainer" index="3" instance=ExtResource("4_1uypi")]
+position = Vector2(856, -814)
+_override_config = ExtResource("5_mdlgh")
+
+[node name="Collectable5" parent="FixedCollectablesContainer" index="4" instance=ExtResource("4_1uypi")]
+position = Vector2(829, -851)
+_override_config = ExtResource("5_mdlgh")
+
+[node name="Collectable6" parent="FixedCollectablesContainer" index="5" instance=ExtResource("4_1uypi")]
+position = Vector2(856, -851)
+_override_config = ExtResource("5_mdlgh")

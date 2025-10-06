@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cw7v32643ol2t"]
+[gd_scene load_steps=19 format=3 uid="uid://cw7v32643ol2t"]
 
 [ext_resource type="Script" uid="uid://ywf7pwru2s70" path="res://scripts/world/level.gd" id="1_vpf64"]
 [ext_resource type="Resource" uid="uid://gakixhwp6hug" path="res://configs/hero/miner_hero_config.tres" id="2_ivku7"]
@@ -15,6 +15,7 @@
 [ext_resource type="Theme" uid="uid://cm2fomdb61et5" path="res://themes/custom_theme.tres" id="11_pe1ox"]
 [ext_resource type="Script" uid="uid://6aelr2g0dpvu" path="res://scripts/ui/generic/button_with_sound.gd" id="12_m0bv2"]
 [ext_resource type="Script" uid="uid://oma2dt08eqc2" path="res://scripts/ui/level/level_won_menu_ui.gd" id="12_pm6rs"]
+[ext_resource type="Script" uid="uid://kifydm2g3ih7" path="res://scripts/ui/level/level_hud_ui.gd" id="12_ss4b2"]
 [ext_resource type="Texture2D" uid="uid://d28dx6hx4sxig" path="res://art/ui/tiles/tile_0028.png" id="13_x4oov"]
 [ext_resource type="Script" uid="uid://bes7mfkh6ms1r" path="res://scripts/ui/level/level_lost_menu_ui.gd" id="15_vrc4q"]
 
@@ -79,13 +80,16 @@ render_target_update_mode = 4
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="HUD" type="Control" parent="CanvasLayer"]
+[node name="HUD" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("_current_level_text")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("11_pe1ox")
+script = ExtResource("12_ss4b2")
+_current_level_text = NodePath("CurrentLevelTextContainer/CurrentLevelText")
 
 [node name="SynergyBar" type="Control" parent="CanvasLayer/HUD"]
 layout_mode = 1
@@ -112,6 +116,24 @@ texture_under = ExtResource("8_sytrn")
 texture_progress = ExtResource("9_tf2q7")
 texture_progress_offset = Vector2(40, 44)
 
+[node name="CurrentLevelTextContainer" type="MarginContainer" parent="CanvasLayer/HUD"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -43.0
+offset_right = 43.0
+offset_bottom = 32.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 15
+
+[node name="CurrentLevelText" type="Label" parent="CanvasLayer/HUD/CurrentLevelTextContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Level 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="LevelWonMenu" type="Control" parent="CanvasLayer"]
 process_mode = 3
 visible = false
@@ -121,6 +143,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("11_pe1ox")
 script = ExtResource("12_pm6rs")
 
 [node name="Panel" type="NinePatchRect" parent="CanvasLayer/LevelWonMenu"]
@@ -161,7 +184,6 @@ alignment = 1
 
 [node name="Title" type="Label" parent="CanvasLayer/LevelWonMenu/Panel/MarginContainer/HBoxContainer"]
 layout_mode = 2
-theme = ExtResource("11_pe1ox")
 theme_override_font_sizes/font_size = 48
 text = "Level Won!"
 horizontal_alignment = 1
@@ -171,18 +193,19 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_vertical = 4
-theme = ExtResource("11_pe1ox")
 text = "Go to Shop"
 script = ExtResource("12_m0bv2")
 
 [node name="LevelLostMenu" type="Control" parent="CanvasLayer"]
 process_mode = 3
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("11_pe1ox")
 script = ExtResource("15_vrc4q")
 
 [node name="Panel" type="NinePatchRect" parent="CanvasLayer/LevelLostMenu"]
@@ -223,7 +246,6 @@ alignment = 1
 
 [node name="Title" type="Label" parent="CanvasLayer/LevelLostMenu/Panel/MarginContainer/HBoxContainer"]
 layout_mode = 2
-theme = ExtResource("11_pe1ox")
 theme_override_font_sizes/font_size = 48
 text = "You lost"
 horizontal_alignment = 1
@@ -231,7 +253,6 @@ vertical_alignment = 1
 
 [node name="RetryLevelButton" type="Button" parent="CanvasLayer/LevelLostMenu/Panel/MarginContainer/HBoxContainer"]
 layout_mode = 2
-theme = ExtResource("11_pe1ox")
 text = "Retry Level"
 script = ExtResource("12_m0bv2")
 
@@ -239,7 +260,6 @@ script = ExtResource("12_m0bv2")
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_vertical = 4
-theme = ExtResource("11_pe1ox")
 text = "Go to Shop"
 script = ExtResource("12_m0bv2")
 

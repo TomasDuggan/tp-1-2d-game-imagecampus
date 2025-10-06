@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="RoomConfig" load_steps=3 format=3 uid="uid://bwsvm2bsi0m5q"]
 
-[ext_resource type="PackedScene" uid="uid://2154lmcl0fry" path="res://scenes/level/world/rooms/miner/miner_room_2.tscn" id="1_iipq2"]
+[ext_resource type="PackedScene" uid="uid://2154lmcl0fry" path="res://scenes/level/world/rooms/miner/middles/miner_room_2.tscn" id="1_iipq2"]
 [ext_resource type="Script" uid="uid://sp0ivn7va6cy" path="res://configs/rooms/room_config.gd" id="2_cwlpe"]
 
 [resource]

@@ -1,5 +1,5 @@
 extends TileMapLayer
-class_name CollectablesSpawner
+class_name RandomCollectableSpawner
 """
 Spawner de collectables
 """

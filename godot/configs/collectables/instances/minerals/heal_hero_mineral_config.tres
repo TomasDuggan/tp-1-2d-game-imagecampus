@@ -9,7 +9,7 @@
 script = ExtResource("2_77y6c")
 heal_destroyer_hero = true
 heal_ally_hero = true
-heal_amount = 25
+heal_amount = 30
 metadata/_custom_type_script = "uid://d3twf65jishop"
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_k0lno"]

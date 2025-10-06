@@ -7,7 +7,7 @@
 
 [sub_resource type="Resource" id="Resource_prwx3"]
 script = ExtResource("2_kj565")
-reward_amount = 200
+reward_amount = 300
 metadata/_custom_type_script = "uid://ct5ujndsfuqfc"
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_k0lno"]
@@ -27,6 +27,6 @@ sprite_frames = SubResource("SpriteFrames_k0lno")
 hp = 75
 scale_override = Vector2(0.7, 0.7)
 destroyed_velocity_boost_duration = 0.5
-appearance_weight = 0.05
+appearance_weight = 0.01
 behaviour_configs = Array[ExtResource("1_kj565")]([SubResource("Resource_prwx3")])
 metadata/_custom_type_script = "uid://bkw6yobd6k4ta"

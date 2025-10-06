@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="HeroConfig" load_steps=2 format=3 uid="uid://diqa16ei8uke5"]
+[gd_resource type="Resource" script_class="HeroConfig" load_steps=3 format=3 uid="uid://diqa16ei8uke5"]
 
+[ext_resource type="AudioStream" uid="uid://bxxdqgdbiopge" path="res://art/sound/sfx/hero_hit_sfx.wav" id="1_4l23g"]
 [ext_resource type="Script" uid="uid://b838myufwwsag" path="res://configs/hero/hero_config.gd" id="1_kso87"]
 
 [resource]
@@ -9,4 +10,5 @@ damage = 25
 crit_chance = 0.1
 attack_speed = 1.0
 horizontal_movement_speed = 75.0
+hit_sfx = ExtResource("1_4l23g")
 metadata/_custom_type_script = "uid://b838myufwwsag"

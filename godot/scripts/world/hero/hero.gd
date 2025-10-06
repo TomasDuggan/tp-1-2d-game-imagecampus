@@ -46,7 +46,7 @@ func _initialize_hitbox(world_type: World.WorldType) -> void:
 func _initialize_hurtbox(world_type: World.WorldType) -> void:
 	var hp_amount: int = _config.hp + int(_config.hp * UpgradesManager.get_modifier_value(world_type, UpgradesManager.UpgradeId.HP))
 	
-	hp.initialize(self, hp_amount, Hurtbox.DamageFaction.HERO, true, _config.get_hit_sfx())
+	hp.initialize(self, hp_amount, Hurtbox.DamageFaction.HERO, true, _config.hit_sfx)
 	hp.destroyed.connect(_on_hero_died)
 	hp.hit.connect(func(): _animation_player.play("hit"))
 	hp.healed.connect(func(): _animation_player.play("heal"))
