@@ -15,12 +15,13 @@ var _can_spawn_interactables: bool
 var _spawn_interactable_room_requests: Array[int] = [] # FIFO, amount of interactables to spawn
 
 const CHANCE_TO_SPAWN_INTERACTABLE_ROOM := 0.5
+const AMOUNT_OF_ROOMS_PER_CURRENT_LEVEL_MULTIPLIER := 5
 
 
 func initialize(world_type: World.WorldType) -> void:
 	_room_configs = RoomSpawnerConfigHelper.get_valid_room_configs(world_type)
 	_can_spawn_interactables = World.is_miner_world(world_type)
-	_amount_of_rooms_to_spawn = GameInfo.get_current_level() + 1 #* 5 # TODO
+	_amount_of_rooms_to_spawn = (GameInfo.get_current_level() + 1) * AMOUNT_OF_ROOMS_PER_CURRENT_LEVEL_MULTIPLIER
 
 func spawn_interactable_room(amount_of_interactables: int) -> void:
 	_spawn_interactable_room_requests.append(amount_of_interactables)
@@ -79,7 +80,7 @@ func _pick_weighted_room(interactable_request: int) -> RoomConfig:
 		total_weight += room.get_appearance_weight()
 	
 	var rand: float = randf() * total_weight # rango total [0, total_weight)
-	var cumulative: float = 0.0 # Rango que abarca en la linea 'rand', se desplaza en cada iteracion
+	var cumulative: float = 0.0 # Subrango que abarca en el rango total 'rand', se desplaza en cada iteracion
 	
 	for room_config: RoomConfig in rooms_to_evaluate:
 		cumulative += room_config.get_appearance_weight()
@@ -88,8 +89,16 @@ func _pick_weighted_room(interactable_request: int) -> RoomConfig:
 				interactable_room_spawned.emit(room_config.amount_of_interactables)
 			return room_config
 	
-	# fallback
+	# Fallback
 	return rooms_to_evaluate.back()
 
 func _filter_interactables(force_interactable: bool) -> Array[RoomConfig]:
 	return _room_configs.filter(func(r: RoomConfig): return r.has_interactables() == force_interactable)
+
+
+
+
+
+
+
+#

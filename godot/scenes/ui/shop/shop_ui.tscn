@@ -40,10 +40,10 @@ grow_vertical = 2
 theme = ExtResource("8_tuamk")
 script = ExtResource("1_rc5g1")
 _music = ExtResource("2_rr3h0")
-_miner_score = NodePath("MarginContainer/Content/TopRow/MinerScore")
-_warrior_score = NodePath("MarginContainer/Content/TopRow/WarriorScore")
-_upgrades_container = NodePath("MarginContainer/Content/UpgradesContainer")
-_bestiary_container = NodePath("MarginContainer/Content/BestiaryContainer")
+_miner_score = NodePath("ContentMargin/Content/TopRow/MinerScore")
+_warrior_score = NodePath("ContentMargin/Content/TopRow/WarriorScore")
+_upgrades_container = NodePath("ContentMargin/Content/UpgradesContainer")
+_bestiary_container = NodePath("ContentMargin/Content/BestiaryContainer")
 
 [node name="Background" type="NinePatchRect" parent="."]
 layout_mode = 1
@@ -58,7 +58,7 @@ patch_margin_top = 12
 patch_margin_right = 9
 patch_margin_bottom = 11
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="ContentMargin" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -70,164 +70,164 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 20
 
-[node name="Content" type="VBoxContainer" parent="MarginContainer"]
+[node name="Content" type="VBoxContainer" parent="ContentMargin"]
 layout_mode = 2
 
-[node name="TopRow" type="HBoxContainer" parent="MarginContainer/Content"]
+[node name="TopRow" type="HBoxContainer" parent="ContentMargin/Content"]
 layout_mode = 2
 
-[node name="MinerScore" parent="MarginContainer/Content/TopRow" instance=ExtResource("7_3qv50")]
+[node name="MinerScore" parent="ContentMargin/Content/TopRow" instance=ExtResource("7_3qv50")]
 layout_mode = 2
 
-[node name="WarriorScore" parent="MarginContainer/Content/TopRow" instance=ExtResource("7_3qv50")]
+[node name="WarriorScore" parent="ContentMargin/Content/TopRow" instance=ExtResource("7_3qv50")]
 layout_mode = 2
 
-[node name="ShowBuyableUpgrades" type="Button" parent="MarginContainer/Content/TopRow"]
+[node name="ShowBuyableUpgrades" type="Button" parent="ContentMargin/Content/TopRow"]
 layout_mode = 2
 text = "Buy Upgrades"
 script = ExtResource("6_nxg8l")
 
-[node name="ShowOwnedUpgrades" type="Button" parent="MarginContainer/Content/TopRow"]
+[node name="ShowOwnedUpgrades" type="Button" parent="ContentMargin/Content/TopRow"]
 layout_mode = 2
 text = "Owned Upgrades"
 script = ExtResource("6_nxg8l")
 
-[node name="ShowBestiary" type="Button" parent="MarginContainer/Content/TopRow"]
+[node name="ShowBestiary" type="Button" parent="ContentMargin/Content/TopRow"]
 layout_mode = 2
 text = "Bestiary"
 script = ExtResource("6_nxg8l")
 
-[node name="OptionsButton" type="Button" parent="MarginContainer/Content/TopRow"]
+[node name="OptionsButton" type="Button" parent="ContentMargin/Content/TopRow"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 10
 text = "Options Menu"
 script = ExtResource("6_nxg8l")
 
-[node name="ExitShopButton" type="Button" parent="MarginContainer/Content/TopRow"]
+[node name="ExitShopButton" type="Button" parent="ContentMargin/Content/TopRow"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 10
 text = "Exit Shop"
 script = ExtResource("6_nxg8l")
 
-[node name="UpgradesContainer" type="HBoxContainer" parent="MarginContainer/Content"]
+[node name="UpgradesContainer" type="HBoxContainer" parent="ContentMargin/Content"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="MinerCategory" type="VBoxContainer" parent="MarginContainer/Content/UpgradesContainer"]
+[node name="MinerCategory" type="VBoxContainer" parent="ContentMargin/Content/UpgradesContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="CategoryName" type="Label" parent="MarginContainer/Content/UpgradesContainer/MinerCategory"]
+[node name="CategoryName" type="Label" parent="ContentMargin/Content/UpgradesContainer/MinerCategory"]
 layout_mode = 2
 text = "Miner"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/Content/UpgradesContainer/MinerCategory"]
+[node name="ScrollContainer" type="ScrollContainer" parent="ContentMargin/Content/UpgradesContainer/MinerCategory"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="UpgradesLister" type="VBoxContainer" parent="MarginContainer/Content/UpgradesContainer/MinerCategory/ScrollContainer"]
+[node name="UpgradesLister" type="VBoxContainer" parent="ContentMargin/Content/UpgradesContainer/MinerCategory/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("3_vgm16")
 _all_upgrades = Array[ExtResource("2_rc5g1")]([ExtResource("3_63ers"), ExtResource("3_3qv50"), ExtResource("11_6xv11")])
 
-[node name="GlobalsCategory" type="VBoxContainer" parent="MarginContainer/Content/UpgradesContainer"]
+[node name="GlobalsCategory" type="VBoxContainer" parent="ContentMargin/Content/UpgradesContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="CategoryName" type="Label" parent="MarginContainer/Content/UpgradesContainer/GlobalsCategory"]
+[node name="CategoryName" type="Label" parent="ContentMargin/Content/UpgradesContainer/GlobalsCategory"]
 layout_mode = 2
 text = "Globals (affects both)"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/Content/UpgradesContainer/GlobalsCategory"]
+[node name="ScrollContainer" type="ScrollContainer" parent="ContentMargin/Content/UpgradesContainer/GlobalsCategory"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="UpgradesLister" type="VBoxContainer" parent="MarginContainer/Content/UpgradesContainer/GlobalsCategory/ScrollContainer"]
+[node name="UpgradesLister" type="VBoxContainer" parent="ContentMargin/Content/UpgradesContainer/GlobalsCategory/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("3_vgm16")
 _all_upgrades = Array[ExtResource("2_rc5g1")]([ExtResource("5_o4tqb"), ExtResource("13_nve4w"), ExtResource("14_ftjlm")])
 
-[node name="WarriorCategory" type="VBoxContainer" parent="MarginContainer/Content/UpgradesContainer"]
+[node name="WarriorCategory" type="VBoxContainer" parent="ContentMargin/Content/UpgradesContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="CategoryName" type="Label" parent="MarginContainer/Content/UpgradesContainer/WarriorCategory"]
+[node name="CategoryName" type="Label" parent="ContentMargin/Content/UpgradesContainer/WarriorCategory"]
 layout_mode = 2
 text = "Warrior"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/Content/UpgradesContainer/WarriorCategory"]
+[node name="ScrollContainer" type="ScrollContainer" parent="ContentMargin/Content/UpgradesContainer/WarriorCategory"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="UpgradesLister" type="VBoxContainer" parent="MarginContainer/Content/UpgradesContainer/WarriorCategory/ScrollContainer"]
+[node name="UpgradesLister" type="VBoxContainer" parent="ContentMargin/Content/UpgradesContainer/WarriorCategory/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("3_vgm16")
 _all_upgrades = Array[ExtResource("2_rc5g1")]([ExtResource("4_vgm16"), ExtResource("15_6xv11"), ExtResource("17_v76nk")])
 
-[node name="BestiaryContainer" type="HBoxContainer" parent="MarginContainer/Content"]
+[node name="BestiaryContainer" type="HBoxContainer" parent="ContentMargin/Content"]
 visible = false
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 10
 
-[node name="MinerCategory" type="VBoxContainer" parent="MarginContainer/Content/BestiaryContainer"]
+[node name="MinerCategory" type="VBoxContainer" parent="ContentMargin/Content/BestiaryContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="CategoryName" type="Label" parent="MarginContainer/Content/BestiaryContainer/MinerCategory"]
+[node name="CategoryName" type="Label" parent="ContentMargin/Content/BestiaryContainer/MinerCategory"]
 layout_mode = 2
 text = "Miner"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/Content/BestiaryContainer/MinerCategory"]
+[node name="ScrollContainer" type="ScrollContainer" parent="ContentMargin/Content/BestiaryContainer/MinerCategory"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="MineralsContainer" type="VBoxContainer" parent="MarginContainer/Content/BestiaryContainer/MinerCategory/ScrollContainer"]
+[node name="MineralsContainer" type="VBoxContainer" parent="ContentMargin/Content/BestiaryContainer/MinerCategory/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("12_37d3d")
 _item_configs = Array[ExtResource("13_ea7pq")]([ExtResource("13_dyc1o"), ExtResource("19_8w2r5"), ExtResource("20_ajfog"), ExtResource("21_7dyof"), ExtResource("22_du6eb")])
 
-[node name="WarriorCategory" type="VBoxContainer" parent="MarginContainer/Content/BestiaryContainer"]
+[node name="WarriorCategory" type="VBoxContainer" parent="ContentMargin/Content/BestiaryContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="CategoryName" type="Label" parent="MarginContainer/Content/BestiaryContainer/WarriorCategory"]
+[node name="CategoryName" type="Label" parent="ContentMargin/Content/BestiaryContainer/WarriorCategory"]
 layout_mode = 2
 text = "Warrior"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/Content/BestiaryContainer/WarriorCategory"]
+[node name="ScrollContainer" type="ScrollContainer" parent="ContentMargin/Content/BestiaryContainer/WarriorCategory"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="EnemiesContainer" type="VBoxContainer" parent="MarginContainer/Content/BestiaryContainer/WarriorCategory/ScrollContainer"]
+[node name="EnemiesContainer" type="VBoxContainer" parent="ContentMargin/Content/BestiaryContainer/WarriorCategory/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("12_37d3d")
 _item_configs = Array[ExtResource("13_ea7pq")]([ExtResource("21_ku36f"), ExtResource("14_ea7pq"), ExtResource("20_6dts4"), ExtResource("25_fsp1k"), ExtResource("26_77wqo")])
 
-[connection signal="pressed" from="MarginContainer/Content/TopRow/ShowBuyableUpgrades" to="." method="_on_show_buyable_upgrades_pressed"]
-[connection signal="pressed" from="MarginContainer/Content/TopRow/ShowOwnedUpgrades" to="." method="_on_show_owned_upgrades_pressed"]
-[connection signal="pressed" from="MarginContainer/Content/TopRow/ShowBestiary" to="." method="_on_show_bestiary_pressed"]
-[connection signal="pressed" from="MarginContainer/Content/TopRow/OptionsButton" to="." method="_on_settings_button_pressed"]
-[connection signal="pressed" from="MarginContainer/Content/TopRow/ExitShopButton" to="." method="_on_exit_shop_button_pressed"]
+[connection signal="pressed" from="ContentMargin/Content/TopRow/ShowBuyableUpgrades" to="." method="_on_show_buyable_upgrades_pressed"]
+[connection signal="pressed" from="ContentMargin/Content/TopRow/ShowOwnedUpgrades" to="." method="_on_show_owned_upgrades_pressed"]
+[connection signal="pressed" from="ContentMargin/Content/TopRow/ShowBestiary" to="." method="_on_show_bestiary_pressed"]
+[connection signal="pressed" from="ContentMargin/Content/TopRow/OptionsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="ContentMargin/Content/TopRow/ExitShopButton" to="." method="_on_exit_shop_button_pressed"]

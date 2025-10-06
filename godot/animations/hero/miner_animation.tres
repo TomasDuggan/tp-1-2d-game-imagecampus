@@ -1,6 +1,22 @@
-[gd_resource type="SpriteFrames" load_steps=14 format=3 uid="uid://8dvyppn706ka"]
+[gd_resource type="SpriteFrames" load_steps=18 format=3 uid="uid://8dvyppn706ka"]
 
 [ext_resource type="Texture2D" uid="uid://bsa1v23rfda2a" path="res://art/characters/heroes/miner/YellowMiner.png" id="1_dyau8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gu534"]
+atlas = ExtResource("1_dyau8")
+region = Rect2(0, 288, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_61wfa"]
+atlas = ExtResource("1_dyau8")
+region = Rect2(48, 288, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rwhw6"]
+atlas = ExtResource("1_dyau8")
+region = Rect2(96, 288, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hpyyf"]
+atlas = ExtResource("1_dyau8")
+region = Rect2(144, 288, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2h1oc"]
 atlas = ExtResource("1_dyau8")
@@ -52,6 +68,23 @@ region = Rect2(144, 48, 48, 48)
 
 [resource]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gu534")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_61wfa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rwhw6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hpyyf")
+}],
+"loop": false,
+"name": &"attack_right",
+"speed": 12.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2h1oc")

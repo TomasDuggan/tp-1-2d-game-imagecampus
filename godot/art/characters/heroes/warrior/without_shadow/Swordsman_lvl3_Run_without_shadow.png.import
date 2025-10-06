@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://di4wdryhqavrl"
-path="res://.godot/imported/Swordsman_lvl3_Run_Attack_with_shadow.png-7612f0d4da69233e0f91c876a6d5f300.ctex"
+uid="uid://byjtpdesbb2rk"
+path="res://.godot/imported/Swordsman_lvl3_Run_without_shadow.png-efeb53e0964af587c4d89ce91f7d9419.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/characters/heroes/warrior/Swordsman_lvl3_Run_Attack_with_shadow.png"
-dest_files=["res://.godot/imported/Swordsman_lvl3_Run_Attack_with_shadow.png-7612f0d4da69233e0f91c876a6d5f300.ctex"]
+source_file="res://art/characters/heroes/warrior/without_shadow/Swordsman_lvl3_Run_without_shadow.png"
+dest_files=["res://.godot/imported/Swordsman_lvl3_Run_without_shadow.png-efeb53e0964af587c4d89ce91f7d9419.ctex"]
 
 [params]
 

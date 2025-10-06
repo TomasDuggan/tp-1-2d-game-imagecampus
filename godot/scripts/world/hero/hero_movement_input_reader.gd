@@ -1,7 +1,7 @@
 extends Node
-class_name HeroHorizontalMovementInputReader
+class_name HeroMovementInputReader
 """
-Resuelve el movimiento horizontal del heroe
+Resuelve la lectura del input de movimiento horizontal del heroe
 """
 
 
@@ -32,7 +32,7 @@ func _on_synergy_ended() -> void:
 func _remove_synergy_suffix(action: String) -> String:
 	return action.substr(0, action.length() - SYNERGY_ACTION_SUFFIX.length())
 
-func get_horizontal_input_direction() -> int:
+func get_raw_horizontal_input_direction() -> int:
 	return int(Input.get_action_raw_strength(_right_action) - Input.get_action_raw_strength(_left_action))
 
 func _exit_tree():

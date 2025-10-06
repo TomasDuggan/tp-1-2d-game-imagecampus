@@ -13,13 +13,14 @@ Script root para las escenas Hero (Minero o Guerrero)
 const ATTACK_SPEED_UPGRADE_CONFIG: UpgradeConfig = preload("uid://cof8rwntte32m")
 
 var _config: HeroConfig
-var _horizontal_direction: int # 1 o -1
-var _horizontal_movement_input_reader := HeroHorizontalMovementInputReader.new()
+var _raw_horizontal_direction: int # 1 o -1
+var _movement_input_reader := HeroMovementInputReader.new()
 var _horizontal_movement_speed: float
 var _vertical_speed := 0.0
 var _vertical_speed_boost_handler := VerticalSpeedBoostHandler.new()
 var _is_selected: bool
 var _selected_attack_speed_upgrade := 0.2 # 20% base
+var _hitbox_start_position: Vector2
 var ally: Hero
 
 
@@ -37,13 +38,14 @@ func _initialize_hitbox(world_type: World.WorldType) -> void:
 	var upgraded_damage: int = _config.damage + ceil(_config.damage * UpgradesManager.get_modifier_value(world_type, UpgradesManager.UpgradeId.DAMAGE))
 	var upgraded_crit_chance: float = min(_config.crit_chance + UpgradesManager.get_modifier_value(world_type, UpgradesManager.UpgradeId.CRIT_CHANCE), 1.0)
 	
-	print_debug(upgraded_crit_chance)
 	hit.initialize(self, upgraded_damage, _config.attack_speed, true, Hurtbox.DamageFaction.HERO, DamageInfo.DamageType.PHYSICAL, upgraded_crit_chance)
 	hit.attack_performed.connect(_animation.play_attack_animation)
 	hit.target_destroyed.connect(_vertical_speed_boost_handler.on_target_destroyed)
+	_hitbox_start_position = hit.position
 
 func _initialize_hurtbox(world_type: World.WorldType) -> void:
 	var hp_amount: int = _config.hp + int(_config.hp * UpgradesManager.get_modifier_value(world_type, UpgradesManager.UpgradeId.HP))
+	
 	hp.initialize(self, hp_amount, Hurtbox.DamageFaction.HERO, true, _config.get_hit_sfx())
 	hp.destroyed.connect(_on_hero_died)
 	hp.hit.connect(func(): _animation_player.play("hit"))
@@ -51,12 +53,13 @@ func _initialize_hurtbox(world_type: World.WorldType) -> void:
 
 func _initialize_horizontal_movement_speed(world_type: World.WorldType) -> void:
 	var speed: float = _config.horizontal_movement_speed
+	
 	speed += speed * UpgradesManager.get_modifier_value(world_type, UpgradesManager.UpgradeId.HORIZONTAL_MOVEMENT_SPEED)
 	_horizontal_movement_speed = speed
 
 func _initialize_input_reader(world_type: World.WorldType) -> void:
-	add_child(_horizontal_movement_input_reader)
-	_horizontal_movement_input_reader.initialize(World.is_warrior_world(world_type))
+	add_child(_movement_input_reader)
+	_movement_input_reader.initialize(World.is_warrior_world(world_type))
 
 func _ready():
 	_selected_attack_speed_upgrade += _selected_attack_speed_upgrade * UpgradesManager.get_modifier_value(
@@ -68,14 +71,25 @@ func _ready():
 	add_child(_vertical_speed_boost_handler)
 
 func _process(_delta):
-	_horizontal_direction = _horizontal_movement_input_reader.get_horizontal_input_direction()
+	_raw_horizontal_direction = _movement_input_reader.get_raw_horizontal_input_direction()
+	_animation.set_direction(_raw_horizontal_direction)
+	_update_hitbox_position()
+
+func _update_hitbox_position() -> void:
+	match _raw_horizontal_direction:
+		1:
+			hit.position = Vector2(-_hitbox_start_position.y, 0)
+		-1:
+			hit.position = Vector2(_hitbox_start_position.y, 0)
+		_:
+			hit.position = _hitbox_start_position
 
 func _physics_process(delta: float) -> void:
 	_move(delta)
 
 # El movimiento lateral es siempre absoluto, el vertical se traba contra obstaculos.
 func _move(delta: float) -> void:
-	velocity.x = _horizontal_direction * _horizontal_movement_speed
+	velocity.x = _raw_horizontal_direction * _horizontal_movement_speed
 	velocity.y = _vertical_speed
 
 	var collision: KinematicCollision2D = move_and_collide(velocity * delta)
@@ -99,11 +113,16 @@ func _update_selection(is_selected_arg: bool) -> void:
 	set_process(_is_selected)
 	_animation.toggle_selected(_is_selected)
 	
-	if !_is_selected:
-		hit.reset_attack_speed()
-		_horizontal_direction = 0
-	else:
+	if _is_selected:
 		hit.upgrade_attack_speed(_selected_attack_speed_upgrade)
+	else:
+		_reset_hero()
+
+func _reset_hero() -> void:
+	hit.position = _hitbox_start_position
+	hit.reset_attack_speed()
+	_raw_horizontal_direction = 0
+	_animation.set_direction(_raw_horizontal_direction)
 
 func _on_hero_died(_attacker, _defender) -> void:
 	HeroEventBus.raise_event_hero_lost_world(self)

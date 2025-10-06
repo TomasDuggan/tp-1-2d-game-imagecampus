@@ -24,3 +24,9 @@ func create_item(upgrade_config: UpgradeConfig, basic_config: BasicItemConfig, v
 	
 	item_instance.initialize(upgrade_config, basic_config, view_mode)
 	add_child(item_instance)
+
+
+
+
+
+#

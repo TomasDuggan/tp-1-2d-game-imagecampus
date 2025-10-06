@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://da677wux2l1gr"
-path="res://.godot/imported/Swordsman_lvl3_Death_with_shadow.png-a38834dffa86733444820d8b932e42ea.ctex"
+uid="uid://b3fm37hy8iaun"
+path="res://.godot/imported/Swordsman_lvl3_attack_without_shadow.png-8f490d30baecbef9cfe7c218a51568c8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/characters/heroes/warrior/Swordsman_lvl3_Death_with_shadow.png"
-dest_files=["res://.godot/imported/Swordsman_lvl3_Death_with_shadow.png-a38834dffa86733444820d8b932e42ea.ctex"]
+source_file="res://art/characters/heroes/warrior/without_shadow/Swordsman_lvl3_attack_without_shadow.png"
+dest_files=["res://.godot/imported/Swordsman_lvl3_attack_without_shadow.png-8f490d30baecbef9cfe7c218a51568c8.ctex"]
 
 [params]
 
