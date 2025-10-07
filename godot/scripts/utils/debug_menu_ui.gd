@@ -1,5 +1,5 @@
 extends Control
-class_name CheatMenu
+class_name DebugMenuUI
 """
 God mode para debugging
 """

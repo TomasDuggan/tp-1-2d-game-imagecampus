@@ -46,7 +46,7 @@ func _get_special_case_room() -> RoomConfig:
 		_rooms_spawned += 1
 		return _pick_start_room()
 	
-	if _rooms_spawned == _amount_of_rooms_to_spawn:
+	if _rooms_spawned >= _amount_of_rooms_to_spawn:
 		end_room_spawned.emit()
 		return _pick_end_room()
 	
@@ -67,20 +67,7 @@ func _pick_start_room() -> RoomConfig:
 	return _room_configs.filter(func(room: RoomConfig): return room.is_start_room).pick_random()
 
 func _pick_weighted_room(interactable_request: int) -> RoomConfig:
-	var rooms_to_evaluate: Array[RoomConfig]
-	
-	if interactable_request == 0: # Sin interactalbes
-		rooms_to_evaluate = _room_configs.filter(func(r: RoomConfig): return !r.has_interactables())
-	elif interactable_request == -1: # Cantidad aleatoria de interactuables
-		rooms_to_evaluate = _room_configs.filter(func(r: RoomConfig): return r.has_interactables())
-	else: # Cantidad fija de interactuables
-		rooms_to_evaluate = _room_configs.filter(func(r: RoomConfig): return r.amount_of_interactables == interactable_request)
-	
-	# Puede que sea un Level sin interactuables, hago fallback a rooms "normales" sin interactuables.
-	if rooms_to_evaluate.is_empty():
-		rooms_to_evaluate = _filter_interactables(false)
-	
-	rooms_to_evaluate = rooms_to_evaluate.filter(func(r: RoomConfig): return r != _last_room_picked)
+	var rooms_to_evaluate: Array[RoomConfig] = _get_valid_rooms(interactable_request)
 	
 	var total_weight: float = 0.0
 	for room: RoomConfig in rooms_to_evaluate:
@@ -100,6 +87,23 @@ func _pick_weighted_room(interactable_request: int) -> RoomConfig:
 	# Fallback
 	_last_room_picked = rooms_to_evaluate.back()
 	return _last_room_picked
+
+func _get_valid_rooms(interactable_request: int) -> Array[RoomConfig]:
+	var rooms: Array[RoomConfig]
+	
+	if interactable_request == 0: # Sin interactalbes
+		rooms = _room_configs.filter(func(r: RoomConfig): return !r.has_interactables())
+	elif interactable_request == -1: # Cantidad aleatoria de interactuables
+		rooms = _room_configs.filter(func(r: RoomConfig): return r.has_interactables())
+	else: # Cantidad fija de interactuables
+		rooms = _room_configs.filter(func(r: RoomConfig): return r.amount_of_interactables == interactable_request)
+	
+	# Puede que sea un Level sin interactuables, hago fallback a rooms "normales" sin interactuables.
+	if rooms.is_empty():
+		rooms = _filter_interactables(false)
+	
+	# Para no repetir Rooms pegados
+	return rooms.filter(func(r: RoomConfig): return r != _last_room_picked)
 
 func _filter_interactables(force_interactable: bool) -> Array[RoomConfig]:
 	return _room_configs.filter(func(r: RoomConfig): return r.has_interactables() == force_interactable)

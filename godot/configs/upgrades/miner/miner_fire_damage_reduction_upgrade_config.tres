@@ -17,5 +17,5 @@ id = 5
 stat_modifier_value = 0.25
 max_level = 2
 basic_config = SubResource("Resource_5le83")
-price = 200
+price = 175
 metadata/_custom_type_script = "uid://bhmckujririhf"

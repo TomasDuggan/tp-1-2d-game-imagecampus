@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="RoomConfig" load_steps=3 format=3 uid="uid://dl11q2xe82np0"]
+
+[ext_resource type="PackedScene" uid="uid://cafdvou8hou3w" path="res://scenes/level/world/rooms/miner/middles/miner_room_10.tscn" id="1_j3ft6"]
+[ext_resource type="Script" uid="uid://sp0ivn7va6cy" path="res://configs/rooms/room_config.gd" id="2_0f5a8"]
+
+[resource]
+script = ExtResource("2_0f5a8")
+scene = ExtResource("1_j3ft6")
+min_level_to_show = 1
+metadata/_custom_type_script = "uid://sp0ivn7va6cy"

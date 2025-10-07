@@ -30,7 +30,7 @@
 [ext_resource type="Resource" uid="uid://we5rqgtem7td" path="res://configs/bestiary/enemies/plant_purple_item_config.tres" id="25_fsp1k"]
 [ext_resource type="Resource" uid="uid://d4clgvsffoejc" path="res://configs/bestiary/enemies/vampire_lord_item_config.tres" id="26_77wqo"]
 [ext_resource type="Texture2D" uid="uid://b2ro32smbm8p3" path="res://art/ui/tiles/tile_0001.png" id="30_jmynu"]
-[ext_resource type="Script" uid="uid://bj1tyad8sjf4t" path="res://scripts/utils/cheat_menu.gd" id="30_r7txp"]
+[ext_resource type="Script" uid="uid://bj1tyad8sjf4t" path="res://scripts/utils/debug_menu_ui.gd" id="30_r7txp"]
 
 [node name="ShopUI" type="Control" node_paths=PackedStringArray("_miner_score", "_warrior_score", "_upgrades_container", "_bestiary_container")]
 layout_mode = 3
@@ -228,7 +228,7 @@ size_flags_vertical = 3
 script = ExtResource("12_37d3d")
 _item_configs = Array[ExtResource("13_ea7pq")]([ExtResource("21_ku36f"), ExtResource("14_ea7pq"), ExtResource("20_6dts4"), ExtResource("25_fsp1k"), ExtResource("26_77wqo")])
 
-[node name="CheatMenu" type="Control" parent="."]
+[node name="DebugMenu" type="Control" parent="."]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -239,12 +239,12 @@ anchor_bottom = 0.5
 offset_left = -175.0
 offset_top = -100.0
 offset_right = 175.0
-offset_bottom = 100.0
+offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("30_r7txp")
 
-[node name="Background" type="NinePatchRect" parent="CheatMenu"]
+[node name="Background" type="NinePatchRect" parent="DebugMenu"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -257,7 +257,7 @@ patch_margin_top = 9
 patch_margin_right = 10
 patch_margin_bottom = 10
 
-[node name="MarginContainer" type="MarginContainer" parent="CheatMenu"]
+[node name="MarginContainer" type="MarginContainer" parent="DebugMenu"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -269,31 +269,41 @@ theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 15
 
-[node name="Content" type="VBoxContainer" parent="CheatMenu/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="DebugMenu/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="DebugMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+text = "Debug Menu"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Content" type="VBoxContainer" parent="DebugMenu/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 4
+size_flags_vertical = 8
 
-[node name="LevelSelector" type="HBoxContainer" parent="CheatMenu/MarginContainer/Content"]
+[node name="LevelSelector" type="HBoxContainer" parent="DebugMenu/MarginContainer/VBoxContainer/Content"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CheatMenu/MarginContainer/Content/LevelSelector"]
+[node name="Label" type="Label" parent="DebugMenu/MarginContainer/VBoxContainer/Content/LevelSelector"]
 layout_mode = 2
 text = "Go to Level Index:"
 
-[node name="SelectLevelInput" type="LineEdit" parent="CheatMenu/MarginContainer/Content/LevelSelector"]
+[node name="SelectLevelInput" type="LineEdit" parent="DebugMenu/MarginContainer/VBoxContainer/Content/LevelSelector"]
 layout_mode = 2
 placeholder_text = "0 - 4"
 alignment = 1
 
-[node name="MoneyPrinter" type="HBoxContainer" parent="CheatMenu/MarginContainer/Content"]
+[node name="MoneyPrinter" type="HBoxContainer" parent="DebugMenu/MarginContainer/VBoxContainer/Content"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CheatMenu/MarginContainer/Content/MoneyPrinter"]
+[node name="Label" type="Label" parent="DebugMenu/MarginContainer/VBoxContainer/Content/MoneyPrinter"]
 layout_mode = 2
 text = "Print money:"
 
-[node name="GetMoneyButton" type="Button" parent="CheatMenu/MarginContainer/Content/MoneyPrinter"]
+[node name="GetMoneyButton" type="Button" parent="DebugMenu/MarginContainer/VBoxContainer/Content/MoneyPrinter"]
 layout_mode = 2
 size_flags_horizontal = 0
 text = "$10000"
@@ -303,5 +313,5 @@ text = "$10000"
 [connection signal="pressed" from="ContentMargin/Content/TopRow/ShowBestiary" to="." method="_on_show_bestiary_pressed"]
 [connection signal="pressed" from="ContentMargin/Content/TopRow/OptionsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="ContentMargin/Content/TopRow/ExitShopButton" to="." method="_on_exit_shop_button_pressed"]
-[connection signal="text_submitted" from="CheatMenu/MarginContainer/Content/LevelSelector/SelectLevelInput" to="CheatMenu" method="_on_select_level_input_text_submitted"]
-[connection signal="pressed" from="CheatMenu/MarginContainer/Content/MoneyPrinter/GetMoneyButton" to="CheatMenu" method="_on_get_money_button_pressed"]
+[connection signal="text_submitted" from="DebugMenu/MarginContainer/VBoxContainer/Content/LevelSelector/SelectLevelInput" to="DebugMenu" method="_on_select_level_input_text_submitted"]
+[connection signal="pressed" from="DebugMenu/MarginContainer/VBoxContainer/Content/MoneyPrinter/GetMoneyButton" to="DebugMenu" method="_on_get_money_button_pressed"]

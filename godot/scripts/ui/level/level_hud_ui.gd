@@ -5,7 +5,7 @@ class_name LevelHudUI
 @export var _current_level_text: Label
 
 const CURRENT_LEVEL_TEXT := "Level %s %s"
-const MAX_LEVEL_TEXT := "(Final Level)"
+const MAX_LEVEL_TEXT := "(End)"
 
 
 func _ready():
