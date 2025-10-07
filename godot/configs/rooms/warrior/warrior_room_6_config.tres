@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="RoomConfig" load_steps=3 format=3 uid="uid://qxtththqbqkw"]
+
+[ext_resource type="PackedScene" uid="uid://bpawsiodh7550" path="res://scenes/level/world/rooms/warrior/middles/warrior_room_6.tscn" id="1_5ftgw"]
+[ext_resource type="Script" uid="uid://sp0ivn7va6cy" path="res://configs/rooms/room_config.gd" id="2_ki2mk"]
+
+[resource]
+script = ExtResource("2_ki2mk")
+scene = ExtResource("1_5ftgw")
+min_level_to_show = 3
+amount_of_interactables = 5
+metadata/_custom_type_script = "uid://sp0ivn7va6cy"

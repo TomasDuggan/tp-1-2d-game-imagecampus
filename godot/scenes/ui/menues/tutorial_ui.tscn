@@ -113,6 +113,7 @@ theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
 
 [node name="Gameplay" type="Control" parent="Slides/SlidesContainer"]
+visible = false
 layout_mode = 2
 
 [node name="Content" type="VBoxContainer" parent="Slides/SlidesContainer/Gameplay"]
@@ -341,7 +342,7 @@ fit_content = true
 [node name="2" type="RichTextLabel" parent="Slides/SlidesContainer/Shop/Content/Text"]
 layout_mode = 2
 bbcode_enabled = true
-text = "- Upgrades can affect the Miner, the Warrior or Both (Globals)"
+text = "- Upgrades can affect the Miner, the Warrior or Both (Globals)."
 fit_content = true
 
 [node name="Bestiary" type="Control" parent="Slides/SlidesContainer"]
@@ -380,7 +381,6 @@ text = "- Some Collectables have special effects, you can check them out at the 
 fit_content = true
 
 [node name="Synergy" type="Control" parent="Slides/SlidesContainer"]
-visible = false
 layout_mode = 2
 
 [node name="Content" type="VBoxContainer" parent="Slides/SlidesContainer/Synergy"]
@@ -432,6 +432,12 @@ fit_content = true
 layout_mode = 2
 bbcode_enabled = true
 text = "- Also, activating Synergy will grant you a breif Vertical Speed Boost."
+fit_content = true
+
+[node name="4" type="RichTextLabel" parent="Slides/SlidesContainer/Synergy/Content/Text"]
+layout_mode = 2
+bbcode_enabled = true
+text = "- Your Synergy Bar slowly drains over time."
 fit_content = true
 
 [node name="Win Reason" type="Control" parent="Slides/SlidesContainer"]

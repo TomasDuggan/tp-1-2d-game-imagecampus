@@ -14,7 +14,7 @@ var _amount_of_rooms_to_spawn: int
 var _can_spawn_interactables: bool
 var _spawn_interactable_room_requests: Array[int] = [] # FIFO, amount of interactables to spawn
 
-const CHANCE_TO_SPAWN_INTERACTABLE_ROOM := 0.9
+const CHANCE_TO_SPAWN_INTERACTABLE_ROOM := 0.4
 const AMOUNT_OF_ROOMS_PER_CURRENT_LEVEL_MULTIPLIER := 3
 
 
@@ -48,7 +48,7 @@ func _get_special_case_room() -> RoomConfig:
 	return null
 
 func _get_interactables_amount() -> int:
-	if _can_spawn_interactables and randf() < CHANCE_TO_SPAWN_INTERACTABLE_ROOM:
+	if _can_spawn_interactables && randf() < CHANCE_TO_SPAWN_INTERACTABLE_ROOM && _rooms_spawned < _amount_of_rooms_to_spawn:
 		return -1 
 	elif !_spawn_interactable_room_requests.is_empty():
 		return _spawn_interactable_room_requests.pop_front()
@@ -71,7 +71,7 @@ func _pick_weighted_room(interactable_request: int) -> RoomConfig:
 	else: # Cantidad fija de interactuables
 		rooms_to_evaluate = _room_configs.filter(func(r: RoomConfig): return r.amount_of_interactables == interactable_request)
 	
-	# Por seguridad, hago fallback a rooms "normales" sin interactuables
+	# Puede que sea un Level sin interactuables, hago fallback a rooms "normales" sin interactuables.
 	if rooms_to_evaluate.is_empty():
 		rooms_to_evaluate = _filter_interactables(false)
 	

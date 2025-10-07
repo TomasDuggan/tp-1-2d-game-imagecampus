@@ -7,5 +7,5 @@
 script = ExtResource("2_k75nk")
 icon = ExtResource("1_xax7v")
 display_name = "Vampire Pawn"
-description = "A strong monster that deals high damage"
+description = "A strong monster that deals high damage and has a small chance to crit."
 metadata/_custom_type_script = "uid://bmfrhj7p3gkr8"

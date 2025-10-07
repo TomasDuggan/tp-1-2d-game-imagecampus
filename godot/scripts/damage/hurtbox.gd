@@ -13,6 +13,9 @@ signal destroyed(attacker_root: Node2D, defender_root: Node2D)
 enum DamageFaction { HERO, ENEMY }
 
 const FLOATING_LABEL_SCENE: PackedScene = preload("uid://dtaor3dpc268a")
+const CRIT_TEXT := "CRIT!"
+const CRIT_COLOR := Color.CRIMSON
+const CRIT_TEXT_DURATION := 1.0
 
 var _root: Node2D
 var _max_hp: int
@@ -69,7 +72,7 @@ func _create_crit_tween() -> void:
 	add_child(floating_label_instance) # TODO: esto asume que si este Hurtbox muere se queda en escena unos segundos
 	
 	floating_label_instance.global_position = global_position
-	floating_label_instance.show_message("CRIT!", Color.CRIMSON, 1.0)
+	floating_label_instance.show_message(CRIT_TEXT, CRIT_COLOR, CRIT_TEXT_DURATION)
 
 # TODO: si agrego resistencias meter refactor
 func _resolve_damage_reduction_by_resistances(info: DamageInfo) -> int:

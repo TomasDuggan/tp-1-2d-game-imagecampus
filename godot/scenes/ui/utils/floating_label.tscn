@@ -19,5 +19,4 @@ offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_nw5w8")
-theme_override_constants/outline_size = 5
 text = "Message!"

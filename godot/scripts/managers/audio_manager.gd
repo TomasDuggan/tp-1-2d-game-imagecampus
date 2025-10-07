@@ -2,7 +2,7 @@ extends Node
 """
 Global para escucha eventos y corre los sonidos.
 - Para sonidos particulares se usa el bus.
-- Para eventos (ej HeroSwapped) este manager se conecta a los buses
+- Para eventos (ej HeroSwapped) este manager se conecta ellos
 """
 
 var _music_player := AudioStreamPlayer.new()
@@ -11,8 +11,9 @@ var _sfx_pool := Node.new()
 const MUSIC_BUS_NAME := "Music"
 const SFX_BUS_NAME := "SFX"
 const MAX_VOLUME := 1.0
-const START_MUSIC_VOLUME := 0.15
-const START_SFX_VOLUME := 0.5
+const START_MUSIC_VOLUME := 0.1
+const START_SFX_VOLUME := 0.3
+const SYNERGY_SFX_VOLUME := 0.8
 
 const ERROR_SFX: AudioStream = preload("uid://7jtvn36vic81")
 const SWAP_SFX: AudioStream = preload("uid://crq7t0tgo8h78")
@@ -54,7 +55,7 @@ func _on_upgrade_bought(_upg, success: bool) -> void:
 	_on_play_sfx(_get_sfx_or_use_error_sfx(PURCHASE_SFX, success))
 
 func _on_synergy_activated() -> void:
-	_on_play_sfx(SYNERGY_SFX)
+	_on_play_sfx(SYNERGY_SFX, SYNERGY_SFX_VOLUME)
 
 func _on_interactable_pressed(_id) -> void:
 	_on_play_sfx(INTERACTABLE_PRESSED_SFX)
@@ -63,13 +64,13 @@ func _get_sfx_or_use_error_sfx(sfx: AudioStream, success: bool) -> AudioStream:
 	return sfx if success else ERROR_SFX
 
 func _on_play_sfx(stream: AudioStream, volume: float = MAX_VOLUME) -> void:
-	var sfx_player: AudioStreamPlayer = _get_sfx_player()
+	var sfx_player: AudioStreamPlayer = _get_sfx_player_from_pool()
 	
 	sfx_player.stream = stream
 	sfx_player.volume_db = linear_to_db(volume)
 	sfx_player.play()
 
-func _get_sfx_player() -> AudioStreamPlayer:
+func _get_sfx_player_from_pool() -> AudioStreamPlayer:
 	for player: AudioStreamPlayer in _sfx_pool.get_children():
 		if !player.playing:
 			return player

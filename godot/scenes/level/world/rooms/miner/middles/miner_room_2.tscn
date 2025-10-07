@@ -17,24 +17,24 @@ tile_map_data = PackedByteArray("AAAiAP//AgAMAC8AAAAjAP//AgADADEAAAAkAPz/AgADADA
 tile_map_data = PackedByteArray("AAA9AOj/AAAFAAIAAAA9AOv/AAAFAAIAAAA8AOP/AAAFAAIAAAA9APn/AAAFAAIAAAA8APP/AAAFAAIAAAA9AO//AAAFAAIAAAAZAPr/AAAFAAIAAAAYAO3/AAAFAAIAAAAZAPP/AAAFAAIAAAAmANP/AAAFAAIAAAAnANL/AAAFAAIAAAAnANX/AAAFAAIAAAAnAN3/AAAFAAIAAAAoANj/AAAFAAIAAAAqANj/AAAFAAIAAAArANX/AAAFAAIAAAArANb/AAAFAAIAAAAsANn/AAAFAAIAAAAsANr/AAAFAAIAAAAvANT/AAAFAAIAAAAvAN//AAAFAAIAAAA1ANf/AAAFAAIAAAA1ANj/AAAFAAIAAAA1ANv/AAAFAAIAAAA1ANz/AAAFAAIAAAA4AND/AAAFAAIAAAA4ANb/AAAFAAIAAAA5ANP/AAAFAAIAAAA6ANb/AAAFAAIAAAA6AN7/AAAFAAIAAAA7AOD/AAAFAAIAAAA8AN3/AAAFAAIAAAA8AN//AAAFAAIAAAA9ANT/AAAFAAIAAAA9ANf/AAAFAAIAAAA9ANj/AAAFAAIAAAA9AN3/AAAFAAIAAAA9AN7/AAAFAAIAAAA+ANr/AAAFAAIAAAA/AND/AAAFAAIAAABBANv/AAAFAAIAAABCANb/AAAFAAIAAABDANr/AAAFAAIAAABEAN3/AAAFAAIAAABEAN//AAAFAAIAAABFAN7/AAAFAAIAAAAaANv/AAAFAAIAAAAdAND/AAAFAAIAAAAeAND/AAAFAAIAAAAgANL/AAAFAAIAAAAgANb/AAAFAAIAAAAgANj/AAAFAAIAAAAhANP/AAAFAAIAAAA=")
 
 [node name="Trap" parent="TrapsContainer" index="0" instance=ExtResource("2_tojvi")]
-position = Vector2(678, -417.00003)
+position = Vector2(676, -417.00003)
 rotation = 1.5707964
-scale = Vector2(1.5, 1.5)
+scale = Vector2(1.3, 1.3)
 
 [node name="Trap3" parent="TrapsContainer" index="1" instance=ExtResource("2_tojvi")]
-position = Vector2(678, -208.00003)
+position = Vector2(676, -208.00003)
 rotation = 1.5707964
-scale = Vector2(1.5, 1.5)
+scale = Vector2(1.3, 1.3)
 
 [node name="Trap2" parent="TrapsContainer" index="2" instance=ExtResource("2_tojvi")]
-position = Vector2(699, -314.00003)
+position = Vector2(700, -314.00003)
 rotation = -1.5707964
-scale = Vector2(1.5, 1.5)
+scale = Vector2(1.3, 1.3)
 
 [node name="Trap4" parent="TrapsContainer" index="3" instance=ExtResource("2_tojvi")]
-position = Vector2(699, -113.00003)
+position = Vector2(700, -113.00003)
 rotation = -1.5707964
-scale = Vector2(1.5, 1.5)
+scale = Vector2(1.3, 1.3)
 
 [node name="Collectable" parent="FixedCollectablesContainer" index="0" instance=ExtResource("3_uu0hl")]
 position = Vector2(408, -528)

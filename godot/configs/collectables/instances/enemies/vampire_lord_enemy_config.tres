@@ -19,7 +19,7 @@ damage = 35
 attack_speed = 1.5
 metadata/_custom_type_script = "uid://dkyvw463kyoem"
 
-[sub_resource type="Resource" id="Resource_h3xss"]
+[sub_resource type="Resource" id="Resource_y8fss"]
 script = ExtResource("4_y8fss")
 teleport_radius = 75.0
 metadata/_custom_type_script = "uid://dhm5gjf3up8tp"
@@ -28,9 +28,10 @@ metadata/_custom_type_script = "uid://dhm5gjf3up8tp"
 script = ExtResource("4_lim3r")
 world_type = 1
 sprite_frames = ExtResource("5_dv2ef")
-hp = 150
+hp = 250
 scale_override = Vector2(1.5, 1.5)
 destroyed_velocity_boost_duration = 0.5
-appearance_weight = 0.1
-behaviour_configs = Array[ExtResource("1_dv2ef")]([SubResource("Resource_7rlb7"), SubResource("Resource_7r4is"), SubResource("Resource_h3xss")])
+min_level_to_show = 3
+appearance_weight = 0.08
+behaviour_configs = Array[ExtResource("1_dv2ef")]([SubResource("Resource_7rlb7"), SubResource("Resource_7r4is"), SubResource("Resource_y8fss")])
 metadata/_custom_type_script = "uid://bkw6yobd6k4ta"

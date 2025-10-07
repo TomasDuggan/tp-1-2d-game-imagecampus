@@ -13,9 +13,9 @@ metadata/_custom_type_script = "uid://bmfrhj7p3gkr8"
 
 [resource]
 script = ExtResource("3_5le83")
-id = 4
-stat_modifier_value = 0.3
+id = 5
+stat_modifier_value = 0.25
 max_level = 2
 basic_config = SubResource("Resource_5le83")
-price = 100
+price = 200
 metadata/_custom_type_script = "uid://bhmckujririhf"

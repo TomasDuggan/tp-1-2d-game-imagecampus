@@ -68,7 +68,7 @@ size = Vector2(13, 26)
 
 [node name="Trap" instance=ExtResource("1_fso42")]
 _damage_type = 1
-_damage = 10
+_damage = 15
 _duration = 3.0
 _cooldown = 3.0
 _dps = 0.3

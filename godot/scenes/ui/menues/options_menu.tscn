@@ -107,7 +107,7 @@ script = ExtResource("4_qlnqb")
 
 [node name="RetryButton" type="Button" parent="Content/MarginContainer/OptionsContainer/PlayingOptionsContainer"]
 layout_mode = 2
-text = "Retry"
+text = "Retry Level"
 script = ExtResource("4_qlnqb")
 
 [node name="ShopOptionsContainer" type="VBoxContainer" parent="Content/MarginContainer/OptionsContainer"]

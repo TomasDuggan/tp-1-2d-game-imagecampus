@@ -24,9 +24,10 @@ animations = [{
 [resource]
 script = ExtResource("3_prwx3")
 sprite_frames = SubResource("SpriteFrames_k0lno")
-hp = 75
+hp = 100
 scale_override = Vector2(0.7, 0.7)
 destroyed_velocity_boost_duration = 0.5
+min_level_to_show = 3
 appearance_weight = 0.01
 behaviour_configs = Array[ExtResource("1_kj565")]([SubResource("Resource_prwx3")])
 metadata/_custom_type_script = "uid://bkw6yobd6k4ta"

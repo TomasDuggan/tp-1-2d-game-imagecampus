@@ -1,5 +1,9 @@
 extends Area2D
 class_name WinWorldArea
+"""
+Avisa que un heroe gano el mundo
+"""
+
 
 func _ready():
 	body_entered.connect(_on_hero_entered)

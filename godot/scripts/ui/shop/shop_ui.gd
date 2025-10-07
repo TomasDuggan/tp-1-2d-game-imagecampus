@@ -1,7 +1,7 @@
 extends Control
 class_name ShopUI
 """
-Contenedor de view y logica de comprar upgrades
+Contenedor de view y logica de comprar o ver upgrades, listar los collectables, etc.
 """
 
 @export_category("Config")

@@ -32,62 +32,67 @@ patch_margin_top = 11
 patch_margin_right = 8
 patch_margin_bottom = 11
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="HBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -197.5
+offset_top = -152.5
+offset_right = 197.5
+offset_bottom = 152.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 50
-theme_override_constants/margin_right = 50
-theme_override_constants/margin_bottom = 50
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
-[node name="HBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="GameTitle" type="Label" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-alignment = 1
-
-[node name="GameTitle" type="Label" parent="MarginContainer/HBoxContainer"]
-layout_mode = 2
-theme = ExtResource("3_hx66e")
 theme_override_font_sizes/font_size = 80
-text = "Game Title"
+text = "Run Together"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PlayButton" type="Button" parent="MarginContainer/HBoxContainer"]
+[node name="Buttons" type="VBoxContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="PlayButton" type="Button" parent="HBoxContainer/Buttons"]
 layout_mode = 2
 theme = ExtResource("3_hx66e")
 text = "Play"
 script = ExtResource("5_ar7nb")
 
-[node name="TutorialButton" type="Button" parent="MarginContainer/HBoxContainer"]
+[node name="TutorialButton" type="Button" parent="HBoxContainer/Buttons"]
 layout_mode = 2
 theme = ExtResource("3_hx66e")
 text = "Tutorial"
 script = ExtResource("5_ar7nb")
 
-[node name="SettingsButton" type="Button" parent="MarginContainer/HBoxContainer"]
+[node name="SettingsButton" type="Button" parent="HBoxContainer/Buttons"]
 layout_mode = 2
 theme = ExtResource("3_hx66e")
 text = "Settings"
 script = ExtResource("5_ar7nb")
 
-[node name="CreditsButton" type="Button" parent="MarginContainer/HBoxContainer"]
+[node name="CreditsButton" type="Button" parent="HBoxContainer/Buttons"]
 layout_mode = 2
 theme = ExtResource("3_hx66e")
 text = "Credits"
 script = ExtResource("5_ar7nb")
 
-[node name="QuitButton" type="Button" parent="MarginContainer/HBoxContainer"]
+[node name="QuitButton" type="Button" parent="HBoxContainer/Buttons"]
 layout_mode = 2
 theme = ExtResource("3_hx66e")
 text = "Quit"
 script = ExtResource("5_ar7nb")
 
 [node name="CreditsModal" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -228,9 +233,9 @@ grow_horizontal = 0
 text = "X"
 script = ExtResource("5_ar7nb")
 
-[connection signal="pressed" from="MarginContainer/HBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/TutorialButton" to="." method="_on_tutorial_button_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/Buttons/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/Buttons/TutorialButton" to="." method="_on_tutorial_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/Buttons/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/Buttons/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/Buttons/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="CreditsModal/CloseCreditsButton" to="." method="_on_close_credits_button_pressed"]

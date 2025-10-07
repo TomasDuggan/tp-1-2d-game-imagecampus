@@ -13,7 +13,7 @@ func _ready():
 	LevelEventBus.level_lost.connect(_on_level_ended)
 
 func _on_level_ended() -> void:
-	_pressed_interactables_counter.clear() # Singleton con estado...
+	_pressed_interactables_counter.clear() # Global con estado...
 
 func press_interactable(id: int) -> void:
 	_pressed_interactables_counter[id] = _pressed_interactables_counter.get(id, 0) + 1

@@ -7,5 +7,5 @@
 script = ExtResource("2_pfh6a")
 icon = ExtResource("1_k7n5r")
 display_name = "Undead Slime"
-description = "High reward, but it blocks swap for some time when killed"
+description = "Blocks swap for some time when killed"
 metadata/_custom_type_script = "uid://bmfrhj7p3gkr8"

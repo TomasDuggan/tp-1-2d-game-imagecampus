@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=4 uid="uid://ctvfaby2vhjl1"]
+[gd_scene load_steps=5 format=4 uid="uid://ctvfaby2vhjl1"]
 
 [ext_resource type="PackedScene" uid="uid://djim0uu4wpglm" path="res://scenes/level/world/rooms/room_base.tscn" id="1_12glx"]
 [ext_resource type="PackedScene" uid="uid://ctkc2ceeqspqm" path="res://scenes/collectables/collectable.tscn" id="2_12glx"]
+[ext_resource type="PackedScene" uid="uid://btgkhyaii8y2v" path="res://scenes/level/world/trap/fire_trap.tscn" id="2_d2fiw"]
 [ext_resource type="Resource" uid="uid://bifh07oydajma" path="res://configs/collectables/instances/minerals/high_currency_mineral_config.tres" id="3_b36tq"]
 
 [node name="Room" instance=ExtResource("1_12glx")]
@@ -14,6 +15,25 @@ tile_map_data = PackedByteArray("AAAHANP/AgAFADIAAAAHAOP/AgADADAAAAAHAOv/AgAFADA
 
 [node name="RandomCollectableSpawner" parent="." index="2"]
 tile_map_data = PackedByteArray("AAA0APT/AAAFAAIAAAA1APH/AAAFAAIAAAA1APT/AAAFAAIAAAA2APT/AAAFAAIAAAA7AO7/AAAFAAIAAAA9AO3/AAAFAAIAAAA9AO//AAAFAAIAAAAzANz/AAAFAAIAAAAzAOD/AAAFAAIAAAAzAOb/AAAFAAIAAAA2AOf/AAAFAAIAAAA3AOP/AAAFAAIAAAAaAM7/AAAFAAIAAAAbAMz/AAAFAAIAAAAdANL/AAAFAAIAAAAkAM3/AAAFAAIAAAAoAM7/AAAFAAIAAAAqAM7/AAAFAAIAAAArAND/AAAFAAIAAAAwAND/AAAFAAIAAAAwANH/AAAFAAIAAAAxAMz/AAAFAAIAAAA2AM3/AAAFAAIAAAA3AM7/AAAFAAIAAAAbANj/AAAFAAIAAAAdANf/AAAFAAIAAAAfANv/AAAFAAIAAAAjANj/AAAFAAIAAAAlANn/AAAFAAIAAAApANb/AAAFAAIAAAApANn/AAAFAAIAAAAqANb/AAAFAAIAAAAtANv/AAAFAAIAAAAuANj/AAAFAAIAAAAuANr/AAAFAAIAAAAuANv/AAAFAAIAAAA7ANP/AAAFAAIAAABDANL/AAAFAAIAAABEANL/AAAFAAIAAABHANH/AAAFAAIAAABBAOH/AAAFAAIAAABDAOH/AAAFAAIAAABBAOr/AAAFAAIAAABCAOz/AAAFAAIAAABEAOz/AAAFAAIAAABFAOz/AAAFAAIAAAAeAOX/AAAFAAIAAAAeAOv/AAAFAAIAAAAeAPL/AAAFAAIAAAAfAOb/AAAFAAIAAAAgAPH/AAAFAAIAAAAgAPL/AAAFAAIAAAAgAPP/AAAFAAIAAAAhAOT/AAAFAAIAAAAhAOn/AAAFAAIAAAAhAPn/AAAFAAIAAAAiAOf/AAAFAAIAAAAiAPr/AAAFAAIAAAAjAPH/AAAFAAIAAAAkAO3/AAAFAAIAAAAkAPn/AAAFAAIAAAAlAO//AAAFAAIAAAAlAPr/AAAFAAIAAAAlAPz/AAAFAAIAAAAmAPH/AAAFAAIAAAAmAPL/AAAFAAIAAAAmAPf/AAAFAAIAAAAnAO//AAAFAAIAAAApAOT/AAAFAAIAAAApAOr/AAAFAAIAAAApAO//AAAFAAIAAAApAPH/AAAFAAIAAAApAPf/AAAFAAIAAAALAOz/AAAFAAIAAAAPAO3/AAAFAAIAAAARAOj/AAAFAAIAAAAKAN3/AAAFAAIAAAAMANz/AAAFAAIAAAANANv/AAAFAAIAAAARANv/AAAFAAIAAAAVANz/AAAFAAIAAAAQAP3/AAAFAAIAAAAfAPv/AAAFAAIAAAA=")
+
+[node name="Trap" parent="TrapsContainer" index="0" instance=ExtResource("2_d2fiw")]
+position = Vector2(708, -484)
+rotation = -3.1415927
+scale = Vector2(2, 2)
+
+[node name="Trap4" parent="TrapsContainer" index="1" instance=ExtResource("2_d2fiw")]
+position = Vector2(708, -284)
+scale = Vector2(2, 2)
+
+[node name="Trap2" parent="TrapsContainer" index="2" instance=ExtResource("2_d2fiw")]
+position = Vector2(1007, -392)
+rotation = 1.5707964
+
+[node name="Trap3" parent="TrapsContainer" index="3" instance=ExtResource("2_d2fiw")]
+position = Vector2(344, -526)
+rotation = -1.5707964
+scale = Vector2(3, 3)
+_is_permanently_active = true
 
 [node name="Collectable" parent="FixedCollectablesContainer" index="0" instance=ExtResource("2_12glx")]
 position = Vector2(225, -694)
