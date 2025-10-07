@@ -31,7 +31,7 @@ script = ExtResource("2_lguia")
 _word_colors = Dictionary[String, Color]({
 "Bestiary": Color(0.32156864, 0, 0.48235294, 1),
 "Collectables": Color(0, 1, 1, 1),
-"Heroes": Color(0.31360894, 0.5219811, 1, 1),
+"Heroes": Color(0.15260944, 0.38480476, 0.99997836, 1),
 "Lose": Color(1, 0, 0, 1),
 "Miner": Color(0.57712036, 0.17917126, 1.4439226e-07, 1),
 "Runner": Color(0.728822, 0.728822, 0.728822, 1),

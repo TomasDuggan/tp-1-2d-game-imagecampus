@@ -14,14 +14,15 @@ var _amount_of_rooms_to_spawn: int
 var _can_spawn_interactables: bool
 var _spawn_interactable_room_requests: Array[int] = [] # FIFO, amount of interactables to spawn
 
+# TODO
 const CHANCE_TO_SPAWN_INTERACTABLE_ROOM := 0.4
-const AMOUNT_OF_ROOMS_PER_CURRENT_LEVEL_MULTIPLIER := 3
+const AMOUNT_OF_ROOMS_PER_CURRENT_LEVEL_MULTIPLIER := 1
 
 
 func initialize(world_type: World.WorldType) -> void:
 	_room_configs = RoomSpawnerConfigHelper.get_valid_room_configs(world_type)
 	_can_spawn_interactables = World.is_miner_world(world_type)
-	_amount_of_rooms_to_spawn = (GameInfo.get_current_level() + 1) * AMOUNT_OF_ROOMS_PER_CURRENT_LEVEL_MULTIPLIER
+	_amount_of_rooms_to_spawn = (LevelProgress.get_current_level_index() + 1) * AMOUNT_OF_ROOMS_PER_CURRENT_LEVEL_MULTIPLIER
 
 func spawn_interactable_room(amount_of_interactables: int) -> void:
 	_spawn_interactable_room_requests.append(amount_of_interactables)

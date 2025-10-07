@@ -5,7 +5,7 @@ Para auto-ligar el interactuable con su trigger entre mundos
 Ej: ligar button-1 con door-1
 """
 
-func _ready():
+func _enter_tree():
 	var i := 0
 	
 	for c: Node2D in get_children():

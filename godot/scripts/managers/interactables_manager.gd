@@ -3,6 +3,12 @@ extends Node
 Global para manejar los interactuables
 """
 
+"""
+TODO: bug si el minero se adelanta mucho (le aparecen mapas cortos y al warrior largos por ej).
+- Creo que se soluciona si al apretar un boton se abren todas las puertas pero no se consume el counter.
+- Creo que de alguna manera el boton deberia abrir todas las puertas actuales y guardar un counter para la futura.
+"""
+
 signal interactable_pressed(id: int)
 
 var _pressed_interactables_counter: Dictionary[int, int] = {} # id -> counter

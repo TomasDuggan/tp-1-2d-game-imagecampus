@@ -12,6 +12,8 @@ var _id: int
 
 
 func _ready():
+	_key_sprite.modulate = ColorHelper.int_to_color_hsv(_id)
+	
 	if InteractablesManager.is_door_opened(_id):
 		_open_door()
 	else:
@@ -29,7 +31,6 @@ func _open_door() -> void:
 # 'interfaz'
 func set_id(id: int) -> void:
 	_id = id
-	_key_sprite.modulate = ColorHelper.int_to_color_hsv(_id)
 
 func _exit_tree():
 	if InteractablesManager.interactable_pressed.is_connected(_check_open_door):

@@ -8,4 +8,4 @@ const CURRENT_LEVEL_TEXT := "Level %s"
 
 
 func _ready():
-	_current_level_text.text = CURRENT_LEVEL_TEXT % (GameInfo.get_current_level() + 1)
+	_current_level_text.text = CURRENT_LEVEL_TEXT % (LevelProgress.get_current_level_index() + 1)

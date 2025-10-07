@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://41r7gy6mk5f7"]
+[gd_scene load_steps=32 format=3 uid="uid://41r7gy6mk5f7"]
 
 [ext_resource type="Script" uid="uid://cqug56r5scugw" path="res://scripts/ui/shop/shop_ui.gd" id="1_rc5g1"]
 [ext_resource type="Script" uid="uid://bhmckujririhf" path="res://configs/upgrades/upgrade_config.gd" id="2_rc5g1"]
@@ -29,6 +29,8 @@
 [ext_resource type="Resource" uid="uid://c4cetg3pfkf3k" path="res://configs/bestiary/minerals/high_currency_mineral_item_config.tres" id="22_du6eb"]
 [ext_resource type="Resource" uid="uid://we5rqgtem7td" path="res://configs/bestiary/enemies/plant_purple_item_config.tres" id="25_fsp1k"]
 [ext_resource type="Resource" uid="uid://d4clgvsffoejc" path="res://configs/bestiary/enemies/vampire_lord_item_config.tres" id="26_77wqo"]
+[ext_resource type="Texture2D" uid="uid://b2ro32smbm8p3" path="res://art/ui/tiles/tile_0001.png" id="30_jmynu"]
+[ext_resource type="Script" uid="uid://bj1tyad8sjf4t" path="res://scripts/utils/cheat_menu.gd" id="30_r7txp"]
 
 [node name="ShopUI" type="Control" node_paths=PackedStringArray("_miner_score", "_warrior_score", "_upgrades_container", "_bestiary_container")]
 layout_mode = 3
@@ -226,8 +228,79 @@ size_flags_vertical = 3
 script = ExtResource("12_37d3d")
 _item_configs = Array[ExtResource("13_ea7pq")]([ExtResource("21_ku36f"), ExtResource("14_ea7pq"), ExtResource("20_6dts4"), ExtResource("25_fsp1k"), ExtResource("26_77wqo")])
 
+[node name="CheatMenu" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -175.0
+offset_top = -100.0
+offset_right = 175.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("30_r7txp")
+
+[node name="Background" type="NinePatchRect" parent="CheatMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("30_jmynu")
+patch_margin_left = 9
+patch_margin_top = 9
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="CheatMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="Content" type="VBoxContainer" parent="CheatMenu/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="LevelSelector" type="HBoxContainer" parent="CheatMenu/MarginContainer/Content"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CheatMenu/MarginContainer/Content/LevelSelector"]
+layout_mode = 2
+text = "Go to Level Index:"
+
+[node name="SelectLevelInput" type="LineEdit" parent="CheatMenu/MarginContainer/Content/LevelSelector"]
+layout_mode = 2
+placeholder_text = "0 - 4"
+alignment = 1
+
+[node name="MoneyPrinter" type="HBoxContainer" parent="CheatMenu/MarginContainer/Content"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CheatMenu/MarginContainer/Content/MoneyPrinter"]
+layout_mode = 2
+text = "Print money:"
+
+[node name="GetMoneyButton" type="Button" parent="CheatMenu/MarginContainer/Content/MoneyPrinter"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Money"
+
 [connection signal="pressed" from="ContentMargin/Content/TopRow/ShowBuyableUpgrades" to="." method="_on_show_buyable_upgrades_pressed"]
 [connection signal="pressed" from="ContentMargin/Content/TopRow/ShowOwnedUpgrades" to="." method="_on_show_owned_upgrades_pressed"]
 [connection signal="pressed" from="ContentMargin/Content/TopRow/ShowBestiary" to="." method="_on_show_bestiary_pressed"]
 [connection signal="pressed" from="ContentMargin/Content/TopRow/OptionsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="ContentMargin/Content/TopRow/ExitShopButton" to="." method="_on_exit_shop_button_pressed"]
+[connection signal="text_submitted" from="CheatMenu/MarginContainer/Content/LevelSelector/SelectLevelInput" to="CheatMenu" method="_on_select_level_input_text_submitted"]
+[connection signal="pressed" from="CheatMenu/MarginContainer/Content/MoneyPrinter/GetMoneyButton" to="CheatMenu" method="_on_get_money_button_pressed"]

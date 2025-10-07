@@ -1,6 +1,8 @@
 extends Control
 class_name LevelLostMenuUI
-
+"""
+Menu que se abre al perder un nivel
+"""
 
 func _ready():
 	hide()

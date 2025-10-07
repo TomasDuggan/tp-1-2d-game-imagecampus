@@ -17,7 +17,6 @@ Contenedor y coordinador entre Worlds
 
 
 func _ready():
-	UpgradesManager.print_current_bought_upgrades() # TODO: borrar
 	AudioEventBus.raise_event_play_music(_music.pick_random())
 	
 	var miner_hero: Hero = _miner_world.get_hero()

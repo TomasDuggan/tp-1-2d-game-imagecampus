@@ -134,9 +134,8 @@ text = "Level 0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="LevelWonMenu" type="Control" parent="CanvasLayer"]
+[node name="LevelWonMenu" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("_level_won_container", "_game_won_container")]
 process_mode = 3
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -145,6 +144,8 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("11_pe1ox")
 script = ExtResource("12_pm6rs")
+_level_won_container = NodePath("Panel/MarginContainer/LevelWonContainer")
+_game_won_container = NodePath("Panel/MarginContainer/GameWonContainer")
 
 [node name="Panel" type="NinePatchRect" parent="CanvasLayer/LevelWonMenu"]
 layout_mode = 1
@@ -177,23 +178,43 @@ theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 15
 
-[node name="HBoxContainer" type="VBoxContainer" parent="CanvasLayer/LevelWonMenu/Panel/MarginContainer"]
+[node name="LevelWonContainer" type="VBoxContainer" parent="CanvasLayer/LevelWonMenu/Panel/MarginContainer"]
+visible = false
 layout_mode = 2
 theme_override_constants/separation = 15
 alignment = 1
 
-[node name="Title" type="Label" parent="CanvasLayer/LevelWonMenu/Panel/MarginContainer/HBoxContainer"]
+[node name="Title" type="Label" parent="CanvasLayer/LevelWonMenu/Panel/MarginContainer/LevelWonContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
 text = "Level Won!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="GoToShopButton" type="Button" parent="CanvasLayer/LevelWonMenu/Panel/MarginContainer/HBoxContainer"]
+[node name="GoToShopButton" type="Button" parent="CanvasLayer/LevelWonMenu/Panel/MarginContainer/LevelWonContainer"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_vertical = 4
 text = "Go to Shop"
+script = ExtResource("12_m0bv2")
+
+[node name="GameWonContainer" type="VBoxContainer" parent="CanvasLayer/LevelWonMenu/Panel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="Title" type="Label" parent="CanvasLayer/LevelWonMenu/Panel/MarginContainer/GameWonContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Game Won!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="QuitGameButton" type="Button" parent="CanvasLayer/LevelWonMenu/Panel/MarginContainer/GameWonContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_vertical = 4
+text = "Quit Game"
 script = ExtResource("12_m0bv2")
 
 [node name="LevelLostMenu" type="Control" parent="CanvasLayer"]
@@ -263,6 +284,7 @@ size_flags_vertical = 4
 text = "Go to Shop"
 script = ExtResource("12_m0bv2")
 
-[connection signal="pressed" from="CanvasLayer/LevelWonMenu/Panel/MarginContainer/HBoxContainer/GoToShopButton" to="Managers/LevelEndManager" method="_on_go_to_shop_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/LevelWonMenu/Panel/MarginContainer/LevelWonContainer/GoToShopButton" to="Managers/LevelEndManager" method="_on_go_to_shop_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/LevelWonMenu/Panel/MarginContainer/GameWonContainer/QuitGameButton" to="CanvasLayer/LevelWonMenu" method="_on_quit_game_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/LevelLostMenu/Panel/MarginContainer/HBoxContainer/RetryLevelButton" to="CanvasLayer/LevelLostMenu" method="_on_retry_level_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/LevelLostMenu/Panel/MarginContainer/HBoxContainer/GoToShopButton" to="Managers/LevelEndManager" method="_on_go_to_shop_button_pressed"]
