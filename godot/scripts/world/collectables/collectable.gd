@@ -14,7 +14,7 @@ var _config: CollectableConfig
 var _behaviours: Array[CollectableBehaviour] = []
 
 
-func initialize(config: ) -> void:
+func initialize(config: CollectableConfig) -> void:
 	_config = config
 
 func _ready():

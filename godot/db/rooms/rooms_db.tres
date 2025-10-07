@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="RoomsDB" load_steps=23 format=3 uid="uid://bwy0rnkbodshd"]
+[gd_resource type="Resource" script_class="RoomsDB" load_steps=25 format=3 uid="uid://bwy0rnkbodshd"]
 
 [ext_resource type="Script" uid="uid://sp0ivn7va6cy" path="res://configs/rooms/room_config.gd" id="1_6ic1w"]
 [ext_resource type="Script" uid="uid://csaddeay1y7ur" path="res://db/rooms/rooms_db.gd" id="1_83mkq"]
@@ -17,14 +17,16 @@
 [ext_resource type="Resource" uid="uid://dmstfjcad4oa2" path="res://configs/rooms/miner/miner_room_7_config.tres" id="10_kd30h"]
 [ext_resource type="Resource" uid="uid://bamt8e70livso" path="res://configs/rooms/miner/miner_room_8_config.tres" id="11_6lnyy"]
 [ext_resource type="Resource" uid="uid://42io53mxi6pb" path="res://configs/rooms/warrior/warrior_room_3_config.tres" id="11_jpfcm"]
+[ext_resource type="Resource" uid="uid://b8l7b4iqqqdsn" path="res://configs/rooms/miner/miner_room_9_config.tres" id="12_trt1x"]
 [ext_resource type="Resource" uid="uid://cavhg87o3sw1e" path="res://configs/rooms/warrior/warrior_room_4_config.tres" id="13_plge1"]
 [ext_resource type="Resource" uid="uid://crdvg86eyjswk" path="res://configs/rooms/warrior/warrior_room_5_config.tres" id="15_nrl6p"]
 [ext_resource type="Resource" uid="uid://qxtththqbqkw" path="res://configs/rooms/warrior/warrior_room_6_config.tres" id="17_uk1ip"]
 [ext_resource type="Resource" uid="uid://210woh7otyv3" path="res://configs/rooms/warrior/warrior_room_7_config.tres" id="19_dj1nr"]
 [ext_resource type="Resource" uid="uid://dycxv2qldi6of" path="res://configs/rooms/warrior/warrior_room_8_config.tres" id="20_dj1nr"]
+[ext_resource type="Resource" uid="uid://cbt4myg8t6fmt" path="res://configs/rooms/warrior/warrior_room_9_config.tres" id="23_m62ih"]
 
 [resource]
 script = ExtResource("1_83mkq")
-_miner_room_configs = Array[ExtResource("1_6ic1w")]([ExtResource("2_46qfq"), ExtResource("3_r4v3p"), ExtResource("2_r4v3p"), ExtResource("4_pmk8d"), ExtResource("6_3o6q3"), ExtResource("7_dwg5k"), ExtResource("8_hnjvm"), ExtResource("9_eq4a7"), ExtResource("10_kd30h"), ExtResource("11_6lnyy")])
-_warrior_room_configs = Array[ExtResource("1_6ic1w")]([ExtResource("6_71u81"), ExtResource("7_3o6q3"), ExtResource("3_2tbp1"), ExtResource("7_ih7wq"), ExtResource("11_jpfcm"), ExtResource("13_plge1"), ExtResource("15_nrl6p"), ExtResource("17_uk1ip"), ExtResource("19_dj1nr"), ExtResource("20_dj1nr")])
+_miner_room_configs = Array[ExtResource("1_6ic1w")]([ExtResource("2_46qfq"), ExtResource("3_r4v3p"), ExtResource("2_r4v3p"), ExtResource("4_pmk8d"), ExtResource("6_3o6q3"), ExtResource("7_dwg5k"), ExtResource("8_hnjvm"), ExtResource("9_eq4a7"), ExtResource("10_kd30h"), ExtResource("11_6lnyy"), ExtResource("12_trt1x")])
+_warrior_room_configs = Array[ExtResource("1_6ic1w")]([ExtResource("6_71u81"), ExtResource("7_3o6q3"), ExtResource("3_2tbp1"), ExtResource("7_ih7wq"), ExtResource("11_jpfcm"), ExtResource("13_plge1"), ExtResource("15_nrl6p"), ExtResource("17_uk1ip"), ExtResource("19_dj1nr"), ExtResource("20_dj1nr"), ExtResource("23_m62ih")])
 metadata/_custom_type_script = "uid://csaddeay1y7ur"

@@ -305,7 +305,6 @@ text = "- There is a limit of how much you can advance vertically."
 fit_content = true
 
 [node name="Shop" type="Control" parent="Slides/SlidesContainer"]
-visible = false
 layout_mode = 2
 
 [node name="Content" type="VBoxContainer" parent="Slides/SlidesContainer/Shop"]
@@ -336,7 +335,7 @@ size_flags_stretch_ratio = 1.2
 [node name="1" type="RichTextLabel" parent="Slides/SlidesContainer/Shop/Content/Text"]
 layout_mode = 2
 bbcode_enabled = true
-text = "- After wining or losing a level you can go to the Shop and buy upgrades."
+text = "- After wining or losing a level you can go to the Shop and buy upgrades with the resources gained by destroying Collectables."
 fit_content = true
 
 [node name="2" type="RichTextLabel" parent="Slides/SlidesContainer/Shop/Content/Text"]
@@ -381,6 +380,7 @@ text = "- Some Collectables have special effects, you can check them out at the 
 fit_content = true
 
 [node name="Synergy" type="Control" parent="Slides/SlidesContainer"]
+visible = false
 layout_mode = 2
 
 [node name="Content" type="VBoxContainer" parent="Slides/SlidesContainer/Synergy"]
@@ -472,7 +472,13 @@ size_flags_stretch_ratio = 1.2
 [node name="1" type="RichTextLabel" parent="Slides/SlidesContainer/Win Reason/Content/Text"]
 layout_mode = 2
 bbcode_enabled = true
-text = "- You Win when you reach the end of the level with both heroes, not necessarily at the same time."
+text = "- You Win a Level when you reach the end of it with both heroes, not necessarily at the same time."
+fit_content = true
+
+[node name="2" type="RichTextLabel" parent="Slides/SlidesContainer/Win Reason/Content/Text"]
+layout_mode = 2
+bbcode_enabled = true
+text = "- After you beat 5 levels, you Win the Game."
 fit_content = true
 
 [node name="Defeat Reasons" type="Control" parent="Slides/SlidesContainer"]

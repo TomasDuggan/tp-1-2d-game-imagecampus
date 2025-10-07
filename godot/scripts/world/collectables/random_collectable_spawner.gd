@@ -17,7 +17,7 @@ func initialize(collectables_to_spawn: Array[CollectableConfig]) -> void:
 	for collectable_spawn_point: Vector2 in _get_collectable_random_spawn_points():
 		_instantiate_collectable(_pick_weighted_collectable(collectables_to_spawn), collectable_spawn_point)
 
-# TODO: repito codigo con RoomPicker, pero para refactor deberia interfacear (peor aun: herencia pq godot no tiene interfaces) los objetos por solo un campo o usar duck typing, dos opciones feas.
+# TODO: repito codigo con Room, pero para refactor deberia interfacear (peor aun: herencia pq godot no tiene interfaces) los objetos por solo un campo o usar duck typing, dos opciones feas.
 func _pick_weighted_collectable(collectables: Array[CollectableConfig]) -> CollectableConfig:
 	var total_weight := 0.0
 	for c: CollectableConfig in collectables:

@@ -11,24 +11,28 @@ const TUTORIAL_SCENE: PackedScene = preload("uid://dmbqul4rm3vvb")
 
 
 func load_level() -> void:
-	get_tree().paused = false
+	_unpause()
 	get_tree().change_scene_to_packed(LEVEL_SCENE)
 
 func load_shop() -> void:
-	get_tree().paused = false
+	_unpause()
 	get_tree().change_scene_to_packed(SHOP_SCENE)
 
 func load_main_menu() -> void:
-	get_tree().paused = false
+	_unpause()
 	get_tree().change_scene_to_packed(MAIN_MENU_SCENE)
 
 func load_tutorial() -> void:
-	get_tree().paused = false
+	_unpause()
 	get_tree().change_scene_to_packed(TUTORIAL_SCENE)
 
-func reload() -> void:
-	get_tree().paused = false
+func reload_current_scene() -> void:
+	_unpause()
 	get_tree().reload_current_scene()
+
+# Por las dudas
+func _unpause() -> void:
+	get_tree().paused = false
 
 
 

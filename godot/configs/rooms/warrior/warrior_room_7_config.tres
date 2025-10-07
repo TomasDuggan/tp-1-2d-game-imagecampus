@@ -6,4 +6,5 @@
 [resource]
 script = ExtResource("2_4kkkq")
 scene = ExtResource("1_4xofu")
+appearance_weight = 0.3
 metadata/_custom_type_script = "uid://sp0ivn7va6cy"

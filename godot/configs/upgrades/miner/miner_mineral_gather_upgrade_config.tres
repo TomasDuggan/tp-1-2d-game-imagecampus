@@ -14,8 +14,8 @@ metadata/_custom_type_script = "uid://bmfrhj7p3gkr8"
 [resource]
 script = ExtResource("2_cg3g2")
 id = 4
-stat_modifier_value = 0.2
-max_level = 3
+stat_modifier_value = 0.25
+max_level = 4
 basic_config = SubResource("Resource_ps4y4")
-price = 250
+price = 200
 metadata/_custom_type_script = "uid://bhmckujririhf"

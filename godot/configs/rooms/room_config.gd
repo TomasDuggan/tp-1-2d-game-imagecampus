@@ -4,6 +4,7 @@ class_name RoomConfig
 
 @export var scene: PackedScene
 @export var min_level_to_show: int
+@export var max_level_to_show: int = 4
 @export var is_start_room: bool
 @export var is_end_room: bool
 @export var amount_of_interactables: int # Puertas, botones, etc.

@@ -6,4 +6,5 @@
 [resource]
 script = ExtResource("2_lpld0")
 scene = ExtResource("1_kf3g4")
+max_level_to_show = 2
 metadata/_custom_type_script = "uid://sp0ivn7va6cy"

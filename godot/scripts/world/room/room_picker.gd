@@ -10,19 +10,23 @@ signal interactable_room_spawned(amount_of_interactables: int)
 var _room_configs: Array[RoomConfig] = []
 var _rooms_spawned := 0
 var _amount_of_rooms_to_spawn: int
+var _last_room_picked: RoomConfig
 
 var _can_spawn_interactables: bool
 var _spawn_interactable_room_requests: Array[int] = [] # FIFO, amount of interactables to spawn
 
-# TODO
-const CHANCE_TO_SPAWN_INTERACTABLE_ROOM := 0.4
-const AMOUNT_OF_ROOMS_PER_CURRENT_LEVEL_MULTIPLIER := 1
+const CHANCE_TO_SPAWN_INTERACTABLE_ROOM := 0.35
+const AMOUNT_OF_ROOMS_PER_CURRENT_LEVEL_MULTIPLIER := 3
+const MIN_ROOMS_PER_LEVEL := 3
+const MAX_ROOMS_PER_LEVEL := 9
 
 
 func initialize(world_type: World.WorldType) -> void:
 	_room_configs = RoomSpawnerConfigHelper.get_valid_room_configs(world_type)
 	_can_spawn_interactables = World.is_miner_world(world_type)
-	_amount_of_rooms_to_spawn = (LevelProgress.get_current_level_index() + 1) * AMOUNT_OF_ROOMS_PER_CURRENT_LEVEL_MULTIPLIER
+	
+	var rooms_to_spawn: int = LevelProgress.get_current_level_index() * AMOUNT_OF_ROOMS_PER_CURRENT_LEVEL_MULTIPLIER
+	_amount_of_rooms_to_spawn = clamp(rooms_to_spawn, MIN_ROOMS_PER_LEVEL, MAX_ROOMS_PER_LEVEL)
 
 func spawn_interactable_room(amount_of_interactables: int) -> void:
 	_spawn_interactable_room_requests.append(amount_of_interactables)
@@ -76,6 +80,8 @@ func _pick_weighted_room(interactable_request: int) -> RoomConfig:
 	if rooms_to_evaluate.is_empty():
 		rooms_to_evaluate = _filter_interactables(false)
 	
+	rooms_to_evaluate = rooms_to_evaluate.filter(func(r: RoomConfig): return r != _last_room_picked)
+	
 	var total_weight: float = 0.0
 	for room: RoomConfig in rooms_to_evaluate:
 		total_weight += room.get_appearance_weight()
@@ -88,10 +94,12 @@ func _pick_weighted_room(interactable_request: int) -> RoomConfig:
 		if rand <= cumulative:
 			if room_config.has_interactables():
 				interactable_room_spawned.emit(room_config.amount_of_interactables)
+			_last_room_picked = room_config
 			return room_config
 	
 	# Fallback
-	return rooms_to_evaluate.back()
+	_last_room_picked = rooms_to_evaluate.back()
+	return _last_room_picked
 
 func _filter_interactables(force_interactable: bool) -> Array[RoomConfig]:
 	return _room_configs.filter(func(r: RoomConfig): return r.has_interactables() == force_interactable)

@@ -25,6 +25,7 @@ sprite_frames = ExtResource("5_csftd")
 hp = 26
 scale_override = Vector2(1.5, 1.5)
 destroyed_velocity_boost_duration = 0.5
+max_level_to_show = 2
 appearance_weight = 0.8
 behaviour_configs = Array[ExtResource("1_csftd")]([SubResource("Resource_7rlb7"), SubResource("Resource_7r4is")])
 metadata/_custom_type_script = "uid://bkw6yobd6k4ta"

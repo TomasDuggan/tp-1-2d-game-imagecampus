@@ -21,15 +21,21 @@ position = Vector2(708, -484)
 rotation = -3.1415927
 scale = Vector2(2, 2)
 
-[node name="Trap4" parent="TrapsContainer" index="1" instance=ExtResource("2_d2fiw")]
+[node name="Trap5" parent="TrapsContainer" index="1" instance=ExtResource("2_d2fiw")]
+position = Vector2(750, -656)
+rotation = -1.5707964
+scale = Vector2(2.5, 2.5)
+_is_permanently_active = true
+
+[node name="Trap4" parent="TrapsContainer" index="2" instance=ExtResource("2_d2fiw")]
 position = Vector2(708, -284)
 scale = Vector2(2, 2)
 
-[node name="Trap2" parent="TrapsContainer" index="2" instance=ExtResource("2_d2fiw")]
+[node name="Trap2" parent="TrapsContainer" index="3" instance=ExtResource("2_d2fiw")]
 position = Vector2(1007, -392)
 rotation = 1.5707964
 
-[node name="Trap3" parent="TrapsContainer" index="3" instance=ExtResource("2_d2fiw")]
+[node name="Trap3" parent="TrapsContainer" index="4" instance=ExtResource("2_d2fiw")]
 position = Vector2(344, -526)
 rotation = -1.5707964
 scale = Vector2(3, 3)

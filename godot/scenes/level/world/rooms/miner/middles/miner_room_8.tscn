@@ -20,8 +20,8 @@ rotation = 1.5707964
 scale = Vector2(2, 2)
 
 [node name="Trap2" parent="TrapsContainer" index="1" instance=ExtResource("2_l8dhp")]
-position = Vector2(524, -444)
-rotation = 1.5707964
+position = Vector2(595, -444)
+rotation = -1.5707964
 scale = Vector2(2, 2)
 
 [node name="Trap3" parent="TrapsContainer" index="2" instance=ExtResource("2_l8dhp")]
@@ -35,8 +35,8 @@ rotation = -1.5707964
 scale = Vector2(2, 2)
 
 [node name="Trap5" parent="TrapsContainer" index="4" instance=ExtResource("2_l8dhp")]
-position = Vector2(804, -444)
-rotation = -1.5707964
+position = Vector2(733, -444)
+rotation = 1.5707964
 scale = Vector2(2, 2)
 
 [node name="Trap6" parent="TrapsContainer" index="5" instance=ExtResource("2_l8dhp")]

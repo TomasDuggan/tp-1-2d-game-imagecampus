@@ -229,6 +229,7 @@ script = ExtResource("12_37d3d")
 _item_configs = Array[ExtResource("13_ea7pq")]([ExtResource("21_ku36f"), ExtResource("14_ea7pq"), ExtResource("20_6dts4"), ExtResource("25_fsp1k"), ExtResource("26_77wqo")])
 
 [node name="CheatMenu" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -295,7 +296,7 @@ text = "Print money:"
 [node name="GetMoneyButton" type="Button" parent="CheatMenu/MarginContainer/Content/MoneyPrinter"]
 layout_mode = 2
 size_flags_horizontal = 0
-text = "Money"
+text = "$10000"
 
 [connection signal="pressed" from="ContentMargin/Content/TopRow/ShowBuyableUpgrades" to="." method="_on_show_buyable_upgrades_pressed"]
 [connection signal="pressed" from="ContentMargin/Content/TopRow/ShowOwnedUpgrades" to="." method="_on_show_owned_upgrades_pressed"]

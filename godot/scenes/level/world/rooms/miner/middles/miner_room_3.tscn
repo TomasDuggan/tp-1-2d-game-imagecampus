@@ -20,12 +20,24 @@ position = Vector2(543, -516)
 rotation = 1.5707964
 
 [node name="Trap2" parent="TrapsContainer" index="1" instance=ExtResource("4_7hdg0")]
-position = Vector2(545, -422)
+position = Vector2(543, -422)
 rotation = -1.5707964
 
 [node name="Trap3" parent="TrapsContainer" index="2" instance=ExtResource("4_7hdg0")]
 position = Vector2(543, -329)
 rotation = 1.5707964
+
+[node name="Trap4" parent="TrapsContainer" index="3" instance=ExtResource("4_7hdg0")]
+position = Vector2(898, -516)
+rotation = -1.5707964
+
+[node name="Trap5" parent="TrapsContainer" index="4" instance=ExtResource("4_7hdg0")]
+position = Vector2(898, -422)
+rotation = -1.5707964
+
+[node name="Trap6" parent="TrapsContainer" index="5" instance=ExtResource("4_7hdg0")]
+position = Vector2(898, -329)
+rotation = -1.5707964
 
 [node name="DoorOpenerButton" parent="InteractablesContainer" index="0" instance=ExtResource("5_611n0")]
 position = Vector2(544, -550)

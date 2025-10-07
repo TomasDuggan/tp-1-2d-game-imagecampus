@@ -6,7 +6,7 @@ Teletransporta al heroe frente a este collectable
 
 @onready var _teleport_area: Area2D = $TeleportArea
 
-const TELEPORT_OFFSET :=  Vector2(0, 25)
+const TELEPORT_OFFSET :=  Vector2(0, 10)
 const TELEPORT_EFFECT_SCENE: PackedScene = preload("uid://bvbop7aerytet")
 
 var _teleport_radius: float
