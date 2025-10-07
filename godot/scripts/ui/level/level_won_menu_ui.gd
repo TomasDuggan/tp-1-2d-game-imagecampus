@@ -8,9 +8,12 @@ Menu que se abre al ganar un nivel
 @export var _level_won_container: Container
 @export var _game_won_container: Container
 
+var _is_final_level: bool
 
 func _ready():
 	LevelEventBus.level_won.connect(_on_level_won)
+	
+	_is_final_level = LevelProgress.is_final_level()
 	
 	hide()
 	_level_won_container.hide()
@@ -18,7 +21,7 @@ func _ready():
 
 func _on_level_won() -> void:
 	show()
-	if LevelProgress.is_final_level():
+	if _is_final_level:
 		_game_won_container.show()
 	else:
 		_level_won_container.show()
