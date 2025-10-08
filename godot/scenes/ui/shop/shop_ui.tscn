@@ -30,7 +30,7 @@
 [ext_resource type="Resource" uid="uid://we5rqgtem7td" path="res://configs/bestiary/enemies/plant_purple_item_config.tres" id="25_fsp1k"]
 [ext_resource type="Resource" uid="uid://d4clgvsffoejc" path="res://configs/bestiary/enemies/vampire_lord_item_config.tres" id="26_77wqo"]
 [ext_resource type="Texture2D" uid="uid://b2ro32smbm8p3" path="res://art/ui/tiles/tile_0001.png" id="30_jmynu"]
-[ext_resource type="Script" uid="uid://bj1tyad8sjf4t" path="res://scripts/utils/debug_menu_ui.gd" id="30_r7txp"]
+[ext_resource type="Script" uid="uid://bj1tyad8sjf4t" path="res://scripts/ui/utils/debug_menu_ui.gd" id="30_r7txp"]
 
 [node name="ShopUI" type="Control" node_paths=PackedStringArray("_miner_score", "_warrior_score", "_upgrades_container", "_bestiary_container")]
 layout_mode = 3

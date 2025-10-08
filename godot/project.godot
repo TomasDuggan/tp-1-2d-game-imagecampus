@@ -19,16 +19,16 @@ config/icon="res://icon.svg"
 
 HeroEventBus="*res://scripts/event_buses/hero_event_bus.gd"
 CollectableEventBus="*res://scripts/event_buses/collectables_event_bus.gd"
-CollectablesManager="*res://scripts/managers/collectables_manager.gd"
-UpgradesManager="*res://scripts/managers/upgrades_manager.gd"
+CollectablesManager="*res://scripts/managers/globals/collectables_manager.gd"
+UpgradesManager="*res://scripts/managers/globals/upgrades_manager.gd"
 SynergyEventBus="*res://scripts/event_buses/synergy_event_bus.gd"
 UpgradesEventBus="*res://scripts/event_buses/upgrades_event_bus.gd"
 LevelEventBus="*res://scripts/event_buses/level_event_bus.gd"
-InteractablesManager="*res://scripts/managers/interactables_manager.gd"
+InteractablesManager="*res://scripts/managers/globals/interactables_manager.gd"
 AudioEventBus="*res://scripts/event_buses/audio_event_bus.gd"
-AudioManager="*res://scripts/managers/audio_manager.gd"
-SceneLoadManager="*res://scripts/managers/scene_load_manager.gd"
-LevelProgress="*res://scripts/managers/level_progress.gd"
+AudioManager="*res://scripts/managers/globals/audio_manager.gd"
+SceneLoadManager="*res://scripts/managers/globals/scene_load_manager.gd"
+LevelProgress="*res://scripts/managers/globals/level_progress.gd"
 
 [display]
 

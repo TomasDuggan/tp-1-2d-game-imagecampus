@@ -1,5 +1,8 @@
 extends Object
 class_name RoomSpawnerConfigHelper
+"""
+Centraliza la logica de acceso y filtro a las 'DB'
+"""
 
 const COLLECTABLES_DB: CollectablesDB = preload("uid://by8m5vbld0b1g")
 const ROOMS_DB: RoomsDB = preload("uid://bwy0rnkbodshd")

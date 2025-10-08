@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cek5cvckxm7xn"]
 
-[ext_resource type="Script" uid="uid://g0yiiqqg2lxd" path="res://scripts/world/collectables/collectable_behaviours/gain_synergy_collectable_behaviour.gd" id="1_75o2w"]
+[ext_resource type="Script" uid="uid://g0yiiqqg2lxd" path="res://scripts/level/collectables/collectable_behaviours/gain_synergy_collectable_behaviour.gd" id="1_75o2w"]
 
 [node name="GainSynergyBehaviour" type="Node2D"]
 script = ExtResource("1_75o2w")

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://868w52vkw11w"]
 
-[ext_resource type="Script" uid="uid://6r8tod7gf4f8" path="res://scripts/world/interactables/door_opener_button.gd" id="1_4race"]
+[ext_resource type="Script" uid="uid://6r8tod7gf4f8" path="res://scripts/level/interactables/door_opener_button.gd" id="1_4race"]
 [ext_resource type="Texture2D" uid="uid://31xb2sxueiki" path="res://art/interactables/white_button.png" id="2_4race"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fatc7"]

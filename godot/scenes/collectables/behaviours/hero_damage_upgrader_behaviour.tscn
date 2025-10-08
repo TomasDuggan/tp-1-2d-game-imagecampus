@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://5plwksvegdbe"]
 
-[ext_resource type="Script" uid="uid://8l6egv1c5hww" path="res://scripts/world/collectables/collectable_behaviours/hero_damage_upgrader_collectable_behaviour.gd" id="1_5f0sj"]
+[ext_resource type="Script" uid="uid://8l6egv1c5hww" path="res://scripts/level/collectables/collectable_behaviours/hero_damage_upgrader_collectable_behaviour.gd" id="1_5f0sj"]
 
 [node name="HeroDamageUpgraderBehaviour" type="Node2D"]
 script = ExtResource("1_5f0sj")

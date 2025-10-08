@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://djim0uu4wpglm"]
 
-[ext_resource type="Script" uid="uid://dcl5lckwqn8bm" path="res://scripts/world/room/room.gd" id="1_2ddm2"]
+[ext_resource type="Script" uid="uid://dcl5lckwqn8bm" path="res://scripts/level/room/room.gd" id="1_2ddm2"]
 [ext_resource type="TileSet" uid="uid://bexs7e33c7b6q" path="res://art/tiles/cave_tile_set.tres" id="1_76igw"]
-[ext_resource type="Script" uid="uid://dhsqnlkb2pg63" path="res://scripts/world/collectables/random_collectable_spawner.gd" id="2_2ddm2"]
-[ext_resource type="Script" uid="uid://dg5vnk5014wwx" path="res://scripts/world/interactables/interactables_container.gd" id="3_d23kf"]
+[ext_resource type="Script" uid="uid://dhsqnlkb2pg63" path="res://scripts/level/collectables/random_collectable_spawner.gd" id="2_2ddm2"]
+[ext_resource type="Script" uid="uid://dg5vnk5014wwx" path="res://scripts/level/interactables/interactables_container.gd" id="3_d23kf"]
 
 [node name="Room" type="Node2D" node_paths=PackedStringArray("_collectables_spawner", "_map")]
 script = ExtResource("1_2ddm2")

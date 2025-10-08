@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://chyafylphi2dr"]
 
-[ext_resource type="Script" uid="uid://xq2pj0m32pdn" path="res://scripts/world/collectables/collectable_behaviours/block_swap_collectable_behaviour.gd" id="1_6brjj"]
+[ext_resource type="Script" uid="uid://xq2pj0m32pdn" path="res://scripts/level/collectables/collectable_behaviours/block_swap_collectable_behaviour.gd" id="1_6brjj"]
 
 [node name="BlockSwapCollectableBehaviour" type="Node2D"]
 script = ExtResource("1_6brjj")

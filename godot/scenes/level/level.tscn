@@ -1,15 +1,15 @@
 [gd_scene load_steps=19 format=3 uid="uid://cw7v32643ol2t"]
 
-[ext_resource type="Script" uid="uid://ywf7pwru2s70" path="res://scripts/world/level.gd" id="1_vpf64"]
+[ext_resource type="Script" uid="uid://ywf7pwru2s70" path="res://scripts/level/level.gd" id="1_vpf64"]
 [ext_resource type="Resource" uid="uid://gakixhwp6hug" path="res://configs/hero/miner_hero_config.tres" id="2_ivku7"]
-[ext_resource type="Script" uid="uid://w6k62hjfi6jo" path="res://scripts/managers/hero_selection_manager.gd" id="2_wcngd"]
+[ext_resource type="Script" uid="uid://w6k62hjfi6jo" path="res://scripts/managers/locals/hero_selection_manager.gd" id="2_wcngd"]
 [ext_resource type="AudioStream" uid="uid://dxdbsg7rdj3up" path="res://art/sound/music/combat_music.ogg" id="3_pe1ox"]
 [ext_resource type="Resource" uid="uid://diqa16ei8uke5" path="res://configs/hero/warrior_hero_config.tres" id="3_ss4b2"]
-[ext_resource type="Script" uid="uid://cges3ilf47io3" path="res://scripts/world/synergy_manager.gd" id="3_tf2q7"]
+[ext_resource type="Script" uid="uid://cges3ilf47io3" path="res://scripts/managers/locals/synergy_manager.gd" id="3_tf2q7"]
 [ext_resource type="AudioStream" uid="uid://8wyrjox7yfld" path="res://art/sound/music/combat_music_2.wav" id="4_b7m21"]
 [ext_resource type="PackedScene" uid="uid://b2q5ss2eqgp18" path="res://scenes/level/world/world.tscn" id="4_wcngd"]
-[ext_resource type="Script" uid="uid://bf4bfvd68n0fs" path="res://scripts/managers/level_won_manager.gd" id="5_sytrn"]
-[ext_resource type="Script" uid="uid://dm7ip3udkr1gh" path="res://scripts/managers/pause_manager.gd" id="8_b7m21"]
+[ext_resource type="Script" uid="uid://bf4bfvd68n0fs" path="res://scripts/managers/locals/level_won_manager.gd" id="5_sytrn"]
+[ext_resource type="Script" uid="uid://dm7ip3udkr1gh" path="res://scripts/managers/locals/pause_manager.gd" id="8_b7m21"]
 [ext_resource type="Texture2D" uid="uid://b0prl0robq55h" path="res://art/bars/health meter-01.png" id="8_sytrn"]
 [ext_resource type="Texture2D" uid="uid://x4tfenq0dus" path="res://art/bars/health meter-05.png" id="9_tf2q7"]
 [ext_resource type="Theme" uid="uid://cm2fomdb61et5" path="res://themes/custom_theme.tres" id="11_pe1ox"]
@@ -60,7 +60,7 @@ stretch = true
 [node name="SubViewport" type="SubViewport" parent="HBoxContainer/SubViewportContainer"]
 handle_input_locally = false
 canvas_item_default_texture_filter = 0
-size = Vector2i(638, 720)
+size = Vector2i(2, 2)
 render_target_update_mode = 4
 
 [node name="MinerWorld" parent="HBoxContainer/SubViewportContainer/SubViewport" instance=ExtResource("4_wcngd")]
@@ -73,7 +73,7 @@ stretch = true
 [node name="SubViewport" type="SubViewport" parent="HBoxContainer/SubViewportContainer2"]
 handle_input_locally = false
 canvas_item_default_texture_filter = 0
-size = Vector2i(638, 720)
+size = Vector2i(2, 2)
 render_target_update_mode = 4
 
 [node name="WarriorWorld" parent="HBoxContainer/SubViewportContainer2/SubViewport" instance=ExtResource("4_wcngd")]

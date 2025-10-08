@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=4 uid="uid://dd7guqrs7uhlu"]
 
 [ext_resource type="PackedScene" uid="uid://djim0uu4wpglm" path="res://scenes/level/world/rooms/room_base.tscn" id="1_6t7nr"]
-[ext_resource type="Script" uid="uid://dnohk38wr61k7" path="res://scripts/world/win_world_area.gd" id="2_0jr2f"]
+[ext_resource type="Script" uid="uid://dnohk38wr61k7" path="res://scripts/level/world_building/win_world_area.gd" id="2_0jr2f"]
 [ext_resource type="PackedScene" uid="uid://ctkc2ceeqspqm" path="res://scenes/collectables/collectable.tscn" id="3_umb71"]
 [ext_resource type="Resource" uid="uid://bifh07oydajma" path="res://configs/collectables/instances/minerals/high_currency_mineral_config.tres" id="4_rhlob"]
 

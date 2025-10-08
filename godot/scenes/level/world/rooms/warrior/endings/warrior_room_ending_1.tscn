@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://djim0uu4wpglm" path="res://scenes/level/world/rooms/room_base.tscn" id="1_gmjax"]
 [ext_resource type="PackedScene" uid="uid://b2qvuondh51pn" path="res://scenes/level/world/trap/spike_trap.tscn" id="2_alrd4"]
-[ext_resource type="Script" uid="uid://dnohk38wr61k7" path="res://scripts/world/win_world_area.gd" id="2_rs7hv"]
+[ext_resource type="Script" uid="uid://dnohk38wr61k7" path="res://scripts/level/world_building/win_world_area.gd" id="2_rs7hv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3asce"]
 size = Vector2(184, 20)

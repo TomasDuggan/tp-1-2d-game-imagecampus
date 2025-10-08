@@ -1,9 +1,9 @@
 [gd_scene load_steps=12 format=3 uid="uid://ctkc2ceeqspqm"]
 
-[ext_resource type="Script" uid="uid://c6hbv3qf53l4y" path="res://scripts/world/collectables/collectable.gd" id="1_uwx36"]
+[ext_resource type="Script" uid="uid://c6hbv3qf53l4y" path="res://scripts/level/collectables/collectable.gd" id="1_uwx36"]
 [ext_resource type="Texture2D" uid="uid://cbq4frwpotv3f" path="res://art/minerals/v_2/Black_crystal1.png" id="2_88g45"]
 [ext_resource type="PackedScene" uid="uid://bhr40240oq8fk" path="res://scenes/damage/hurtbox.tscn" id="2_vtu06"]
-[ext_resource type="Script" uid="uid://cv8w1b3gq3sxs" path="res://scripts/world/collectables/collectable_animation.gd" id="3_yfltg"]
+[ext_resource type="Script" uid="uid://cv8w1b3gq3sxs" path="res://scripts/level/collectables/collectable_animation.gd" id="3_yfltg"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6cysq"]
 animations = [{
