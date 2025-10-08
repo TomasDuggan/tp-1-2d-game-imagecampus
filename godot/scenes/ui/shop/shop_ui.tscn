@@ -42,8 +42,8 @@ grow_vertical = 2
 theme = ExtResource("8_tuamk")
 script = ExtResource("1_rc5g1")
 _music = ExtResource("2_rr3h0")
-_miner_score = NodePath("ContentMargin/Content/TopRow/MinerScore")
-_warrior_score = NodePath("ContentMargin/Content/TopRow/WarriorScore")
+_miner_score = NodePath("ContentMargin/Content/TopRowContainer/TopRow/MinerScore")
+_warrior_score = NodePath("ContentMargin/Content/TopRowContainer/TopRow/WarriorScore")
 _upgrades_container = NodePath("ContentMargin/Content/UpgradesContainer")
 _bestiary_container = NodePath("ContentMargin/Content/BestiaryContainer")
 
@@ -75,38 +75,44 @@ theme_override_constants/margin_bottom = 20
 [node name="Content" type="VBoxContainer" parent="ContentMargin"]
 layout_mode = 2
 
-[node name="TopRow" type="HBoxContainer" parent="ContentMargin/Content"]
+[node name="TopRowContainer" type="MarginContainer" parent="ContentMargin/Content"]
+layout_mode = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_right = 100
+
+[node name="TopRow" type="HBoxContainer" parent="ContentMargin/Content/TopRowContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="MinerScore" parent="ContentMargin/Content/TopRowContainer/TopRow" instance=ExtResource("7_3qv50")]
 layout_mode = 2
 
-[node name="MinerScore" parent="ContentMargin/Content/TopRow" instance=ExtResource("7_3qv50")]
+[node name="WarriorScore" parent="ContentMargin/Content/TopRowContainer/TopRow" instance=ExtResource("7_3qv50")]
 layout_mode = 2
 
-[node name="WarriorScore" parent="ContentMargin/Content/TopRow" instance=ExtResource("7_3qv50")]
-layout_mode = 2
-
-[node name="ShowBuyableUpgrades" type="Button" parent="ContentMargin/Content/TopRow"]
+[node name="ShowBuyableUpgrades" type="Button" parent="ContentMargin/Content/TopRowContainer/TopRow"]
 layout_mode = 2
 text = "Buy Upgrades"
 script = ExtResource("6_nxg8l")
 
-[node name="ShowOwnedUpgrades" type="Button" parent="ContentMargin/Content/TopRow"]
+[node name="ShowOwnedUpgrades" type="Button" parent="ContentMargin/Content/TopRowContainer/TopRow"]
 layout_mode = 2
 text = "Owned Upgrades"
 script = ExtResource("6_nxg8l")
 
-[node name="ShowBestiary" type="Button" parent="ContentMargin/Content/TopRow"]
+[node name="ShowBestiary" type="Button" parent="ContentMargin/Content/TopRowContainer/TopRow"]
 layout_mode = 2
 text = "Bestiary"
 script = ExtResource("6_nxg8l")
 
-[node name="OptionsButton" type="Button" parent="ContentMargin/Content/TopRow"]
+[node name="OptionsButton" type="Button" parent="ContentMargin/Content/TopRowContainer/TopRow"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 10
 text = "Options Menu"
 script = ExtResource("6_nxg8l")
 
-[node name="ExitShopButton" type="Button" parent="ContentMargin/Content/TopRow"]
+[node name="ExitShopButton" type="Button" parent="ContentMargin/Content/TopRowContainer/TopRow"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 10
@@ -308,10 +314,10 @@ layout_mode = 2
 size_flags_horizontal = 0
 text = "$10000"
 
-[connection signal="pressed" from="ContentMargin/Content/TopRow/ShowBuyableUpgrades" to="." method="_on_show_buyable_upgrades_pressed"]
-[connection signal="pressed" from="ContentMargin/Content/TopRow/ShowOwnedUpgrades" to="." method="_on_show_owned_upgrades_pressed"]
-[connection signal="pressed" from="ContentMargin/Content/TopRow/ShowBestiary" to="." method="_on_show_bestiary_pressed"]
-[connection signal="pressed" from="ContentMargin/Content/TopRow/OptionsButton" to="." method="_on_settings_button_pressed"]
-[connection signal="pressed" from="ContentMargin/Content/TopRow/ExitShopButton" to="." method="_on_exit_shop_button_pressed"]
+[connection signal="pressed" from="ContentMargin/Content/TopRowContainer/TopRow/ShowBuyableUpgrades" to="." method="_on_show_buyable_upgrades_pressed"]
+[connection signal="pressed" from="ContentMargin/Content/TopRowContainer/TopRow/ShowOwnedUpgrades" to="." method="_on_show_owned_upgrades_pressed"]
+[connection signal="pressed" from="ContentMargin/Content/TopRowContainer/TopRow/ShowBestiary" to="." method="_on_show_bestiary_pressed"]
+[connection signal="pressed" from="ContentMargin/Content/TopRowContainer/TopRow/OptionsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="ContentMargin/Content/TopRowContainer/TopRow/ExitShopButton" to="." method="_on_exit_shop_button_pressed"]
 [connection signal="text_submitted" from="DebugMenu/MarginContainer/VBoxContainer/Content/LevelSelector/SelectLevelInput" to="DebugMenu" method="_on_select_level_input_text_submitted"]
 [connection signal="pressed" from="DebugMenu/MarginContainer/VBoxContainer/Content/MoneyPrinter/GetMoneyButton" to="DebugMenu" method="_on_get_money_button_pressed"]

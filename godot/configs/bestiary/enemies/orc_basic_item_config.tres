@@ -7,5 +7,5 @@
 script = ExtResource("2_uhuc7")
 icon = ExtResource("1_yqtuy")
 display_name = "Orc"
-description = "A weak creature, but there is a lot of them"
+description = "A weak creature, but there is a lot of them."
 metadata/_custom_type_script = "uid://bmfrhj7p3gkr8"

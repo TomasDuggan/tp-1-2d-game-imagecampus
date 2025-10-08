@@ -7,5 +7,5 @@
 script = ExtResource("2_h0a1u")
 icon = ExtResource("1_2pkh2")
 display_name = "Vampire Lord"
-description = "A very powerful monster. If an unselected Hero enters its area, they will be teleported in front of the Vampire Lord"
+description = "A very powerful monster. If an unselected Hero enters its area, they will be teleported in front of the Vampire Lord."
 metadata/_custom_type_script = "uid://bmfrhj7p3gkr8"

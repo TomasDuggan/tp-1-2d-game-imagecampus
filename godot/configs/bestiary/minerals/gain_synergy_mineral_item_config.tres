@@ -7,5 +7,5 @@
 script = ExtResource("2_cxvqv")
 icon = ExtResource("1_gfemc")
 display_name = "Amethyst"
-description = "Gain a lot of synergy when destroyed"
+description = "Gain a lot of synergy when destroyed."
 metadata/_custom_type_script = "uid://bmfrhj7p3gkr8"

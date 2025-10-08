@@ -7,5 +7,5 @@
 script = ExtResource("2_agoxb")
 icon = ExtResource("1_56ppm")
 display_name = "Citrine"
-description = "Extremely valuable, but it's tough and hard to find"
+description = "Extremely valuable, but it's tough and hard to find."
 metadata/_custom_type_script = "uid://bmfrhj7p3gkr8"

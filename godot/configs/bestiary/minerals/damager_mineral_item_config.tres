@@ -7,5 +7,5 @@
 script = ExtResource("2_kmct0")
 icon = ExtResource("1_vosid")
 display_name = "Cinnabar"
-description = "Gives a lot of reward, but it's tough and damages whoever touches it"
+description = "Gives a lot of reward, but it's tough and damages whoever touches it."
 metadata/_custom_type_script = "uid://bmfrhj7p3gkr8"
